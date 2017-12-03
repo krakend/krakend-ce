@@ -1,0 +1,68 @@
+
+[[override]]
+  name = "github.com/op/go-logging"
+  revision = "970db520ece77730c7e4724c61121037378659d9"
+
+[[override]]
+  name = "github.com/google/martian"
+  revision = "140c935a5d0d15e2cdc24b1f58668f410497fc3c"
+
+[[override]]
+  name = "github.com/coreos/etcd"
+  revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
+
+[[constraint]]
+  name = "github.com/gin-gonic/gin"
+  version = "1.2.0"
+
+[[constraint]]
+  branch = "0.4-dev"
+  name = "github.com/devopsfaith/krakend"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-circuitbreaker"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-cobra"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-etcd"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-gologging"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-httpsecure"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-martian"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-metrics"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-ratelimit"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-rss"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-viper"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-xml"

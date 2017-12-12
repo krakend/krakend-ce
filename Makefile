@@ -10,6 +10,8 @@ BIN_NAME=krakend
 all: deps build
 
 deps:
+	@echo "Installing dep..."
+	@go get -u github.com/golang/dep/cmd/dep
 	@echo "Setting up the vendors folder..."
 	@dep ensure -v
 	@echo ""

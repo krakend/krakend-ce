@@ -1,4 +1,4 @@
-.PHONY: all deps build
+.PHONY: all prepare deps build
 
 # This Makefile is a simple example that demonstrates usual steps to build a binary that can be run in the same
 # architecture that was compiled in. The "ldflags" in the build assure that any needed dependency is included in the
@@ -6,12 +6,16 @@
 
 KRAKEND_VERSION=0.4.0-dev
 BIN_NAME=krakend
+DEP_VERSION=0.3.2
+OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 
 all: deps build
 
-deps:
+prepare:
 	@echo "Installing dep..."
-	@go get -u github.com/golang/dep/cmd/dep
+	@curl -L -s https://github.com/golang/dep/releases/download/v${DEP_VERSION}/dep-${OS}-amd64 -o ${GOPATH}/bin/dep
+
+deps:
 	@echo "Setting up the vendors folder..."
 	@dep ensure -v
 	@echo ""

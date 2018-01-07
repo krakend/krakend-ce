@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "name": "My lovely gateway",
     "port": 8080,
     "cache_ttl": 3600,

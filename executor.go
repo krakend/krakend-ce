@@ -36,7 +36,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			ProxyFactory:   NewProxyFactory(logger, NewBackendFactory(logger, metricCollector), metricCollector),
 			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,
-			HandlerFactory: NewHandlerFactory(metricCollector),
+			HandlerFactory: NewHandlerFactory(logger, metricCollector),
 		})
 
 		// start the engines

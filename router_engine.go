@@ -11,12 +11,16 @@ import (
 // NewEngine creates a new gin engine with some default values, a secure middleware and an stats endpoint
 func NewEngine(cfg config.ServiceConfig, logger logging.Logger, metricCollector *metricsgin.Metrics) *gin.Engine {
 	engine := gin.Default()
+
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true
 	engine.HandleMethodNotAllowed = true
+
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
 		logger.Error(err)
 	}
+
 	engine.GET("/__stats/", metricCollector.NewExpHandler())
+
 	return engine
 }

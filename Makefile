@@ -136,7 +136,7 @@ debian-wheezy: builder/skel/debian-wheezy/etc/init/krakend.conf
 	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:deb -t deb ${DEB_OPTS} \
 		--iteration ${RELEASE}.debian-wheezy \
 		-C builder/skel/debian-wheezy \
-		--before-install scripts/preinst-debian-wheezy.deb \
+		--before-install builder/scripts/preinst-debian-wheezy.deb \
 		${DEB_INIT} \
 		${FPM_OPTS}
 

@@ -69,10 +69,10 @@ build:
 docker_build:
 	docker run --rm -it -e "GOPATH=/go" -p 8080:8080 -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:1.9.2 make prepare all
 
-bin: builder/skel/bin/usr/bin/krakend
-bin: builder/skel/bin/etc/krakend/krakend.json
-bin: builder/skel/bin/etc/init.d/krakend
-	tar zcvf krakend_${VERSION}_${ARCH}.tar.gz -C builder/skel/bin/ .
+tgz: builder/skel/tgz/usr/bin/krakend
+tgz: builder/skel/tgz/etc/krakend/krakend.json
+tgz: builder/skel/tgz/etc/init.d/krakend
+	tar zcvf krakend_${VERSION}_${ARCH}.tar.gz -C builder/skel/tgz/ .
 
 deb: ubuntu debian
 rpm: el6 el7

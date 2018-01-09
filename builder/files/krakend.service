@@ -1,0 +1,22 @@
+[Unit]
+Description=Krakend API Gateway
+Documentation=http://krakend.io
+After=network.target
+
+[Service]
+User=krakend
+ExecStart=/usr/bin/krakend run -c /etc/krakend/krakend.json
+ExecReload=/bin/kill -s HUP $MAINPID
+# Having non-zero Limit*s causes performance problems due to accounting overhead
+# in the kernel. We recommend using cgroups to do container-local accounting.
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+# Uncomment TasksMax if your systemd version supports it.
+# Only systemd 226 and above support this version.
+#TasksMax=infinity
+TimeoutStartSec=0
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

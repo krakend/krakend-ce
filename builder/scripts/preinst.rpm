@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ "$1" = "1" ]; then
+	getent passwd krakend > /dev/null || \
+		useradd -r -M -s /sbin/nologin -c "krakend service account" krakend
+fi

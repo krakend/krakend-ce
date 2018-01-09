@@ -1,0 +1,8 @@
+# upstart script
+description "Starts the krankend"
+
+start on runlevel [2345]
+
+stop on runlevel [016]
+
+exec sudo -u krakend /usr/bin/krakend run -c /etc/krakend/krakend.json

@@ -52,7 +52,7 @@
   branch = "master"
   name = "github.com/devopsfaith/krakend-etcd"
   packages = ["."]
-  revision = "84cc183fabf168ed95a094b82545dea306de4fee"
+  revision = "4660c45f138b046ee89d9c378e06a9451e64e1e8"
 
 [[projects]]
   branch = "master"

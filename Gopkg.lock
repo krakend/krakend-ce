@@ -46,7 +46,7 @@
   branch = "master"
   name = "github.com/devopsfaith/krakend-cobra"
   packages = ["."]
-  revision = "b92b412fbb067b04452d1cbb2160bcd1dcb62db5"
+  revision = "38d113ba86e99af08dbf4b1e9e510f522fc5d56e"
 
 [[projects]]
   branch = "master"

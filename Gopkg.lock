@@ -34,7 +34,7 @@
   branch = "0.4-dev"
   name = "github.com/devopsfaith/krakend"
   packages = ["config","core","encoding","logging","proxy","router","router/gin","router/mux","sd","sd/dnssrv"]
-  revision = "92c90b9ea535b34750990bdcc45da7b010aa450c"
+  revision = "69fe655d5f8fecee50206edf23dcec862a7f25e3"
 
 [[projects]]
   branch = "master"

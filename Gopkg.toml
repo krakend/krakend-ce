@@ -16,7 +16,7 @@
   version = "1.2.0"
 
 [[constraint]]
-  branch = "0.4-dev"
+  branch = "master"
   name = "github.com/devopsfaith/krakend"
 
 [[constraint]]

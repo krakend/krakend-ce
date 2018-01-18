@@ -4,7 +4,7 @@
 # architecture that was compiled in. The "ldflags" in the build assure that any needed dependency is included in the
 # binary and no external dependencies are needed to run the service.
 
-KRAKEND_VERSION=0.4.0-dev
+KRAKEND_VERSION=0.4.0
 BIN_NAME=krakend
 DEP_VERSION=0.3.2
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')

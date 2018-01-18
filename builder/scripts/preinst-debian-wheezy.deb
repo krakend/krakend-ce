@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+USER=krakend
+
+if ! getent passwd $USER >/dev/null ; then
+  useradd --system -c "KrakenD" --shell /bin/false --no-create-home $USER > /dev/null
+fi
+
+if [ -x "/etc/init.d/krakend" ] || [ -e "/etc/init/krakend.conf" ]; then
+	service krakend stop || exit $?
+fi

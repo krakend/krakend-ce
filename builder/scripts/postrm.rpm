@@ -1,0 +1,8 @@
+#!/bin/sh
+
+USERNAME=krakend
+
+if [ "$1" = "0" ]; then
+  getent passwd $USERNAME && userdel $USERNAME > /dev/null
+fi
+exit 0

@@ -4,7 +4,7 @@
 # architecture that was compiled in. The "ldflags" in the build assure that any needed dependency is included in the
 # binary and no external dependencies are needed to run the service.
 
-BIN_NAME=krakend
+BIN_NAME :=krakend
 DEP_VERSION=0.3.2
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 VERSION :=0.4.0
@@ -67,7 +67,17 @@ build:
 	@echo "You can now use ./${BIN_NAME}"
 
 docker_build:
-	docker run --rm -it -e "GOPATH=/go" -p 8080:8080 -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:1.9.2 make prepare all
+	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} lushdigital/docker-golang-dep ensure -v
+	docker run --rm -it -e "GOPATH=/go" -p 8080:8080 -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:1.9.2 make build
+
+docker_build_alpine:
+	docker build -t krakend_alpine_compiler builder/alpine
+	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} lushdigital/docker-golang-dep ensure -v
+	docker run --rm -it -e "BIN_NAME=krakend-alpine" -e "GOPATH=/go" -p 8080:8080 -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} krakend_alpine_compiler make -e build
+
+krakend_docker:
+	@echo "You need to compile krakend using 'make docker_build_alpine' to build this container."
+	docker build -t devopsfaith/krakend:${VERSION} .
 
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json
@@ -183,3 +193,4 @@ clean:
 	rm -f *.rpm
 	rm -f *.tar.gz
 	rm -f krakend
+	rm -rf vendor/

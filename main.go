@@ -18,14 +18,11 @@ func main() {
 	defer cancel()
 
 	go func() {
-		for {
-			select {
-			case sig := <-sigs:
-				log.Println("Signal intercepted:", sig)
-				cancel()
-			case <-ctx.Done():
-				return
-			}
+		select {
+		case sig := <-sigs:
+			log.Println("Signal intercepted:", sig)
+			cancel()
+		case <-ctx.Done():
 		}
 	}()
 

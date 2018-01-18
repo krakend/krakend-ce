@@ -63,7 +63,7 @@ deps:
 
 build:
 	@echo "Building the binary..."
-	@go build -a -ldflags="-X github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME}
+	@go build -a -ldflags="-X github.com/devopsfaith/krakend-ce/vendor/github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME}
 	@echo "You can now use ./${BIN_NAME}"
 
 docker_build:

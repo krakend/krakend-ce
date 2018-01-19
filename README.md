@@ -1,10 +1,59 @@
-# KrakenD CE
+# KrakenD
+Ultra-High performance API Gateway with middlewares
 
 [![Build Status](https://travis-ci.org/devopsfaith/krakend-ce.svg?branch=master)](https://travis-ci.org/devopsfaith/krakend-ce)
 
-KrakenD Community Edition is the Open Sourced binary for the [KrakenD](http://www.krakend.io).
+**KrakenD Community Edition** (or *KrakenD-CE*) is the binary distribution of [KrakenD](http://www.krakend.io).
 
-## Documentation
+In this repository you'll find the utils to build the KrakenD binary yourself. If you just want to use KrakenD [download the binary](http://www.krakend.io/download/)
+
+[KrakenD Site](http://www.krakend.io/) | [Documentation](http://www.krakend.io/docs/overview/introduction/) | [Blog](http://www.krakend.io/blog) | [Twitter](https://twitter.com/devopsfaith)
+
+## Features
+Some of the features you get with KrakenD are:
+
+- **Ultra-High performance** API Gateway
+- **Backend for Frontend**
+- **Efficient**: Super low memory consumption with high traffic (usually under 50MB w/ +1000 concurrent) and even lower with low traffic (under 5MB)
+- **Easy to use**: Declaration of endpoints by just writing the `/url/patterns/and/{variables}`
+- **Unlimited** number of backends and endpoints associated to each endpoint. Limit is your kernel.
+- **Aggregation** of all the data in the backends for a single endpoint
+- **Response composition** and data manipulation (capture, groups, renames...)
+- **Response filtering** (whitelist and blacklist)
+- **Concurrent** API calls to backend for the same request
+- **Simple configuration**: All application configuration and behaviour declared in a `krakend.json`.
+- **Friendly**: No development needed to build your gateway. Use the Visual API [Designer](http://www.krakend.io/designer/) (UI to generate the `krakend.json`)
+- **SSL**
+- **HTTP2** ready
+- **Circuit breaker** (fail fast and avoid smashing stressed backends)
+- **Bursting** on High-load
+- **Logging and statistics** of usage
+- **API with statistics**
+- **Service Discovery**: DNS SRV, ETCD or add your own
+- **Multiple encodings** supported (json, xml, rss or response as single string)
+- **Injections via DSL** in the configuration (Martian)
+- **Throttling**: Limits of usage in the router and proxy layers.
+- **User quota**: Restrict usage of users by IP or custom headers
+- **Basic Firewalling**: Restrict connections by host, drop connections on certain limits
+- **Automatic load balancing**
+- **HTTP Cache** headers
+- Multiple installation options (bin, docker, rpm, deb...)
+- **Cloud native**
+- **Loved by orchestrators** (Kubernetes, Mesos + Marathon, Nomad, Docker Swarm and others)
+- **Secure:**
+	- Support for SSL
+	- OAuth client grant
+	- JSON Web Tokens (JWT) and JSON Object Signing and Encryption (JOSE)
+	- HTTP Strict Transport Security (HSTS)
+	- Clickjacking protection
+	- HTTP Public Key Pinning (HPKP)
+	- MIME-Sniffing prevention
+	- Cross-site scripting (XSS) protection
+	- Cross-origin resource sharing (CORS)
+
+
+For a more nice description of the features have a look in the [website](http://www.krakend.io/features/).
+## Gateway documentation
 
 Full, comprehensive documentation is viewable on the KrakenD website:
 

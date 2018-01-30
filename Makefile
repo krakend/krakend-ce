@@ -5,7 +5,7 @@
 # binary and no external dependencies are needed to run the service.
 
 BIN_NAME :=krakend
-DEP_VERSION=0.3.2
+DEP_VERSION=0.4.1
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 VERSION :=0.4.0
 PKGNAME := krakend

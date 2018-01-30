@@ -1,12 +1,12 @@
 {
     "version": 2,
     "name": "My lovely gateway",
-    "port": 8080,
+    "port": 8000,
     "cache_ttl": "3600s",
     "timeout": "3s",
     "extra_config": {
       "github_com/devopsfaith/krakend-gologging": {
-        "level":  "ERROR",
+        "level":  "DEBUG",
         "prefix": "[KRAKEND]",
         "syslog": false,
         "stdout": true
@@ -16,10 +16,11 @@
         {
             "endpoint": "/supu",
             "method": "GET",
+            "headers_to_pass": ["Authorization", "Content-Type"],
             "backend": [
                 {
                     "host": [
-                        "http://127.0.0.1:8080"
+                        "http://127.0.0.1:8000"
                     ],
                     "url_pattern": "/__debug/supu",
                     "extra_config": {
@@ -33,13 +34,6 @@
                                         "scope": ["request", "response"],
                                         "name" : "X-Martian",
                                         "value" : "ouh yeah!"
-                                    }
-                                },
-                                {
-                                    "body.Modifier": {
-                                        "scope": ["request"],
-                                        "contentType" : "application/json",
-                                        "body" : "eyJtc2ciOiJ5b3Ugcm9jayEifQ=="
                                     }
                                 },
                                 {

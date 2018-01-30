@@ -21,7 +21,13 @@
 
 [[projects]]
   name = "github.com/coreos/etcd"
-  packages = ["client","pkg/pathutil","pkg/srv","pkg/types","version"]
+  packages = [
+    "client",
+    "pkg/pathutil",
+    "pkg/srv",
+    "pkg/types",
+    "version"
+  ]
   revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
 
 [[projects]]
@@ -31,15 +37,29 @@
   version = "v0.2.0"
 
 [[projects]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend"
-  packages = ["config","core","encoding","logging","proxy","router","router/gin","router/mux","sd","sd/dnssrv"]
-  revision = "dea2d0c93e96f3c42105965ffb06dd8af63e2cb1"
-  version = "0.4"
+  packages = [
+    "config",
+    "core",
+    "encoding",
+    "logging",
+    "proxy",
+    "router",
+    "router/gin",
+    "router/mux",
+    "sd",
+    "sd/dnssrv"
+  ]
+  revision = "ecba1b3163cae66282df572f9c519e672bac2307"
 
 [[projects]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-circuitbreaker"
-  packages = ["gobreaker","gobreaker/proxy"]
+  packages = [
+    "gobreaker",
+    "gobreaker/proxy"
+  ]
   revision = "57a815c709e31a77f3e2c49811f5780518ac56aa"
 
 [[projects]]
@@ -63,7 +83,10 @@
 [[projects]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-httpsecure"
-  packages = [".","gin"]
+  packages = [
+    ".",
+    "gin"
+  ]
   revision = "c590f70c35150efc501b22e919b43b9866632de9"
 
 [[projects]]
@@ -75,7 +98,11 @@
 [[projects]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-metrics"
-  packages = [".","gin","mux"]
+  packages = [
+    ".",
+    "gin",
+    "mux"
+  ]
   revision = "32c05207b920b5b379885042cefbde4bd71b5d54"
 
 [[projects]]
@@ -87,7 +114,13 @@
 [[projects]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-ratelimit"
-  packages = [".","juju","juju/proxy","juju/router","juju/router/gin"]
+  packages = [
+    ".",
+    "juju",
+    "juju/proxy",
+    "juju/router",
+    "juju/router/gin"
+  ]
   revision = "407bf6926e70a985ee6b21a7bbcc2260b5c3c41a"
 
 [[projects]]
@@ -122,7 +155,11 @@
 
 [[projects]]
   name = "github.com/gin-gonic/gin"
-  packages = [".","binding","render"]
+  packages = [
+    ".",
+    "binding",
+    "render"
+  ]
   revision = "d459835d2b077e44f7c9b453505ee29881d5d12d"
   version = "v1.2"
 
@@ -134,13 +171,34 @@
 
 [[projects]]
   name = "github.com/google/martian"
-  packages = [".","body","fifo","filter","header","log","mitm","parse","proxyutil","verify"]
+  packages = [
+    ".",
+    "body",
+    "fifo",
+    "filter",
+    "header",
+    "log",
+    "mitm",
+    "parse",
+    "proxyutil",
+    "verify"
+  ]
   revision = "140c935a5d0d15e2cdc24b1f58668f410497fc3c"
 
 [[projects]]
   branch = "master"
   name = "github.com/hashicorp/hcl"
-  packages = [".","hcl/ast","hcl/parser","hcl/scanner","hcl/strconv","hcl/token","json/parser","json/scanner","json/token"]
+  packages = [
+    ".",
+    "hcl/ast",
+    "hcl/parser",
+    "hcl/scanner",
+    "hcl/strconv",
+    "hcl/token",
+    "json/parser",
+    "json/scanner",
+    "json/token"
+  ]
   revision = "23c074d0eceb2b8a5bfdbb271ab780cde70f05a8"
 
 [[projects]]
@@ -175,7 +233,13 @@
 
 [[projects]]
   name = "github.com/mmcdole/gofeed"
-  packages = [".","atom","extensions","internal/shared","rss"]
+  packages = [
+    ".",
+    "atom",
+    "extensions",
+    "internal/shared",
+    "rss"
+  ]
   revision = "303223474e837398b2f8a265e5572958bb5568c0"
   version = "v1.0.0-beta"
 
@@ -199,7 +263,10 @@
 [[projects]]
   branch = "master"
   name = "github.com/rcrowley/go-metrics"
-  packages = [".","exp"]
+  packages = [
+    ".",
+    "exp"
+  ]
   revision = "e181e095bae94582363434144c61a9653aff6e50"
 
 [[projects]]
@@ -210,7 +277,10 @@
 
 [[projects]]
   name = "github.com/spf13/afero"
-  packages = [".","mem"]
+  packages = [
+    ".",
+    "mem"
+  ]
   revision = "8d919cbe7e2627e417f3e45c3c0e489a5b7e2536"
   version = "v1.0.0"
 
@@ -259,13 +329,23 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
-  packages = ["context","context/ctxhttp","html","html/atom","html/charset"]
+  packages = [
+    "context",
+    "context/ctxhttp",
+    "html",
+    "html/atom",
+    "html/charset"
+  ]
   revision = "a8b9294777976932365dabb6640cf1468d95c70f"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/oauth2"
-  packages = [".","clientcredentials","internal"]
+  packages = [
+    ".",
+    "clientcredentials",
+    "internal"
+  ]
   revision = "f95fa95eaa936d9d87489b15d1d18b97c1ba9c28"
 
 [[projects]]
@@ -277,12 +357,41 @@
 [[projects]]
   branch = "master"
   name = "golang.org/x/text"
-  packages = ["encoding","encoding/charmap","encoding/htmlindex","encoding/internal","encoding/internal/identifier","encoding/japanese","encoding/korean","encoding/simplifiedchinese","encoding/traditionalchinese","encoding/unicode","internal/gen","internal/tag","internal/triegen","internal/ucd","internal/utf8internal","language","runes","transform","unicode/cldr","unicode/norm"]
+  packages = [
+    "encoding",
+    "encoding/charmap",
+    "encoding/htmlindex",
+    "encoding/internal",
+    "encoding/internal/identifier",
+    "encoding/japanese",
+    "encoding/korean",
+    "encoding/simplifiedchinese",
+    "encoding/traditionalchinese",
+    "encoding/unicode",
+    "internal/gen",
+    "internal/tag",
+    "internal/triegen",
+    "internal/ucd",
+    "internal/utf8internal",
+    "language",
+    "runes",
+    "transform",
+    "unicode/cldr",
+    "unicode/norm"
+  ]
   revision = "75cc3cad82b5f47d3fb229ddda8c5167da14f294"
 
 [[projects]]
   name = "google.golang.org/appengine"
-  packages = ["internal","internal/base","internal/datastore","internal/log","internal/remote_api","internal/urlfetch","urlfetch"]
+  packages = [
+    "internal",
+    "internal/base",
+    "internal/datastore",
+    "internal/log",
+    "internal/remote_api",
+    "internal/urlfetch",
+    "urlfetch"
+  ]
   revision = "150dc57a1b433e64154302bdc40b6bb8aefa313a"
   version = "v1.0.0"
 
@@ -301,6 +410,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6a48a108af8d1a604e0a83dca1463c1051ea56b0e1fc417761f2c466a71afd24"
+  inputs-digest = "6c7c608b83a0c5b08418fe56a7c43594adc9ab6a03b4fae08ae347f14890f240"
   solver-name = "gps-cdcl"
   solver-version = 1

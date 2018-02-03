@@ -10,6 +10,7 @@ import (
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
+	"github.com/devopsfaith/krakend/plugin"
 	router "github.com/devopsfaith/krakend/router/gin"
 	"github.com/gin-gonic/gin"
 )
@@ -23,6 +24,15 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 				return
 			}
 			logger.Error("unable to create the gologgin logger:", err.Error())
+		}
+
+		if "" != os.Getenv("KRAKEND_ENABLE_PLUGINS") && cfg.Plugin != nil {
+			logger.Info("Plugin experiment enabled!")
+			pluginsLoaded, err := plugin.Load(*cfg.Plugin)
+			if err != nil {
+				logger.Error(err.Error())
+			}
+			logger.Info("Total plugins loaded:", pluginsLoaded)
 		}
 
 		RegisterSubscriberFactories(ctx, cfg, logger)

@@ -37,13 +37,14 @@
   version = "v0.2.0"
 
 [[projects]]
-  branch = "master"
+  branch = "plugin_loader"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
     "core",
     "encoding",
     "logging",
+    "plugin",
     "proxy",
     "router",
     "router/gin",
@@ -51,7 +52,7 @@
     "sd",
     "sd/dnssrv"
   ]
-  revision = "ecba1b3163cae66282df572f9c519e672bac2307"
+  revision = "42d6f547a5c4fd70082c8f38c917c6922e31bd4f"
 
 [[projects]]
   branch = "master"
@@ -410,6 +411,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6c7c608b83a0c5b08418fe56a7c43594adc9ab6a03b4fae08ae347f14890f240"
+  inputs-digest = "a4737df79f5b6155c11a7bc127b96f44833fb4b5c9f3b27ba1b313c49f8fc860"
   solver-name = "gps-cdcl"
   solver-version = 1

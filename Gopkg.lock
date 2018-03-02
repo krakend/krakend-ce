@@ -37,7 +37,6 @@
   version = "v0.2.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -51,7 +50,8 @@
     "sd",
     "sd/dnssrv"
   ]
-  revision = "ecba1b3163cae66282df572f9c519e672bac2307"
+  revision = "befc53b0722c2f68a0b64fc6ac627d40d5c25e84"
+  version = "0.4.1"
 
 [[projects]]
   branch = "master"
@@ -72,7 +72,7 @@
   branch = "master"
   name = "github.com/devopsfaith/krakend-etcd"
   packages = ["."]
-  revision = "4660c45f138b046ee89d9c378e06a9451e64e1e8"
+  revision = "bd645943ff8ce2135252caafa42abc34f2c14a7d"
 
 [[projects]]
   branch = "master"
@@ -99,7 +99,7 @@
   branch = "master"
   name = "github.com/devopsfaith/krakend-martian"
   packages = ["."]
-  revision = "c2e8cd3f292bf29e575b5f6e27107b39a68fd226"
+  revision = "d7926e194a01eee2f8ab464a2383bf650094594d"
 
 [[projects]]
   branch = "master"
@@ -109,7 +109,7 @@
     "gin",
     "mux"
   ]
-  revision = "32c05207b920b5b379885042cefbde4bd71b5d54"
+  revision = "a7d7c2d6d320d1045f9fccd3cf692dfce4a3556a"
 
 [[projects]]
   branch = "master"
@@ -422,6 +422,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "80db5e40db310357436041abacff4eb6fcaea718eb50e0d1219e4d7cb8870cbc"
+  inputs-digest = "f3a2567d12e55f06c1e165310f0fa069bc00dbabaf279ab68c4665ce5bc4cb09"
   solver-name = "gps-cdcl"
   solver-version = 1

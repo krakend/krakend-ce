@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/devopsfaith/krakend-cobra"
-	gologging "github.com/devopsfaith/krakend-gologging"
+	"github.com/devopsfaith/krakend-gologging"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -18,11 +18,12 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 	return func(cfg config.ServiceConfig) {
 		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig)
 		if gologgingErr != nil {
-			logger, err := logging.NewLogger("DEBUG", os.Stdout, "")
+			var err error
+			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
 			if err != nil {
 				return
 			}
-			logger.Error("unable to create the gologgin logger:", err.Error())
+			logger.Error("unable to create the gologgin logger:", gologgingErr.Error())
 		}
 
 		RegisterSubscriberFactories(ctx, cfg, logger)

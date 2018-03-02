@@ -24,7 +24,7 @@ import (
 func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	requestExecutorFactory := func(cfg *config.Backend) proxy.HTTPRequestExecutor {
 		var clientFactory proxy.HTTPClientFactory
-		if _, ok := cfg.Encoding[oauth2client.Namespace]; ok {
+		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
 			clientFactory = oauth2client.NewHTTPClient(cfg)
 		} else {
 			clientFactory = httpcache.NewHTTPClient(cfg)

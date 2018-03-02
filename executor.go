@@ -22,7 +22,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			if err != nil {
 				return
 			}
-			logger.Error("unable to create the gologgin logger:", gologgingErr.Error())
+			logger.Error("unable to create the gologgin logger:", err.Error())
 		}
 
 		RegisterSubscriberFactories(ctx, cfg, logger)

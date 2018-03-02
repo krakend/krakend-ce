@@ -16,13 +16,13 @@ import (
 
 func NewExecutor(ctx context.Context) cmd.Executor {
 	return func(cfg config.ServiceConfig) {
-		logger, err := gologging.NewLogger(cfg.ExtraConfig)
-		if err != nil {
-			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
+		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig)
+		if gologgingErr != nil {
+			logger, err := logging.NewLogger("DEBUG", os.Stdout, "")
 			if err != nil {
 				return
 			}
-			logger.Error("unable to create the gologgin logger:", err.Error())
+			logger.Error("unable to create the gologgin logger:", gologgingErr.Error())
 		}
 
 		RegisterSubscriberFactories(ctx, cfg, logger)

@@ -41,6 +41,10 @@
 
 [[constraint]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-httpcache"
+
+[[constraint]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend-martian"
 
 [[constraint]]

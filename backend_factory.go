@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	cb "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy"
+	httpcache "github.com/devopsfaith/krakend-httpcache"
 	"github.com/devopsfaith/krakend-martian"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-oauth2-clientcredentials"
@@ -22,7 +23,12 @@ import (
 // - metrics collector
 func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	requestExecutorFactory := func(cfg *config.Backend) proxy.HTTPRequestExecutor {
-		clientFactory := oauth2client.NewHTTPClient(cfg)
+		var clientFactory proxy.HTTPClientFactory
+		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
+			clientFactory = oauth2client.NewHTTPClient(cfg)
+		} else {
+			clientFactory = httpcache.NewHTTPClient(cfg)
+		}
 		return func(ctx context.Context, req *http.Request) (*http.Response, error) {
 			return clientFactory(ctx).Do(req.WithContext(ctx))
 		}

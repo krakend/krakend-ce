@@ -37,6 +37,7 @@ Some of the features you get with KrakenD are:
 - **Basic Firewalling**: Restrict connections by host, drop connections on certain limits
 - **Automatic load balancing**
 - **HTTP Cache** headers
+- **In-memory backend response cache**
 - Multiple installation options (bin, docker, rpm, deb...)
 - **Cloud native**
 - **Loved by orchestrators** (Kubernetes, Mesos + Marathon, Nomad, Docker Swarm and others)

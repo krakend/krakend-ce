@@ -50,8 +50,8 @@
     "sd",
     "sd/dnssrv"
   ]
-  revision = "befc53b0722c2f68a0b64fc6ac627d40d5c25e84"
-  version = "0.4.1"
+  revision = "f7f27225f65abd50ae1ef168970649f8fab3fbf3"
+  version = "0.4.2"
 
 [[projects]]
   branch = "master"
@@ -99,7 +99,7 @@
   branch = "master"
   name = "github.com/devopsfaith/krakend-martian"
   packages = ["."]
-  revision = "d7926e194a01eee2f8ab464a2383bf650094594d"
+  revision = "2757b21be9ac45e04bebee8feb7481f695d62b79"
 
 [[projects]]
   branch = "master"
@@ -195,7 +195,7 @@
   branch = "master"
   name = "github.com/gregjones/httpcache"
   packages = ["."]
-  revision = "2bcd89a1743fd4b373f7370ce8ddc14dfbd18229"
+  revision = "9cad4c3443a7200dd6400aef47183728de563a38"
 
 [[projects]]
   branch = "master"
@@ -358,7 +358,7 @@
     "clientcredentials",
     "internal"
   ]
-  revision = "f95fa95eaa936d9d87489b15d1d18b97c1ba9c28"
+  revision = "2f32c3ac0fa4fb807a0fcefb0b6f2468a0d99bd0"
 
 [[projects]]
   branch = "master"
@@ -422,6 +422,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f3a2567d12e55f06c1e165310f0fa069bc00dbabaf279ab68c4665ce5bc4cb09"
+  inputs-digest = "c9fab6dc84233853b3fe68f4d64d29dc88901fcd7075a205ee154980ff791478"
   solver-name = "gps-cdcl"
   solver-version = 1

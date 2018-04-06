@@ -28,14 +28,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Error("unable to create the gologgin logger:", gologgingErr.Error())
 		}
 
-		if "" != os.Getenv("KRAKEND_ENABLE_PLUGINS") && cfg.Plugin != nil {
-			logger.Info("Plugin experiment enabled!")
-			pluginsLoaded, err := plugin.Load(*cfg.Plugin)
-			if err != nil {
-				logger.Error(err.Error())
-			}
-			logger.Info("Total plugins loaded:", pluginsLoaded)
-		}
+		loadPlugins(cfg, logger)
 
 		RegisterSubscriberFactories(ctx, cfg, logger)
 
@@ -55,5 +48,16 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		// start the engines
 		routerFactory.NewWithContext(ctx).Run(cfg)
+	}
+}
+
+func loadPlugins(cfg config.ServiceConfig, logger logging.Logger) {
+	if "" != os.Getenv("KRAKEND_ENABLE_PLUGINS") && cfg.Plugin != nil {
+		logger.Info("Plugin experiment enabled!")
+		pluginsLoaded, err := plugin.Load(*cfg.Plugin)
+		if err != nil {
+			logger.Error(err.Error())
+		}
+		logger.Info("Total plugins loaded:", pluginsLoaded)
 	}
 }

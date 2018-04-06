@@ -56,10 +56,12 @@ prepare:
 deps:
 	@echo "Setting up the vendors folder..."
 	@dep ensure -v
+	@go get github.com/devopsfaith/krakend-martian/register
 	@echo ""
 	@echo "Resolved dependencies:"
 	@dep status
 	@echo ""
+	@rm -rf vendor/github.com/devopsfaith/krakend-martian/register
 
 build:
 	@echo "Building the binary..."

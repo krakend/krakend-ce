@@ -7,6 +7,7 @@ import (
 
 	"github.com/devopsfaith/krakend-cobra"
 	gologging "github.com/devopsfaith/krakend-gologging"
+	"github.com/devopsfaith/krakend-martian"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -39,6 +40,8 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		// create the metrics collector
 		metricCollector := metrics.New(ctx, time.Minute, logger)
+
+		martian.Register()
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{

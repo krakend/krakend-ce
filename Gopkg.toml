@@ -1,3 +1,4 @@
+ignored = ["github.com/devopsfaith/krakend-martian/register"]
 
 [[override]]
   name = "github.com/op/go-logging"
@@ -16,7 +17,7 @@
   version = "1.2.0"
 
 [[constraint]]
-  branch = "plugin_loader"
+  branch = "master"
   name = "github.com/devopsfaith/krakend"
 
 [[constraint]]

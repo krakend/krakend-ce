@@ -40,6 +40,7 @@ Some of the features you get with KrakenD are:
 - **In-memory backend response cache**
 - Multiple installation options (bin, docker, rpm, deb...)
 - **Cloud native**
+- **Plugin loading at run time**
 - **Loved by orchestrators** (Kubernetes, Mesos + Marathon, Nomad, Docker Swarm and others)
 - **Secure:**
 	- Support for SSL

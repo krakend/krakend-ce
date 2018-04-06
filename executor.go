@@ -18,13 +18,14 @@ import (
 
 func NewExecutor(ctx context.Context) cmd.Executor {
 	return func(cfg config.ServiceConfig) {
-		logger, err := gologging.NewLogger(cfg.ExtraConfig)
-		if err != nil {
+		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig)
+		if gologgingErr != nil {
+			var err error
 			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
 			if err != nil {
 				return
 			}
-			logger.Error("unable to create the gologgin logger:", err.Error())
+			logger.Error("unable to create the gologgin logger:", gologgingErr.Error())
 		}
 
 		if "" != os.Getenv("KRAKEND_ENABLE_PLUGINS") && cfg.Plugin != nil {

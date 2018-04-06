@@ -83,6 +83,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-httpcache"
+  packages = ["."]
+  revision = "762918c1ba75c6fa59362d2040833f295e98fd4a"
+
+[[projects]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend-httpsecure"
   packages = [
     ".",
@@ -94,7 +100,7 @@
   branch = "master"
   name = "github.com/devopsfaith/krakend-martian"
   packages = ["."]
-  revision = "b69636851f1dfc37c37e22d732474f71b55537cd"
+  revision = "17fe85b0b233ad33d5fc56ceeb67af024708f003"
 
 [[projects]]
   branch = "master"
@@ -185,6 +191,12 @@
     "verify"
   ]
   revision = "140c935a5d0d15e2cdc24b1f58668f410497fc3c"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/gregjones/httpcache"
+  packages = ["."]
+  revision = "9cad4c3443a7200dd6400aef47183728de563a38"
 
 [[projects]]
   branch = "master"
@@ -412,6 +424,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1509c12e003190c3522bd68ff48f41533d8a454ef7caec32b8f1e51168f0bdcf"
+  inputs-digest = "86fe0cc160e3917b2afed5d38e4b441d56f4c89b1bb3d7e91aebb5a6d3196773"
   solver-name = "gps-cdcl"
   solver-version = 1

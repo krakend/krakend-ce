@@ -54,7 +54,7 @@
     "sd",
     "sd/dnssrv"
   ]
-  revision = "8b93eae405d707a6a437f365252ca8739eba865b"
+  revision = "754daabac2c99a31fb522437352f004360d1902b"
 
 [[projects]]
   branch = "master"
@@ -99,10 +99,10 @@
   revision = "c590f70c35150efc501b22e919b43b9866632de9"
 
 [[projects]]
-  branch = "master"
+  branch = "injected_register"
   name = "github.com/devopsfaith/krakend-martian"
   packages = ["."]
-  revision = "17fe85b0b233ad33d5fc56ceeb67af024708f003"
+  revision = "6e1e889b9af4480465ae0e4bf273fa37a9f2b087"
 
 [[projects]]
   branch = "master"
@@ -426,6 +426,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d97b93ee2658ac3e3f135f1394de95ef60a655d67b07397a93f8511051565081"
+  inputs-digest = "746a9a8e048626bc11a574105de0fc14e398e05c788bd5a07d764f52c3dda377"
   solver-name = "gps-cdcl"
   solver-version = 1

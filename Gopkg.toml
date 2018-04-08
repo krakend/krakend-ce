@@ -45,7 +45,7 @@ ignored = ["github.com/devopsfaith/krakend-martian/register"]
   name = "github.com/devopsfaith/krakend-httpcache"
 
 [[constraint]]
-  branch = "master"
+  branch = "injected_register"
   name = "github.com/devopsfaith/krakend-martian"
 
 [[constraint]]

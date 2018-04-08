@@ -17,7 +17,7 @@ ignored = ["github.com/devopsfaith/krakend-martian/register"]
   version = "1.2.0"
 
 [[constraint]]
-  branch = "master"
+  branch = "inject_registers_to_plugins"
   name = "github.com/devopsfaith/krakend"
 
 [[constraint]]

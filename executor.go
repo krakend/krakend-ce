@@ -28,14 +28,15 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Error("unable to create the gologgin logger:", gologgingErr.Error())
 		}
 
-		loadPlugins(cfg, logger)
+		reg := plugin.NewRegister()
+		loadPlugins(reg, cfg, logger)
 
 		RegisterSubscriberFactories(ctx, cfg, logger)
 
 		// create the metrics collector
 		metricCollector := metrics.New(ctx, time.Minute, logger)
 
-		martian.Register()
+		martian.Register(reg.External)
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
@@ -48,16 +49,5 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		// start the engines
 		routerFactory.NewWithContext(ctx).Run(cfg)
-	}
-}
-
-func loadPlugins(cfg config.ServiceConfig, logger logging.Logger) {
-	if "" != os.Getenv("KRAKEND_ENABLE_PLUGINS") && cfg.Plugin != nil {
-		logger.Info("Plugin experiment enabled!")
-		pluginsLoaded, err := plugin.Load(*cfg.Plugin)
-		if err != nil {
-			logger.Error(err.Error())
-		}
-		logger.Info("Total plugins loaded:", pluginsLoaded)
 	}
 }

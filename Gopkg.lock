@@ -37,7 +37,7 @@
   version = "v0.2.0"
 
 [[projects]]
-  branch = "master"
+  branch = "inject_registers_to_plugins"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -46,13 +46,15 @@
     "logging",
     "plugin",
     "proxy",
+    "register",
+    "register/internal",
     "router",
     "router/gin",
     "router/mux",
     "sd",
     "sd/dnssrv"
   ]
-  revision = "8a537322117aa287ae3f09f9ba49f78ce5132c1b"
+  revision = "8b93eae405d707a6a437f365252ca8739eba865b"
 
 [[projects]]
   branch = "master"
@@ -424,6 +426,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "86fe0cc160e3917b2afed5d38e4b441d56f4c89b1bb3d7e91aebb5a6d3196773"
+  inputs-digest = "d97b93ee2658ac3e3f135f1394de95ef60a655d67b07397a93f8511051565081"
   solver-name = "gps-cdcl"
   solver-version = 1

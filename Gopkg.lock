@@ -2,24 +2,6 @@
 
 
 [[projects]]
-  name = "github.com/PuerkitoBio/goquery"
-  packages = ["."]
-  revision = "e1271ee34c6a305e38566ecd27ae374944907ee9"
-  version = "v1.1.0"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/andybalholm/cascadia"
-  packages = ["."]
-  revision = "349dd0209470eabd9514242c688c403c0926d266"
-
-[[projects]]
-  name = "github.com/clbanning/mxj"
-  packages = ["."]
-  revision = "1cda74d18ebbb04f525b355309c16d594e1f8f77"
-  version = "v1.6.1"
-
-[[projects]]
   name = "github.com/coreos/etcd"
   packages = [
     "client",
@@ -37,6 +19,7 @@
   version = "v0.2.0"
 
 [[projects]]
+  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -44,14 +27,15 @@
     "encoding",
     "logging",
     "proxy",
+    "register",
+    "register/internal",
     "router",
     "router/gin",
     "router/mux",
     "sd",
     "sd/dnssrv"
   ]
-  revision = "f7f27225f65abd50ae1ef168970649f8fab3fbf3"
-  version = "0.4.2"
+  revision = "5e350dfe07900b23ee541fc5bcbae4d610de0797"
 
 [[projects]]
   branch = "master"
@@ -102,14 +86,14 @@
   revision = "2757b21be9ac45e04bebee8feb7481f695d62b79"
 
 [[projects]]
-  branch = "master"
+  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend-metrics"
   packages = [
     ".",
     "gin",
     "mux"
   ]
-  revision = "a7d7c2d6d320d1045f9fccd3cf692dfce4a3556a"
+  revision = "6a8158d15863f6c46e96470bf3794c71341b1528"
 
 [[projects]]
   branch = "master"
@@ -131,21 +115,9 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/devopsfaith/krakend-rss"
-  packages = ["."]
-  revision = "2c0f89d6735db2f22b05c6cef01d4a72f2e0f251"
-
-[[projects]]
-  branch = "master"
   name = "github.com/devopsfaith/krakend-viper"
   packages = ["."]
   revision = "3abc4134a773578643b46aa11431f72cc6d41e8a"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/devopsfaith/krakend-xml"
-  packages = ["."]
-  revision = "3b0341aed8c1eecbb59e58fdd5a392c21034731c"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
@@ -220,10 +192,31 @@
   version = "v1.0"
 
 [[projects]]
+  name = "github.com/influxdata/influxdb"
+  packages = [
+    "client",
+    "client/v2",
+    "models",
+    "pkg/escape"
+  ]
+  revision = "02d7d4f043b34ecb4e9b2dbec298c6f9450c2a32"
+  version = "v1.5.2"
+
+[[projects]]
   branch = "master"
   name = "github.com/juju/ratelimit"
   packages = ["."]
   revision = "59fac5042749a5afb9af70e813da1dd5474f0167"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/letgoapp/krakend-influx"
+  packages = [
+    ".",
+    "counter",
+    "gauge"
+  ]
+  revision = "2ad377d8da418ddacdc7bf4651b8aba332d1b97d"
 
 [[projects]]
   name = "github.com/magiconair/properties"
@@ -242,24 +235,6 @@
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
   revision = "06020f85339e21b2478f756a78e295255ffa4d6a"
-
-[[projects]]
-  name = "github.com/mmcdole/gofeed"
-  packages = [
-    ".",
-    "atom",
-    "extensions",
-    "internal/shared",
-    "rss"
-  ]
-  revision = "303223474e837398b2f8a265e5572958bb5568c0"
-  version = "v1.0.0-beta"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/mmcdole/goxpp"
-  packages = ["."]
-  revision = "77e4a51a73ed99ee3f33c1474dc166866304acbd"
 
 [[projects]]
   name = "github.com/op/go-logging"
@@ -343,10 +318,7 @@
   name = "golang.org/x/net"
   packages = [
     "context",
-    "context/ctxhttp",
-    "html",
-    "html/atom",
-    "html/charset"
+    "context/ctxhttp"
   ]
   revision = "a8b9294777976932365dabb6640cf1468d95c70f"
 
@@ -370,23 +342,9 @@
   branch = "master"
   name = "golang.org/x/text"
   packages = [
-    "encoding",
-    "encoding/charmap",
-    "encoding/htmlindex",
-    "encoding/internal",
-    "encoding/internal/identifier",
-    "encoding/japanese",
-    "encoding/korean",
-    "encoding/simplifiedchinese",
-    "encoding/traditionalchinese",
-    "encoding/unicode",
     "internal/gen",
-    "internal/tag",
     "internal/triegen",
     "internal/ucd",
-    "internal/utf8internal",
-    "language",
-    "runes",
     "transform",
     "unicode/cldr",
     "unicode/norm"
@@ -422,6 +380,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c9fab6dc84233853b3fe68f4d64d29dc88901fcd7075a205ee154980ff791478"
+  inputs-digest = "fa6b609b28b16058bdcc7ff3d7c46ceab689b96dc3721c73e66454efddf0500c"
   solver-name = "gps-cdcl"
   solver-version = 1

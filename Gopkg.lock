@@ -35,7 +35,7 @@
     "sd",
     "sd/dnssrv"
   ]
-  revision = "5e350dfe07900b23ee541fc5bcbae4d610de0797"
+  revision = "ed0d73dcd173a5e34b9adb41db81217b32ea8bfd"
 
 [[projects]]
   branch = "master"
@@ -93,7 +93,7 @@
     "gin",
     "mux"
   ]
-  revision = "6a8158d15863f6c46e96470bf3794c71341b1528"
+  revision = "c6bc38ddbbc0e30efc78cdfeda079741c0d40264"
 
 [[projects]]
   branch = "master"
@@ -194,7 +194,6 @@
 [[projects]]
   name = "github.com/influxdata/influxdb"
   packages = [
-    "client",
     "client/v2",
     "models",
     "pkg/escape"
@@ -214,9 +213,10 @@
   packages = [
     ".",
     "counter",
-    "gauge"
+    "gauge",
+    "histogram"
   ]
-  revision = "2ad377d8da418ddacdc7bf4651b8aba332d1b97d"
+  revision = "b87584e771c2debeb7f99310bbe0edb3d249fe5b"
 
 [[projects]]
   name = "github.com/magiconair/properties"
@@ -380,6 +380,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fa6b609b28b16058bdcc7ff3d7c46ceab689b96dc3721c73e66454efddf0500c"
+  inputs-digest = "0a209c641e79a357e08ec5e62455f6a978739aadf46456727b1a6e8bd6521261"
   solver-name = "gps-cdcl"
   solver-version = 1

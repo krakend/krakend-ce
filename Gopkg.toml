@@ -33,7 +33,7 @@
 
 [[constraint]]
   branch = "master"
-  name = "github.com/devopsfaith/krakend-gologging"
+  name = "github.com/devopsfaith/krakend-logstash"
 
 [[constraint]]
   branch = "master"

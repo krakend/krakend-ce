@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/devopsfaith/krakend-cobra"
-	"github.com/devopsfaith/krakend-gologging"
+	"github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -16,7 +16,8 @@ import (
 
 func NewExecutor(ctx context.Context) cmd.Executor {
 	return func(cfg config.ServiceConfig) {
-		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig)
+		var logger logging.Logger
+		logger, gologgingErr := logstsash.NewLogger(cfg.ExtraConfig)
 		if gologgingErr != nil {
 			var err error
 			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")

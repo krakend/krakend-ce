@@ -97,6 +97,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-logstash"
+  packages = ["."]
+  revision = "a87f12dd5f65092b53977dc96c6bf7394001edb8"
+
+[[projects]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend-martian"
   packages = ["."]
   revision = "2757b21be9ac45e04bebee8feb7481f695d62b79"
@@ -422,6 +428,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c9fab6dc84233853b3fe68f4d64d29dc88901fcd7075a205ee154980ff791478"
+  inputs-digest = "0051daac9f3cfe074c01dc779f053f54d6953e620dcc2f21b5ccd416871aa622"
   solver-name = "gps-cdcl"
   solver-version = 1

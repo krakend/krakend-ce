@@ -70,3 +70,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-xml"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/letgoapp/krakend-influx"

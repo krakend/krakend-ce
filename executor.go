@@ -37,7 +37,6 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, logger); err != nil {
 			logger.Error(err.Error())
-			return
 		}
 
 		// setup the krakend router

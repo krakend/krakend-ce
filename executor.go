@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"io/ioutil"
 	"os"
 	"time"
 
@@ -12,6 +13,7 @@ import (
 	"github.com/devopsfaith/krakend/logging"
 	router "github.com/devopsfaith/krakend/router/gin"
 	"github.com/gin-gonic/gin"
+	"github.com/letgoapp/krakend-influx"
 )
 
 func NewExecutor(ctx context.Context) cmd.Executor {
@@ -30,7 +32,13 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		RegisterSubscriberFactories(ctx, cfg, logger)
 
 		// create the metrics collector
-		metricCollector := metrics.New(ctx, time.Minute, logger)
+		devNull, _ := logging.NewLogger("CRITICAL", ioutil.Discard, "")
+		metricCollector := metrics.New(ctx, time.Minute, devNull)
+
+		if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, logger); err != nil {
+			logger.Error(err.Error())
+			return
+		}
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{

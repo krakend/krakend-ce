@@ -9,6 +9,13 @@
         "level":  "DEBUG",
         "syslog": false,
         "stdout": true
+      },
+      "github_com/letgoapp/krakend-influx": {
+        "address":  "http://192.168.99.100:8086",
+        "username": "letgo",
+        "password": "supersecretpassword",
+        "ttl": "1m",
+        "db": "bouncer_gateway"
       }
     },
     "endpoints": [

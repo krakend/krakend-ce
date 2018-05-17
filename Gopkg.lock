@@ -99,7 +99,7 @@
   branch = "master"
   name = "github.com/devopsfaith/krakend-logstash"
   packages = ["."]
-  revision = "a87f12dd5f65092b53977dc96c6bf7394001edb8"
+  revision = "98392cd01b772ef9bf2484dcc86608cacc1519c8"
 
 [[projects]]
   branch = "master"
@@ -226,10 +226,31 @@
   version = "v1.0"
 
 [[projects]]
+  name = "github.com/influxdata/influxdb"
+  packages = [
+    "client/v2",
+    "models",
+    "pkg/escape"
+  ]
+  revision = "02d7d4f043b34ecb4e9b2dbec298c6f9450c2a32"
+  version = "v1.5.2"
+
+[[projects]]
   branch = "master"
   name = "github.com/juju/ratelimit"
   packages = ["."]
   revision = "59fac5042749a5afb9af70e813da1dd5474f0167"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/letgoapp/krakend-influx"
+  packages = [
+    ".",
+    "counter",
+    "gauge",
+    "histogram"
+  ]
+  revision = "b87584e771c2debeb7f99310bbe0edb3d249fe5b"
 
 [[projects]]
   name = "github.com/magiconair/properties"
@@ -428,6 +449,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0051daac9f3cfe074c01dc779f053f54d6953e620dcc2f21b5ccd416871aa622"
+  inputs-digest = "7be0b666073bacc7486e35fddb4a67c3904adaa9e8c3121d6c721d55df61717f"
   solver-name = "gps-cdcl"
   solver-version = 1

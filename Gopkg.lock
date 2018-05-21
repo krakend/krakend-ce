@@ -2,6 +2,19 @@
 
 
 [[projects]]
+  branch = "master"
+  name = "git.apache.org/thrift.git"
+  packages = ["lib/go/thrift"]
+  revision = "88591e32e710a0524327153c8b629d5b461e35e0"
+  source = "github.com/apache/thrift"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/beorn7/perks"
+  packages = ["quantile"]
+  revision = "3a771d992973f24aa725d07868b467d1ddfceafb"
+
+[[projects]]
   name = "github.com/coreos/etcd"
   packages = [
     "client",
@@ -100,6 +113,19 @@
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
   packages = ["."]
   revision = "401bac10b674c03508691b701fd6719e3e71ca4a"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-opencensus"
+  packages = [
+    ".",
+    "exporter/influxdb",
+    "exporter/jaeger",
+    "exporter/prometheus",
+    "exporter/zipkin",
+    "router/gin"
+  ]
+  revision = "0fbca20d515bde8001e505bb41d2af69523798af"
 
 [[projects]]
   branch = "master"
@@ -209,6 +235,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/kpacha/opencensus-influxdb"
+  packages = ["."]
+  revision = "1b490a38de4c5c98e0414e4676aba2e00c5cfd45"
+
+[[projects]]
+  branch = "master"
   name = "github.com/letgoapp/krakend-influx"
   packages = [
     ".",
@@ -231,6 +263,12 @@
   version = "v0.0.3"
 
 [[projects]]
+  name = "github.com/matttproud/golang_protobuf_extensions"
+  packages = ["pbutil"]
+  revision = "3247c84500bff8d9fb6d579d800f20b3e091582c"
+  version = "v1.0.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
@@ -242,10 +280,56 @@
   revision = "970db520ece77730c7e4724c61121037378659d9"
 
 [[projects]]
+  name = "github.com/openzipkin/zipkin-go"
+  packages = [
+    "model",
+    "reporter",
+    "reporter/http"
+  ]
+  revision = "f197ec29e729f226d23370ea60f0e49b8f44ccf4"
+  version = "v0.1.0"
+
+[[projects]]
   name = "github.com/pelletier/go-toml"
   packages = ["."]
   revision = "16398bac157da96aa88f98a2df640c7f32af1da2"
   version = "v1.0.1"
+
+[[projects]]
+  name = "github.com/prometheus/client_golang"
+  packages = [
+    "prometheus",
+    "prometheus/promhttp"
+  ]
+  revision = "c5b7fccd204277076155f10851dad72b76a49317"
+  version = "v0.8.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/prometheus/client_model"
+  packages = ["go"]
+  revision = "99fa1f4be8e564e8a6b613da7fa6f46c9edafc6c"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/prometheus/common"
+  packages = [
+    "expfmt",
+    "internal/bitbucket.org/ww/goautoneg",
+    "model"
+  ]
+  revision = "7600349dcfe1abd18d72d3a1770870d9800a7801"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/prometheus/procfs"
+  packages = [
+    ".",
+    "internal/util",
+    "nfs",
+    "xfs"
+  ]
+  revision = "8b1c2da0d56deffdbb9e48d4414b4e674bd8083e"
 
 [[projects]]
   branch = "master"
@@ -315,6 +399,28 @@
 
 [[projects]]
   branch = "master"
+  name = "go.opencensus.io"
+  packages = [
+    "exporter/jaeger",
+    "exporter/jaeger/internal/gen-go/jaeger",
+    "exporter/prometheus",
+    "exporter/zipkin",
+    "internal",
+    "internal/tagencoding",
+    "plugin/ochttp",
+    "plugin/ochttp/propagation/b3",
+    "stats",
+    "stats/internal",
+    "stats/view",
+    "tag",
+    "trace",
+    "trace/internal",
+    "trace/propagation"
+  ]
+  revision = "ebd8d31470fedf6c27d0e3056653ddff642509b8"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/net"
   packages = [
     "context",
@@ -334,6 +440,12 @@
 
 [[projects]]
   branch = "master"
+  name = "golang.org/x/sync"
+  packages = ["semaphore"]
+  revision = "1d60e4601c6fd243af51cc01ddf169918a5407ca"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
   revision = "8b4580aae2a0dd0c231a45d3ccb8434ff533b840"
@@ -350,6 +462,12 @@
     "unicode/norm"
   ]
   revision = "75cc3cad82b5f47d3fb229ddda8c5167da14f294"
+
+[[projects]]
+  branch = "master"
+  name = "google.golang.org/api"
+  packages = ["support/bundler"]
+  revision = "4f7dd2b006a4ffd9fd683c1c734d2fe91ca0ea1c"
 
 [[projects]]
   name = "google.golang.org/appengine"
@@ -380,6 +498,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0a209c641e79a357e08ec5e62455f6a978739aadf46456727b1a6e8bd6521261"
+  inputs-digest = "847f165795d03c64d97dfa8eb6fb7e7a101bbc2437f95af305ad37d68b9f4791"
   solver-name = "gps-cdcl"
   solver-version = 1

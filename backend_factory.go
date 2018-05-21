@@ -1,14 +1,12 @@
 package main
 
 import (
-	"context"
-	"net/http"
-
 	cb "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy"
 	httpcache "github.com/devopsfaith/krakend-httpcache"
 	"github.com/devopsfaith/krakend-martian"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-oauth2-clientcredentials"
+	opencensus "github.com/devopsfaith/krakend-opencensus"
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/proxy"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -21,6 +19,7 @@ import (
 // - rate-limit
 // - circuit breaker
 // - metrics collector
+// - opencensus collector
 func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	requestExecutorFactory := func(cfg *config.Backend) proxy.HTTPRequestExecutor {
 		var clientFactory proxy.HTTPClientFactory
@@ -29,13 +28,12 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 		} else {
 			clientFactory = httpcache.NewHTTPClient(cfg)
 		}
-		return func(ctx context.Context, req *http.Request) (*http.Response, error) {
-			return clientFactory(ctx).Do(req.WithContext(ctx))
-		}
+		return opencensus.HTTPRequestExecutor(clientFactory)
 	}
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
 	backendFactory = juju.BackendFactory(backendFactory)
 	backendFactory = cb.BackendFactory(backendFactory)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
+	backendFactory = opencensus.BackendFactory(backendFactory)
 	return backendFactory
 }

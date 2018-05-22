@@ -15,9 +15,9 @@
   name = "github.com/gin-gonic/gin"
   version = "1.2.0"
 
-[[constraint]]
-  name = "github.com/devopsfaith/krakend"
-  version = "0.4.2"
+#[[constraint]]
+#  name = "github.com/devopsfaith/krakend"
+#  version = "0.4.2"
 
 [[constraint]]
   branch = "master"
@@ -48,7 +48,7 @@
   name = "github.com/devopsfaith/krakend-martian"
 
 [[constraint]]
-  branch = "master"
+  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend-metrics"
 
 [[constraint]]
@@ -60,7 +60,7 @@
   name = "github.com/devopsfaith/krakend-ratelimit"
 
 [[constraint]]
-  branch = "master"
+  branch = "plugin"
   name = "github.com/devopsfaith/krakend-rss"
 
 [[constraint]]
@@ -68,7 +68,7 @@
   name = "github.com/devopsfaith/krakend-viper"
 
 [[constraint]]
-  branch = "master"
+  branch = "plugin"
   name = "github.com/devopsfaith/krakend-xml"
 
 [[constraint]]

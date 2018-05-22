@@ -37,6 +37,7 @@
   version = "v0.2.0"
 
 [[projects]]
+  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -44,14 +45,15 @@
     "encoding",
     "logging",
     "proxy",
+    "register",
+    "register/internal",
     "router",
     "router/gin",
     "router/mux",
     "sd",
     "sd/dnssrv"
   ]
-  revision = "f7f27225f65abd50ae1ef168970649f8fab3fbf3"
-  version = "0.4.2"
+  revision = "471983213d8e8ffc3da047443f190e0e11f2ae32"
 
 [[projects]]
   branch = "master"
@@ -108,14 +110,14 @@
   revision = "2757b21be9ac45e04bebee8feb7481f695d62b79"
 
 [[projects]]
-  branch = "master"
+  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend-metrics"
   packages = [
     ".",
     "gin",
     "mux"
   ]
-  revision = "a7d7c2d6d320d1045f9fccd3cf692dfce4a3556a"
+  revision = "c6bc38ddbbc0e30efc78cdfeda079741c0d40264"
 
 [[projects]]
   branch = "master"
@@ -136,10 +138,10 @@
   revision = "407bf6926e70a985ee6b21a7bbcc2260b5c3c41a"
 
 [[projects]]
-  branch = "master"
+  branch = "plugin"
   name = "github.com/devopsfaith/krakend-rss"
   packages = ["."]
-  revision = "2c0f89d6735db2f22b05c6cef01d4a72f2e0f251"
+  revision = "4c18c62a99ee830ab298ea422ba8568c7bcf7951"
 
 [[projects]]
   branch = "master"
@@ -148,10 +150,10 @@
   revision = "3abc4134a773578643b46aa11431f72cc6d41e8a"
 
 [[projects]]
-  branch = "master"
+  branch = "plugin"
   name = "github.com/devopsfaith/krakend-xml"
   packages = ["."]
-  revision = "3b0341aed8c1eecbb59e58fdd5a392c21034731c"
+  revision = "5ce94062a4cccce87e791e86272c9d95512529d4"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
@@ -449,6 +451,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7be0b666073bacc7486e35fddb4a67c3904adaa9e8c3121d6c721d55df61717f"
+  inputs-digest = "cf9582fd4b27092d4591c24c8b444f94631a3acc9be424ac2d178d9b86c7264a"
   solver-name = "gps-cdcl"
   solver-version = 1

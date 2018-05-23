@@ -91,6 +91,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-flexibleconfig"
+  packages = ["."]
+  revision = "1c8c8897842abec29842d5669c4abdc84e6398be"
+
+[[projects]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend-gologging"
   packages = ["."]
   revision = "96e1a9d5f586cac9b6ddb5de999527d64630181c"
@@ -143,7 +149,7 @@
     "exporter/zipkin",
     "router/gin"
   ]
-  revision = "0fbca20d515bde8001e505bb41d2af69523798af"
+  revision = "e8bd6c9fc4af12f58bd9b520184526b2ea152c94"
 
 [[projects]]
   branch = "master"
@@ -563,6 +569,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "531ee1209e5bff2a786631528eafe484c7a782b840ec417038eb6f8e7cbd766c"
+  inputs-digest = "41fa7cb652a49cd55fe6c1fb1a645fa8d5f629c9eac7f3a9b6a00b10fca5ea94"
   solver-name = "gps-cdcl"
   solver-version = 1

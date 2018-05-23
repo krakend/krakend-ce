@@ -16,6 +16,14 @@
   version = "1.2.0"
 
 [[constraint]]
+  version = "0.5.0"
+  name = "github.com/letgoapp/krakend-xml"
+
+[[constraint]]
+  version = "0.5.0"
+  name = "github.com/letgoapp/krakend-rss"
+
+[[constraint]]
   branch = "master"
   name = "github.com/letgoapp/krakend-influx"
 

@@ -9,10 +9,28 @@
   source = "github.com/apache/thrift"
 
 [[projects]]
+  name = "github.com/PuerkitoBio/goquery"
+  packages = ["."]
+  revision = "a86ea073017a6beddef78c8659e7224e8ca634b0"
+  version = "v1.4.0"
+
+[[projects]]
+  name = "github.com/andybalholm/cascadia"
+  packages = ["."]
+  revision = "901648c87902174f774fac311d7f176f8647bdaa"
+  version = "v1.0.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/beorn7/perks"
   packages = ["quantile"]
   revision = "3a771d992973f24aa725d07868b467d1ddfceafb"
+
+[[projects]]
+  name = "github.com/clbanning/mxj"
+  packages = ["."]
+  revision = "1f00e0bf9bacd7ea9c93d27594d1d1f5a41bac36"
+  version = "v1.8"
 
 [[projects]]
   name = "github.com/coreos/etcd"
@@ -140,10 +158,22 @@
   revision = "407bf6926e70a985ee6b21a7bbcc2260b5c3c41a"
 
 [[projects]]
+  name = "github.com/devopsfaith/krakend-rss"
+  packages = ["."]
+  revision = "4c18c62a99ee830ab298ea422ba8568c7bcf7951"
+  version = "0.5.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-viper"
   packages = ["."]
   revision = "3abc4134a773578643b46aa11431f72cc6d41e8a"
+
+[[projects]]
+  name = "github.com/devopsfaith/krakend-xml"
+  packages = ["."]
+  revision = "5ce94062a4cccce87e791e86272c9d95512529d4"
+  version = "0.5.0"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
@@ -273,6 +303,24 @@
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
   revision = "06020f85339e21b2478f756a78e295255ffa4d6a"
+
+[[projects]]
+  name = "github.com/mmcdole/gofeed"
+  packages = [
+    ".",
+    "atom",
+    "extensions",
+    "internal/shared",
+    "rss"
+  ]
+  revision = "42010a154d249f5f753dfe03a6390b59671e403e"
+  version = "v1.0.0-beta2"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mmcdole/goxpp"
+  packages = ["."]
+  revision = "77e4a51a73ed99ee3f33c1474dc166866304acbd"
 
 [[projects]]
   name = "github.com/op/go-logging"
@@ -424,7 +472,10 @@
   name = "golang.org/x/net"
   packages = [
     "context",
-    "context/ctxhttp"
+    "context/ctxhttp",
+    "html",
+    "html/atom",
+    "html/charset"
   ]
   revision = "a8b9294777976932365dabb6640cf1468d95c70f"
 
@@ -454,9 +505,23 @@
   branch = "master"
   name = "golang.org/x/text"
   packages = [
+    "encoding",
+    "encoding/charmap",
+    "encoding/htmlindex",
+    "encoding/internal",
+    "encoding/internal/identifier",
+    "encoding/japanese",
+    "encoding/korean",
+    "encoding/simplifiedchinese",
+    "encoding/traditionalchinese",
+    "encoding/unicode",
     "internal/gen",
+    "internal/tag",
     "internal/triegen",
     "internal/ucd",
+    "internal/utf8internal",
+    "language",
+    "runes",
     "transform",
     "unicode/cldr",
     "unicode/norm"
@@ -498,6 +563,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "847f165795d03c64d97dfa8eb6fb7e7a101bbc2437f95af305ad37d68b9f4791"
+  inputs-digest = "531ee1209e5bff2a786631528eafe484c7a782b840ec417038eb6f8e7cbd766c"
   solver-name = "gps-cdcl"
   solver-version = 1

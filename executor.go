@@ -8,6 +8,11 @@ import (
 	"github.com/devopsfaith/krakend-cobra"
 	"github.com/devopsfaith/krakend-gologging"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
+	opencensus "github.com/devopsfaith/krakend-opencensus"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
 	router "github.com/devopsfaith/krakend/router/gin"
@@ -34,7 +39,10 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, logger); err != nil {
 			logger.Error(err.Error())
-			return
+		}
+
+		if err := opencensus.Register(ctx, cfg); err != nil {
+			logger.Error(err.Error())
 		}
 
 		// setup the krakend router

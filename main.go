@@ -8,7 +8,13 @@ import (
 	"syscall"
 
 	"github.com/devopsfaith/krakend-cobra"
+	flexibleconfig "github.com/devopsfaith/krakend-flexibleconfig"
 	"github.com/devopsfaith/krakend-viper"
+)
+
+const (
+	fcPartials = "FC_PARTIALS"
+	fcSettings = "FC_SETTINGS"
 )
 
 func main() {
@@ -28,5 +34,12 @@ func main() {
 
 	RegisterEncoders()
 
-	cmd.Execute(viper.New(), NewExecutor(ctx))
+	cmd.Execute(
+		flexibleconfig.NewTemplateParser(flexibleconfig.Config{
+			Parser:   viper.New(),
+			Partials: os.Getenv(fcPartials),
+			Settings: os.Getenv(fcSettings),
+		}),
+		NewExecutor(ctx),
+	)
 }

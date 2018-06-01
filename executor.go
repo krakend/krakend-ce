@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"os"
-	"time"
 
 	"github.com/devopsfaith/krakend-cobra"
 	"github.com/devopsfaith/krakend-gologging"
@@ -35,7 +34,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		RegisterSubscriberFactories(ctx, cfg, logger)
 
 		// create the metrics collector
-		metricCollector := metrics.New(ctx, time.Minute, logger)
+		metricCollector := metrics.New(ctx, cfg.ExtraConfig, logger)
 
 		if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, logger); err != nil {
 			logger.Error(err.Error())

@@ -10,4 +10,4 @@ VOLUME [ "/etc/krakend" ]
 ENTRYPOINT [ "/usr/bin/krakend" ]
 CMD [ "run", "-c", "/etc/krakend/krakend.json" ]
 
-EXPOSE 8080
+EXPOSE 8000 8090

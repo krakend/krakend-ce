@@ -130,7 +130,7 @@
     "gin",
     "mux"
   ]
-  revision = "208fe67a6129789936e58eda7c4bc6d205943f4f"
+  revision = "96c245e74ec40ba0f3bcef9d386e042c793c44fc"
 
 [[projects]]
   branch = "master"

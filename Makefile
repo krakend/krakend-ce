@@ -68,7 +68,7 @@ build:
 
 docker_build:
 	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} lushdigital/docker-golang-dep ensure -v
-	docker run --rm -it -e "GOPATH=/go" -p 8080:8080 -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:1.9.2 make build
+	docker run --rm -it -e "GOPATH=/go" -p 8080:8080 -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:1.10.2 make build
 
 docker_build_alpine:
 	docker build -t krakend_alpine_compiler builder/alpine

@@ -62,7 +62,7 @@ http://www.krakend.io/docs/overview/introduction/
 
 ## Build Requirements
 
-- golang 1.9
+- golang 1.10
 - `dep`
 
 ## Build

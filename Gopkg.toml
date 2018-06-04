@@ -32,7 +32,7 @@
   name = "github.com/letgoapp/krakend-influx"
 
 [[constraint]]
-  branch = "0.5-dev"
+  version = "0.5"
   name = "github.com/devopsfaith/krakend"
 
 [[constraint]]
@@ -64,7 +64,7 @@
   name = "github.com/devopsfaith/krakend-martian"
 
 [[constraint]]
-  branch = "0.5-dev"
+  version = "0.5.0"
   name = "github.com/devopsfaith/krakend-metrics"
 
 [[constraint]]
@@ -80,5 +80,5 @@
   name = "github.com/devopsfaith/krakend-viper"
 
 [[constraint]]
-  branch = "master"
+  version = "0.5.0"
   name = "github.com/devopsfaith/krakend-opencensus"

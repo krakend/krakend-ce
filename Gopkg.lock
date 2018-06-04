@@ -50,7 +50,6 @@
   version = "v0.2.0"
 
 [[projects]]
-  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -66,7 +65,8 @@
     "sd",
     "sd/dnssrv"
   ]
-  revision = "ed0d73dcd173a5e34b9adb41db81217b32ea8bfd"
+  revision = "a9119126330c3d376857bdd6ec05c57c2dea670b"
+  version = "0.5"
 
 [[projects]]
   branch = "master"
@@ -123,14 +123,14 @@
   revision = "2757b21be9ac45e04bebee8feb7481f695d62b79"
 
 [[projects]]
-  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend-metrics"
   packages = [
     ".",
     "gin",
     "mux"
   ]
-  revision = "96c245e74ec40ba0f3bcef9d386e042c793c44fc"
+  revision = "f563c518da3c3fa8ad05e74179824397c996cb7e"
+  version = "0.5.0"
 
 [[projects]]
   branch = "master"
@@ -139,7 +139,6 @@
   revision = "401bac10b674c03508691b701fd6719e3e71ca4a"
 
 [[projects]]
-  branch = "master"
   name = "github.com/devopsfaith/krakend-opencensus"
   packages = [
     ".",
@@ -149,7 +148,8 @@
     "exporter/zipkin",
     "router/gin"
   ]
-  revision = "e8bd6c9fc4af12f58bd9b520184526b2ea152c94"
+  revision = "7c9e0428d4f70aacc1c3f55619e666d74387eb99"
+  version = "0.5.0"
 
 [[projects]]
   branch = "master"
@@ -569,6 +569,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "41fa7cb652a49cd55fe6c1fb1a645fa8d5f629c9eac7f3a9b6a00b10fca5ea94"
+  inputs-digest = "4c82f9d5932ddbbf7142c9e2be68b351295557388ba7c9391bab37f2d3022911"
   solver-name = "gps-cdcl"
   solver-version = 1

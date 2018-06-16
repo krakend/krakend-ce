@@ -80,5 +80,5 @@
   name = "github.com/devopsfaith/krakend-viper"
 
 [[constraint]]
-  version = "0.5.0"
+  version = "0.5.1"
   name = "github.com/devopsfaith/krakend-opencensus"

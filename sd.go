@@ -2,7 +2,9 @@ package main
 
 import (
 	"context"
+	"fmt"
 
+	consul "github.com/devopsfaith/krakend-consul"
 	"github.com/devopsfaith/krakend-etcd"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -11,7 +13,7 @@ import (
 )
 
 // RegisterSubscriberFactories registers all the available sd adaptors
-func RegisterSubscriberFactories(ctx context.Context, cfg config.ServiceConfig, logger logging.Logger) {
+func RegisterSubscriberFactories(ctx context.Context, cfg config.ServiceConfig, logger logging.Logger) func(n string, p int) {
 	// setup the etcd client if necessary
 	etcdClient, err := etcd.New(ctx, cfg.ExtraConfig)
 	if err != nil {
@@ -21,4 +23,10 @@ func RegisterSubscriberFactories(ctx context.Context, cfg config.ServiceConfig, 
 
 	// register the dns service discovery
 	dnssrv.Register()
+
+	return func(name string, port int) {
+		if err := consul.Register(ctx, cfg.ExtraConfig, port, name, logger); err != nil {
+			logger.Error(fmt.Sprintf("Couldn't register %s:%d in consul: %s", name, port, err.Error()))
+		}
+	}
 }

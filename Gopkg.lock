@@ -22,6 +22,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/auth0-community/go-auth0"
+  packages = ["."]
+  revision = "ac84847319d2d9c15a4fa3093715f5bb7bcf4487"
+
+[[projects]]
+  branch = "master"
   name = "github.com/beorn7/perks"
   packages = ["quantile"]
   revision = "3a771d992973f24aa725d07868b467d1ddfceafb"
@@ -48,6 +54,19 @@
   packages = ["semver"]
   revision = "8ab6407b697782a06568d4b7f1db25550ec2e4c6"
   version = "v0.2.0"
+
+[[projects]]
+  branch = "rejecter"
+  name = "github.com/devopsfaith/bloomfilter"
+  packages = [
+    ".",
+    "bloomfilter",
+    "krakend",
+    "rotate",
+    "rpc",
+    "rpc/server"
+  ]
+  revision = "8f3886f57fb9ef064537115b984b716c5648a89e"
 
 [[projects]]
   name = "github.com/devopsfaith/krakend"
@@ -85,6 +104,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-consul"
+  packages = ["."]
+  revision = "2da968420b5dc2560af3a137489a38230d8117e0"
+
+[[projects]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend-etcd"
   packages = ["."]
   revision = "bd645943ff8ce2135252caafa42abc34f2c14a7d"
@@ -115,6 +140,12 @@
     "gin"
   ]
   revision = "c590f70c35150efc501b22e919b43b9866632de9"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-jose"
+  packages = ["."]
+  revision = "ac1cf883a38d4f8be3ea21c1d4d385744179c7b4"
 
 [[projects]]
   branch = "master"
@@ -204,6 +235,12 @@
   version = "v1.2"
 
 [[projects]]
+  name = "github.com/go-contrib/uuid"
+  packages = ["."]
+  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
+  version = "v1.2.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
@@ -232,6 +269,24 @@
   revision = "9cad4c3443a7200dd6400aef47183728de563a38"
 
 [[projects]]
+  name = "github.com/hashicorp/consul"
+  packages = ["api"]
+  revision = "28141971f966e99916da2c5e461dd968746491cd"
+  version = "v1.2.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/hashicorp/go-cleanhttp"
+  packages = ["."]
+  revision = "d5fe4b57a186c716b0e00b8c301cbd9b4182694d"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/hashicorp/go-rootcerts"
+  packages = ["."]
+  revision = "6bb64b370b90e7ef1fa532be9e591a81c3493e00"
+
+[[projects]]
   branch = "master"
   name = "github.com/hashicorp/hcl"
   packages = [
@@ -246,6 +301,12 @@
     "json/token"
   ]
   revision = "23c074d0eceb2b8a5bfdbb271ab780cde70f05a8"
+
+[[projects]]
+  name = "github.com/hashicorp/serf"
+  packages = ["coordinate"]
+  revision = "d6574a5bb1226678d7010325fb6c985db20ee458"
+  version = "v0.8.1"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -303,6 +364,12 @@
   packages = ["pbutil"]
   revision = "3247c84500bff8d9fb6d579d800f20b3e091582c"
   version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mitchellh/go-homedir"
+  packages = ["."]
+  revision = "3864e76763d94a6df2f9960b16a20a33da9f9a66"
 
 [[projects]]
   branch = "master"
@@ -441,6 +508,57 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/tmthrgd/asm"
+  packages = ["."]
+  revision = "4be3ab5ca701563b932e93c3f3b58aad8b5ed230"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tmthrgd/atomics"
+  packages = ["."]
+  revision = "6910de195248d94fb2304103b0466f7e756abd63"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tmthrgd/go-bitset"
+  packages = [
+    ".",
+    "internal/bitwise"
+  ]
+  revision = "4d1be735fbfbc2429d0e60f6f4a9ca193b9fe7a9"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tmthrgd/go-bitwise"
+  packages = ["."]
+  revision = "01bef038b6bd65962895f1c8405d1a727b3f4856"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tmthrgd/go-byte-test"
+  packages = ["."]
+  revision = "2eb5216b83f7583e97cb0d137b7b63ce72cbb654"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tmthrgd/go-hex"
+  packages = ["."]
+  revision = "13ed8ac0738b1390630f86f6bf0943730c6d8037"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tmthrgd/go-memset"
+  packages = ["."]
+  revision = "7cfc73a3a28b4a6d6bd2a40dc00268ae6afe66be"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tmthrgd/go-popcount"
+  packages = ["."]
+  revision = "3918361d3e9781714bbdb3ad9c11de4fa5c73d34"
+
+[[projects]]
+  branch = "master"
   name = "github.com/ugorji/go"
   packages = ["codec"]
   revision = "f0aa215a7d653544d39d0e27dfa10fa4b183f397"
@@ -472,6 +590,15 @@
     "trace/propagation"
   ]
   revision = "ebd8d31470fedf6c27d0e3056653ddff642509b8"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/crypto"
+  packages = [
+    "ed25519",
+    "ed25519/internal/edwards25519"
+  ]
+  revision = "a49355c7e3f8fe157a85be2f77e6e269a0f89602"
 
 [[projects]]
   branch = "master"
@@ -561,6 +688,17 @@
   version = "v8.18.2"
 
 [[projects]]
+  name = "gopkg.in/square/go-jose.v2"
+  packages = [
+    ".",
+    "cipher",
+    "json",
+    "jwt"
+  ]
+  revision = "76dd09796242edb5b897103a75df2645c028c960"
+  version = "v2.1.6"
+
+[[projects]]
   branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
@@ -569,6 +707,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fbeee1874ca1dcdf0a862a5e9c371260dcdd78b3b0ac623b46f2893559b58981"
+  inputs-digest = "89f21d2221d3a4bca30e273389f5e75d26f3dc4bfae6697c619ba19a4c4331da"
   solver-name = "gps-cdcl"
   solver-version = 1

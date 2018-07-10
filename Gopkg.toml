@@ -82,3 +82,15 @@
 [[constraint]]
   version = "0.5.1"
   name = "github.com/devopsfaith/krakend-opencensus"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-jose"
+
+[[constraint]]
+  branch = "rejecter"
+  name = "github.com/devopsfaith/bloomfilter"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-consul"

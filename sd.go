@@ -28,5 +28,7 @@ func RegisterSubscriberFactories(ctx context.Context, cfg config.ServiceConfig, 
 		if err := consul.Register(ctx, cfg.ExtraConfig, port, name, logger); err != nil {
 			logger.Error(fmt.Sprintf("Couldn't register %s:%d in consul: %s", name, port, err.Error()))
 		}
+
+		// TODO: add the call to the etcd service register
 	}
 }

@@ -94,3 +94,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-consul"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-cors"

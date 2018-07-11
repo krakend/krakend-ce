@@ -110,6 +110,15 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-cors"
+  packages = [
+    ".",
+    "gin"
+  ]
+  revision = "5f9ad9212b9c177ddb59f738fe9b29d2b07c652b"
+
+[[projects]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend-etcd"
   packages = ["."]
   revision = "bd645943ff8ce2135252caafa42abc34f2c14a7d"
@@ -682,6 +691,12 @@
   version = "v1.0.0"
 
 [[projects]]
+  name = "gopkg.in/gin-contrib/cors.v1"
+  packages = ["."]
+  revision = "cf4846e6a636a76237a28d9286f163c132e841bc"
+  version = "v1.2"
+
+[[projects]]
   name = "gopkg.in/go-playground/validator.v8"
   packages = ["."]
   revision = "5f1438d3fca68893a817e4a66806cea46a9e4ebf"
@@ -707,6 +722,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "89f21d2221d3a4bca30e273389f5e75d26f3dc4bfae6697c619ba19a4c4331da"
+  inputs-digest = "cae9170a7c70eca8e214c7e10aca3189bf7c5fdfd0c468a619373142a7284082"
   solver-name = "gps-cdcl"
   solver-version = 1

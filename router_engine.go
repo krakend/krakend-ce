@@ -1,6 +1,7 @@
 package main
 
 import (
+	cors "github.com/devopsfaith/krakend-cors/gin"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -14,6 +15,8 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger) *gin.Engine {
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true
 	engine.HandleMethodNotAllowed = true
+
+	engine.Use(cors.New(cfg.ExtraConfig))
 
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
 		logger.Error(err)

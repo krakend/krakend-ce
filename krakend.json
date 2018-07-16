@@ -1,20 +1,143 @@
 {
     "version": 2,
     "name": "My lovely gateway",
-    "port": 8080,
+    "port": 8000,
     "cache_ttl": "3600s",
     "timeout": "3s",
+    "extra_config": {
+      "github_com/devopsfaith/krakend-gologging": {
+        "level":  "DEBUG",
+        "prefix": "[KRAKEND]",
+        "syslog": false,
+        "stdout": true
+      },
+      "github_com/devopsfaith/krakend-metrics": {
+        "collection_time": "60s",
+        "proxy_disabled": false,
+        "router_disabled": false,
+        "backend_disabled": false,
+        "endpoint_disabled": false,
+        "listen_address": ":8090"
+      },
+      "github_com/devopsfaith/krakend-cors": {
+        "allow_origins": [ "http://192.168.99.100:3000", "http://localhost:3000" ],
+        "allow_methods": [ "POST", "GET" ],
+        "allow_headers": [ "Origin", "Authorization", "Content-Type" ],
+        "expose_headers": [ "Content-Length" ],
+        "max_age": "12h"
+      }
+    },
     "endpoints": [
         {
-            "endpoint": "/github/{user}",
+            "endpoint": "/supu",
+            "method": "GET",
+            "headers_to_pass": ["Authorization", "Content-Type"],
             "backend": [
                 {
-                    "host": [ "https://api.github.com" ],
+                    "host": [
+                        "http://127.0.0.1:8000"
+                    ],
+                    "url_pattern": "/__debug/supu",
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-martian": {
+                            "fifo.Group": {
+                                "scope": ["request", "response"],
+                                "aggregateErrors": true,
+                                "modifiers": [
+                                {
+                                    "header.Modifier": {
+                                        "scope": ["request", "response"],
+                                        "name" : "X-Martian",
+                                        "value" : "ouh yeah!"
+                                    }
+                                },
+                                {
+                                    "header.RegexFilter": {
+                                        "scope": ["request"],
+                                        "header" : "X-Neptunian",
+                                        "regex" : "no!",
+                                        "modifier": {
+                                            "header.Modifier": {
+                                                "scope": ["request"],
+                                                "name" : "X-Martian-New",
+                                                "value" : "some value"
+                                            }
+                                        }
+                                    }
+                                }
+                                ]
+                            }
+                        },
+                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "maxErrors": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "endpoint": "/github/{user}",
+            "method": "GET",
+            "backend": [
+                {
+                    "host": [
+                        "https://api.github.com"
+                    ],
                     "url_pattern": "/",
                     "whitelist": [
                         "authorizations_url",
                         "code_search_url"
-                    ]
+                    ],
+                    "disable_host_sanitize": true,
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-martian": {
+                            "fifo.Group": {
+                                "scope": ["request", "response"],
+                                "aggregateErrors": true,
+                                "modifiers": [
+                                {
+                                    "header.Modifier": {
+                                        "scope": ["request", "response"],
+                                        "name" : "X-Martian",
+                                        "value" : "ouh yeah!"
+                                    }
+                                },
+                                {
+                                    "body.Modifier": {
+                                        "scope": ["request"],
+                                        "contentType" : "application/json",
+                                        "body" : "eyJtc2ciOiJ5b3Ugcm9jayEifQ=="
+                                    }
+                                },
+                                {
+                                    "header.RegexFilter": {
+                                        "scope": ["request"],
+                                        "header" : "X-Neptunian",
+                                        "regex" : "no!",
+                                        "modifier": {
+                                            "header.Modifier": {
+                                                "scope": ["request"],
+                                                "name" : "X-Martian-New",
+                                                "value" : "some value"
+                                            }
+                                        }
+                                    }
+                                }
+                                ]
+                            }
+                        },
+                        "github.com/devopsfaith/krakend-ratelimit/juju/proxy": {
+                            "maxRate": 2,
+                            "capacity": 2
+                        },
+                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "maxErrors": 1
+                        }
+                    }
                 }
             ]
         },
@@ -33,8 +156,62 @@
             "extra_config": {
                 "github.com/devopsfaith/krakend-jose/validator": {
                     "alg": "RS256",
-                    "jwk-url": "https://albert-test.auth0.com/.well-known/jwks.json",
-                    "roles": ["role_a"]
+                    "aud": "http://api.example.com",
+                    "roles_key": "http://api.example.com/custom/roles",
+                    "roles": [ "user", "admin" ],
+                    "jwk-url": "https://albert-test.auth0.com/.well-known/jwks.json"
+                }
+            }
+        },
+        {
+            "endpoint": "/show/{id}",
+            "backend": [
+                {
+                    "host": [
+                        "http://showrss.info/"
+                    ],
+                    "url_pattern": "/user/schedule/{id}.rss",
+                    "encoding": "rss",
+                    "group": "schedule",
+                    "whitelist": ["items", "title"],
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-ratelimit/juju/proxy": {
+                            "maxRate": 1,
+                            "capacity": 1
+                        },
+                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "maxErrors": 1
+                        }
+                    }
+                },
+                {
+                    "host": [
+                        "http://showrss.info/"
+                    ],
+                    "url_pattern": "/user/{id}.rss",
+                    "encoding": "rss",
+                    "group": "available",
+                    "whitelist": ["items", "title"],
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-ratelimit/juju/proxy": {
+                            "maxRate": 2,
+                            "capacity": 2
+                        },
+                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "maxErrors": 1
+                        }
+                    }
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend-ratelimit/juju/router": {
+                    "maxRate": 50,
+                    "clientMaxRate": 5,
+                    "strategy": "ip"
                 }
             }
         }

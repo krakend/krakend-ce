@@ -2,22 +2,35 @@
 
 
 [[projects]]
+  branch = "master"
+  name = "git.apache.org/thrift.git"
+  packages = ["lib/go/thrift"]
+  revision = "88591e32e710a0524327153c8b629d5b461e35e0"
+  source = "github.com/apache/thrift"
+
+[[projects]]
   name = "github.com/PuerkitoBio/goquery"
   packages = ["."]
-  revision = "e1271ee34c6a305e38566ecd27ae374944907ee9"
-  version = "v1.1.0"
+  revision = "a86ea073017a6beddef78c8659e7224e8ca634b0"
+  version = "v1.4.0"
+
+[[projects]]
+  name = "github.com/andybalholm/cascadia"
+  packages = ["."]
+  revision = "901648c87902174f774fac311d7f176f8647bdaa"
+  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
-  name = "github.com/andybalholm/cascadia"
-  packages = ["."]
-  revision = "349dd0209470eabd9514242c688c403c0926d266"
+  name = "github.com/beorn7/perks"
+  packages = ["quantile"]
+  revision = "3a771d992973f24aa725d07868b467d1ddfceafb"
 
 [[projects]]
   name = "github.com/clbanning/mxj"
   packages = ["."]
-  revision = "1cda74d18ebbb04f525b355309c16d594e1f8f77"
-  version = "v1.6.1"
+  revision = "1f00e0bf9bacd7ea9c93d27594d1d1f5a41bac36"
+  version = "v1.8"
 
 [[projects]]
   name = "github.com/coreos/etcd"
@@ -37,7 +50,6 @@
   version = "v0.2.0"
 
 [[projects]]
-  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -53,7 +65,8 @@
     "sd",
     "sd/dnssrv"
   ]
-  revision = "471983213d8e8ffc3da047443f190e0e11f2ae32"
+  revision = "a9119126330c3d376857bdd6ec05c57c2dea670b"
+  version = "0.5"
 
 [[projects]]
   branch = "master"
@@ -75,6 +88,12 @@
   name = "github.com/devopsfaith/krakend-etcd"
   packages = ["."]
   revision = "bd645943ff8ce2135252caafa42abc34f2c14a7d"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-flexibleconfig"
+  packages = ["."]
+  revision = "1c8c8897842abec29842d5669c4abdc84e6398be"
 
 [[projects]]
   branch = "master"
@@ -110,20 +129,33 @@
   revision = "2757b21be9ac45e04bebee8feb7481f695d62b79"
 
 [[projects]]
-  branch = "0.5-dev"
   name = "github.com/devopsfaith/krakend-metrics"
   packages = [
     ".",
     "gin",
     "mux"
   ]
-  revision = "c6bc38ddbbc0e30efc78cdfeda079741c0d40264"
+  revision = "f563c518da3c3fa8ad05e74179824397c996cb7e"
+  version = "0.5.0"
 
 [[projects]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
   packages = ["."]
   revision = "401bac10b674c03508691b701fd6719e3e71ca4a"
+
+[[projects]]
+  name = "github.com/devopsfaith/krakend-opencensus"
+  packages = [
+    ".",
+    "exporter/influxdb",
+    "exporter/jaeger",
+    "exporter/prometheus",
+    "exporter/zipkin",
+    "router/gin"
+  ]
+  revision = "d0bdede82f4e90fd4d33a71a64ddb4108d745954"
+  version = "0.5.1"
 
 [[projects]]
   branch = "master"
@@ -138,10 +170,10 @@
   revision = "407bf6926e70a985ee6b21a7bbcc2260b5c3c41a"
 
 [[projects]]
-  branch = "plugin"
   name = "github.com/devopsfaith/krakend-rss"
   packages = ["."]
   revision = "4c18c62a99ee830ab298ea422ba8568c7bcf7951"
+  version = "0.5.0"
 
 [[projects]]
   branch = "master"
@@ -150,10 +182,10 @@
   revision = "3abc4134a773578643b46aa11431f72cc6d41e8a"
 
 [[projects]]
-  branch = "plugin"
   name = "github.com/devopsfaith/krakend-xml"
   packages = ["."]
   revision = "5ce94062a4cccce87e791e86272c9d95512529d4"
+  version = "0.5.0"
 
 [[projects]]
   name = "github.com/fsnotify/fsnotify"
@@ -245,6 +277,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/kpacha/opencensus-influxdb"
+  packages = ["."]
+  revision = "1b490a38de4c5c98e0414e4676aba2e00c5cfd45"
+
+[[projects]]
+  branch = "master"
   name = "github.com/letgoapp/krakend-influx"
   packages = [
     ".",
@@ -267,6 +305,12 @@
   version = "v0.0.3"
 
 [[projects]]
+  name = "github.com/matttproud/golang_protobuf_extensions"
+  packages = ["pbutil"]
+  revision = "3247c84500bff8d9fb6d579d800f20b3e091582c"
+  version = "v1.0.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
@@ -281,8 +325,8 @@
     "internal/shared",
     "rss"
   ]
-  revision = "303223474e837398b2f8a265e5572958bb5568c0"
-  version = "v1.0.0-beta"
+  revision = "42010a154d249f5f753dfe03a6390b59671e403e"
+  version = "v1.0.0-beta2"
 
 [[projects]]
   branch = "master"
@@ -296,10 +340,56 @@
   revision = "970db520ece77730c7e4724c61121037378659d9"
 
 [[projects]]
+  name = "github.com/openzipkin/zipkin-go"
+  packages = [
+    "model",
+    "reporter",
+    "reporter/http"
+  ]
+  revision = "f197ec29e729f226d23370ea60f0e49b8f44ccf4"
+  version = "v0.1.0"
+
+[[projects]]
   name = "github.com/pelletier/go-toml"
   packages = ["."]
   revision = "16398bac157da96aa88f98a2df640c7f32af1da2"
   version = "v1.0.1"
+
+[[projects]]
+  name = "github.com/prometheus/client_golang"
+  packages = [
+    "prometheus",
+    "prometheus/promhttp"
+  ]
+  revision = "c5b7fccd204277076155f10851dad72b76a49317"
+  version = "v0.8.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/prometheus/client_model"
+  packages = ["go"]
+  revision = "99fa1f4be8e564e8a6b613da7fa6f46c9edafc6c"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/prometheus/common"
+  packages = [
+    "expfmt",
+    "internal/bitbucket.org/ww/goautoneg",
+    "model"
+  ]
+  revision = "7600349dcfe1abd18d72d3a1770870d9800a7801"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/prometheus/procfs"
+  packages = [
+    ".",
+    "internal/util",
+    "nfs",
+    "xfs"
+  ]
+  revision = "8b1c2da0d56deffdbb9e48d4414b4e674bd8083e"
 
 [[projects]]
   branch = "master"
@@ -369,6 +459,28 @@
 
 [[projects]]
   branch = "master"
+  name = "go.opencensus.io"
+  packages = [
+    "exporter/jaeger",
+    "exporter/jaeger/internal/gen-go/jaeger",
+    "exporter/prometheus",
+    "exporter/zipkin",
+    "internal",
+    "internal/tagencoding",
+    "plugin/ochttp",
+    "plugin/ochttp/propagation/b3",
+    "stats",
+    "stats/internal",
+    "stats/view",
+    "tag",
+    "trace",
+    "trace/internal",
+    "trace/propagation"
+  ]
+  revision = "ebd8d31470fedf6c27d0e3056653ddff642509b8"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/net"
   packages = [
     "context",
@@ -388,6 +500,12 @@
     "internal"
   ]
   revision = "2f32c3ac0fa4fb807a0fcefb0b6f2468a0d99bd0"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/sync"
+  packages = ["semaphore"]
+  revision = "1d60e4601c6fd243af51cc01ddf169918a5407ca"
 
 [[projects]]
   branch = "master"
@@ -423,6 +541,12 @@
   revision = "75cc3cad82b5f47d3fb229ddda8c5167da14f294"
 
 [[projects]]
+  branch = "master"
+  name = "google.golang.org/api"
+  packages = ["support/bundler"]
+  revision = "4f7dd2b006a4ffd9fd683c1c734d2fe91ca0ea1c"
+
+[[projects]]
   name = "google.golang.org/appengine"
   packages = [
     "internal",
@@ -451,6 +575,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "cf9582fd4b27092d4591c24c8b444f94631a3acc9be424ac2d178d9b86c7264a"
+  inputs-digest = "8a69b74e0fc8d44b3983c511fe47ef32991e82c0500ee34f4eaca0b68ca6843a"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -4,11 +4,15 @@ import (
 	"context"
 	"io/ioutil"
 	"os"
-	"time"
 
 	"github.com/devopsfaith/krakend-cobra"
 	"github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
+	opencensus "github.com/devopsfaith/krakend-opencensus"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
 	router "github.com/devopsfaith/krakend/router/gin"
@@ -33,15 +37,19 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		// create the metrics collector
 		devNull, _ := logging.NewLogger("CRITICAL", ioutil.Discard, "")
-		metricCollector := metrics.New(ctx, time.Minute, devNull)
+		metricCollector := metrics.New(ctx, cfg.ExtraConfig, devNull)
 
 		if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, logger); err != nil {
 			logger.Error(err.Error())
 		}
 
+		if err := opencensus.Register(ctx, cfg); err != nil {
+			logger.Error(err.Error())
+		}
+
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
-			Engine:         NewEngine(cfg, logger, metricCollector),
+			Engine:         NewEngine(cfg, logger),
 			ProxyFactory:   NewProxyFactory(logger, NewBackendFactory(logger, metricCollector), metricCollector),
 			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,

@@ -154,7 +154,7 @@
   branch = "master"
   name = "github.com/devopsfaith/krakend-jose"
   packages = ["."]
-  revision = "8424444b531cd4741ebfb07d986b606ac5dc5382"
+  revision = "b06c2321c5a43df02790893b0fd9003bd8482c0b"
 
 [[projects]]
   branch = "master"

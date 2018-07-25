@@ -16,7 +16,9 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger) *gin.Engine {
 	engine.RedirectFixedPath = true
 	engine.HandleMethodNotAllowed = true
 
-	engine.Use(cors.New(cfg.ExtraConfig))
+	if corsMw := cors.New(cfg.ExtraConfig); corsMw != nil {
+		engine.Use(corsMw)
+	}
 
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
 		logger.Error(err)

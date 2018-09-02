@@ -11,6 +11,10 @@
   name = "github.com/coreos/etcd"
   revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
 
+[[override]]
+  version = "0.6.0"
+  name = "github.com/devopsfaith/krakend"
+
 [[constraint]]
   name = "github.com/gin-gonic/gin"
   version = "1.2.0"
@@ -82,6 +86,18 @@
 [[constraint]]
   version = "0.5.1"
   name = "github.com/devopsfaith/krakend-opencensus"
+
+[[constraint]]
+  version = "0.6.0"
+  name = "github.com/devopsfaith/krakend-jose"
+
+[[constraint]]
+  branch = "rejecter"
+  name = "github.com/devopsfaith/bloomfilter"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-consul"
 
 [[constraint]]
   branch = "master"

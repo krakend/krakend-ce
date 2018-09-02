@@ -225,7 +225,7 @@
   revision = "401bac10b674c03508691b701fd6719e3e71ca4a"
 
 [[projects]]
-  digest = "1:6f2b9f029a94b24769eded1b1bade30488bdade44ddda79444237ad23218ff82"
+  digest = "1:044db4b01c80747e8ff63cbaf20807f8d307494e51c2e701a5d983e9785ecc43"
   name = "github.com/devopsfaith/krakend-opencensus"
   packages = [
     ".",
@@ -236,8 +236,8 @@
     "router/gin",
   ]
   pruneopts = ""
-  revision = "d0bdede82f4e90fd4d33a71a64ddb4108d745954"
-  version = "0.5.1"
+  revision = "8f953d8c513aa64096f371f385a67b0739502659"
+  version = "0.6.0"
 
 [[projects]]
   branch = "master"

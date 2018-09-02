@@ -16,6 +16,7 @@ import (
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
+	krakendrouter "github.com/devopsfaith/krakend/router"
 	router "github.com/devopsfaith/krakend/router/gin"
 	"github.com/gin-gonic/gin"
 	"github.com/letgoapp/krakend-influx"
@@ -43,7 +44,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		}
 
 		if err := opencensus.Register(ctx, cfg); err != nil {
-			logger.Error(err.Error())
+			logger.Error("opencensus:", err.Error())
 		}
 
 		rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, logger, reg)
@@ -59,6 +60,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,
 			HandlerFactory: NewHandlerFactory(logger, metricCollector, jose.RejecterFunc(rejecter.RejectToken)),
+			RunServer:      krakendrouter.RunServer,
 		})
 
 		// start the engines

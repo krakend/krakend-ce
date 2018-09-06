@@ -100,5 +100,5 @@
   name = "github.com/devopsfaith/krakend-consul"
 
 [[constraint]]
-  branch = "master"
+  version = "0.6.0"
   name = "github.com/devopsfaith/krakend-cors"

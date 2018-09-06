@@ -135,15 +135,15 @@
   revision = "2da968420b5dc2560af3a137489a38230d8117e0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:29724b4d9a035774e2d183b601c36ab101b03c1a9988d416ee1eb0cdf929881e"
+  digest = "1:fc61e61898c78455700e0bf3d6e86478073254488c3391f0716ad37a2144a5a6"
   name = "github.com/devopsfaith/krakend-cors"
   packages = [
     ".",
     "gin",
   ]
   pruneopts = ""
-  revision = "5f9ad9212b9c177ddb59f738fe9b29d2b07c652b"
+  revision = "c9b7eb26914f72a8da218176edd54ae6f4da555e"
+  version = "0.6.0"
 
 [[projects]]
   branch = "master"

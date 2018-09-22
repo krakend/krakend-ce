@@ -178,15 +178,15 @@
   revision = "762918c1ba75c6fa59362d2040833f295e98fd4a"
 
 [[projects]]
-  branch = "master"
-  digest = "1:32550627b062dd70aa036382b8104ca485ba059ebda5655676e7bc502cda2cea"
+  digest = "1:173108fc6f028106c689ebc5c275ef97042f073da866dd6939a45baa78e00ef2"
   name = "github.com/devopsfaith/krakend-httpsecure"
   packages = [
     ".",
     "gin",
   ]
   pruneopts = ""
-  revision = "c590f70c35150efc501b22e919b43b9866632de9"
+  revision = "cce73b27c7174ebf729e77ba1718a44a71bf4008"
+  version = "0.6.0"
 
 [[projects]]
   digest = "1:eaf1998992009b37e16063a7e8088ace7e7fd68584121bbe22eeb061b5c02c22"
@@ -294,16 +294,17 @@
   revision = "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae"
 
 [[projects]]
-  digest = "1:348ceb76f2ac958e541e4ba3190484b68df28c38ac9720ed4ef8d36af69ce52e"
+  digest = "1:748df8eda48a48d6d05ebb848a6cf966f846fa4e6179f8731385d04d7a287fc1"
   name = "github.com/gin-gonic/gin"
   packages = [
     ".",
     "binding",
+    "json",
     "render",
   ]
   pruneopts = ""
-  revision = "d459835d2b077e44f7c9b453505ee29881d5d12d"
-  version = "v1.2"
+  revision = "b869fe1415e4b9eb52f247441830d502aece2d4d"
+  version = "v1.3.0"
 
 [[projects]]
   digest = "1:7f569d906bdd20d906b606415b7d794f798f91a62fcfb6a4daa6d50690fb7a3f"
@@ -418,6 +419,14 @@
   version = "v1.5.2"
 
 [[projects]]
+  digest = "1:b79fc583e4dc7055ed86742e22164ac41bf8c0940722dbcb600f1a3ace1a8cb5"
+  name = "github.com/json-iterator/go"
+  packages = ["."]
+  pruneopts = ""
+  revision = "1624edc4454b8682399def8740d46db5e4362ba4"
+  version = "v1.1.5"
+
+[[projects]]
   branch = "master"
   digest = "1:d26c006cbf54ca5c040463d5678013169e2bd91fb62c2f960ae283a1723d4278"
   name = "github.com/juju/ratelimit"
@@ -507,6 +516,22 @@
   packages = ["."]
   pruneopts = ""
   revision = "77e4a51a73ed99ee3f33c1474dc166866304acbd"
+
+[[projects]]
+  digest = "1:0c0ff2a89c1bb0d01887e1dac043ad7efbf3ec77482ef058ac423d13497e16fd"
+  name = "github.com/modern-go/concurrent"
+  packages = ["."]
+  pruneopts = ""
+  revision = "bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94"
+  version = "1.0.3"
+
+[[projects]]
+  digest = "1:e32bdbdb7c377a07a9a46378290059822efdce5c8d96fe71940d87cb4f918855"
+  name = "github.com/modern-go/reflect2"
+  packages = ["."]
+  pruneopts = ""
+  revision = "4b7aa43c6742a2c18fdef89dd197aaae7dac7ccd"
+  version = "1.0.1"
 
 [[projects]]
   digest = "1:05299a5fae20b7f12c0f0ccc0281fe5091a2b671f8380084352fda354651e101"

@@ -21,7 +21,7 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger) *gin.Engine {
 	}
 
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
-		logger.Error(err)
+		logger.Warning(err)
 	}
 
 	return engine

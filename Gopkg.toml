@@ -12,7 +12,7 @@
   revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
 
 [[override]]
-  version = "0.6.0"
+  version = "0.6.1"
   name = "github.com/devopsfaith/krakend"
 
 [[constraint]]

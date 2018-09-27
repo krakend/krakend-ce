@@ -87,7 +87,7 @@
   version = "0.6.1"
 
 [[projects]]
-  digest = "1:e56984b7e7a36c6434a88ac80c0177472a578dbf84b37cfb9d0eb0545a045cc0"
+  digest = "1:abbc53b4bbfce768031ac374d664d91f8c782bb0d7cf1847b251d26aca7fba57"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -99,13 +99,14 @@
     "register/internal",
     "router",
     "router/gin",
+    "router/http",
     "router/mux",
     "sd",
     "sd/dnssrv",
   ]
   pruneopts = ""
-  revision = "b978521da32e8164c853807a734147729d06665f"
-  version = "0.6.0"
+  revision = "5aca9386db20759f750c18fd71daee950f2f284d"
+  version = "0.6.1"
 
 [[projects]]
   branch = "master"

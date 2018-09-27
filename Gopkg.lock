@@ -72,7 +72,6 @@
   version = "v0.2.0"
 
 [[projects]]
-  branch = "fix_go111_runtime"
   digest = "1:ad619f6e320fdcaadf3aa3d8872b431b13f8ea80634e057756b7f47ea1311921"
   name = "github.com/devopsfaith/bloomfilter"
   packages = [
@@ -84,7 +83,8 @@
     "rpc/server",
   ]
   pruneopts = ""
-  revision = "943b6f06bd5e8c1e9a06dece931b6e6ce8d4a742"
+  revision = "1ecce393f4fa21b7999d01b399be20f4daaff817"
+  version = "0.6.1"
 
 [[projects]]
   digest = "1:e56984b7e7a36c6434a88ac80c0177472a578dbf84b37cfb9d0eb0545a045cc0"

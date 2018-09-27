@@ -92,7 +92,7 @@
   name = "github.com/devopsfaith/krakend-jose"
 
 [[constraint]]
-  branch = "fix_go111_runtime"
+  version = "0.6.1"
   name = "github.com/devopsfaith/bloomfilter"
 
 [[constraint]]

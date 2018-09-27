@@ -72,8 +72,7 @@
   version = "v0.2.0"
 
 [[projects]]
-  branch = "rejecter"
-  digest = "1:fce1822eeb566e22050a2c14a3ef2dc4995cab71a85b4ec1fb82310c42ace12a"
+  digest = "1:ad619f6e320fdcaadf3aa3d8872b431b13f8ea80634e057756b7f47ea1311921"
   name = "github.com/devopsfaith/bloomfilter"
   packages = [
     ".",
@@ -84,7 +83,8 @@
     "rpc/server",
   ]
   pruneopts = ""
-  revision = "8f3886f57fb9ef064537115b984b716c5648a89e"
+  revision = "1ecce393f4fa21b7999d01b399be20f4daaff817"
+  version = "0.6.1"
 
 [[projects]]
   digest = "1:e56984b7e7a36c6434a88ac80c0177472a578dbf84b37cfb9d0eb0545a045cc0"
@@ -719,19 +719,19 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:0a3311bb338c5168d5f439be4c9cfc924bb27f2bf8558ede68d1663ce045ab31"
+  digest = "1:94738dbc061b9f5bd368ecbe0f56bf23c85c7fe2db6503c78540ef6119c83514"
   name = "github.com/tmthrgd/go-hex"
   packages = ["."]
   pruneopts = ""
-  revision = "13ed8ac0738b1390630f86f6bf0943730c6d8037"
+  revision = "d1fb3dbb16a1d00be1dec2027f83714c7bd920f1"
 
 [[projects]]
   branch = "master"
-  digest = "1:704337506720c4107d63516326925354612c98761dc2ab50a9fe427ba0b9c5bf"
+  digest = "1:f1c763feae1ec6dc79010f3b3d2060ac1c87cb79d6e64dd3abc094437ee39c6e"
   name = "github.com/tmthrgd/go-memset"
   packages = ["."]
   pruneopts = ""
-  revision = "7cfc73a3a28b4a6d6bd2a40dc00268ae6afe66be"
+  revision = "6f4e59bf1e1d4c209adeb0b158ab0411e0d5dc89"
 
 [[projects]]
   branch = "master"
@@ -828,11 +828,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:a52cd7f8c2bbc247318084baffb4ea34754945c4f85fbf42c0bfcebf27704c52"
+  digest = "1:ed900376500543ca05f2a2383e1f541b4606f19cd22f34acb81b17a0b90c7f3e"
   name = "golang.org/x/sys"
-  packages = ["unix"]
+  packages = [
+    "cpu",
+    "unix",
+  ]
   pruneopts = ""
-  revision = "8b4580aae2a0dd0c231a45d3ccb8434ff533b840"
+  revision = "d0be0721c37eeb5299f245a996a483160fc36940"
 
 [[projects]]
   branch = "master"

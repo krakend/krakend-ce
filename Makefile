@@ -7,7 +7,7 @@
 BIN_NAME :=krakend
 DEP_VERSION=0.5.0
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 0.6.0
+VERSION := 0.6.1
 PKGNAME := krakend
 LICENSE := Apache 2.0
 VENDOR=
@@ -19,6 +19,8 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@devops.faith>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
+DOCKER_DEP := instrumentisto/dep:0.5.0-alpine
+GOLANG_VERSION := 1.11.1
 GOBASEDIR=src/github.com/devopsfaith/krakend-ce
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
@@ -67,12 +69,12 @@ build:
 	@echo "You can now use ./${BIN_NAME}"
 
 docker_build:
-	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} lushdigital/docker-golang-dep ensure -v
-	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:1.10.3 make build
+	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} ${DOCKER_DEP} ensure -v
+	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:${GOLANG_VERSION} make build
 
 docker_build_alpine:
 	docker build -t krakend_alpine_compiler builder/alpine
-	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} lushdigital/docker-golang-dep ensure -v
+	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} ${DOCKER_DEP} ensure -v
 	docker run --rm -it -e "BIN_NAME=krakend-alpine" -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} krakend_alpine_compiler make -e build
 
 krakend_docker:

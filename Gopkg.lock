@@ -199,6 +199,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-logstash"
+  packages = ["."]
+  revision = "98392cd01b772ef9bf2484dcc86608cacc1519c8"
+
+[[projects]]
+  branch = "master"
   digest = "1:a95149aa0eca23f256e33a2bbc0a61e8d0b15cf9e239685160b5fa6c333c5cff"
   name = "github.com/devopsfaith/krakend-martian"
   packages = ["."]
@@ -931,6 +937,7 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
+  inputs-digest = "8a69b74e0fc8d44b3983c511fe47ef32991e82c0500ee34f4eaca0b68ca6843a"
   input-imports = [
     "github.com/devopsfaith/bloomfilter/krakend",
     "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy",

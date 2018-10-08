@@ -7,9 +7,15 @@
     "extra_config": {
       "github_com/devopsfaith/krakend-gologging": {
         "level":  "DEBUG",
-        "prefix": "[KRAKEND]",
         "syslog": false,
         "stdout": true
+      },
+      "github_com/letgoapp/krakend-influx": {
+        "address":  "http://192.168.99.100:8086",
+        "username": "letgo",
+        "password": "supersecretpassword",
+        "ttl": "1m",
+        "db": "bouncer_gateway"
       },
       "github_com/devopsfaith/krakend-metrics": {
         "collection_time": "60s",

@@ -2,11 +2,12 @@ package main
 
 import (
 	"context"
+	"io/ioutil"
 	"os"
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	"github.com/devopsfaith/krakend-cobra"
-	"github.com/devopsfaith/krakend-gologging"
+	"github.com/devopsfaith/krakend-logstash"
 	jose "github.com/devopsfaith/krakend-jose"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	opencensus "github.com/devopsfaith/krakend-opencensus"
@@ -24,7 +25,8 @@ import (
 
 func NewExecutor(ctx context.Context) cmd.Executor {
 	return func(cfg config.ServiceConfig) {
-		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig)
+		var logger logging.Logger
+		logger, gologgingErr := logstsash.NewLogger(cfg.ExtraConfig)
 		if gologgingErr != nil {
 			var err error
 			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
@@ -37,7 +39,8 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		reg := RegisterSubscriberFactories(ctx, cfg, logger)
 
 		// create the metrics collector
-		metricCollector := metrics.New(ctx, cfg.ExtraConfig, logger)
+		devNull, _ := logging.NewLogger("CRITICAL", ioutil.Discard, "")
+		metricCollector := metrics.New(ctx, cfg.ExtraConfig, devNull)
 
 		if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, logger); err != nil {
 			logger.Error(err.Error())

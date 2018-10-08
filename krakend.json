@@ -24,6 +24,13 @@
         "backend_disabled": false,
         "endpoint_disabled": false,
         "listen_address": ":8090"
+      },
+      "github_com/devopsfaith/krakend-cors": {
+        "allow_origins": [ "http://192.168.99.100:3000", "http://localhost:3000" ],
+        "allow_methods": [ "POST", "GET" ],
+        "allow_headers": [ "Origin", "Authorization", "Content-Type" ],
+        "expose_headers": [ "Content-Length" ],
+        "max_age": "12h"
       }
     },
     "endpoints": [
@@ -139,6 +146,28 @@
                     }
                 }
             ]
+        },
+        {
+            "endpoint": "/private/{user}",
+            "backend": [
+                {
+                    "host": [ "http://api.github.com" ],
+                    "url_pattern": "/",
+                    "whitelist": [
+                        "authorizations_url",
+                        "code_search_url"
+                    ]
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend-jose/validator": {
+                    "alg": "RS256",
+                    "aud": "http://api.example.com",
+                    "roles_key": "http://api.example.com/custom/roles",
+                    "roles": [ "user", "admin" ],
+                    "jwk-url": "https://albert-test.auth0.com/.well-known/jwks.json"
+                }
+            }
         },
         {
             "endpoint": "/show/{id}",

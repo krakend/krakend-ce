@@ -5,9 +5,9 @@
 # binary and no external dependencies are needed to run the service.
 
 BIN_NAME :=krakend
-DEP_VERSION=0.4.1
+DEP_VERSION=0.5.0
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION :=0.5.1
+VERSION := 0.6.1
 PKGNAME := krakend
 LICENSE := Apache 2.0
 VENDOR=
@@ -19,6 +19,8 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@devops.faith>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
+DOCKER_DEP := instrumentisto/dep:0.5.0-alpine
+GOLANG_VERSION := 1.11.1
 GOBASEDIR=src/github.com/devopsfaith/krakend-ce
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \

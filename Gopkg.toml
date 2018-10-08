@@ -11,6 +11,10 @@
   name = "github.com/coreos/etcd"
   revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
 
+[[override]]
+  version = "0.6.1"
+  name = "github.com/devopsfaith/krakend"
+
 [[constraint]]
   name = "github.com/gin-gonic/gin"
   version = "1.2.0"
@@ -52,7 +56,7 @@
   name = "github.com/devopsfaith/krakend-logstash"
 
 [[constraint]]
-  branch = "master"
+  version = "0.6.0"
   name = "github.com/devopsfaith/krakend-httpsecure"
 
 [[constraint]]
@@ -80,5 +84,21 @@
   name = "github.com/devopsfaith/krakend-viper"
 
 [[constraint]]
-  version = "0.5.1"
+  version = "0.6.0"
   name = "github.com/devopsfaith/krakend-opencensus"
+
+[[constraint]]
+  version = "0.6.0"
+  name = "github.com/devopsfaith/krakend-jose"
+
+[[constraint]]
+  version = "0.6.1"
+  name = "github.com/devopsfaith/bloomfilter"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-consul"
+
+[[constraint]]
+  version = "0.6.0"
+  name = "github.com/devopsfaith/krakend-cors"

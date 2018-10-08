@@ -2,7 +2,6 @@ package main
 
 import (
 	"time"
-
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -17,10 +16,10 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger) *gin.Engine {
 	engine.RedirectFixedPath = true
 	engine.HandleMethodNotAllowed = true
 
-	engine.Use(gin.Recovery(), GinLogger(logger))
 
+	engine.Use(gin.Recovery(), GinLogger(logger))
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
-		logger.Error(err)
+		logger.Warning(err)
 	}
 
 	return engine

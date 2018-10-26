@@ -34,6 +34,8 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Error("unable to create the gologgin logger:", gologgingErr.Error())
 		}
 
+		logger.Info("Listening on port:", cfg.Port)
+
 		reg := RegisterSubscriberFactories(ctx, cfg, logger)
 
 		// create the metrics collector

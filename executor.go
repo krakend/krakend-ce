@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"os"
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
@@ -14,11 +15,13 @@ import (
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
+	"github.com/devopsfaith/krakend-usage/client"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
 	krakendrouter "github.com/devopsfaith/krakend/router"
 	router "github.com/devopsfaith/krakend/router/gin"
 	"github.com/gin-gonic/gin"
+	"github.com/go-contrib/uuid"
 	"github.com/letgoapp/krakend-influx"
 )
 
@@ -35,6 +38,8 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		}
 
 		logger.Info("Listening on port:", cfg.Port)
+
+    startReporter(ctx, logger, cfg)
 
 		reg := RegisterSubscriberFactories(ctx, cfg, logger)
 
@@ -67,4 +72,29 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		// start the engines
 		routerFactory.NewWithContext(ctx).Run(cfg)
 	}
+}
+
+func startReporter(ctx context.Context, logger logging.Logger, cfg config.ServiceConfig) {
+	if os.Getenv(usageDisable) == "1" {
+		logger.Info("usage report client disabled")
+		return
+	}
+
+	clusterID, err := cfg.Hash()
+	if err != nil {
+		logger.Warning("unable to hash the service configuration:", err.Error())
+		return
+	}
+
+	go func() {
+		serverID := uuid.NewV4().String()
+		logger.Info(fmt.Sprintf("registering usage stats for cluster ID '%s'", clusterID))
+
+		if err := client.StartReporter(ctx, client.Options{
+			ClusterID: clusterID,
+			ServerID:  serverID,
+		}); err != nil {
+			logger.Warning("unable to create the usage report client:", err.Error())
+		}
+	}()
 }

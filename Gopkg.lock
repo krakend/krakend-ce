@@ -43,6 +43,14 @@
   revision = "3a771d992973f24aa725d07868b467d1ddfceafb"
 
 [[projects]]
+  branch = "master"
+  digest = "1:aa0fce4d9b29d20eaac68a99f344d6b5cbe4cffe09b9c8fa21f8ab0894886b2a"
+  name = "github.com/catalinc/hashcash"
+  packages = ["."]
+  pruneopts = ""
+  revision = "e6bc29ff4de927cdd8143d58e119b6ba2735e8a4"
+
+[[projects]]
   digest = "1:c0b59d68e8a5d9b9ae36853adec5b122f1bf9087b27f574732bbd851fc9ca9f3"
   name = "github.com/clbanning/mxj"
   packages = ["."]
@@ -87,7 +95,7 @@
   version = "0.7.0"
 
 [[projects]]
-  digest = "1:abbc53b4bbfce768031ac374d664d91f8c782bb0d7cf1847b251d26aca7fba57"
+  digest = "1:f73a287f2467d64de4a0c0af29eb482468109ef4214041da3246186a730c580b"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -99,14 +107,15 @@
     "register/internal",
     "router",
     "router/gin",
-    "router/http",
     "router/mux",
     "sd",
     "sd/dnssrv",
+    "transport/http/client",
+    "transport/http/server",
   ]
   pruneopts = ""
-  revision = "5aca9386db20759f750c18fd71daee950f2f284d"
-  version = "0.6.1"
+  revision = "f82f671d8f1dc151d22949a5a3902f487c76ac23"
+  version = "0.7.0"
 
 [[projects]]
   branch = "master"
@@ -156,11 +165,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:402f0e5c2a8790e5e1be004c62f79ac693c903045be4d3642db0e154c776f6bb"
+  digest = "1:5300adfe557c762cfd230b914970c3b76d05914cbd0a3cb6398aeb2143f7ba21"
   name = "github.com/devopsfaith/krakend-flexibleconfig"
   packages = ["."]
   pruneopts = ""
-  revision = "1c8c8897842abec29842d5669c4abdc84e6398be"
+  revision = "73b987ab20487385218e02964eede4c4fa26a204"
 
 [[projects]]
   branch = "master"
@@ -172,11 +181,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:12ae7e09e1d32f328e228ff39e195440bf3c2327c8151410ec6ffd3df92ab1ef"
+  digest = "1:58adeeae5b794dfe52cc5e79405e18af6ef246be178aed9662401c83396cdaa7"
   name = "github.com/devopsfaith/krakend-httpcache"
   packages = ["."]
   pruneopts = ""
-  revision = "762918c1ba75c6fa59362d2040833f295e98fd4a"
+  revision = "8474476ff8744f6e3192beef97d880b5ba96e942"
 
 [[projects]]
   digest = "1:173108fc6f028106c689ebc5c275ef97042f073da866dd6939a45baa78e00ef2"
@@ -198,15 +207,18 @@
   version = "0.6.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:a95149aa0eca23f256e33a2bbc0a61e8d0b15cf9e239685160b5fa6c333c5cff"
+  digest = "1:7bfe9387115ea3322aa4081536b9bf41f9743d53e1be36dd877bbadc686ed19c"
   name = "github.com/devopsfaith/krakend-martian"
-  packages = ["."]
+  packages = [
+    ".",
+    "register",
+  ]
   pruneopts = ""
-  revision = "2757b21be9ac45e04bebee8feb7481f695d62b79"
+  revision = "12579ad047c6528547fcac36277c3d5e9b53681b"
+  version = "0.7.0"
 
 [[projects]]
-  digest = "1:d5ea8a50a77146b7723cb22b5039a6981e4ae9b7a6323f6cee194de27d670bad"
+  digest = "1:13aac33a7d2c95e6e4d4d86e74b5f3f0edd2631bba773cf7189d6cdd0ebb5b7b"
   name = "github.com/devopsfaith/krakend-metrics"
   packages = [
     ".",
@@ -214,19 +226,19 @@
     "mux",
   ]
   pruneopts = ""
-  revision = "f563c518da3c3fa8ad05e74179824397c996cb7e"
-  version = "0.5.0"
+  revision = "eece56824df23878b87f5712e70ddf443c684ce3"
+  version = "0.7.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:9ab1b24ffee2b41206a1e6f65a4c5951a721f052f457ef12890f567b28cf743a"
+  digest = "1:fee57926d64b2279e4a10800afd750bd9a0e4293702796d147ff6992015274c6"
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
   packages = ["."]
   pruneopts = ""
-  revision = "401bac10b674c03508691b701fd6719e3e71ca4a"
+  revision = "be70514aefbb5d0027ceeb2d1c4799913e9d33a3"
+  version = "0.7.0"
 
 [[projects]]
-  digest = "1:044db4b01c80747e8ff63cbaf20807f8d307494e51c2e701a5d983e9785ecc43"
+  digest = "1:d6d6576e26afeec10e20959740f4b369e8d0cfa1eb35b1aa9b81f2474773252f"
   name = "github.com/devopsfaith/krakend-opencensus"
   packages = [
     ".",
@@ -237,8 +249,8 @@
     "router/gin",
   ]
   pruneopts = ""
-  revision = "8f953d8c513aa64096f371f385a67b0739502659"
-  version = "0.6.0"
+  revision = "b2919b9110c8348305a674ba72145de27cc8dd38"
+  version = "0.7.0"
 
 [[projects]]
   branch = "master"
@@ -261,6 +273,17 @@
   pruneopts = ""
   revision = "4c18c62a99ee830ab298ea422ba8568c7bcf7951"
   version = "0.5.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:aaa5ac483bf864d91545b0e79655a504bd24cf6f294a9a1a31c9e8e46cfa2a59"
+  name = "github.com/devopsfaith/krakend-usage"
+  packages = [
+    ".",
+    "client",
+  ]
+  pruneopts = ""
+  revision = "9ac996de433fb194bcdb7a55359960e2f2d2517a"
 
 [[projects]]
   branch = "master"
@@ -955,6 +978,7 @@
     "github.com/devopsfaith/krakend-ratelimit/juju/proxy",
     "github.com/devopsfaith/krakend-ratelimit/juju/router/gin",
     "github.com/devopsfaith/krakend-rss",
+    "github.com/devopsfaith/krakend-usage/client",
     "github.com/devopsfaith/krakend-viper",
     "github.com/devopsfaith/krakend-xml",
     "github.com/devopsfaith/krakend/config",
@@ -964,7 +988,9 @@
     "github.com/devopsfaith/krakend/router/gin",
     "github.com/devopsfaith/krakend/sd",
     "github.com/devopsfaith/krakend/sd/dnssrv",
+    "github.com/devopsfaith/krakend/transport/http/client",
     "github.com/gin-gonic/gin",
+    "github.com/go-contrib/uuid",
     "github.com/letgoapp/krakend-influx",
   ]
   solver-name = "gps-cdcl"

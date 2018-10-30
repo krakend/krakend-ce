@@ -12,8 +12,12 @@
   revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
 
 [[override]]
-  version = "0.6.1"
+  version = "0.7.0"
   name = "github.com/devopsfaith/krakend"
+
+[[constraint]]
+  name = "github.com/go-contrib/uuid"
+  version = "v1.2.0"
 
 [[constraint]]
   name = "github.com/gin-gonic/gin"
@@ -64,15 +68,15 @@
   name = "github.com/devopsfaith/krakend-httpcache"
 
 [[constraint]]
-  branch = "master"
+  version = "0.7.0"
   name = "github.com/devopsfaith/krakend-martian"
 
 [[constraint]]
-  version = "0.5.0"
+  version = "0.7.0"
   name = "github.com/devopsfaith/krakend-metrics"
 
 [[constraint]]
-  branch = "master"
+  version = "0.7.0"
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
 
 [[constraint]]
@@ -84,7 +88,7 @@
   name = "github.com/devopsfaith/krakend-viper"
 
 [[constraint]]
-  version = "0.6.0"
+  version = "0.7.0"
   name = "github.com/devopsfaith/krakend-opencensus"
 
 [[constraint]]
@@ -102,3 +106,7 @@
 [[constraint]]
   version = "0.6.0"
   name = "github.com/devopsfaith/krakend-cors"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-usage"

@@ -13,10 +13,11 @@ import (
 )
 
 const (
-	fcPartials = "FC_PARTIALS"
-	fcSettings = "FC_SETTINGS"
-	fcPath     = "FC_OUT"
-	fcEnable   = "FC_ENABLE"
+	fcPartials   = "FC_PARTIALS"
+	fcSettings   = "FC_SETTINGS"
+	fcPath       = "FC_OUT"
+	fcEnable     = "FC_ENABLE"
+	usageDisable = "USAGE_DISABLE"
 )
 
 func main() {

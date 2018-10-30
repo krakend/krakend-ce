@@ -34,10 +34,12 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			if err != nil {
 				return
 			}
-			logger.Error("unable to create the gologgin logger:", gologgingErr.Error())
+			logger.Error("unable to create the gologging logger:", gologgingErr.Error())
 		}
 
-		startReporter(ctx, logger, cfg)
+		logger.Info("Listening on port:", cfg.Port)
+
+    startReporter(ctx, logger, cfg)
 
 		reg := RegisterSubscriberFactories(ctx, cfg, logger)
 
@@ -45,17 +47,16 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		metricCollector := metrics.New(ctx, cfg.ExtraConfig, logger)
 
 		if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, logger); err != nil {
-			logger.Error(err.Error())
+			logger.Warning(err.Error())
 		}
 
 		if err := opencensus.Register(ctx, cfg); err != nil {
-			logger.Error("opencensus:", err.Error())
+			logger.Warning("opencensus:", err.Error())
 		}
 
 		rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, logger, reg)
-		// rejecter, err := krakendbf.Register(ctx, cfg.Name, cfg, logger, reg)
 		if err != nil {
-			logger.Error("registering the BloomFilter:", err.Error())
+			logger.Warning("registering the BloomFilter:", err.Error())
 		}
 
 		// setup the krakend router

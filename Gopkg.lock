@@ -80,7 +80,7 @@
   version = "v0.2.0"
 
 [[projects]]
-  digest = "1:ad619f6e320fdcaadf3aa3d8872b431b13f8ea80634e057756b7f47ea1311921"
+  digest = "1:855c662a17de7709f7497a133d5290fd180c436d55a9d7a7678c4d038988edd6"
   name = "github.com/devopsfaith/bloomfilter"
   packages = [
     ".",
@@ -91,8 +91,8 @@
     "rpc/server",
   ]
   pruneopts = ""
-  revision = "1ecce393f4fa21b7999d01b399be20f4daaff817"
-  version = "0.6.1"
+  revision = "662332d04f21bae2540078902d1bbf20785f8ebc"
+  version = "0.7.0"
 
 [[projects]]
   digest = "1:f73a287f2467d64de4a0c0af29eb482468109ef4214041da3246186a730c580b"

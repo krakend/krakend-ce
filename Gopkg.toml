@@ -96,7 +96,7 @@
   name = "github.com/devopsfaith/krakend-jose"
 
 [[constraint]]
-  version = "0.6.1"
+  version = "0.7.0"
   name = "github.com/devopsfaith/bloomfilter"
 
 [[constraint]]

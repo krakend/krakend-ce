@@ -39,7 +39,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		logger.Info("Listening on port:", cfg.Port)
 
-    startReporter(ctx, logger, cfg)
+		startReporter(ctx, logger, cfg)
 
 		reg := RegisterSubscriberFactories(ctx, cfg, logger)
 
@@ -56,7 +56,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, logger, reg)
 		if err != nil {
-			logger.Warning("registering the BloomFilter:", err.Error())
+			logger.Warning("bloomFilter:", err.Error())
 		}
 
 		// setup the krakend router

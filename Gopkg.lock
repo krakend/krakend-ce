@@ -468,7 +468,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:945d3eeea7bac9a0326a5d22e9e5a346eedb5f60405ef7fa1c5f5ed3c82401d7"
+  digest = "1:a8721703e5eaba4d7624506e890965e95529362ac0863cc5611c8a10b7b05aff"
   name = "github.com/letgoapp/krakend-influx"
   packages = [
     ".",

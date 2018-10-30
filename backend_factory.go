@@ -10,6 +10,7 @@ import (
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/proxy"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
+	"github.com/devopsfaith/krakend/transport/http/client"
 	"github.com/devopsfaith/krakend/proxy"
 )
 
@@ -21,8 +22,8 @@ import (
 // - metrics collector
 // - opencensus collector
 func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
-	requestExecutorFactory := func(cfg *config.Backend) proxy.HTTPRequestExecutor {
-		var clientFactory proxy.HTTPClientFactory
+	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
+		var clientFactory client.HTTPClientFactory
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
 			clientFactory = oauth2client.NewHTTPClient(cfg)
 		} else {

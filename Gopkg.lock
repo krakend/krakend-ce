@@ -477,7 +477,7 @@
     "histogram",
   ]
   pruneopts = ""
-  revision = "b87584e771c2debeb7f99310bbe0edb3d249fe5b"
+  revision = "8e228870e14c8332055b609a4808f1f738c0c8c7"
 
 [[projects]]
   digest = "1:1ce378ab2352c756c6d7a0172c22ecbd387659d32712a4ce3bc474273309a5dc"

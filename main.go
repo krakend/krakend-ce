@@ -15,6 +15,8 @@ import (
 const (
 	fcPartials = "FC_PARTIALS"
 	fcSettings = "FC_SETTINGS"
+	fcPath     = "FC_OUT"
+	fcEnable   = "FC_ENABLE"
 )
 
 func main() {
@@ -34,12 +36,15 @@ func main() {
 
 	RegisterEncoders()
 
-	cmd.Execute(
-		flexibleconfig.NewTemplateParser(flexibleconfig.Config{
-			Parser:   viper.New(),
+	cfg := viper.New()
+	if os.Getenv(fcEnable) != "" {
+		cfg = flexibleconfig.NewTemplateParser(flexibleconfig.Config{
+			Parser:   cfg,
 			Partials: os.Getenv(fcPartials),
 			Settings: os.Getenv(fcSettings),
-		}),
-		NewExecutor(ctx),
-	)
+			Path:     os.Getenv(fcPath),
+		})
+	}
+
+	cmd.Execute(cfg, NewExecutor(ctx))
 }

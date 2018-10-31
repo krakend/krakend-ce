@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"os"
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
@@ -28,8 +29,12 @@ import (
 
 func NewExecutor(ctx context.Context) cmd.Executor {
 	return func(cfg config.ServiceConfig) {
+		var writers []io.Writer
 		gelfWriter, gelfErr := gelf.NewWriter(cfg.ExtraConfig)
-		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig, gelfWriter)
+		if gelfErr == nil {
+			writers = append(writers, gelfWriter)
+		}
+		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig, writers...)
 		if gologgingErr != nil {
 			var err error
 			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")

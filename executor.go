@@ -7,6 +7,7 @@ import (
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	"github.com/devopsfaith/krakend-cobra"
+	"github.com/devopsfaith/krakend-gelf"
 	"github.com/devopsfaith/krakend-gologging"
 	jose "github.com/devopsfaith/krakend-jose"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
@@ -27,7 +28,8 @@ import (
 
 func NewExecutor(ctx context.Context) cmd.Executor {
 	return func(cfg config.ServiceConfig) {
-		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig)
+		gelfWriter, gelfErr := gelf.NewWriter(cfg.ExtraConfig)
+		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig, gelfWriter)
 		if gologgingErr != nil {
 			var err error
 			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
@@ -35,6 +37,9 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 				return
 			}
 			logger.Error("unable to create the gologging logger:", gologgingErr.Error())
+		}
+		if gelfErr != nil {
+			logger.Error("unable to create the GELF writer:", gelfErr.Error())
 		}
 
 		logger.Info("Listening on port:", cfg.Port)

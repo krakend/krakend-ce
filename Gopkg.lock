@@ -173,6 +173,14 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:8740ddf349cbfb630f6d1f38ae5df49e3673d86ce9b07b0c7f4a596bd3072512"
+  name = "github.com/devopsfaith/krakend-gelf"
+  packages = ["."]
+  pruneopts = ""
+  revision = "59c0250b1c6094af44785810940101fb58b60147"
+
+[[projects]]
+  branch = "master"
   digest = "1:1636196ab0730361553c475106ad4f918bf0e048fa219eb0447319c22e0c442b"
   name = "github.com/devopsfaith/krakend-gologging"
   packages = ["."]
@@ -431,7 +439,7 @@
   version = "v1.0"
 
 [[projects]]
-  digest = "1:12b58520cc48ddda84e1ccba55ac222a28c0f5a0e685603653de5f2316b2bd99"
+  digest = "1:3c354b3d0c8adb569785c2644c2471928aa7fcb60dd36cd4750ccc99d9dcf170"
   name = "github.com/influxdata/influxdb"
   packages = [
     "client/v2",
@@ -439,8 +447,8 @@
     "pkg/escape",
   ]
   pruneopts = ""
-  revision = "02d7d4f043b34ecb4e9b2dbec298c6f9450c2a32"
-  version = "v1.5.2"
+  revision = "a2ba6e7654fb078f8a3f5add1f8d935df38161bd"
+  version = "v1.6.4"
 
 [[projects]]
   digest = "1:b79fc583e4dc7055ed86742e22164ac41bf8c0940722dbcb600f1a3ace1a8cb5"
@@ -915,6 +923,14 @@
   version = "v1.0.0"
 
 [[projects]]
+  branch = "v2"
+  digest = "1:6566d10ac5fb1b08709ffc53cf3347843d76389b666a791f6b353e418f93b5e4"
+  name = "gopkg.in/Graylog2/go-gelf.v2"
+  packages = ["gelf"]
+  pruneopts = ""
+  revision = "4dbb9d7213480a8484c02610e3f51ecd9c506a71"
+
+[[projects]]
   digest = "1:629d5458c77f7df2e78f011d535da90aaf117cee238e44407952d65691a954a0"
   name = "gopkg.in/gin-contrib/cors.v1"
   packages = ["."]
@@ -962,6 +978,7 @@
     "github.com/devopsfaith/krakend-cors/gin",
     "github.com/devopsfaith/krakend-etcd",
     "github.com/devopsfaith/krakend-flexibleconfig",
+    "github.com/devopsfaith/krakend-gelf",
     "github.com/devopsfaith/krakend-gologging",
     "github.com/devopsfaith/krakend-httpcache",
     "github.com/devopsfaith/krakend-httpsecure/gin",

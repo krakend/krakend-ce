@@ -35,6 +35,48 @@
   revision = "b28f0da91b89bb9e7fb93daa330ed4b567a82dab"
 
 [[projects]]
+  digest = "1:369d0aa7c0d4f891548051d1817cf250404343487e2bff6de0e07e6cf8cb9623"
+  name = "github.com/aws/aws-sdk-go"
+  packages = [
+    "aws",
+    "aws/awserr",
+    "aws/awsutil",
+    "aws/client",
+    "aws/client/metadata",
+    "aws/corehandlers",
+    "aws/credentials",
+    "aws/credentials/ec2rolecreds",
+    "aws/credentials/endpointcreds",
+    "aws/credentials/stscreds",
+    "aws/csm",
+    "aws/defaults",
+    "aws/ec2metadata",
+    "aws/endpoints",
+    "aws/request",
+    "aws/session",
+    "aws/signer/v4",
+    "internal/ini",
+    "internal/sdkio",
+    "internal/sdkrand",
+    "internal/sdkuri",
+    "internal/shareddefaults",
+    "private/protocol",
+    "private/protocol/json/jsonutil",
+    "private/protocol/jsonrpc",
+    "private/protocol/query",
+    "private/protocol/query/queryutil",
+    "private/protocol/rest",
+    "private/protocol/restjson",
+    "private/protocol/xml/xmlutil",
+    "service/sts",
+    "service/xray",
+    "service/xray/xrayiface",
+  ]
+  pruneopts = ""
+  revision = "3264db248fe8d241f6949ed35e33b11c0aec3c93"
+  version = "v1.15.68"
+
+[[projects]]
   branch = "master"
   digest = "1:c0bec5f9b98d0bc872ff5e834fac186b807b656683bd29cb82fb207a1513fabb"
   name = "github.com/beorn7/perks"
@@ -49,6 +91,14 @@
   packages = ["."]
   pruneopts = ""
   revision = "e6bc29ff4de927cdd8143d58e119b6ba2735e8a4"
+
+[[projects]]
+  branch = "master"
+  digest = "1:31abfbccb4f0d76a929287692f96847fc6c2267a7f34982fd85fe85306a70460"
+  name = "github.com/census-ecosystem/opencensus-go-exporter-aws"
+  packages = ["."]
+  pruneopts = ""
+  revision = "2befc13012d0b3486eb8effda5735b6f0730e645"
 
 [[projects]]
   digest = "1:c0b59d68e8a5d9b9ae36853adec5b122f1bf9087b27f574732bbd851fc9ca9f3"
@@ -253,6 +303,7 @@
     "exporter/influxdb",
     "exporter/jaeger",
     "exporter/prometheus",
+    "exporter/xray",
     "exporter/zipkin",
     "router/gin",
   ]
@@ -449,6 +500,13 @@
   pruneopts = ""
   revision = "a2ba6e7654fb078f8a3f5add1f8d935df38161bd"
   version = "v1.6.4"
+
+[[projects]]
+  digest = "1:6f49eae0c1e5dab1dafafee34b207aeb7a42303105960944828c2079b92fc88e"
+  name = "github.com/jmespath/go-jmespath"
+  packages = ["."]
+  pruneopts = ""
+  revision = "0b12d6b5"
 
 [[projects]]
   digest = "1:b79fc583e4dc7055ed86742e22164ac41bf8c0940722dbcb600f1a3ace1a8cb5"
@@ -990,6 +1048,7 @@
     "github.com/devopsfaith/krakend-opencensus/exporter/influxdb",
     "github.com/devopsfaith/krakend-opencensus/exporter/jaeger",
     "github.com/devopsfaith/krakend-opencensus/exporter/prometheus",
+    "github.com/devopsfaith/krakend-opencensus/exporter/xray",
     "github.com/devopsfaith/krakend-opencensus/exporter/zipkin",
     "github.com/devopsfaith/krakend-opencensus/router/gin",
     "github.com/devopsfaith/krakend-ratelimit/juju/proxy",

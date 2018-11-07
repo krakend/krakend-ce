@@ -1,11 +1,13 @@
-# KrakenD
+![Krakend logo](https://github.com/devopsfaith/krakend/blob/master/docs/images/krakend.png)
+
+# KrakenD API Gateway
 Ultra-High performance API Gateway with middlewares
 
 [![Build Status](https://travis-ci.org/devopsfaith/krakend-ce.svg?branch=master)](https://travis-ci.org/devopsfaith/krakend-ce)
 
 **KrakenD Community Edition** (or *KrakenD-CE*) is the binary distribution of [KrakenD](http://www.krakend.io).
 
-In this repository you'll find the utils to build the KrakenD binary yourself. If you just want to use KrakenD [download the binary](http://www.krakend.io/download/)
+In this repository, you'll find the utils to build the KrakenD binary yourself. If you want to use KrakenD [download the binary](http://www.krakend.io/download/)
 
 [KrakenD Site](http://www.krakend.io/) | [Documentation](http://www.krakend.io/docs/overview/introduction/) | [Blog](http://www.krakend.io/blog) | [Twitter](https://twitter.com/devopsfaith)
 
@@ -16,12 +18,12 @@ Some of the features you get with KrakenD are:
 - **Backend for Frontend**
 - **Efficient**: Super low memory consumption with high traffic (usually under 50MB w/ +1000 concurrent) and even lower with low traffic (under 5MB)
 - **Easy to use**: Declaration of endpoints by just writing the `/url/patterns/and/{variables}`
-- **Unlimited** number of backends and endpoints associated to each endpoint. Limit is your kernel.
+- **Unlimited** number of backends and endpoints associated with each endpoint. The limit is your kernel.
 - **Aggregation** of all the data in the backends for a single endpoint
 - **Response composition** and data manipulation (capture, groups, renames...)
 - **Response filtering** (whitelist and blacklist)
-- **Concurrent** API calls to backend for the same request
-- **Simple configuration**: All application configuration and behaviour declared in a `krakend.json`.
+- **Concurrent** API calls to the backend for the same request
+- **Simple configuration**: All application configuration and behavior declared in a `krakend.json`.
 - **Friendly**: No development needed to build your gateway. Use the Visual API [Designer](http://www.krakend.io/designer/) (UI to generate the `krakend.json`)
 - **SSL**
 - **HTTP2** ready
@@ -30,7 +32,7 @@ Some of the features you get with KrakenD are:
 - **Logging and statistics** of usage
 - **API with statistics**
 - **Service Discovery**: DNS SRV, ETCD or add your own
-- **Multiple encodings** supported (json, xml, rss or response as single string)
+- **Multiple encodings** supported (json, XML, RSS or response as single string)
 - **Injections via DSL** in the configuration (Martian)
 - **Throttling**: Limits of usage in the router and proxy layers.
 - **User quota**: Restrict usage of users by IP or custom headers
@@ -38,19 +40,19 @@ Some of the features you get with KrakenD are:
 - **Automatic load balancing**
 - **HTTP Cache** headers
 - **In-memory backend response cache**
-- Multiple installation options (bin, docker, rpm, deb...)
+- Multiple installation options (bin, docker, rpm, deb, brew)
 - **Cloud native**
-- **Loved by orchestrators** (Kubernetes, Mesos + Marathon, Nomad, Docker Swarm and others)
+- **Loved by orchestrators** (Kubernetes, Mesos + Marathon, Nomad, Docker Swarm, and others)
 - **Secure:**
-	- Support for SSL
-	- OAuth client grant
-	- JSON Web Tokens (JWT) and JSON Object Signing and Encryption (JOSE)
-	- HTTP Strict Transport Security (HSTS)
-	- Clickjacking protection
-	- HTTP Public Key Pinning (HPKP)
-	- MIME-Sniffing prevention
-	- Cross-site scripting (XSS) protection
-	- Cross-origin resource sharing (CORS)
+    - Support for SSL
+    - OAuth client grant
+    - JSON Web Tokens (JWT) and JSON Object Signing and Encryption (JOSE)
+    - HTTP Strict Transport Security (HSTS)
+    - Clickjacking protection
+    - HTTP Public Key Pinning (HPKP)
+    - MIME-Sniffing prevention
+    - Cross-site scripting (XSS) protection
+    - Cross-origin resource sharing (CORS)
 
 
 For a more nice description of the features have a look in the [website](http://www.krakend.io/features/).
@@ -67,23 +69,23 @@ http://www.krakend.io/docs/overview/introduction/
 
 ## Build
 ```
-	make prepare
-	make
+    make prepare
+    make
 ```
 
 ## Building with docker
 
-If you don't have or dont want to install `go` you can build it using the golang docker container.
+If you don't have or don't want to install `go` you can build it using the golang docker container.
 ```
 make docker_build
 ```
 
 ## FPM
-You can setup your own fpm docker image to run setting `DOCKER_FPM` on the `Makefike`.
+You can set up your fpm docker image to run setting `DOCKER_FPM` on the `Makefike`.
 
 
 ## Using the generated packages
-The package will create a krakend user to run the service and will configure the service to run under systemd.
+The package creates a krakend user to run the service and configures the service to run under systemd.
 
 ## Linux Distributions
 * just any Linux (using the `tar.gz`)

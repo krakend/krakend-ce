@@ -2,6 +2,30 @@
 
 
 [[projects]]
+  digest = "1:c1c3d6b976bf8a04d745f8f5003156ddce4f3965851939ff5d84304c85161c46"
+  name = "cloud.google.com/go"
+  packages = [
+    "compute/metadata",
+    "internal/version",
+    "monitoring/apiv3",
+    "trace/apiv2",
+  ]
+  pruneopts = ""
+  revision = "1fd54cf41e6e0e178ffe3c52b0e2260281f603e3"
+  version = "v0.32.0"
+
+[[projects]]
+  digest = "1:b6f2e97ae241056f5ab5af4c37e82b79339d64fe7c1c73ca26ce19b470661e3b"
+  name = "contrib.go.opencensus.io/exporter/stackdriver"
+  packages = [
+    ".",
+    "monitoredresource",
+  ]
+  pruneopts = ""
+  revision = "f6033e3f5e239c2fac5d6443ccdc2116d8c2850d"
+  version = "v0.7.0"
+
+[[projects]]
   branch = "master"
   digest = "1:3a450eb41c56fd707976df2e141e9673a3fb28901e72859fcf9da4d2fcd3e6be"
   name = "git.apache.org/thrift.git"
@@ -304,20 +328,21 @@
   version = "0.7.0"
 
 [[projects]]
-  digest = "1:d6d6576e26afeec10e20959740f4b369e8d0cfa1eb35b1aa9b81f2474773252f"
+  digest = "1:710a02a4ee61b5c94ec9f2c91f7d8488999adc1113722b8eca8e0255f9ccb7fa"
   name = "github.com/devopsfaith/krakend-opencensus"
   packages = [
     ".",
     "exporter/influxdb",
     "exporter/jaeger",
     "exporter/prometheus",
+    "exporter/stackdriver",
     "exporter/xray",
     "exporter/zipkin",
     "router/gin",
   ]
   pruneopts = ""
-  revision = "b2919b9110c8348305a674ba72145de27cc8dd38"
-  version = "0.7.0"
+  revision = "a4c64d6aff1aaef37c36638a6adb094109355ae0"
+  version = "0.7.1"
 
 [[projects]]
   branch = "master"
@@ -406,12 +431,22 @@
   version = "v1.2.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:3b760d3b93f994df8eb1d9ebfad17d3e9e37edcb7f7efaa15b427c0d7a64f4e4"
+  digest = "1:3dd078fda7500c341bc26cfbc6c6a34614f295a2457149fc1045cab767cbcf18"
   name = "github.com/golang/protobuf"
-  packages = ["proto"]
+  packages = [
+    "proto",
+    "protoc-gen-go/descriptor",
+    "ptypes",
+    "ptypes/any",
+    "ptypes/duration",
+    "ptypes/empty",
+    "ptypes/struct",
+    "ptypes/timestamp",
+    "ptypes/wrappers",
+  ]
   pruneopts = ""
-  revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
+  revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
+  version = "v1.2.0"
 
 [[projects]]
   digest = "1:59c8099a5a8f449331e7bf2d17086bbd4f320f1f8f6a1a75a5d4d145bd6ad865"
@@ -430,6 +465,14 @@
   ]
   pruneopts = ""
   revision = "140c935a5d0d15e2cdc24b1f58668f410497fc3c"
+
+[[projects]]
+  digest = "1:e097a364f4e8d8d91b9b9eeafb992d3796a41fde3eb548c1a87eb9d9f60725cf"
+  name = "github.com/googleapis/gax-go"
+  packages = ["."]
+  pruneopts = ""
+  revision = "317e0006254c44a0ac427cc52a0e083ff0b9622f"
+  version = "v2.0.0"
 
 [[projects]]
   branch = "master"
@@ -534,11 +577,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:fec09c7d66deb0dad27767a1f49fa17a4660278ba77d1b0f4ef007d42abb96fa"
+  digest = "1:2018792a2e40ea268ff327dc169341035c3837f0c6f876e80a7bf08c56331879"
   name = "github.com/kpacha/opencensus-influxdb"
   packages = ["."]
   pruneopts = ""
-  revision = "1b490a38de4c5c98e0414e4676aba2e00c5cfd45"
+  revision = "663e2683a27ce815394cbb78b2132cae85aa4fe2"
 
 [[projects]]
   branch = "master"
@@ -880,16 +923,19 @@
   version = "v1.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:628a110a8a7fd2966a7b9403b32eef5600cabccc27efce1f6671c65606efed5f"
+  digest = "1:ad67dfd3799a2c58f6c65871dd141d8b53f61f600aec48ce8d7fa16a4d5476f8"
   name = "go.opencensus.io"
   packages = [
+    ".",
+    "exemplar",
     "exporter/jaeger",
     "exporter/jaeger/internal/gen-go/jaeger",
     "exporter/prometheus",
+    "exporter/stackdriver/propagation",
     "exporter/zipkin",
     "internal",
     "internal/tagencoding",
+    "plugin/ocgrpc",
     "plugin/ochttp",
     "plugin/ochttp/propagation/b3",
     "stats",
@@ -899,9 +945,11 @@
     "trace",
     "trace/internal",
     "trace/propagation",
+    "trace/tracestate",
   ]
   pruneopts = ""
-  revision = "ebd8d31470fedf6c27d0e3056653ddff642509b8"
+  revision = "b7bf3cdb64150a8c8c53b769fdeb2ba581bd4d4b"
+  version = "v0.18.0"
 
 [[projects]]
   branch = "master"
@@ -924,21 +972,30 @@
     "html",
     "html/atom",
     "html/charset",
+    "http2",
+    "http2/hpack",
+    "idna",
+    "internal/timeseries",
+    "lex/httplex",
+    "trace",
   ]
   pruneopts = ""
   revision = "a8b9294777976932365dabb6640cf1468d95c70f"
 
 [[projects]]
   branch = "master"
-  digest = "1:4efb9bf4c68f34463c4cadad9db3ea4ad4d3b4d6185701a04f6aabd233ffe5f6"
+  digest = "1:51d339a1d79f5c617fba14414aefb7dfd184b8ba0ddbb9f95251430b67c8aab8"
   name = "golang.org/x/oauth2"
   packages = [
     ".",
     "clientcredentials",
+    "google",
     "internal",
+    "jws",
+    "jwt",
   ]
   pruneopts = ""
-  revision = "2f32c3ac0fa4fb807a0fcefb0b6f2468a0d99bd0"
+  revision = "f42d05182288abf10faef86d16c0d07b8d40ea2d"
 
 [[projects]]
   branch = "master"
@@ -964,6 +1021,8 @@
   digest = "1:96ef10fa4fe8c4a5aa4f008dec71f18402300b986db4ded09f66b6cc435cd0fa"
   name = "golang.org/x/text"
   packages = [
+    "collate",
+    "collate/build",
     "encoding",
     "encoding/charmap",
     "encoding/htmlindex",
@@ -974,6 +1033,7 @@
     "encoding/simplifiedchinese",
     "encoding/traditionalchinese",
     "encoding/unicode",
+    "internal/colltab",
     "internal/gen",
     "internal/tag",
     "internal/triegen",
@@ -981,9 +1041,12 @@
     "internal/utf8internal",
     "language",
     "runes",
+    "secure/bidirule",
     "transform",
+    "unicode/bidi",
     "unicode/cldr",
     "unicode/norm",
+    "unicode/rangetable",
   ]
   pruneopts = ""
   revision = "75cc3cad82b5f47d3fb229ddda8c5167da14f294"
@@ -992,7 +1055,16 @@
   branch = "master"
   digest = "1:da54620e85cb8b9db45fd24a4b1ebe85952eb9324893df918f8dd43238a79d16"
   name = "google.golang.org/api"
-  packages = ["support/bundler"]
+  packages = [
+    "googleapi/transport",
+    "internal",
+    "iterator",
+    "option",
+    "support/bundler",
+    "transport",
+    "transport/grpc",
+    "transport/http",
+  ]
   pruneopts = ""
   revision = "4f7dd2b006a4ffd9fd683c1c734d2fe91ca0ea1c"
 
@@ -1000,17 +1072,76 @@
   digest = "1:934fb8966f303ede63aa405e2c8d7f0a427a05ea8df335dfdc1833dd4d40756f"
   name = "google.golang.org/appengine"
   packages = [
+    ".",
     "internal",
+    "internal/app_identity",
     "internal/base",
     "internal/datastore",
     "internal/log",
+    "internal/modules",
     "internal/remote_api",
+    "internal/socket",
     "internal/urlfetch",
+    "socket",
     "urlfetch",
   ]
   pruneopts = ""
   revision = "150dc57a1b433e64154302bdc40b6bb8aefa313a"
   version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:2460b53d2a66eb9897a17c59ce16c82eeec9affaa31a3ce5814d254abc80fbbd"
+  name = "google.golang.org/genproto"
+  packages = [
+    "googleapis/api/annotations",
+    "googleapis/api/distribution",
+    "googleapis/api/label",
+    "googleapis/api/metric",
+    "googleapis/api/monitoredres",
+    "googleapis/devtools/cloudtrace/v2",
+    "googleapis/monitoring/v3",
+    "googleapis/rpc/status",
+    "protobuf/field_mask",
+  ]
+  pruneopts = ""
+  revision = "5fc9ac5403620be16bcdb0c8e7644b1178472c3b"
+
+[[projects]]
+  digest = "1:1293087271e314cfa2b3decededba2ecba0ff327e7b7809e00f73f616449191c"
+  name = "google.golang.org/grpc"
+  packages = [
+    ".",
+    "balancer",
+    "balancer/base",
+    "balancer/roundrobin",
+    "codes",
+    "connectivity",
+    "credentials",
+    "credentials/oauth",
+    "encoding",
+    "encoding/proto",
+    "grpclog",
+    "internal",
+    "internal/backoff",
+    "internal/channelz",
+    "internal/envconfig",
+    "internal/grpcrand",
+    "internal/transport",
+    "keepalive",
+    "metadata",
+    "naming",
+    "peer",
+    "resolver",
+    "resolver/dns",
+    "resolver/passthrough",
+    "stats",
+    "status",
+    "tap",
+  ]
+  pruneopts = ""
+  revision = "2e463a05d100327ca47ac218281906921038fd95"
+  version = "v1.16.0"
 
 [[projects]]
   branch = "v2"
@@ -1081,6 +1212,7 @@
     "github.com/devopsfaith/krakend-opencensus/exporter/influxdb",
     "github.com/devopsfaith/krakend-opencensus/exporter/jaeger",
     "github.com/devopsfaith/krakend-opencensus/exporter/prometheus",
+    "github.com/devopsfaith/krakend-opencensus/exporter/stackdriver",
     "github.com/devopsfaith/krakend-opencensus/exporter/xray",
     "github.com/devopsfaith/krakend-opencensus/exporter/zipkin",
     "github.com/devopsfaith/krakend-opencensus/router/gin",

@@ -265,6 +265,14 @@
   version = "0.6.0"
 
 [[projects]]
+  branch = "master"
+  digest = "1:d97fd5fc1b4e2db5edfd5ccf202e085d7a75229c12ff0f21a60c6a71be61b2e6"
+  name = "github.com/devopsfaith/krakend-jsonschema"
+  packages = ["."]
+  pruneopts = ""
+  revision = "895abb7764a92f5ad265184b54f926889f74d7f8"
+
+[[projects]]
   digest = "1:7bfe9387115ea3322aa4081536b9bf41f9743d53e1be36dd877bbadc686ed19c"
   name = "github.com/devopsfaith/krakend-martian"
   packages = [
@@ -849,6 +857,30 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:e6338f2518362ff701a556bd76afd90a2168d1c658ec5d1ea1e9c5ef30a7d157"
+  name = "github.com/xeipuuv/gojsonpointer"
+  packages = ["."]
+  pruneopts = ""
+  revision = "4e3ac2762d5f479393488629ee9370b50873b3a6"
+
+[[projects]]
+  branch = "master"
+  digest = "1:604f98a38394d2805a78c462396a4992b93fdd5b7306130add330f1a99ac6b0a"
+  name = "github.com/xeipuuv/gojsonreference"
+  packages = ["."]
+  pruneopts = ""
+  revision = "bd5ef7bd5415a7ac448318e64f11a24cd21e594b"
+
+[[projects]]
+  digest = "1:9e65b375612baea90191a1b92d91089f7535c9ccbc76cc55387608a3ce4cde9a"
+  name = "github.com/xeipuuv/gojsonschema"
+  packages = ["."]
+  pruneopts = ""
+  revision = "da425ebb7609ba06a0f395fc8a254d1c303364a0"
+  version = "v1.0"
+
+[[projects]]
+  branch = "master"
   digest = "1:628a110a8a7fd2966a7b9403b32eef5600cabccc27efce1f6671c65606efed5f"
   name = "go.opencensus.io"
   packages = [
@@ -1041,6 +1073,7 @@
     "github.com/devopsfaith/krakend-httpcache",
     "github.com/devopsfaith/krakend-httpsecure/gin",
     "github.com/devopsfaith/krakend-jose",
+    "github.com/devopsfaith/krakend-jsonschema",
     "github.com/devopsfaith/krakend-martian",
     "github.com/devopsfaith/krakend-metrics/gin",
     "github.com/devopsfaith/krakend-oauth2-clientcredentials",

@@ -1,4 +1,4 @@
-package main
+package krakend
 
 import (
 	cors "github.com/devopsfaith/krakend-cors/gin"

@@ -1,3 +1,5 @@
+// Krakend-ce sets up a complete KrakenD API Gateway ready to serve
+
 package main
 
 import (
@@ -7,17 +9,17 @@ import (
 	"os/signal"
 	"syscall"
 
+	krakend "github.com/devopsfaith/krakend-ce"
 	"github.com/devopsfaith/krakend-cobra"
 	flexibleconfig "github.com/devopsfaith/krakend-flexibleconfig"
 	"github.com/devopsfaith/krakend-viper"
 )
 
 const (
-	fcPartials   = "FC_PARTIALS"
-	fcSettings   = "FC_SETTINGS"
-	fcPath       = "FC_OUT"
-	fcEnable     = "FC_ENABLE"
-	usageDisable = "USAGE_DISABLE"
+	fcPartials = "FC_PARTIALS"
+	fcSettings = "FC_SETTINGS"
+	fcPath     = "FC_OUT"
+	fcEnable   = "FC_ENABLE"
 )
 
 func main() {
@@ -35,7 +37,7 @@ func main() {
 		}
 	}()
 
-	RegisterEncoders()
+	krakend.RegisterEncoders()
 
 	cfg := viper.New()
 	if os.Getenv(fcEnable) != "" {
@@ -47,5 +49,5 @@ func main() {
 		})
 	}
 
-	cmd.Execute(cfg, NewExecutor(ctx))
+	cmd.Execute(cfg, krakend.NewExecutor(ctx))
 }

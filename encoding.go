@@ -1,4 +1,4 @@
-package main
+package krakend
 
 import (
 	"github.com/devopsfaith/krakend-rss"

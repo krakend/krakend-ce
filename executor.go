@@ -1,4 +1,4 @@
-package main
+package krakend
 
 import (
 	"context"
@@ -8,7 +8,7 @@ import (
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	"github.com/devopsfaith/krakend-cobra"
-	"github.com/devopsfaith/krakend-gelf"
+	gelf "github.com/devopsfaith/krakend-gelf"
 	"github.com/devopsfaith/krakend-gologging"
 	jose "github.com/devopsfaith/krakend-jose"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
@@ -85,6 +85,10 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		routerFactory.NewWithContext(ctx).Run(cfg)
 	}
 }
+
+const (
+	usageDisable = "USAGE_DISABLE"
+)
 
 func startReporter(ctx context.Context, logger logging.Logger, cfg config.ServiceConfig) {
 	if os.Getenv(usageDisable) == "1" {

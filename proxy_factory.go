@@ -1,4 +1,4 @@
-package main
+package krakend
 
 import (
 	jsonschema "github.com/devopsfaith/krakend-jsonschema"

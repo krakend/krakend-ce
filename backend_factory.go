@@ -1,4 +1,4 @@
-package main
+package krakend
 
 import (
 	cb "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy"
@@ -10,8 +10,8 @@ import (
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/proxy"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
-	"github.com/devopsfaith/krakend/transport/http/client"
 	"github.com/devopsfaith/krakend/proxy"
+	"github.com/devopsfaith/krakend/transport/http/client"
 )
 
 // NewBackendFactory creates a BackendFactory by stacking all the available middlewares:

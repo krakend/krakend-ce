@@ -1,4 +1,4 @@
-package main
+package krakend
 
 import (
 	jose "github.com/devopsfaith/krakend-jose"

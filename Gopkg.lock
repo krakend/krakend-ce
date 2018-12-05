@@ -255,11 +255,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:1636196ab0730361553c475106ad4f918bf0e048fa219eb0447319c22e0c442b"
+  digest = "1:d3736990edce9f0f57707d9162de415ae025a84449316e521463b2249026d8c5"
   name = "github.com/devopsfaith/krakend-gologging"
   packages = ["."]
   pruneopts = ""
-  revision = "96e1a9d5f586cac9b6ddb5de999527d64630181c"
+  revision = "a57310b2b821d1cb620228a4662094632d5d7e7f"
 
 [[projects]]
   branch = "master"

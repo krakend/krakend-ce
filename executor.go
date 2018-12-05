@@ -34,7 +34,15 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		var writers []io.Writer
 		gelfWriter, gelfErr := gelf.NewWriter(cfg.ExtraConfig)
 		if gelfErr == nil {
-			writers = append(writers, gelfWriter)
+			writers = append(writers, gelfWriterWrapper{gelfWriter})
+			gologging.SetFormatterSelector(func(w io.Writer) string {
+				switch w.(type) {
+				case gelfWriterWrapper:
+					return "%{message}"
+				default:
+					return gologging.DefaultPattern
+				}
+			})
 		}
 		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig, writers...)
 		if gologgingErr != nil {
@@ -113,4 +121,8 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 			logger.Warning("unable to create the usage report client:", err.Error())
 		}
 	}()
+}
+
+type gelfWriterWrapper struct {
+	io.Writer
 }

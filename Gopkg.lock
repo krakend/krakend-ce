@@ -255,11 +255,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d3736990edce9f0f57707d9162de415ae025a84449316e521463b2249026d8c5"
+  digest = "1:aa2a9ec46d343c71aa1a139e10f8ef2c53493d117332e88a365b7ef362f63b3a"
   name = "github.com/devopsfaith/krakend-gologging"
   packages = ["."]
   pruneopts = ""
-  revision = "a57310b2b821d1cb620228a4662094632d5d7e7f"
+  revision = "f3f256584ecceef35c1dd6204275ff8830090c59"
 
 [[projects]]
   branch = "master"
@@ -295,6 +295,14 @@
   packages = ["."]
   pruneopts = ""
   revision = "895abb7764a92f5ad265184b54f926889f74d7f8"
+
+[[projects]]
+  branch = "master"
+  digest = "1:3851b9bba70c8d44a410fd95ba91fcf113598da56f10c60cf6c34765c9872d86"
+  name = "github.com/devopsfaith/krakend-logstash"
+  packages = ["."]
+  pruneopts = ""
+  revision = "17f4745d3502bb8f8efbc0a21d6b60fdb0dc08d5"
 
 [[projects]]
   digest = "1:7bfe9387115ea3322aa4081536b9bf41f9743d53e1be36dd877bbadc686ed19c"
@@ -1205,6 +1213,7 @@
     "github.com/devopsfaith/krakend-httpsecure/gin",
     "github.com/devopsfaith/krakend-jose",
     "github.com/devopsfaith/krakend-jsonschema",
+    "github.com/devopsfaith/krakend-logstash",
     "github.com/devopsfaith/krakend-martian",
     "github.com/devopsfaith/krakend-metrics/gin",
     "github.com/devopsfaith/krakend-oauth2-clientcredentials",

@@ -8,11 +8,12 @@ import (
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	"github.com/devopsfaith/krakend-cobra"
-	gelf "github.com/devopsfaith/krakend-gelf"
+	"github.com/devopsfaith/krakend-gelf"
 	"github.com/devopsfaith/krakend-gologging"
-	jose "github.com/devopsfaith/krakend-jose"
+	"github.com/devopsfaith/krakend-jose"
+	"github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
-	opencensus "github.com/devopsfaith/krakend-opencensus"
+	"github.com/devopsfaith/krakend-opencensus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
@@ -44,14 +45,19 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 				}
 			})
 		}
-		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig, writers...)
+		logger, gologgingErr := logstash.NewLogger(cfg.ExtraConfig)
+
 		if gologgingErr != nil {
-			var err error
-			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
-			if err != nil {
-				return
+			logger, gologgingErr = gologging.NewLogger(cfg.ExtraConfig, writers...)
+
+			if gologgingErr != nil {
+				var err error
+				logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
+				if err != nil {
+					return
+				}
+				logger.Error("unable to create the gologging logger:", gologgingErr.Error())
 			}
-			logger.Error("unable to create the gologging logger:", gologgingErr.Error())
 		}
 		if gelfErr != nil {
 			logger.Error("unable to create the GELF writer:", gelfErr.Error())

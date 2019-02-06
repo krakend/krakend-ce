@@ -122,3 +122,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-gelf"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-logstash"

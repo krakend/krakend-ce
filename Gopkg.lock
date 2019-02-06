@@ -193,14 +193,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:46071bd23e3c5d9b47194b27e0ae79f71ad620524ed0cfeae2c43ce017baed4f"
+  digest = "1:a9f1961392ca6b04466de6ddb061b760fbc6ed1557e27f55375d6accdc0a5d94"
   name = "github.com/devopsfaith/krakend-circuitbreaker"
   packages = [
     "gobreaker",
     "gobreaker/proxy",
   ]
   pruneopts = ""
-  revision = "57a815c709e31a77f3e2c49811f5780518ac56aa"
+  revision = "673caf8e355a808f10f27dc76fb6abf1a5079a41"
 
 [[projects]]
   branch = "master"

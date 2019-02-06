@@ -33,7 +33,7 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 	}
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
 	backendFactory = juju.BackendFactory(backendFactory)
-	backendFactory = cb.BackendFactory(backendFactory)
+	backendFactory = cb.BackendFactory(backendFactory, logger)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
 	backendFactory = opencensus.BackendFactory(backendFactory)
 	return backendFactory

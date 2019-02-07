@@ -51,12 +51,12 @@
   version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:5e1722a0d2f5ec5f89e241a5baca9132bc3d4d9c7ec4c70823746bbf0b34b76f"
+  digest = "1:9da35fd4c159d0ab4b409a3b0453467400b17f2a92609c52e872a3677a568741"
   name = "github.com/auth0-community/go-auth0"
   packages = ["."]
   pruneopts = ""
-  revision = "b28f0da91b89bb9e7fb93daa330ed4b567a82dab"
+  revision = "ddfdc88aaa5909a3d4e3ad0543a27f4a63a691e6"
+  version = "v1.0.0"
 
 [[projects]]
   digest = "1:369d0aa7c0d4f891548051d1817cf250404343487e2bff6de0e07e6cf8cb9623"
@@ -281,12 +281,12 @@
   version = "0.6.0"
 
 [[projects]]
-  digest = "1:eaf1998992009b37e16063a7e8088ace7e7fd68584121bbe22eeb061b5c02c22"
+  digest = "1:1e2f409ee9b67754643c462adaa1791fff3a1211912c7487d2fad15b6c68a6eb"
   name = "github.com/devopsfaith/krakend-jose"
   packages = ["."]
   pruneopts = ""
-  revision = "9c3722897e7f834067a0523bc076bdcec4348fe7"
-  version = "0.6.0"
+  revision = "09f07ba6c926bfa901d17490864c8f78fbb46a0e"
+  version = "0.8.0"
 
 [[projects]]
   branch = "master"

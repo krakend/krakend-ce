@@ -283,7 +283,10 @@
 [[projects]]
   digest = "1:1e2f409ee9b67754643c462adaa1791fff3a1211912c7487d2fad15b6c68a6eb"
   name = "github.com/devopsfaith/krakend-jose"
-  packages = ["."]
+  packages = [
+    ".",
+    "gin",
+  ]
   pruneopts = ""
   revision = "09f07ba6c926bfa901d17490864c8f78fbb46a0e"
   version = "0.8.0"
@@ -328,12 +331,12 @@
   version = "0.7.0"
 
 [[projects]]
-  digest = "1:fee57926d64b2279e4a10800afd750bd9a0e4293702796d147ff6992015274c6"
+  digest = "1:d4950306f0ab666ae20f6658852b72980f417a80cdaa2f003f9aa3fad6c99719"
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
   packages = ["."]
   pruneopts = ""
-  revision = "be70514aefbb5d0027ceeb2d1c4799913e9d33a3"
-  version = "0.7.0"
+  revision = "11a9f7170c44688f0ebd69482035f69c37023e9b"
+  version = "0.8.0"
 
 [[projects]]
   digest = "1:710a02a4ee61b5c94ec9f2c91f7d8488999adc1113722b8eca8e0255f9ccb7fa"
@@ -1212,6 +1215,7 @@
     "github.com/devopsfaith/krakend-httpcache",
     "github.com/devopsfaith/krakend-httpsecure/gin",
     "github.com/devopsfaith/krakend-jose",
+    "github.com/devopsfaith/krakend-jose/gin",
     "github.com/devopsfaith/krakend-jsonschema",
     "github.com/devopsfaith/krakend-logstash",
     "github.com/devopsfaith/krakend-martian",

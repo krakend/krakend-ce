@@ -80,7 +80,7 @@
   name = "github.com/devopsfaith/krakend-metrics"
 
 [[constraint]]
-  version = "0.7.0"
+  version = "0.8.0"
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
 
 [[constraint]]

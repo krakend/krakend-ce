@@ -133,7 +133,7 @@
   version = "v1.8"
 
 [[projects]]
-  digest = "1:0f98300e315a38eb5b71615acf600ccb82fa82dffe76304802dd6afb3325f5d5"
+  digest = "1:0bc9fe59e23786a6d5f5b65d2676904d29aafcc79fa9fca4472fe0d15ee15656"
   name = "github.com/coreos/etcd"
   packages = [
     "client",
@@ -143,7 +143,8 @@
     "version",
   ]
   pruneopts = ""
-  revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
+  revision = "d57e8b8d97adfc4a6c224fe116714bf1a1f3beb9"
+  version = "v3.3.12"
 
 [[projects]]
   digest = "1:3c3f68ebab415344aef64363d23471e953a4715645115604aaf57923ae904f5e"
@@ -283,7 +284,10 @@
 [[projects]]
   digest = "1:1e2f409ee9b67754643c462adaa1791fff3a1211912c7487d2fad15b6c68a6eb"
   name = "github.com/devopsfaith/krakend-jose"
-  packages = ["."]
+  packages = [
+    ".",
+    "gin",
+  ]
   pruneopts = ""
   revision = "09f07ba6c926bfa901d17490864c8f78fbb46a0e"
   version = "0.8.0"
@@ -1212,6 +1216,7 @@
     "github.com/devopsfaith/krakend-httpcache",
     "github.com/devopsfaith/krakend-httpsecure/gin",
     "github.com/devopsfaith/krakend-jose",
+    "github.com/devopsfaith/krakend-jose/gin",
     "github.com/devopsfaith/krakend-jsonschema",
     "github.com/devopsfaith/krakend-logstash",
     "github.com/devopsfaith/krakend-martian",

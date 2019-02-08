@@ -9,7 +9,7 @@
 
 [[override]]
   name = "github.com/coreos/etcd"
-  revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
+  version = "3.3.12"
 
 [[override]]
   version = "0.7.0"

@@ -170,7 +170,8 @@
   version = "0.7.0"
 
 [[projects]]
-  digest = "1:f73a287f2467d64de4a0c0af29eb482468109ef4214041da3246186a730c580b"
+  branch = "master"
+  digest = "1:466494f6c228a2b424e8be8a8f48378f974566572d25fe95518ba47c08a44a07"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -189,8 +190,7 @@
     "transport/http/server",
   ]
   pruneopts = ""
-  revision = "f82f671d8f1dc151d22949a5a3902f487c76ac23"
-  version = "0.7.0"
+  revision = "635bf3d14432ad2626cda895f44887de8f100cff"
 
 [[projects]]
   branch = "master"
@@ -357,7 +357,7 @@
   version = "0.7.1"
 
 [[projects]]
-  digest = "1:868bc97b25f81f7efe72f0d434d069cbcc61e92c37c39fcdfe370bc1fe7710b4"
+  digest = "1:39d892061aa095f73bdbdd3a1e73ba767f3f477ca9e17917a77284d1d03f235c"
   name = "github.com/devopsfaith/krakend-ratelimit"
   packages = [
     ".",
@@ -367,7 +367,7 @@
     "juju/router/gin",
   ]
   pruneopts = ""
-  revision = "26270b15b482651a9a239bf10c909937d944afc7"
+  revision = "d783f44e834aa91930971d39145b52a182b107ca"
   version = "0.8.0"
 
 [[projects]]

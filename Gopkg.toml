@@ -88,7 +88,7 @@
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
 
 [[constraint]]
-  branch = "master"
+  version = "0.8.0"
   name = "github.com/devopsfaith/krakend-ratelimit"
 
 [[constraint]]

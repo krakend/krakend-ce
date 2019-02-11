@@ -357,8 +357,7 @@
   version = "0.7.1"
 
 [[projects]]
-  branch = "master"
-  digest = "1:edda6a0f813d8b9f3406799435fc397288d5cf07fa4f3d8d136f5cf47f03c719"
+  digest = "1:868bc97b25f81f7efe72f0d434d069cbcc61e92c37c39fcdfe370bc1fe7710b4"
   name = "github.com/devopsfaith/krakend-ratelimit"
   packages = [
     ".",
@@ -368,7 +367,8 @@
     "juju/router/gin",
   ]
   pruneopts = ""
-  revision = "407bf6926e70a985ee6b21a7bbcc2260b5c3c41a"
+  revision = "26270b15b482651a9a239bf10c909937d944afc7"
+  version = "0.8.0"
 
 [[projects]]
   digest = "1:bd8e054d035e2e20c076b549dcec18deb1ed1051b8a2eebe719fb10610088482"
@@ -580,12 +580,12 @@
   version = "v1.1.5"
 
 [[projects]]
-  branch = "master"
   digest = "1:d26c006cbf54ca5c040463d5678013169e2bd91fb62c2f960ae283a1723d4278"
   name = "github.com/juju/ratelimit"
   packages = ["."]
   pruneopts = ""
   revision = "59fac5042749a5afb9af70e813da1dd5474f0167"
+  version = "1.0.1"
 
 [[projects]]
   branch = "master"

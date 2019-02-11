@@ -133,7 +133,7 @@
   version = "v1.8"
 
 [[projects]]
-  digest = "1:0f98300e315a38eb5b71615acf600ccb82fa82dffe76304802dd6afb3325f5d5"
+  digest = "1:0bc9fe59e23786a6d5f5b65d2676904d29aafcc79fa9fca4472fe0d15ee15656"
   name = "github.com/coreos/etcd"
   packages = [
     "client",
@@ -143,7 +143,8 @@
     "version",
   ]
   pruneopts = ""
-  revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
+  revision = "d57e8b8d97adfc4a6c224fe116714bf1a1f3beb9"
+  version = "v3.3.12"
 
 [[projects]]
   digest = "1:3c3f68ebab415344aef64363d23471e953a4715645115604aaf57923ae904f5e"
@@ -894,12 +895,12 @@
   revision = "3918361d3e9781714bbdb3ad9c11de4fa5c73d34"
 
 [[projects]]
-  branch = "master"
-  digest = "1:e500a14b76b36e44dfeb4b8c89ebca466d148712be5c4457e72080a83d915e32"
+  digest = "1:2e7f653483e51243b6cd6de60ce39bde0d6927d10a3c24295ab0f82cb1efeae2"
   name = "github.com/ugorji/go"
   packages = ["codec"]
   pruneopts = ""
-  revision = "f0aa215a7d653544d39d0e27dfa10fa4b183f397"
+  revision = "b4c50a2b199d93b13dc15e78929cfb23bfdf21ab"
+  version = "v1.1.1"
 
 [[projects]]
   branch = "master"

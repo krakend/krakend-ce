@@ -8,8 +8,12 @@
   revision = "140c935a5d0d15e2cdc24b1f58668f410497fc3c"
 
 [[override]]
+  version = "=1.1.1"
+  name = "github.com/ugorji/go"
+
+[[override]]
   name = "github.com/coreos/etcd"
-  revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
+  version = "3.3.12"
 
 [[override]]
   version = "0.7.0"

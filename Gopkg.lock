@@ -320,7 +320,7 @@
   version = "0.7.0"
 
 [[projects]]
-  digest = "1:13aac33a7d2c95e6e4d4d86e74b5f3f0edd2631bba773cf7189d6cdd0ebb5b7b"
+  digest = "1:f18105f7b6118cd3bb56706c70cd3d945880fd3f0782393e2c793e9d10846b78"
   name = "github.com/devopsfaith/krakend-metrics"
   packages = [
     ".",
@@ -328,8 +328,8 @@
     "mux",
   ]
   pruneopts = ""
-  revision = "eece56824df23878b87f5712e70ddf443c684ce3"
-  version = "0.7.0"
+  revision = "1e2c2a1f6a62e84102e01b531628b93aaf880b99"
+  version = "0.8.0"
 
 [[projects]]
   digest = "1:d4950306f0ab666ae20f6658852b72980f417a80cdaa2f003f9aa3fad6c99719"

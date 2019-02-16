@@ -553,7 +553,7 @@
   version = "v1.0"
 
 [[projects]]
-  digest = "1:3c354b3d0c8adb569785c2644c2471928aa7fcb60dd36cd4750ccc99d9dcf170"
+  digest = "1:82736b0fd80f657b95306b226728734e8f7d35505a14acdcd09a7c433dcaa9dd"
   name = "github.com/influxdata/influxdb"
   packages = [
     "client/v2",
@@ -561,8 +561,18 @@
     "pkg/escape",
   ]
   pruneopts = ""
-  revision = "a2ba6e7654fb078f8a3f5add1f8d935df38161bd"
-  version = "v1.6.4"
+  revision = "ef77e72f435b71b1ad6da7d6a6a4c4a262439379"
+  version = "v1.7.4"
+
+[[projects]]
+  digest = "1:ed432f42ea25cda1a97323039aa1ec3f35c66fa49cf8487db61e515f5b0a89ad"
+  name = "github.com/influxdata/platform"
+  packages = [
+    "models",
+    "pkg/escape",
+  ]
+  pruneopts = ""
+  revision = "0f79e4ea3248354c789cba274542e0a8e55971db"
 
 [[projects]]
   digest = "1:6f49eae0c1e5dab1dafafee34b207aeb7a42303105960944828c2079b92fc88e"
@@ -597,7 +607,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:a8721703e5eaba4d7624506e890965e95529362ac0863cc5611c8a10b7b05aff"
+  digest = "1:ecce86b251fe077a44f275c0c43b0330e31b299c56e6e759094403cd4ca3c430"
   name = "github.com/letgoapp/krakend-influx"
   packages = [
     ".",
@@ -606,7 +616,7 @@
     "histogram",
   ]
   pruneopts = ""
-  revision = "8e228870e14c8332055b609a4808f1f738c0c8c7"
+  revision = "d2fc9466bb3abc5d9ce4caf80e350369c01d347c"
 
 [[projects]]
   digest = "1:1ce378ab2352c756c6d7a0172c22ecbd387659d32712a4ce3bc474273309a5dc"

@@ -69,7 +69,7 @@ build:
 	@echo "You can now use ./${BIN_NAME}"
 
 test: build
-	go test ./test
+	go test -v ./tests
 
 docker_build:
 	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} ${DOCKER_DEP} ensure -v

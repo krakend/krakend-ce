@@ -25,6 +25,15 @@
     },
     "endpoints": [
         {
+            "endpoint": "/crash",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/unknown"
+                }
+            ]
+        },
+        {
             "endpoint": "/static",
             "backend": [
                 {

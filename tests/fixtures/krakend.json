@@ -46,25 +46,6 @@
             }
         },
         {
-            "endpoint": "/shadow",
-            "timeout": "150ms",
-            "backend": [
-                {
-                    "host": [ "http://127.0.0.1:8081" ],
-                    "url_pattern": "/param_forwarding/"
-                },
-                {
-                    "host": [ "http://127.0.0.1:8081" ],
-                    "url_pattern": "/delayed/",
-                    "extra_config": {
-                        "github.com/devopsfaith/krakend/proxy": {
-                            "shadow": true
-                        }
-                    }
-                }
-            ]
-        },
-        {
             "endpoint": "/param_forwarding/some/{foo}/{bar}",
             "headers_to_pass": [
                 "Authorization",

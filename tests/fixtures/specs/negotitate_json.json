@@ -1,0 +1,18 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/negotiate",
+		"header": {
+			"accept": "application/json; charset=utf-8"
+		}
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"user\":{\"-type\":\"admin\",\"name\":\"Elliot\",\"social\":{\"facebook\":\"https://facebook.com\",\"twitter\":\"https://twitter.com\",\"youtube\":\"https://youtube.com\"}}}",
+		"header": {
+			"content-type": "application/json; charset=utf-8",
+			"Cache-Control": "public, max-age=3600",
+			"X-Krakend-Completed": "true"
+		}
+	}
+}

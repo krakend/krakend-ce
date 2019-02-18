@@ -172,6 +172,7 @@ func newMockBackend() http.Server {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/param_forwarding/", echoEndpoint)
+	mux.HandleFunc("/xml", xmlEndpoint)
 	mux.HandleFunc("/delayed/", func(rw http.ResponseWriter, r *http.Request) {
 		<-time.After(200 * time.Millisecond)
 		echoEndpoint(rw, r)
@@ -181,6 +182,20 @@ func newMockBackend() http.Server {
 		Addr:    ":8081",
 		Handler: mux,
 	}
+}
+
+func xmlEndpoint(rw http.ResponseWriter, req *http.Request) {
+	rw.Header().Add("Content-Type", "application/xml; charset=utf-8")
+	rw.Write([]byte(`<?xml version="1.0" encoding="UTF-8"?>
+<user type="admin">
+  <name>Elliot</name>
+  <social>
+    <facebook>https://facebook.com</facebook>
+    <twitter>https://twitter.com</twitter>
+    <youtube>https://youtube.com</youtube>
+  </social>
+</user>
+`))
 }
 
 func echoEndpoint(rw http.ResponseWriter, r *http.Request) {

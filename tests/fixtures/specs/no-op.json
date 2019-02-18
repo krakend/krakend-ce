@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "POST",
+		"url": "http://localhost:8080/no-op"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"Content-Length\":[\"0\"],\"User-Agent\":[\"KrakenD Version 0.7.1\"]},\"path\":\"/param_forwarding/\",\"query\":{}}\n",
+		"header": {
+			"content-type": "application/json",
+			"Cache-Control": "",
+			"X-Krakend-Completed": "false"
+		}
+	}
+}

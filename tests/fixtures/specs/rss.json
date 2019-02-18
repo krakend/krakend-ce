@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/show/1482"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"available\":{\"title\":\"showRSS personal feed\"},\"schedule\":{\"title\":\"showRSS schedule feed\"}}",
+		"header": {
+			"content-type": "application/json; charset=utf-8",
+			"Cache-Control": "public, max-age=3600",
+			"X-Krakend-Completed": "true"
+		}
+	}
+}

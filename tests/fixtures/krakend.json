@@ -1,0 +1,272 @@
+{
+    "version": 2,
+    "name": "My lovely gateway",
+    "port": 8080,
+    "cache_ttl": "3600s",
+    "timeout": "3s",
+    "extra_config": {
+      "github_com/devopsfaith/krakend-gologging": {
+        "level":  "DEBUG",
+        "prefix": "[KRAKEND]",
+        "syslog": false,
+        "stdout": true
+      },
+      "github_com/devopsfaith/krakend-metrics": {
+        "collection_time": "60s",
+        "listen_address": ":8090"
+      },
+      "github_com/devopsfaith/krakend-cors": {
+        "allow_origins": [ "*" ],
+        "allow_methods": [ "POST", "GET" ],
+        "allow_headers": [ "Origin", "Authorization", "Content-Type" ],
+        "expose_headers": [ "Content-Length" ],
+        "max_age": "12h"
+      }
+    },
+    "endpoints": [
+        {
+            "endpoint": "/crash",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/unknown"
+                }
+            ]
+        },
+        {
+            "endpoint": "/no-op",
+            "method": "POST",
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "encoding": "no-op",
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/"
+                }
+            ]
+        },
+        {
+            "endpoint": "/negotiate",
+            "method": "GET",
+            "output_encoding": "negotiate",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/xml",
+                    "encoding": "xml"
+                }
+            ]
+        },
+        {
+            "endpoint": "/static",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8080" ],
+                    "url_pattern": "/__debug",
+                    "blacklist": ["message"]
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend/proxy": {
+                    "static": {
+                        "strategy": "always",
+                        "data": {
+                            "foo": 42,
+                            "bar": "foobar"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "endpoint": "/param_forwarding/some/{foo}/{bar}",
+            "headers_to_pass": [
+                "Authorization",
+                "X-Y-Z"
+            ],
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/{bar}?foo={foo}"
+                }
+            ]
+        },
+        {
+            "endpoint": "/param_forwarding/all/{foo}/{bar}",
+            "headers_to_pass": [ "*" ],
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/{bar}?foo={foo}"
+                }
+            ]
+        },
+        {
+            "endpoint": "/query_forwarding/all/{name}",
+            "querystring_params": [ "*" ],
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/{name}"
+                }
+            ]
+        },
+        {
+            "endpoint": "/query_forwarding/some/{name}",
+            "querystring_params": [ "a" ],
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/{name}"
+                }
+            ]
+        },
+        {
+          "endpoint": "/sequential/ok/{param}",
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "sequential": true
+            }
+          },
+          "backend": [
+            {
+              "url_pattern": "/param_forwarding/{param}",
+              "host": [ "http://127.0.0.1:8081" ],
+              "whitelist": [ "foo" ]
+            },
+            {
+              "url_pattern": "/param_forwarding/{resp0_foo}",
+              "host": [ "http://127.0.0.1:8081" ]
+            }
+          ]
+        },
+        {
+          "endpoint": "/sequential/incomplete/{param}",
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "sequential": true
+            }
+          },
+          "backend": [
+            {
+              "url_pattern": "/param_forwarding/{param}",
+              "host": [ "http://127.0.0.1:8081" ],
+              "whitelist": [ "foo" ]
+            },
+            {
+              "url_pattern": "/{resp0_foo}",
+              "host": [ "http://127.0.0.1:8081" ]
+            }
+          ]
+        },
+        {
+            "endpoint": "/combination/{id}",
+            "method": "GET",
+            "backend": [
+                {
+                    "host": [
+                        "https://jsonplaceholder.typicode.com"
+                    ],
+                    "url_pattern": "/posts?userId={id}",
+                    "is_collection": true,
+                    "mapping": {
+                        "collection": "posts"
+                    },
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-httpcache": {}
+                    }
+                },
+                {
+                    "host": [
+                        "https://jsonplaceholder.typicode.com"
+                    ],
+                    "url_pattern": "/users/{id}",
+                    "mapping": {
+                        "email": "personal_email"
+                    },
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-httpcache": {}
+                    }
+                }
+            ]
+        },
+        {
+            "endpoint": "/show/{id}",
+            "backend": [
+                {
+                    "host": [
+                        "http://showrss.info/"
+                    ],
+                    "url_pattern": "/user/schedule/{id}.rss",
+                    "encoding": "rss",
+                    "group": "schedule",
+                    "whitelist": ["title"],
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "maxErrors": 1
+                        },
+                        "github.com/devopsfaith/krakend-httpcache": {}
+                    }
+                },
+                {
+                    "host": [
+                        "http://showrss.info/"
+                    ],
+                    "url_pattern": "/user/{id}.rss",
+                    "encoding": "rss",
+                    "group": "available",
+                    "whitelist": ["title"],
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "maxErrors": 1
+                        },
+                        "github.com/devopsfaith/krakend-httpcache": {}
+                    }
+                }
+            ]
+        },
+        {
+            "endpoint": "/timeout",
+            "timeout": "100ms",
+            "backend": [
+                {
+                    "host": ["http://127.0.0.1:8081"],
+                    "url_pattern": "/param_forwarding/123",
+                    "group": "first"
+                },
+                {
+                    "host": ["http://127.0.0.1:8081"],
+                    "url_pattern": "/delayed/",
+                    "group": "second"
+                }
+            ]
+        },
+        {
+            "endpoint": "/detail_error",
+            "backend": [
+                {
+                    "host": ["http://127.0.0.1:8081"],
+                    "url_pattern": "/param_forwarding/",
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend/http": {
+                            "return_error_details": "backend_a"
+                        }
+                    }
+                },
+                {
+                    "host": ["http://127.0.0.1:8081"],
+                    "url_pattern": "/",
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend/http": {
+                            "return_error_details": "backend_b"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

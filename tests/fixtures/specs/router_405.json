@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "POST",
+		"url": "http://localhost:8080/crash"
+	},
+	"out": {
+		"status_code": 405,
+		"body": "405 method not allowed",
+		"header": {
+			"content-type": "text/plain",
+			"Cache-Control": "",
+			"X-Krakend-Completed": ""
+		}
+	}
+}

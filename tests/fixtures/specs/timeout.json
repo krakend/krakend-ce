@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/timeout"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"first\":{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"User-Agent\":[\"KrakenD Version 0.7.1\"]},\"path\":\"/param_forwarding/123\",\"query\":{}}}",
+		"header": {
+			"content-type": "application/json; charset=utf-8",
+			"Cache-Control": "",
+			"X-Krakend-Completed": "false"
+		}
+	}
+}

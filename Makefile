@@ -68,6 +68,9 @@ build:
 	@go build -ldflags="-X github.com/devopsfaith/krakend-ce/vendor/github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"
 
+test: build
+	go test -v ./tests
+
 docker_build:
 	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} ${DOCKER_DEP} ensure -v
 	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:${GOLANG_VERSION} make build

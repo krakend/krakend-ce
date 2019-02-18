@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/static"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"bar\":\"foobar\",\"foo\":42}",
+		"header": {
+			"content-type": "application/json; charset=utf-8",
+			"Cache-Control": "public, max-age=3600",
+			"X-Krakend-Completed": "true"
+		}
+	}
+}

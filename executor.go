@@ -8,10 +8,10 @@ import (
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	"github.com/devopsfaith/krakend-cobra"
-	"github.com/devopsfaith/krakend-gelf"
+	gelf "github.com/devopsfaith/krakend-gelf"
 	"github.com/devopsfaith/krakend-gologging"
 	"github.com/devopsfaith/krakend-jose"
-	"github.com/devopsfaith/krakend-logstash"
+	logstash "github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-opencensus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
@@ -85,13 +85,17 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("bloomFilter:", err.Error())
 		}
 
+		tokenRejecterFactory := jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
+			return jose.RejecterFunc(rejecter.RejectToken)
+		})
+
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
 			Engine:         NewEngine(cfg, logger),
 			ProxyFactory:   NewProxyFactory(logger, NewBackendFactory(logger, metricCollector), metricCollector),
 			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,
-			HandlerFactory: NewHandlerFactory(logger, metricCollector, jose.RejecterFunc(rejecter.RejectToken)),
+			HandlerFactory: NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
 			RunServer:      krakendrouter.RunServer,
 		})
 

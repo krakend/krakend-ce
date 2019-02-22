@@ -85,8 +85,10 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("bloomFilter:", err.Error())
 		}
 
-		tokenRejecterFactory := jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
-			return jose.RejecterFunc(rejecter.RejectToken)
+		tokenRejecterFactory := jose.ChainedRejecterFactory([]jose.RejecterFactory{
+			jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
+				return jose.RejecterFunc(rejecter.RejectToken)
+			}),
 		})
 
 		// setup the krakend router

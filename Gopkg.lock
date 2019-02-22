@@ -283,14 +283,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:1d30cdead7c177017052146b8aa2898340fa1216ca9ca31b9a8c78e84b9bf241"
+  digest = "1:d44975fd7e0c6c08c80d749b6d174ed1f410a8929fb80fa53392f0715a7da61e"
   name = "github.com/devopsfaith/krakend-jose"
   packages = [
     ".",
     "gin",
   ]
   pruneopts = ""
-  revision = "d9d307b7ee2affbc1602f464e4ac91fc3aa85b8a"
+  revision = "afde91ecf17c4c1d0d759099743f3151b5c3d66f"
 
 [[projects]]
   branch = "master"

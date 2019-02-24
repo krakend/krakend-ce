@@ -1,6 +1,7 @@
 package krakend
 
 import (
+	cel "github.com/devopsfaith/krakend-cel"
 	cb "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy"
 	httpcache "github.com/devopsfaith/krakend-httpcache"
 	"github.com/devopsfaith/krakend-martian"
@@ -32,6 +33,7 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 		return opencensus.HTTPRequestExecutor(clientFactory)
 	}
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
+	backendFactory = cel.BackendFactory(logger, backendFactory)
 	backendFactory = juju.BackendFactory(backendFactory)
 	backendFactory = cb.BackendFactory(backendFactory, logger)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)

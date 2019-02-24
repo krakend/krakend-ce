@@ -33,6 +33,10 @@
 
 [[constraint]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-cel"
+
+[[constraint]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend-flexibleconfig"
 
 [[constraint]]

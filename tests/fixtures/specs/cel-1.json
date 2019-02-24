@@ -1,0 +1,17 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/cel/req-resp/1",
+		"header": {
+			"X-Header": "something"
+		}
+	},
+	"out": {
+		"status_code": 500,
+		"body": "",
+		"header": {
+			"content-type": "",
+			"Cache-Control": ""
+		}
+	}
+}

@@ -100,7 +100,7 @@
   name = "github.com/devopsfaith/krakend-opencensus"
 
 [[constraint]]
-  version = "0.8.0"
+  branch = "master"
   name = "github.com/devopsfaith/krakend-jose"
 
 [[constraint]]

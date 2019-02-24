@@ -282,15 +282,15 @@
   version = "0.6.0"
 
 [[projects]]
-  digest = "1:1e2f409ee9b67754643c462adaa1791fff3a1211912c7487d2fad15b6c68a6eb"
+  branch = "master"
+  digest = "1:d44975fd7e0c6c08c80d749b6d174ed1f410a8929fb80fa53392f0715a7da61e"
   name = "github.com/devopsfaith/krakend-jose"
   packages = [
     ".",
     "gin",
   ]
   pruneopts = ""
-  revision = "09f07ba6c926bfa901d17490864c8f78fbb46a0e"
-  version = "0.8.0"
+  revision = "afde91ecf17c4c1d0d759099743f3151b5c3d66f"
 
 [[projects]]
   branch = "master"
@@ -1214,6 +1214,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/clbanning/mxj",
     "github.com/devopsfaith/bloomfilter/krakend",
     "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy",
     "github.com/devopsfaith/krakend-cobra",

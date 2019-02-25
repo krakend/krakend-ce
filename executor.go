@@ -7,6 +7,7 @@ import (
 	"os"
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
+	cel "github.com/devopsfaith/krakend-cel"
 	"github.com/devopsfaith/krakend-cobra"
 	gelf "github.com/devopsfaith/krakend-gelf"
 	"github.com/devopsfaith/krakend-gologging"
@@ -88,6 +89,9 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		tokenRejecterFactory := jose.ChainedRejecterFactory([]jose.RejecterFactory{
 			jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
 				return jose.RejecterFunc(rejecter.RejectToken)
+			}),
+			jose.RejecterFactoryFunc(func(l logging.Logger, cfg *config.EndpointConfig) jose.Rejecter {
+				return cel.NewRejecter(l, cfg)
 			}),
 		})
 

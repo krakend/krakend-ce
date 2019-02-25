@@ -1,6 +1,7 @@
 package krakend
 
 import (
+	cel "github.com/devopsfaith/krakend-cel"
 	jsonschema "github.com/devopsfaith/krakend-jsonschema"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	opencensus "github.com/devopsfaith/krakend-opencensus"
@@ -12,6 +13,7 @@ import (
 func NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory, metricCollector *metrics.Metrics) proxy.Factory {
 	proxyFactory := proxy.NewDefaultFactory(backendFactory, logger)
 	proxyFactory = jsonschema.ProxyFactory(proxyFactory)
+	proxyFactory = cel.ProxyFactory(logger, proxyFactory)
 	proxyFactory = metricCollector.ProxyFactory("pipe", proxyFactory)
 	proxyFactory = opencensus.ProxyFactory(proxyFactory)
 	return proxyFactory

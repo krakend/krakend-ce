@@ -79,6 +79,46 @@
             }
         },
         {
+            "endpoint": "/cel/req-resp/{id}",
+            "headers_to_pass": ["X-Header"],
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8080" ],
+                    "url_pattern": "/__debug/{id}",
+                    "group": "backend1",
+                    "extra_config":{
+                        "github.com/devopsfaith/krakend-cel": [
+                            {
+                                "check_expr": "int(req_params.Id) % 3 == 0"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "host": [ "http://127.0.0.1:8080" ],
+                    "url_pattern": "/__debug/{id}",
+                    "group": "backend2",
+                    "extra_config":{
+                        "github.com/devopsfaith/krakend-cel": [
+                            {
+                                "check_expr": "int(req_params.Id) % 5 == 0"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "extra_config":{
+                "github.com/devopsfaith/krakend-cel": [
+                    {
+                        "check_expr": "'something' in req_headers['X-Header']"
+                    },
+                    {
+                        "check_expr": "int(req_params.Id) % 2 == 0"
+                    }
+                ]
+            }
+        },
+        {
             "endpoint": "/param_forwarding/some/{foo}/{bar}",
             "headers_to_pass": [
                 "Authorization",

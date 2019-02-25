@@ -1,0 +1,17 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/cel/req-resp/6",
+		"header": {
+			"X-Header": "something"
+		}
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"backend1\":{\"message\":\"pong\"}}",
+		"header": {
+			"content-type": "application/json; charset=utf-8",
+			"Cache-Control": ""
+		}
+	}
+}

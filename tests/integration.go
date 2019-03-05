@@ -13,6 +13,7 @@ import (
 	"net/http"
 	"os/exec"
 	"path"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -310,6 +311,7 @@ func (mockBackendBuilder) New(cfg *Config) http.Server {
 	mux.HandleFunc("/param_forwarding/", checkXForwardedFor(http.HandlerFunc(echoEndpoint)))
 	mux.HandleFunc("/xml", checkXForwardedFor(http.HandlerFunc(xmlEndpoint)))
 	mux.HandleFunc("/delayed/", checkXForwardedFor(delayedEndpoint(cfg.getDelay(), http.HandlerFunc(echoEndpoint))))
+	mux.HandleFunc("/redirect/", checkXForwardedFor(http.HandlerFunc(redirectEndpoint)))
 
 	return http.Server{
 		Addr:    fmt.Sprintf(":%v", cfg.getBackendPort()),
@@ -357,4 +359,21 @@ func echoEndpoint(rw http.ResponseWriter, r *http.Request) {
 		"headers": r.Header,
 		"foo":     42,
 	})
+}
+
+func redirectEndpoint(rw http.ResponseWriter, r *http.Request) {
+	u := r.URL
+	u.Path = "/param_forwarding/"
+
+	status, ok2 := r.URL.Query()["status"]
+	code := 301
+	if !ok2 || status[0] != "301" {
+		var err error
+		code, err = strconv.Atoi(status[0])
+		if err != nil {
+			http.Error(rw, err.Error(), http.StatusBadRequest)
+			return
+		}
+	}
+	http.Redirect(rw, r, u.String(), code)
 }

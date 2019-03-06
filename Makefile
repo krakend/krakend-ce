@@ -20,7 +20,7 @@ MAINTAINER := Daniel Ortiz <dortiz@devops.faith>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
 DOCKER_DEP := instrumentisto/dep:0.5.0-alpine
-GOLANG_VERSION := 1.11.5
+GOLANG_VERSION := 1.12
 GOBASEDIR=src/github.com/devopsfaith/krakend-ce
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \

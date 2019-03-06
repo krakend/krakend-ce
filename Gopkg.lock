@@ -301,7 +301,6 @@
   version = "0.6.0"
 
 [[projects]]
-  branch = "master"
   digest = "1:d44975fd7e0c6c08c80d749b6d174ed1f410a8929fb80fa53392f0715a7da61e"
   name = "github.com/devopsfaith/krakend-jose"
   packages = [
@@ -310,6 +309,7 @@
   ]
   pruneopts = ""
   revision = "afde91ecf17c4c1d0d759099743f3151b5c3d66f"
+  version = "0.8.1"
 
 [[projects]]
   branch = "master"

@@ -8,7 +8,7 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"User-Agent\":[\"KrakenD Version 0.7.1\"]},\"path\":\"/param_forwarding/foo\",\"query\":{\"a\":[\"1\"],\"b\":[\"2\"]}}",
+		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"User-Agent\":[\"KrakenD Version 0.8.0\"]},\"path\":\"/param_forwarding/foo\",\"query\":{\"a\":[\"1\"],\"b\":[\"2\"]}}",
 		"header": {
 			"content-type": "application/json; charset=utf-8",
 			"Cache-Control": "public, max-age=3600",

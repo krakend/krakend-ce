@@ -119,6 +119,31 @@
             }
         },
         {
+            "endpoint": "/cel/jwt/{id}",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8080" ],
+                    "url_pattern": "/__debug/{id}"
+                }
+            ],
+            "extra_config":{
+                "github.com/devopsfaith/krakend-cel": [
+                    {
+                        "check_expr": "size(JWT.roles)>1"
+                    }
+                ],
+                "github.com/devopsfaith/krakend-jose/validator": {
+                    "alg": "HS256",
+                    "audience": ["http://api.example.com"],
+                    "roles_key": "roles",
+                    "issuer": "https://krakend.io",
+                    "roles": ["role_a", "role_b", "role_y"],
+                    "jwk-url": "http://127.0.0.1:8081/jwk/symmetric",
+                    "disable_jwk_security": true
+                }
+            }
+        },
+        {
             "endpoint": "/param_forwarding/some/{foo}/{bar}",
             "headers_to_pass": [
                 "Authorization",

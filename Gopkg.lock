@@ -301,14 +301,14 @@
   version = "0.6.0"
 
 [[projects]]
-  digest = "1:d44975fd7e0c6c08c80d749b6d174ed1f410a8929fb80fa53392f0715a7da61e"
+  digest = "1:b9d21f1f616f5454d9124ebdfebf92dca7d882379039ef687265b72f4a713af1"
   name = "github.com/devopsfaith/krakend-jose"
   packages = [
     ".",
     "gin",
   ]
   pruneopts = ""
-  revision = "afde91ecf17c4c1d0d759099743f3151b5c3d66f"
+  revision = "34c0555a9893717c5609f96fef2f14843acffa66"
   version = "0.8.1"
 
 [[projects]]

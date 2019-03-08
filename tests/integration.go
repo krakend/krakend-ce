@@ -312,6 +312,7 @@ func (mockBackendBuilder) New(cfg *Config) http.Server {
 	mux.HandleFunc("/xml", checkXForwardedFor(http.HandlerFunc(xmlEndpoint)))
 	mux.HandleFunc("/delayed/", checkXForwardedFor(delayedEndpoint(cfg.getDelay(), http.HandlerFunc(echoEndpoint))))
 	mux.HandleFunc("/redirect/", checkXForwardedFor(http.HandlerFunc(redirectEndpoint)))
+	mux.HandleFunc("/jwk/symmetric", http.HandlerFunc(symmetricJWKEndpoint))
 
 	return http.Server{
 		Addr:    fmt.Sprintf(":%v", cfg.getBackendPort()),
@@ -376,4 +377,24 @@ func redirectEndpoint(rw http.ResponseWriter, r *http.Request) {
 		}
 	}
 	http.Redirect(rw, r, u.String(), code)
+}
+
+func symmetricJWKEndpoint(rw http.ResponseWriter, req *http.Request) {
+	rw.Header().Add("Content-Type", "application/json")
+	rw.Write([]byte(`{
+  "keys": [
+    {
+      "kty": "oct",
+      "alg": "A128KW",
+      "k": "GawgguFyGrWKav7AX4VKUg",
+      "kid": "sim1"
+    },
+    {
+      "kty": "oct",
+      "k": "AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow",
+      "kid": "sim2",
+      "alg": "HS256"
+    }
+  ]
+}`))
 }

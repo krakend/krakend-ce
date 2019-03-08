@@ -91,7 +91,10 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 				return jose.RejecterFunc(rejecter.RejectToken)
 			}),
 			jose.RejecterFactoryFunc(func(l logging.Logger, cfg *config.EndpointConfig) jose.Rejecter {
-				return cel.NewRejecter(l, cfg)
+				if r := cel.NewRejecter(l, cfg); r != nil {
+					return r
+				}
+				return jose.FixedRejecter(false)
 			}),
 		})
 

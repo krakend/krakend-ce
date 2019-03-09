@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/private/custom"
+	},
+	"out": {
+		"status_code": 401,
+		"body": "",
+		"header": {
+			"content-type": "",
+			"Cache-Control": "",
+			"X-Krakend-Completed": ""
+		}
+	}
+}

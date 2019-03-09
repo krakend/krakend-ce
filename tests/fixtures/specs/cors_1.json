@@ -1,0 +1,24 @@
+{
+	"in": {
+		"method": "OPTIONS",
+		"url": "http://localhost:8080/param_forwarding/some/foo/bar?a=1&b=2",
+		"header": {
+			"User-Agent": "some",
+			"Origin": "http://foo.example",
+			"Access-Control-Request-Method": "GET",
+			"Access-Control-Request-Headers": "X-PINGOTHER"
+		}
+	},
+	"out": {
+		"status_code": 200,
+		"body": "",
+		"header": {
+			"content-type": "",
+			"Cache-Control": "",
+			"X-Krakend-Completed": "",
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "POST,GET",
+			"Access-Control-Allow-Headers": "Origin,Authorization,Content-Type"
+		}
+	}
+}

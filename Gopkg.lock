@@ -178,8 +178,7 @@
   version = "0.7.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:b9b4950a8de0758f64534410244feebe6c6b0325e2f0a625e23e44c3a08f3fd3"
+  digest = "1:b5d786e1d8b9e79696a11db256e5f13d44fbb8f2b8a23a8233aae0ade6583bfb"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -198,7 +197,8 @@
     "transport/http/server",
   ]
   pruneopts = ""
-  revision = "e79e13b752a8e377c0e67fe298f4edc06fa39f10"
+  revision = "f4927628fef838afa276f02d3059ad4d0e7bf01a"
+  version = "0.8.0"
 
 [[projects]]
   branch = "master"
@@ -301,15 +301,15 @@
   version = "0.6.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:d44975fd7e0c6c08c80d749b6d174ed1f410a8929fb80fa53392f0715a7da61e"
+  digest = "1:b9d21f1f616f5454d9124ebdfebf92dca7d882379039ef687265b72f4a713af1"
   name = "github.com/devopsfaith/krakend-jose"
   packages = [
     ".",
     "gin",
   ]
   pruneopts = ""
-  revision = "afde91ecf17c4c1d0d759099743f3151b5c3d66f"
+  revision = "34c0555a9893717c5609f96fef2f14843acffa66"
+  version = "0.8.1"
 
 [[projects]]
   branch = "master"

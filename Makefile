@@ -7,7 +7,7 @@
 BIN_NAME :=krakend
 DEP_VERSION=0.5.0
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 0.7.1
+VERSION := 0.8.0
 PKGNAME := krakend
 LICENSE := Apache 2.0
 VENDOR=
@@ -20,7 +20,7 @@ MAINTAINER := Daniel Ortiz <dortiz@devops.faith>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
 DOCKER_DEP := instrumentisto/dep:0.5.0-alpine
-GOLANG_VERSION := 1.11.5
+GOLANG_VERSION := 1.12
 GOBASEDIR=src/github.com/devopsfaith/krakend-ce
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \

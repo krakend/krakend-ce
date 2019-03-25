@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/flatmap/2"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"paths\":[{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"},{\"url\":\"/collection/2\"}]}",
+		"header": {
+			"content-type": "application/json; charset=utf-8",
+			"Cache-Control": "public, max-age=3600",
+			"X-Krakend-Completed": "true"
+		}
+	}
+}

@@ -178,7 +178,16 @@
   version = "0.7.0"
 
 [[projects]]
-  digest = "1:b5d786e1d8b9e79696a11db256e5f13d44fbb8f2b8a23a8233aae0ade6583bfb"
+  branch = "master"
+  digest = "1:e5f5904b41d55acf0e0eec22355952c35ce10030f3decd4d5a88594ba801a951"
+  name = "github.com/devopsfaith/flatmap"
+  packages = ["tree"]
+  pruneopts = ""
+  revision = "ca610bccf69e790b3f97d1efe40882679f5cc511"
+
+[[projects]]
+  branch = "master"
+  digest = "1:8cbcb87d1c554737b7dbdc15fb32f76f5f8c7af6087c4b8213c5a090ea94e258"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -197,8 +206,7 @@
     "transport/http/server",
   ]
   pruneopts = ""
-  revision = "f4927628fef838afa276f02d3059ad4d0e7bf01a"
-  version = "0.8.0"
+  revision = "d78009a7b8c49d70e26ac77d23f4262533fa72d3"
 
 [[projects]]
   branch = "master"

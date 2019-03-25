@@ -225,6 +225,35 @@
           ]
         },
         {
+            "endpoint": "/flatmap/{id}",
+            "method": "GET",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/collection/{id}",
+                    "is_collection": true,
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend/proxy": {
+                            "flatmap_filter": [
+                                {
+                                    "type": "move",
+                                    "args": ["collection", "paths"]
+                                },
+                                {
+                                    "type": "del",
+                                    "args": ["paths.*.i"]
+                                },
+                                {
+                                    "type": "move",
+                                    "args": ["paths.*.path", "paths.*.url"]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
             "endpoint": "/combination/{id}",
             "method": "GET",
             "backend": [

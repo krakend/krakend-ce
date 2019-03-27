@@ -16,7 +16,7 @@
   version = "3.3.12"
 
 [[override]]
-  version = "0.8.0"
+  branch = "master"
   name = "github.com/devopsfaith/krakend"
 
 [[override]]

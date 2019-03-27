@@ -310,6 +310,7 @@ func (mockBackendBuilder) New(cfg *Config) http.Server {
 
 	mux.HandleFunc("/param_forwarding/", checkXForwardedFor(http.HandlerFunc(echoEndpoint)))
 	mux.HandleFunc("/xml", checkXForwardedFor(http.HandlerFunc(xmlEndpoint)))
+	mux.HandleFunc("/collection/", checkXForwardedFor(http.HandlerFunc(collectionEndpoint)))
 	mux.HandleFunc("/delayed/", checkXForwardedFor(delayedEndpoint(cfg.getDelay(), http.HandlerFunc(echoEndpoint))))
 	mux.HandleFunc("/redirect/", checkXForwardedFor(http.HandlerFunc(redirectEndpoint)))
 	mux.HandleFunc("/jwk/symmetric", http.HandlerFunc(symmetricJWKEndpoint))
@@ -318,6 +319,20 @@ func (mockBackendBuilder) New(cfg *Config) http.Server {
 		Addr:    fmt.Sprintf(":%v", cfg.getBackendPort()),
 		Handler: mux,
 	}
+}
+
+func collectionEndpoint(rw http.ResponseWriter, r *http.Request) {
+	rw.Header().Add("Content-Type", "application/json")
+	res := []interface{}{}
+
+	for i := 0; i < 10; i++ {
+		res = append(res, map[string]interface{}{
+			"path": r.URL.Path,
+			"i":    i,
+		})
+	}
+
+	json.NewEncoder(rw).Encode(res)
 }
 
 func checkXForwardedFor(h http.Handler) http.HandlerFunc {

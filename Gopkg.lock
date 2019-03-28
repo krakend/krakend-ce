@@ -187,7 +187,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:cabf18372dee5538be9e1aea464f4bb0b22d1b30853a3a384fb943261236b441"
+  digest = "1:37fd271430ca67e13c42db3394547c268713ff87da6f2a3281e22912bb0d0603"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -206,7 +206,7 @@
     "transport/http/server",
   ]
   pruneopts = ""
-  revision = "449bd3b13fe7c5a3538a6e4257794bb4d6106e12"
+  revision = "9220724f382ad02af53b5627a9a3c4b323fa230b"
 
 [[projects]]
   branch = "master"

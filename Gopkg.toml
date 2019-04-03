@@ -80,6 +80,10 @@
   name = "github.com/devopsfaith/krakend-httpcache"
 
 [[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-amqp"
+
+[[constraint]]
   version = "0.7.0"
   name = "github.com/devopsfaith/krakend-martian"
 

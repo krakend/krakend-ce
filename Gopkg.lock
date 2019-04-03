@@ -210,6 +210,14 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:1af37481e59dc90681ed6ca751067fe596a92a7b5fed7fcabd9d17a22d4f3d49"
+  name = "github.com/devopsfaith/krakend-amqp"
+  packages = ["."]
+  pruneopts = ""
+  revision = "5f14dc177694b928d133f79475692b4b14442651"
+
+[[projects]]
+  branch = "master"
   digest = "1:f72487139b7433059c268ec65e4863320af887db0df5798f10626753238831da"
   name = "github.com/devopsfaith/krakend-cel"
   packages = [
@@ -892,6 +900,17 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:7cfabfbca44cd91fef8dd89119c5dfdcdc0466c26d5b7c5ad35e965e01fca1c4"
+  name = "github.com/streadway/amqp"
+  packages = [
+    ".",
+    "internal/proto",
+  ]
+  pruneopts = ""
+  revision = "16ed540749f64417a42006ad795b01c0f5d4677a"
+
+[[projects]]
+  branch = "master"
   digest = "1:c25738de77424e193ec4a05e0be75e83d0671d83c122959da27879e86b1122c9"
   name = "github.com/tmthrgd/asm"
   packages = ["."]
@@ -1270,6 +1289,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/devopsfaith/bloomfilter/krakend",
+    "github.com/devopsfaith/krakend-amqp",
     "github.com/devopsfaith/krakend-cel",
     "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy",
     "github.com/devopsfaith/krakend-cobra",

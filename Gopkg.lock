@@ -186,8 +186,7 @@
   revision = "46b83f115c746a2b24642a54a3bd4ae594172d3e"
 
 [[projects]]
-  branch = "master"
-  digest = "1:37fd271430ca67e13c42db3394547c268713ff87da6f2a3281e22912bb0d0603"
+  digest = "1:46e33223aaeed161865d6329a408c5c2e4e836e44a282089bccfbcaf7cbdef79"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -206,7 +205,8 @@
     "transport/http/server",
   ]
   pruneopts = ""
-  revision = "9220724f382ad02af53b5627a9a3c4b323fa230b"
+  revision = "3d1455d44d39584429282f364ca0720f68b78525"
+  version = "0.9.0"
 
 [[projects]]
   branch = "master"
@@ -1269,7 +1269,6 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/clbanning/mxj",
     "github.com/devopsfaith/bloomfilter/krakend",
     "github.com/devopsfaith/krakend-cel",
     "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy",

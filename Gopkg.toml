@@ -60,7 +60,7 @@
   name = "github.com/devopsfaith/krakend-circuitbreaker"
 
 [[constraint]]
-  branch = "master"
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-cobra"
 
 [[constraint]]

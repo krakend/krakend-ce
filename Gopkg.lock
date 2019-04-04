@@ -274,11 +274,11 @@
   revision = "bd645943ff8ce2135252caafa42abc34f2c14a7d"
 
 [[projects]]
-  digest = "1:858cee200bd94dd3cdb3afc06ad09ab71ca37198f906cbe9a2fd0ccdcbcc5e8d"
+  digest = "1:41fc94c0a73201ef78b2722262f2814c033c65a65c2c17946e9e6f92f4e1d7a1"
   name = "github.com/devopsfaith/krakend-flexibleconfig"
   packages = ["."]
   pruneopts = ""
-  revision = "23f2ca20e5db2f92d39d5dc539d64529b40907a0"
+  revision = "465383e6f04aa4b3c5d27e75a02946dcebb5cc9e"
   version = "0.9.0"
 
 [[projects]]

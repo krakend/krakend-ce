@@ -84,7 +84,7 @@
   name = "github.com/devopsfaith/krakend-amqp"
 
 [[constraint]]
-  version = "0.7.0"
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-martian"
 
 [[constraint]]

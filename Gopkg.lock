@@ -344,15 +344,15 @@
   revision = "17f4745d3502bb8f8efbc0a21d6b60fdb0dc08d5"
 
 [[projects]]
-  digest = "1:7bfe9387115ea3322aa4081536b9bf41f9743d53e1be36dd877bbadc686ed19c"
+  digest = "1:72ac234b9591ddb102e2abab6d65e2f14f7f8866c152d3629b00600002528eb7"
   name = "github.com/devopsfaith/krakend-martian"
   packages = [
     ".",
     "register",
   ]
   pruneopts = ""
-  revision = "12579ad047c6528547fcac36277c3d5e9b53681b"
-  version = "0.7.0"
+  revision = "0a6d74d55365d04077ab745a72b04da3a4e6aa87"
+  version = "0.9.0"
 
 [[projects]]
   digest = "1:f18105f7b6118cd3bb56706c70cd3d945880fd3f0782393e2c793e9d10846b78"
@@ -534,6 +534,7 @@
     "mitm",
     "parse",
     "proxyutil",
+    "status",
     "verify",
   ]
   pruneopts = ""

@@ -11,7 +11,8 @@
 		"body": "",
 		"header": {
 			"content-type": "",
-			"Cache-Control": ""
+			"Cache-Control": "",
+			"X-Krakend-Completed": "false"
 		}
 	}
 }

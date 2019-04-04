@@ -217,15 +217,15 @@
   revision = "5f14dc177694b928d133f79475692b4b14442651"
 
 [[projects]]
-  branch = "master"
-  digest = "1:f72487139b7433059c268ec65e4863320af887db0df5798f10626753238831da"
+  digest = "1:2adc20b97785d34a8ed824444f4968c3074025800c96420a66292d0180aefb72"
   name = "github.com/devopsfaith/krakend-cel"
   packages = [
     ".",
     "internal",
   ]
   pruneopts = ""
-  revision = "01f717a7cafad9e7bd36044c6d81639cd2804d3f"
+  revision = "4ab152faf99c6769e435471c42bc12b74cd2e812"
+  version = "0.9.0"
 
 [[projects]]
   branch = "master"
@@ -497,7 +497,7 @@
   version = "v1.2.0"
 
 [[projects]]
-  digest = "1:c9f76c2577fde45c9642e1b03491cf6b3aacff2e4b969beb071c96911c5f34fc"
+  digest = "1:7e37047a3d592e947b32e27270549e5924d8946ab65558d611f226fb5b79b60e"
   name = "github.com/google/cel-go"
   packages = [
     "cel",
@@ -518,8 +518,8 @@
     "parser/gen",
   ]
   pruneopts = ""
-  revision = "81d826ac4515a47311b5e8734449e3a6ac7afceb"
-  version = "v0.1.0"
+  revision = "2c29ff3f5d3d7856e562e821214cc9c77657b853"
+  version = "v0.2.0"
 
 [[projects]]
   digest = "1:59c8099a5a8f449331e7bf2d17086bbd4f320f1f8f6a1a75a5d4d145bd6ad865"

@@ -28,7 +28,12 @@ import (
 // - circuit breaker
 // - metrics collector
 // - opencensus collector
-func NewBackendFactory(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+	return NewBackendFactoryWithContext(context.Background(), logger, metricCollector)
+}
+
+// NewBackendFactory creates a BackendFactory by stacking all the available middlewares and injecting the received context
+func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
 		var clientFactory client.HTTPClientFactory
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {

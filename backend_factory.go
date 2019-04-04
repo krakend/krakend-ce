@@ -1,6 +1,9 @@
 package krakend
 
 import (
+	"context"
+
+	amqp "github.com/devopsfaith/krakend-amqp"
 	cel "github.com/devopsfaith/krakend-cel"
 	cb "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy"
 	httpcache "github.com/devopsfaith/krakend-httpcache"
@@ -17,12 +20,20 @@ import (
 
 // NewBackendFactory creates a BackendFactory by stacking all the available middlewares:
 // - oauth2 client credentials
+// - http cache
 // - martian
+// - amqp
+// - cel
 // - rate-limit
 // - circuit breaker
 // - metrics collector
 // - opencensus collector
 func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+	return NewBackendFactoryWithContext(context.Background(), logger, metricCollector)
+}
+
+// NewBackendFactory creates a BackendFactory by stacking all the available middlewares and injecting the received context
+func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
 		var clientFactory client.HTTPClientFactory
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
@@ -33,6 +44,7 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 		return opencensus.HTTPRequestExecutor(clientFactory)
 	}
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
+	backendFactory = amqp.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = cel.BackendFactory(logger, backendFactory)
 	backendFactory = juju.BackendFactory(backendFactory)
 	backendFactory = cb.BackendFactory(backendFactory, logger)

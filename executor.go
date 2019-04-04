@@ -101,7 +101,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
 			Engine:         NewEngine(cfg, logger),
-			ProxyFactory:   NewProxyFactory(logger, NewBackendFactory(logger, metricCollector), metricCollector),
+			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(ctx, logger, metricCollector), metricCollector),
 			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,
 			HandlerFactory: NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),

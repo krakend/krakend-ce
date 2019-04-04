@@ -179,15 +179,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:e1c847baa7c0bbecc452f2321c4ddb2cfb2c48a38ac726d2a5eb954c1d0d4297"
+  digest = "1:eaf17b84fcf35436fcde8935f72589c6a3705d13532370687c8502315c1b643d"
   name = "github.com/devopsfaith/flatmap"
   packages = ["tree"]
   pruneopts = ""
-  revision = "46b83f115c746a2b24642a54a3bd4ae594172d3e"
+  revision = "8d71d61e07ac04dcb1661ae30e22893a66439981"
 
 [[projects]]
-  branch = "master"
-  digest = "1:37fd271430ca67e13c42db3394547c268713ff87da6f2a3281e22912bb0d0603"
+  digest = "1:3a96a760ff7759f3a78e17c219b5938ed48c91cd623128ff8c1caff56cdf5fdf"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -206,18 +205,27 @@
     "transport/http/server",
   ]
   pruneopts = ""
-  revision = "9220724f382ad02af53b5627a9a3c4b323fa230b"
+  revision = "1d20c1916774358fb9a86726f1e9633e133c5b90"
+  version = "0.9.0"
 
 [[projects]]
   branch = "master"
-  digest = "1:f72487139b7433059c268ec65e4863320af887db0df5798f10626753238831da"
+  digest = "1:1af37481e59dc90681ed6ca751067fe596a92a7b5fed7fcabd9d17a22d4f3d49"
+  name = "github.com/devopsfaith/krakend-amqp"
+  packages = ["."]
+  pruneopts = ""
+  revision = "5f14dc177694b928d133f79475692b4b14442651"
+
+[[projects]]
+  digest = "1:2adc20b97785d34a8ed824444f4968c3074025800c96420a66292d0180aefb72"
   name = "github.com/devopsfaith/krakend-cel"
   packages = [
     ".",
     "internal",
   ]
   pruneopts = ""
-  revision = "01f717a7cafad9e7bd36044c6d81639cd2804d3f"
+  revision = "4ab152faf99c6769e435471c42bc12b74cd2e812"
+  version = "0.9.0"
 
 [[projects]]
   branch = "master"
@@ -231,20 +239,20 @@
   revision = "673caf8e355a808f10f27dc76fb6abf1a5079a41"
 
 [[projects]]
-  branch = "master"
-  digest = "1:94ddaa594e4395b22e67a220933e260663dff57e7fb55d88643cd36d16ae1d69"
+  digest = "1:5d525e158a2fa5f7058eb5f6b44beddb869641a353cf09bf799e39eb80672f88"
   name = "github.com/devopsfaith/krakend-cobra"
   packages = ["."]
   pruneopts = ""
-  revision = "38d113ba86e99af08dbf4b1e9e510f522fc5d56e"
+  revision = "3f056666a23e2a9707bc72a86a748392730ec6b6"
+  version = "0.9.0"
 
 [[projects]]
   branch = "master"
-  digest = "1:277d2dc17bb667ec0de7651938125bec5c4ebd1079e0de8143a733327547835e"
+  digest = "1:95590893db00360367156745b87b10079f4f60fb68d0ac362aa861ae9d72e111"
   name = "github.com/devopsfaith/krakend-consul"
   packages = ["."]
   pruneopts = ""
-  revision = "2da968420b5dc2560af3a137489a38230d8117e0"
+  revision = "7623a4da32a11026b8e6a6d8092049d57708eae6"
 
 [[projects]]
   digest = "1:fc61e61898c78455700e0bf3d6e86478073254488c3391f0716ad37a2144a5a6"
@@ -266,12 +274,12 @@
   revision = "bd645943ff8ce2135252caafa42abc34f2c14a7d"
 
 [[projects]]
-  branch = "master"
-  digest = "1:5300adfe557c762cfd230b914970c3b76d05914cbd0a3cb6398aeb2143f7ba21"
+  digest = "1:dd8ebcf0bcc2c1a9d778f6bc19e9e4a20cec6dc0c8791605a46e333713c9514b"
   name = "github.com/devopsfaith/krakend-flexibleconfig"
   packages = ["."]
   pruneopts = ""
-  revision = "73b987ab20487385218e02964eede4c4fa26a204"
+  revision = "f138bfee381ba2eb6501c5959577a3e1e0c8b850"
+  version = "0.9.0"
 
 [[projects]]
   branch = "master"
@@ -321,11 +329,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d97fd5fc1b4e2db5edfd5ccf202e085d7a75229c12ff0f21a60c6a71be61b2e6"
+  digest = "1:f415d5187117a470bef2174e1d31e0602a8bb7d77195a435254fa4168b6bd3a5"
   name = "github.com/devopsfaith/krakend-jsonschema"
   packages = ["."]
   pruneopts = ""
-  revision = "895abb7764a92f5ad265184b54f926889f74d7f8"
+  revision = "5705a5015d7ab77614b408b39024a97ed997badc"
 
 [[projects]]
   branch = "master"
@@ -336,15 +344,15 @@
   revision = "17f4745d3502bb8f8efbc0a21d6b60fdb0dc08d5"
 
 [[projects]]
-  digest = "1:7bfe9387115ea3322aa4081536b9bf41f9743d53e1be36dd877bbadc686ed19c"
+  digest = "1:72ac234b9591ddb102e2abab6d65e2f14f7f8866c152d3629b00600002528eb7"
   name = "github.com/devopsfaith/krakend-martian"
   packages = [
     ".",
     "register",
   ]
   pruneopts = ""
-  revision = "12579ad047c6528547fcac36277c3d5e9b53681b"
-  version = "0.7.0"
+  revision = "0a6d74d55365d04077ab745a72b04da3a4e6aa87"
+  version = "0.9.0"
 
 [[projects]]
   digest = "1:f18105f7b6118cd3bb56706c70cd3d945880fd3f0782393e2c793e9d10846b78"
@@ -384,7 +392,7 @@
   version = "0.7.1"
 
 [[projects]]
-  digest = "1:39d892061aa095f73bdbdd3a1e73ba767f3f477ca9e17917a77284d1d03f235c"
+  digest = "1:2c4af650abc25a23b66a671f81dbaae0b6f32bd0ec771807b758d3e373e7755b"
   name = "github.com/devopsfaith/krakend-ratelimit"
   packages = [
     ".",
@@ -394,8 +402,8 @@
     "juju/router/gin",
   ]
   pruneopts = ""
-  revision = "d783f44e834aa91930971d39145b52a182b107ca"
-  version = "0.8.0"
+  revision = "d63774e96e822849beb444823db7e22e5289fab6"
+  version = "0.9.0"
 
 [[projects]]
   digest = "1:bd8e054d035e2e20c076b549dcec18deb1ed1051b8a2eebe719fb10610088482"
@@ -407,22 +415,22 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:aaa5ac483bf864d91545b0e79655a504bd24cf6f294a9a1a31c9e8e46cfa2a59"
+  digest = "1:98772bc7bd74a25894b96167122ac52c433e2c5ba83b6c2e6c98c20330ec514b"
   name = "github.com/devopsfaith/krakend-usage"
   packages = [
     ".",
     "client",
   ]
   pruneopts = ""
-  revision = "9ac996de433fb194bcdb7a55359960e2f2d2517a"
+  revision = "476779c0a36c241aaa50bd22a4e3bf54705b78b7"
 
 [[projects]]
   branch = "master"
-  digest = "1:a50f898ee62c6473005cdc2e00753debe069b94bb4bbf143447754fa90a01cd9"
+  digest = "1:4810d92e2fbdfc3693f2d47d7d5bccddb904c44999db369e25c43a1052232874"
   name = "github.com/devopsfaith/krakend-viper"
   packages = ["."]
   pruneopts = ""
-  revision = "3abc4134a773578643b46aa11431f72cc6d41e8a"
+  revision = "67993681c36c160991b404094fc1d615796a75ea"
 
 [[projects]]
   digest = "1:01f84c46e656f5cd11bebcd357b40af62a42e000125d3a70121182a022f867d0"
@@ -489,7 +497,7 @@
   version = "v1.2.0"
 
 [[projects]]
-  digest = "1:c9f76c2577fde45c9642e1b03491cf6b3aacff2e4b969beb071c96911c5f34fc"
+  digest = "1:7e37047a3d592e947b32e27270549e5924d8946ab65558d611f226fb5b79b60e"
   name = "github.com/google/cel-go"
   packages = [
     "cel",
@@ -510,8 +518,8 @@
     "parser/gen",
   ]
   pruneopts = ""
-  revision = "81d826ac4515a47311b5e8734449e3a6ac7afceb"
-  version = "v0.1.0"
+  revision = "2c29ff3f5d3d7856e562e821214cc9c77657b853"
+  version = "v0.2.0"
 
 [[projects]]
   digest = "1:59c8099a5a8f449331e7bf2d17086bbd4f320f1f8f6a1a75a5d4d145bd6ad865"
@@ -526,6 +534,7 @@
     "mitm",
     "parse",
     "proxyutil",
+    "status",
     "verify",
   ]
   pruneopts = ""
@@ -889,6 +898,17 @@
   pruneopts = ""
   revision = "25b30aa063fc18e48662b86996252eabdcf2f0c7"
   version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:7cfabfbca44cd91fef8dd89119c5dfdcdc0466c26d5b7c5ad35e965e01fca1c4"
+  name = "github.com/streadway/amqp"
+  packages = [
+    ".",
+    "internal/proto",
+  ]
+  pruneopts = ""
+  revision = "16ed540749f64417a42006ad795b01c0f5d4677a"
 
 [[projects]]
   branch = "master"
@@ -1269,8 +1289,8 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/clbanning/mxj",
     "github.com/devopsfaith/bloomfilter/krakend",
+    "github.com/devopsfaith/krakend-amqp",
     "github.com/devopsfaith/krakend-cel",
     "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy",
     "github.com/devopsfaith/krakend-cobra",

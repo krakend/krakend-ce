@@ -16,7 +16,7 @@
   version = "3.3.12"
 
 [[override]]
-  branch = "master"
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend"
 
 [[override]]
@@ -32,11 +32,11 @@
   version = "1.2.0"
 
 [[constraint]]
-  branch = "master"
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-cel"
 
 [[constraint]]
-  branch = "master"
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-flexibleconfig"
 
 [[constraint]]
@@ -60,7 +60,7 @@
   name = "github.com/devopsfaith/krakend-circuitbreaker"
 
 [[constraint]]
-  branch = "master"
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-cobra"
 
 [[constraint]]
@@ -80,7 +80,11 @@
   name = "github.com/devopsfaith/krakend-httpcache"
 
 [[constraint]]
-  version = "0.7.0"
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-amqp"
+
+[[constraint]]
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-martian"
 
 [[constraint]]
@@ -92,7 +96,7 @@
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
 
 [[constraint]]
-  version = "0.8.0"
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-ratelimit"
 
 [[constraint]]

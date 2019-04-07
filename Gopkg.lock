@@ -186,7 +186,8 @@
   revision = "8d71d61e07ac04dcb1661ae30e22893a66439981"
 
 [[projects]]
-  digest = "1:3a96a760ff7759f3a78e17c219b5938ed48c91cd623128ff8c1caff56cdf5fdf"
+  branch = "master"
+  digest = "1:8785cd633cda9901dfee135560940ea5f8bd49328585fe072bf07d976e4517a8"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -205,8 +206,7 @@
     "transport/http/server",
   ]
   pruneopts = ""
-  revision = "1d20c1916774358fb9a86726f1e9633e133c5b90"
-  version = "0.9.0"
+  revision = "f8b1cbc69da0cbab467d60f2549da6239c0e812a"
 
 [[projects]]
   branch = "master"
@@ -426,11 +426,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:4810d92e2fbdfc3693f2d47d7d5bccddb904c44999db369e25c43a1052232874"
+  digest = "1:02746d4f0a0c170d3e4ee13e39a670c791ac4ee4dcad35876945a2e0adcb72c0"
   name = "github.com/devopsfaith/krakend-viper"
   packages = ["."]
   pruneopts = ""
-  revision = "67993681c36c160991b404094fc1d615796a75ea"
+  revision = "1cbb76813774283ea57dd5ce8371fa5ebe5dbc91"
 
 [[projects]]
   digest = "1:01f84c46e656f5cd11bebcd357b40af62a42e000125d3a70121182a022f867d0"
@@ -588,6 +588,7 @@
     ".",
     "hcl/ast",
     "hcl/parser",
+    "hcl/printer",
     "hcl/scanner",
     "hcl/strconv",
     "hcl/token",
@@ -892,12 +893,12 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:59354ad53dfe6ed1b941844cb029cd37c0377598eec3a0d49c03aee2375ef9c4"
+  digest = "1:90fe60ab6f827e308b0c8cc1e11dce8ff1e96a927c8b171271a3cb04dd517606"
   name = "github.com/spf13/viper"
   packages = ["."]
   pruneopts = ""
-  revision = "25b30aa063fc18e48662b86996252eabdcf2f0c7"
-  version = "v1.0.0"
+  revision = "9e56dacc08fbbf8c9ee2dbc717553c758ce42bc9"
+  version = "v1.3.2"
 
 [[projects]]
   branch = "master"

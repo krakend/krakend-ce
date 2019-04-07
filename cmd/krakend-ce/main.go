@@ -13,6 +13,7 @@ import (
 	"github.com/devopsfaith/krakend-cobra"
 	flexibleconfig "github.com/devopsfaith/krakend-flexibleconfig"
 	"github.com/devopsfaith/krakend-viper"
+	"github.com/devopsfaith/krakend/config"
 )
 
 const (
@@ -39,7 +40,8 @@ func main() {
 
 	krakend.RegisterEncoders()
 
-	cfg := viper.New()
+	var cfg config.Parser
+	cfg = viper.New()
 	if os.Getenv(fcEnable) != "" {
 		cfg = flexibleconfig.NewTemplateParser(flexibleconfig.Config{
 			Parser:   cfg,

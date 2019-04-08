@@ -36,7 +36,7 @@
   name = "github.com/devopsfaith/krakend-cel"
 
 [[constraint]]
-  version = "0.9.0"
+  branch = "master"
   name = "github.com/devopsfaith/krakend-flexibleconfig"
 
 [[constraint]]

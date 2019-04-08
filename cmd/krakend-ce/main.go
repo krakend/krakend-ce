@@ -17,10 +17,11 @@ import (
 )
 
 const (
-	fcPartials = "FC_PARTIALS"
-	fcSettings = "FC_SETTINGS"
-	fcPath     = "FC_OUT"
-	fcEnable   = "FC_ENABLE"
+	fcPartials  = "FC_PARTIALS"
+	fcTemplates = "FC_TEMPLATES"
+	fcSettings  = "FC_SETTINGS"
+	fcPath      = "FC_OUT"
+	fcEnable    = "FC_ENABLE"
 )
 
 func main() {
@@ -48,6 +49,7 @@ func main() {
 			Partials: os.Getenv(fcPartials),
 			Settings: os.Getenv(fcSettings),
 			Path:     os.Getenv(fcPath),
+			Template: os.Getenv(fcTemplates),
 		})
 	}
 

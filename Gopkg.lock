@@ -344,15 +344,15 @@
   revision = "17f4745d3502bb8f8efbc0a21d6b60fdb0dc08d5"
 
 [[projects]]
-  digest = "1:72ac234b9591ddb102e2abab6d65e2f14f7f8866c152d3629b00600002528eb7"
+  branch = "master"
+  digest = "1:963ac9014ff2973362fdff92adaaa49db32c8b6a439bc352f4c1afe011566148"
   name = "github.com/devopsfaith/krakend-martian"
   packages = [
     ".",
     "register",
   ]
   pruneopts = ""
-  revision = "0a6d74d55365d04077ab745a72b04da3a4e6aa87"
-  version = "0.9.0"
+  revision = "29314a524a91921568334a6d9124a7d002cdd463"
 
 [[projects]]
   digest = "1:f18105f7b6118cd3bb56706c70cd3d945880fd3f0782393e2c793e9d10846b78"
@@ -527,13 +527,19 @@
   packages = [
     ".",
     "body",
+    "cookie",
     "fifo",
     "filter",
     "header",
     "log",
+    "martianurl",
     "mitm",
     "parse",
+    "port",
+    "priority",
     "proxyutil",
+    "stash",
+    "static",
     "status",
     "verify",
   ]

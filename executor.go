@@ -21,6 +21,7 @@ import (
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/stackdriver"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/xray"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
+	pubsub "github.com/devopsfaith/krakend-pubsub"
 	"github.com/devopsfaith/krakend-usage/client"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -77,7 +78,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning(err.Error())
 		}
 
-		if err := opencensus.Register(ctx, cfg); err != nil {
+		if err := opencensus.Register(ctx, cfg, append(opencensus.DefaultViews, pubsub.OpenCensusViews...)...); err != nil {
 			logger.Warning("opencensus:", err.Error())
 		}
 

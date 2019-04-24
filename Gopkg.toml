@@ -12,6 +12,14 @@
   name = "github.com/ugorji/go"
 
 [[override]]
+  name = "go.opencensus.io"
+  version = "0.20.2"
+
+[[override]]
+  name = "contrib.go.opencensus.io/exporter/ocagent"
+  version = "v0.4.2"
+
+[[override]]
   name = "github.com/coreos/etcd"
   version = "3.3.12"
 
@@ -62,6 +70,10 @@
 [[constraint]]
   version = "0.9.0"
   name = "github.com/devopsfaith/krakend-cobra"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-pubsub"
 
 [[constraint]]
   branch = "master"

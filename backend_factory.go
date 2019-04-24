@@ -11,6 +11,7 @@ import (
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-oauth2-clientcredentials"
 	opencensus "github.com/devopsfaith/krakend-opencensus"
+	pubsub "github.com/devopsfaith/krakend-pubsub"
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/proxy"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -22,6 +23,7 @@ import (
 // - oauth2 client credentials
 // - http cache
 // - martian
+// - pubsub
 // - amqp
 // - cel
 // - rate-limit
@@ -44,6 +46,8 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 		return opencensus.HTTPRequestExecutor(clientFactory)
 	}
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
+	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
+	backendFactory = bf.New
 	backendFactory = amqp.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = cel.BackendFactory(logger, backendFactory)
 	backendFactory = juju.BackendFactory(backendFactory)

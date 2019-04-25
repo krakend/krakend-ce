@@ -17,12 +17,39 @@
   version = "v0.32.0"
 
 [[projects]]
+  branch = "master"
+  digest = "1:31abfbccb4f0d76a929287692f96847fc6c2267a7f34982fd85fe85306a70460"
+  name = "contrib.go.opencensus.io/exporter/aws"
+  packages = ["."]
+  pruneopts = ""
+  revision = "2befc13012d0b3486eb8effda5735b6f0730e645"
+
+[[projects]]
+  branch = "master"
+  digest = "1:009d164a00dd72f62fab5c0d9957415492e37aaa122a9187d52dcd24c99a34b0"
+  name = "contrib.go.opencensus.io/exporter/jaeger"
+  packages = [
+    ".",
+    "internal/gen-go/jaeger",
+  ]
+  pruneopts = ""
+  revision = "5b8293c22f362562285c2acbc52f4a1870a47a33"
+
+[[projects]]
   digest = "1:6158256042564abf0da300ea7cb016f79ddaf24fdda2cc06c9712b0c2e06dd2a"
   name = "contrib.go.opencensus.io/exporter/ocagent"
   packages = ["."]
   pruneopts = ""
   revision = "dcb33c7f3b7cfe67e8a2cea10207ede1b7c40764"
   version = "v0.4.12"
+
+[[projects]]
+  branch = "master"
+  digest = "1:3f38f1beab30c822b0a7afe930d8fab12e8335ce9aa6e2880b7af1d7486dc9a6"
+  name = "contrib.go.opencensus.io/exporter/prometheus"
+  packages = ["."]
+  pruneopts = ""
+  revision = "f02a6e68f94d3841b92ab6f1ab38b4c3e45d2c9f"
 
 [[projects]]
   digest = "1:b6f2e97ae241056f5ab5af4c37e82b79339d64fe7c1c73ca26ce19b470661e3b"
@@ -34,6 +61,14 @@
   pruneopts = ""
   revision = "f6033e3f5e239c2fac5d6443ccdc2116d8c2850d"
   version = "v0.7.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:199d4c4f9a8743931a3fe26f1f59aa494707466853d8d6a3dc09745e78485714"
+  name = "contrib.go.opencensus.io/exporter/zipkin"
+  packages = ["."]
+  pruneopts = ""
+  revision = "c96617f51dc6c558ca0869abd0c3d96d534a37de"
 
 [[projects]]
   digest = "1:40c8c872ea3d3b7fc43e2e18c3fde8517f82fe93a1ce07cf89ab408442c2648a"
@@ -181,14 +216,6 @@
   packages = ["."]
   pruneopts = ""
   revision = "e6bc29ff4de927cdd8143d58e119b6ba2735e8a4"
-
-[[projects]]
-  branch = "master"
-  digest = "1:31abfbccb4f0d76a929287692f96847fc6c2267a7f34982fd85fe85306a70460"
-  name = "github.com/census-ecosystem/opencensus-go-exporter-aws"
-  packages = ["."]
-  pruneopts = ""
-  revision = "2befc13012d0b3486eb8effda5735b6f0730e645"
 
 [[projects]]
   digest = "1:10139b9c841acd336ceff02e8a85e0c558dee738b2277bb24d61d9d3c90ef1f2"
@@ -448,7 +475,8 @@
   version = "0.8.0"
 
 [[projects]]
-  digest = "1:710a02a4ee61b5c94ec9f2c91f7d8488999adc1113722b8eca8e0255f9ccb7fa"
+  branch = "master"
+  digest = "1:bc611927bb876315597aed6be11ccac00ac509af47e084e061c82e4443ee0fa2"
   name = "github.com/devopsfaith/krakend-opencensus"
   packages = [
     ".",
@@ -461,8 +489,7 @@
     "router/gin",
   ]
   pruneopts = ""
-  revision = "a4c64d6aff1aaef37c36638a6adb094109355ae0"
-  version = "0.7.1"
+  revision = "a584d6fd2cc1a8178477e72d5de6b765e6f0f013"
 
 [[projects]]
   branch = "master"
@@ -1194,18 +1221,15 @@
   version = "v1.0"
 
 [[projects]]
-  digest = "1:0eff358cc3a77a6ab721689fa717dc051bffc637346d17330341336f5b61b1e2"
+  digest = "1:a2710a93d435ef9481564c98deadf9de17d437b75e0c3d0c1cfbd7bfd8407040"
   name = "go.opencensus.io"
   packages = [
     ".",
-    "exporter/jaeger",
-    "exporter/jaeger/internal/gen-go/jaeger",
-    "exporter/prometheus",
     "exporter/stackdriver/propagation",
-    "exporter/zipkin",
     "internal",
     "internal/tagencoding",
     "metric/metricdata",
+    "metric/metricexport",
     "metric/metricproducer",
     "plugin/ocgrpc",
     "plugin/ochttp",
@@ -1222,8 +1246,8 @@
     "trace/tracestate",
   ]
   pruneopts = ""
-  revision = "75c0cca22312e51bfd4fafdbe9197ae399e18b38"
-  version = "v0.20.2"
+  revision = "df6e2001952312404b06f5f6f03fcb4aec1648e5"
+  version = "v0.21.0"
 
 [[projects]]
   digest = "1:0e0f178ef23bbb0cbf93109dd40cc9f7748981cb8410f846d67f1b36b82b1e61"

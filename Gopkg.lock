@@ -191,6 +191,7 @@
     "private/protocol/rest",
     "private/protocol/restjson",
     "private/protocol/xml/xmlutil",
+    "service/lambda",
     "service/sns",
     "service/sqs",
     "service/sts",
@@ -434,6 +435,14 @@
   packages = ["."]
   pruneopts = ""
   revision = "5705a5015d7ab77614b408b39024a97ed997badc"
+
+[[projects]]
+  branch = "master"
+  digest = "1:3b4164a6d059fbbcdb6700d44c1264b3c82201c4a3a6b257ee586e8c828f27c3"
+  name = "github.com/devopsfaith/krakend-lambda"
+  packages = ["."]
+  pruneopts = ""
+  revision = "c770e4198f1da89699a5a23c6ac5d7cca512444f"
 
 [[projects]]
   branch = "master"
@@ -1562,6 +1571,7 @@
     "github.com/devopsfaith/krakend-jose",
     "github.com/devopsfaith/krakend-jose/gin",
     "github.com/devopsfaith/krakend-jsonschema",
+    "github.com/devopsfaith/krakend-lambda",
     "github.com/devopsfaith/krakend-logstash",
     "github.com/devopsfaith/krakend-martian",
     "github.com/devopsfaith/krakend-metrics/gin",

@@ -7,6 +7,7 @@ import (
 	cel "github.com/devopsfaith/krakend-cel"
 	cb "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy"
 	httpcache "github.com/devopsfaith/krakend-httpcache"
+	lambda "github.com/devopsfaith/krakend-lambda"
 	"github.com/devopsfaith/krakend-martian"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-oauth2-clientcredentials"
@@ -49,6 +50,7 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = bf.New
 	backendFactory = amqp.NewBackendFactory(ctx, logger, backendFactory)
+	backendFactory = lambda.BackendFactory(backendFactory)
 	backendFactory = cel.BackendFactory(logger, backendFactory)
 	backendFactory = juju.BackendFactory(backendFactory)
 	backendFactory = cb.BackendFactory(backendFactory, logger)

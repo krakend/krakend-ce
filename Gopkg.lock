@@ -438,11 +438,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3b4164a6d059fbbcdb6700d44c1264b3c82201c4a3a6b257ee586e8c828f27c3"
+  digest = "1:9cf3d16db5d417177f3ba311fed1aed696b873fd708910c681592ed9ee766189"
   name = "github.com/devopsfaith/krakend-lambda"
   packages = ["."]
   pruneopts = ""
-  revision = "c770e4198f1da89699a5a23c6ac5d7cca512444f"
+  revision = "4a509c7d9c5d5b5f7ce919d96815f5d21d568784"
 
 [[projects]]
   branch = "master"

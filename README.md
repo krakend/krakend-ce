@@ -64,13 +64,11 @@ http://www.krakend.io/docs/overview/introduction/
 
 ## Build Requirements
 
-- golang 1.10
-- `dep`
+- golang 1.11
 
 ## Build
 ```
-    make prepare
-    make
+    make build
 ```
 
 ## Building with docker

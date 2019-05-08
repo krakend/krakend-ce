@@ -5,9 +5,8 @@ go:
     - "1.11.x"
 
 before_install:
-  - mkdir -p /home/travis/gopath-tmp
-  - export GOPATH="/home/travis/gopath-tmp"
+    - mkdir -p /home/travis/gopath-tmp
+    - export GOPATH="/home/travis/gopath-tmp"
 
 script:
-    - pwd
-    - make all test
+    - make test

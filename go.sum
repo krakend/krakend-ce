@@ -163,6 +163,8 @@ github.com/denisenkom/go-mssqldb v0.0.0-20181014144952-4e0d7dc8888f/go.mod h1:xN
 github.com/denisenkom/go-mssqldb v0.0.0-20190121005146-b04fd42d9952/go.mod h1:xN/JuLBIz4bjkxNmByTiV1IbhfnYb6oo99phBn4Eqhc=
 github.com/devopsfaith/bloomfilter v0.0.0-20181030130509-662332d04f21 h1:1o6FY7EJXQ52sYip5IyfkEjMkyrpqGM4XpS6Na9im+E=
 github.com/devopsfaith/bloomfilter v0.0.0-20181030130509-662332d04f21/go.mod h1:tbSDll/pfEfe0SF8GkyT1z3jYyAtXw+wDFSQy7172gk=
+github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a h1:qkMmhLugQNFqVCX2dciZUOPShzadLJ+ntHKZsCptY3Q=
+github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a/go.mod h1:tbSDll/pfEfe0SF8GkyT1z3jYyAtXw+wDFSQy7172gk=
 github.com/devopsfaith/flatmap v0.0.0-20190327225844-8d71d61e07ac h1:blZXXPXthOwNqFKXULhRzPtn98SCi+r9AdqO7Pcfasw=
 github.com/devopsfaith/flatmap v0.0.0-20190327225844-8d71d61e07ac/go.mod h1:J9Y/58s7wx7HbHT3i4UKNwLGuBB9qCf0/JUdEFGDPmA=
 github.com/devopsfaith/krakend v0.0.0-20190306181519-f4927628fef8/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
@@ -177,8 +179,12 @@ github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694 h1:Tk+S9z
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694/go.mod h1:/c/BrN6w3Lqip/3WRcYprolGvfT+gLgSzdDrT9d2LUc=
 github.com/devopsfaith/krakend-cel v0.0.0-20190404122610-4ab152faf99c h1:WVEupgNcmMzkU+OTM8DgJpGHcYdqxB9sE8F8106z4dI=
 github.com/devopsfaith/krakend-cel v0.0.0-20190404122610-4ab152faf99c/go.mod h1:CwIyUsXJUD/eb3nsFqX2AULic5zmrKUDl0wPdEH25Ko=
+github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e h1:E9zdm77HzhqUPmEs67xyyZAvKAz9n+Dju1FHVdIe94s=
+github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e/go.mod h1:CwIyUsXJUD/eb3nsFqX2AULic5zmrKUDl0wPdEH25Ko=
 github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190206135831-673caf8e355a h1:hqj5E5HZV/S7UHb7b5LpkEu4RnaeZS8ULL1VqxIu5tc=
 github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190206135831-673caf8e355a/go.mod h1:f8aiqw0hMfLVFCPJ6j1tnL4NMGwJ2y/lKoXLwa3xwjk=
+github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981 h1:kak/LmjiKUBXQ5yOw0tW7+bSPAdsHLgkdJf3TRhXVAk=
+github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981/go.mod h1:f8aiqw0hMfLVFCPJ6j1tnL4NMGwJ2y/lKoXLwa3xwjk=
 github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e h1:iN1vX0DOULslrvYBh4PPrKkI4p2qjTQmTyCNgnrkgFU=
 github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e/go.mod h1:iW78W5ed8t6ou+Zpx9ThHmvnjgsJPYwQM+rj6j/O90Y=
 github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1 h1:K4OSn+IG3ugJ1sPbyvkxvzWDSFnDLhdzvr8LKjv56N8=

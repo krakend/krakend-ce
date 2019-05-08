@@ -25,12 +25,12 @@ require (
 	github.com/clbanning/mxj v0.0.0-20180418195244-1f00e0bf9bac
 	github.com/coreos/etcd v3.3.13+incompatible
 	github.com/coreos/go-semver v0.2.0
-	github.com/devopsfaith/bloomfilter v0.0.0-20181030130509-662332d04f21
+	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
 	github.com/devopsfaith/flatmap v0.0.0-20190327225844-8d71d61e07ac
 	github.com/devopsfaith/krakend v0.0.0-20190508163621-c813517e56ef
 	github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694
-	github.com/devopsfaith/krakend-cel v0.0.0-20190404122610-4ab152faf99c
-	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190206135831-673caf8e355a
+	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
+	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981
 	github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e
 	github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1
 	github.com/devopsfaith/krakend-cors v0.0.0-20180906120953-c9b7eb26914f

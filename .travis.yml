@@ -3,10 +3,6 @@ language: go
 go:
     - "1.12.x"
     - "1.11.x"
-    - "1.10.x"
-
-before_install:
-  - make prepare
 
 script:
     - make all test

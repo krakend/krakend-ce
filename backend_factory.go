@@ -18,6 +18,7 @@ import (
 	"github.com/devopsfaith/krakend/logging"
 	"github.com/devopsfaith/krakend/proxy"
 	"github.com/devopsfaith/krakend/transport/http/client"
+	httprequestexecutor "github.com/devopsfaith/krakend/transport/http/client/plugin"
 )
 
 // NewBackendFactory creates a BackendFactory by stacking all the available middlewares:
@@ -46,6 +47,7 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 		}
 		return opencensus.HTTPRequestExecutor(clientFactory)
 	}
+	requestExecutorFactory = httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
 	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = bf.New

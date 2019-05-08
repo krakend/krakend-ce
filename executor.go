@@ -27,6 +27,7 @@ import (
 	"github.com/devopsfaith/krakend/logging"
 	krakendrouter "github.com/devopsfaith/krakend/router"
 	router "github.com/devopsfaith/krakend/router/gin"
+	httprequestexecutor "github.com/devopsfaith/krakend/transport/http/client/plugin"
 	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
 	"github.com/letgoapp/krakend-influx"
@@ -68,6 +69,14 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		logger.Info("Listening on port:", cfg.Port)
 
 		startReporter(ctx, logger, cfg)
+
+		if cfg.Plugin != nil {
+			n, err := httprequestexecutor.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, httprequestexecutor.RegisterClient)
+			if err != nil {
+				logger.Warning("loading plugins:", err)
+			}
+			logger.Info("plugins loaded:", n)
+		}
 
 		reg := RegisterSubscriberFactories(ctx, cfg, logger)
 

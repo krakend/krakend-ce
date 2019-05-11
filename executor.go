@@ -28,6 +28,7 @@ import (
 	krakendrouter "github.com/devopsfaith/krakend/router"
 	router "github.com/devopsfaith/krakend/router/gin"
 	httprequestexecutor "github.com/devopsfaith/krakend/transport/http/client/plugin"
+	server "github.com/devopsfaith/krakend/transport/http/server/plugin"
 	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
 	"github.com/letgoapp/krakend-influx"
@@ -75,7 +76,13 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			if err != nil {
 				logger.Warning("loading plugins:", err)
 			}
-			logger.Info("plugins loaded:", n)
+			logger.Info("http executor plugins loaded:", n)
+
+			n, err = server.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, server.RegisterHandler)
+			if err != nil {
+				logger.Warning("loading plugins:", err)
+			}
+			logger.Info("http handler plugins loaded:", n)
 		}
 
 		reg := RegisterSubscriberFactories(ctx, cfg, logger)
@@ -115,7 +122,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,
 			HandlerFactory: NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
-			RunServer:      krakendrouter.RunServer,
+			RunServer:      router.RunServerFunc(server.New(logger, krakendrouter.RunServer)),
 		})
 
 		// start the engines

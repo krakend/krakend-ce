@@ -32,6 +32,10 @@
   name = "github.com/devopsfaith/krakend-metrics"
 
 [[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-lambda"
+
+[[constraint]]
   name = "github.com/go-contrib/uuid"
   version = "v1.2.0"
 

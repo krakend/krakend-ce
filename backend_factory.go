@@ -8,6 +8,7 @@ import (
 	cb "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy"
 	httpcache "github.com/devopsfaith/krakend-httpcache"
 	lambda "github.com/devopsfaith/krakend-lambda"
+	lua "github.com/devopsfaith/krakend-lua/proxy"
 	"github.com/devopsfaith/krakend-martian"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-oauth2-clientcredentials"
@@ -28,6 +29,7 @@ import (
 // - pubsub
 // - amqp
 // - cel
+// - lua
 // - rate-limit
 // - circuit breaker
 // - metrics collector
@@ -54,6 +56,7 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	backendFactory = amqp.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = lambda.BackendFactory(backendFactory)
 	backendFactory = cel.BackendFactory(logger, backendFactory)
+	backendFactory = lua.BackendFactory(logger, backendFactory)
 	backendFactory = juju.BackendFactory(backendFactory)
 	backendFactory = cb.BackendFactory(backendFactory, logger)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)

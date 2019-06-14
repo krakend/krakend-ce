@@ -1,11 +1,10 @@
-.PHONY: all prepare deps build
+.PHONY: all build test
 
 # This Makefile is a simple example that demonstrates usual steps to build a binary that can be run in the same
 # architecture that was compiled in. The "ldflags" in the build assure that any needed dependency is included in the
 # binary and no external dependencies are needed to run the service.
 
 BIN_NAME :=krakend
-DEP_VERSION=0.5.0
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 VERSION := 0.9.0
 PKGNAME := krakend
@@ -48,24 +47,12 @@ RPM_OPTS =--rpm-user $(USER) \
 DEBNAME=${PKGNAME}_${VERSION}-${RELEASE}_${ARCH}.deb
 RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 
-all: deps build
-
-prepare:
-	@echo "Installing dep..."
-	@curl -L -s https://github.com/golang/dep/releases/download/v${DEP_VERSION}/dep-${OS}-amd64 -o ${GOPATH}/bin/dep
-	@chmod a+x ${GOPATH}/bin/dep
-
-deps:
-	@echo "Setting up the vendors folder..."
-	@dep ensure -v
-	@echo ""
-	@echo "Resolved dependencies:"
-	@dep status
-	@echo ""
+all: test
 
 build:
 	@echo "Building the binary..."
-	@go build -ldflags="-X github.com/devopsfaith/krakend-ce/vendor/github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
+	@go get .
+	@go build -ldflags="-X github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"
 
 test: build

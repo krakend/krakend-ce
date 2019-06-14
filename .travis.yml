@@ -3,10 +3,10 @@ language: go
 go:
     - "1.12.x"
     - "1.11.x"
-    - "1.10.x"
 
 before_install:
-  - make prepare
+    - mkdir -p /home/travis/gopath-tmp
+    - export GOPATH="/home/travis/gopath-tmp"
 
 script:
-    - make all test
+    - make test

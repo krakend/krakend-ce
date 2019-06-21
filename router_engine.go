@@ -1,6 +1,8 @@
 package krakend
 
 import (
+	"io"
+
 	cors "github.com/devopsfaith/krakend-cors/gin"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
 	"github.com/devopsfaith/krakend/config"
@@ -9,8 +11,9 @@ import (
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware
-func NewEngine(cfg config.ServiceConfig, logger logging.Logger) *gin.Engine {
-	engine := gin.Default()
+func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gin.Engine {
+	engine := gin.New()
+	engine.Use(gin.LoggerWithConfig(gin.LoggerConfig{Output: w}), gin.Recovery())
 
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true

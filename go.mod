@@ -22,7 +22,7 @@ require (
 	github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9
 	github.com/census-instrumentation/opencensus-proto v0.2.0
-	github.com/clbanning/mxj v0.0.0-20180418195244-1f00e0bf9bac
+	github.com/clbanning/mxj v1.8.4
 	github.com/coreos/etcd v3.3.13+incompatible
 	github.com/coreos/go-semver v0.2.0
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
@@ -53,7 +53,7 @@ require (
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c
 	github.com/devopsfaith/krakend-viper v0.0.0-20190407170411-1cbb76813774
-	github.com/devopsfaith/krakend-xml v0.0.0-20180408220837-5ce94062a4cc
+	github.com/devopsfaith/krakend-xml v0.0.0-20190709144612-0cd19aeb1104
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3

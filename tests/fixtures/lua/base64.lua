@@ -1,3 +1,5 @@
+-- source: https://github.com/toastdriven/lua-base64/blob/master/base64.lua
+
 -- Base64-encoding
 -- Sourced from http://en.wikipedia.org/wiki/Base64
 

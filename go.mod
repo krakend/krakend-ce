@@ -27,13 +27,13 @@ require (
 	github.com/coreos/go-semver v0.2.0
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
 	github.com/devopsfaith/flatmap v0.0.0-20190327225844-8d71d61e07ac
-	github.com/devopsfaith/krakend v0.0.0-20190511123421-5061ec786823
+	github.com/devopsfaith/krakend v0.0.0-20190616151918-b11cce82be2d
 	github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
 	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981
 	github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e
 	github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1
-	github.com/devopsfaith/krakend-cors v0.0.0-20180906120953-c9b7eb26914f
+	github.com/devopsfaith/krakend-cors v0.0.0-20190627191518-bffd849ef712
 	github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c
 	github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf
 	github.com/devopsfaith/krakend-gelf v0.0.0-20181019222239-59c0250b1c60

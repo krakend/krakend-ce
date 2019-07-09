@@ -56,8 +56,8 @@ require (
 	github.com/devopsfaith/krakend-xml v0.0.0-20180408220837-5ce94062a4cc
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.4.7
-	github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7
-	github.com/gin-gonic/gin v1.3.0
+	github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3
+	github.com/gin-gonic/gin v1.4.0
 	github.com/go-contrib/uuid v1.2.0
 	github.com/golang/mock v1.3.0 // indirect
 	github.com/golang/protobuf v1.3.1
@@ -80,13 +80,13 @@ require (
 	github.com/influxdata/influxdb v1.7.4
 	github.com/influxdata/platform v0.0.0-20190117200541-d500d3cf5589
 	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
-	github.com/json-iterator/go v1.1.5
+	github.com/json-iterator/go v1.1.6
 	github.com/juju/ratelimit v1.0.1
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c
 	github.com/kr/pty v1.1.4 // indirect
 	github.com/letgoapp/krakend-influx v0.0.0-20190214142340-d2fc9466bb3a
 	github.com/magiconair/properties v1.8.0
-	github.com/mattn/go-isatty v0.0.4
+	github.com/mattn/go-isatty v0.0.7
 	github.com/matttproud/golang_protobuf_extensions v1.0.1
 	github.com/mitchellh/go-homedir v1.0.0
 	github.com/mitchellh/mapstructure v1.1.2
@@ -124,7 +124,7 @@ require (
 	github.com/tmthrgd/go-hex v0.0.0-20180828131331-d1fb3dbb16a1
 	github.com/tmthrgd/go-memset v0.0.0-20180828131805-6f4e59bf1e1d
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97
-	github.com/ugorji/go v1.1.2-0.20180831062425-e253f1f20942
+	// github.com/ugorji/go v1.1.4
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415
@@ -157,3 +157,5 @@ require (
 	honnef.co/go/tools v0.0.0-20190418001031-e561f6794a2a // indirect
 	pack.ag/amqp v0.11.0
 )
+
+replace github.com/ugorji/go v1.1.4 => github.com/ugorji/go/codec v0.0.0-20190204201341-e444a5086c43

@@ -436,6 +436,41 @@
                     "disable_jwk_security": true
                 }
             }
+        },
+        {
+            "endpoint": "/lua/collection",
+            "headers_to_pass": ["*"],
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/collection/",
+                    "is_collection": true,
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-lua/proxy/backend": {
+                            "sources": [
+                                "fixtures/lua/json.lua",
+                                "fixtures/lua/base64.lua",
+                                "fixtures/lua/collection.lua"
+                            ],
+                            "pre": "pre_backend(request.load())",
+                            "live": true,
+                            "allow_open_libs": true
+                        }
+                    }
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend-lua/proxy": {
+                    "sources": [
+                        "fixtures/lua/json.lua",
+                        "fixtures/lua/base64.lua",
+                        "fixtures/lua/collection.lua"
+                    ],
+                    "post": "post_proxy(response.load())",
+                    "live": true,
+                    "allow_open_libs": true
+                }
+            }
         }
     ]
 }

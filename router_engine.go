@@ -5,6 +5,7 @@ import (
 
 	cors "github.com/devopsfaith/krakend-cors/gin"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
+	lua "github.com/devopsfaith/krakend-lua/router/gin"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
 	"github.com/gin-gonic/gin"
@@ -26,6 +27,8 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
 		logger.Warning(err)
 	}
+
+	lua.Register(logger, cfg.ExtraConfig, engine)
 
 	return engine
 }

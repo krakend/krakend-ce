@@ -362,8 +362,7 @@ func xmlEndpoint(rw http.ResponseWriter, _ *http.Request) {
     <twitter>https://twitter.com</twitter>
     <youtube>https://youtube.com</youtube>
   </social>
-</user>
-`))
+</user>`))
 }
 
 func echoEndpoint(rw http.ResponseWriter, r *http.Request) {

@@ -200,6 +200,8 @@ github.com/devopsfaith/krakend v0.0.0-20190511103646-adcd3f6c3566 h1:tRI0cc0HsT7
 github.com/devopsfaith/krakend v0.0.0-20190511103646-adcd3f6c3566/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend v0.0.0-20190511123421-5061ec786823 h1:7/9b0L8avk7gDUUevQFIOUKz5KM5N2ZKXqj0Rg3jPrc=
 github.com/devopsfaith/krakend v0.0.0-20190511123421-5061ec786823/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
+github.com/devopsfaith/krakend v0.0.0-20190616151918-b11cce82be2d h1:VafXzSXfEl2LxfVQjyeFzVP6mgmxtcPKotaN69u4UwM=
+github.com/devopsfaith/krakend v0.0.0-20190616151918-b11cce82be2d/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694 h1:Tk+S9zvltFAq8x15F2xAyt/wwed0okbSTaPYRguKfzA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694/go.mod h1:/c/BrN6w3Lqip/3WRcYprolGvfT+gLgSzdDrT9d2LUc=
 github.com/devopsfaith/krakend-cel v0.0.0-20190404122610-4ab152faf99c h1:WVEupgNcmMzkU+OTM8DgJpGHcYdqxB9sE8F8106z4dI=
@@ -216,6 +218,8 @@ github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1 h1:K4OS
 github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1/go.mod h1:YrseOkHTnkZr9nsfsYnzHB9Z9VWR9oouw4FhfGG5PUo=
 github.com/devopsfaith/krakend-cors v0.0.0-20180906120953-c9b7eb26914f h1:IT5SJTeEtNfA3eRnmjDbcl9Vm/H+pW78MgZ9Al1hbDc=
 github.com/devopsfaith/krakend-cors v0.0.0-20180906120953-c9b7eb26914f/go.mod h1:SfEPjpj9yPu5q8g76LHTieJeerM0e6qfzN8pmjSdUDc=
+github.com/devopsfaith/krakend-cors v0.0.0-20190627191518-bffd849ef712 h1:gJDE35ZRk4wdVTHG7eu94W94Ld8W9eJKvCIAUQz69cQ=
+github.com/devopsfaith/krakend-cors v0.0.0-20190627191518-bffd849ef712/go.mod h1:YCU/6Vxsi8qAXHvDUoRd41+Au4NioceAtgejlV2NzKA=
 github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c h1:XZY/6DFD4pFVQBu7fRuEUlDwO6s2gFvUM0EBCWxpSM8=
 github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c/go.mod h1:eN8KUWXFsMOophxB4Y3YFjJbjX2vZwcOueRMS/OuP/s=
 github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf h1:tt+lvwMGG/M+/llO23naqfQt6PbczaLEJGdfmeI5m/Y=
@@ -298,6 +302,8 @@ github.com/garyburd/redigo v1.6.0/go.mod h1:NR3MbYisc3/PwhQ00EMzDiPmrwpPxAn5GI05
 github.com/getkin/kin-openapi v0.1.0/go.mod h1:+0ZtELZf+SlWH8ZdA/IeFb3L/PKOKJx8eGxAlUZ/sOU=
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
+github.com/gin-contrib/cors v1.3.0 h1:PolezCc89peu+NgkIWt9OB01Kbzt6IP0J/JvkG6xxlg=
+github.com/gin-contrib/cors v1.3.0/go.mod h1:artPvLlhkF7oG06nK8v3U8TNz6IeX+w1uzCSEId5/Vc=
 github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7 h1:AzN37oI0cOS+cougNAV9szl6CVoj2RYwzS3DpUQNtlY=
 github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7/go.mod h1:VJ0WA2NBN22VlZ2dKZQPAPnyWw5XTlK1KymzLKsr59s=
 github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3 h1:t8FVkw33L+wilf2QiWkw0UV77qRpcH/JHPKGpKa2E8g=
@@ -873,6 +879,7 @@ golang.org/x/sys v0.0.0-20190222072716-a9d3bda3a223/go.mod h1:STP8DvDyc/dI5b8T5h
 golang.org/x/sys v0.0.0-20190312061237-fead79001313/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20190412213103-97732733099d/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20190425145619-16072639606e/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20190507160741-ecd444e8653b/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20190508100423-12bbe5a7a520 h1:5/ojcKo2vQ2eroPDFcBB9tuc4N42a5njs7UWP2jk3KU=
 golang.org/x/sys v0.0.0-20190508100423-12bbe5a7a520/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=

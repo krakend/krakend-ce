@@ -182,6 +182,8 @@ github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a h1:qkMmhLu
 github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a/go.mod h1:tbSDll/pfEfe0SF8GkyT1z3jYyAtXw+wDFSQy7172gk=
 github.com/devopsfaith/flatmap v0.0.0-20190327225844-8d71d61e07ac h1:blZXXPXthOwNqFKXULhRzPtn98SCi+r9AdqO7Pcfasw=
 github.com/devopsfaith/flatmap v0.0.0-20190327225844-8d71d61e07ac/go.mod h1:J9Y/58s7wx7HbHT3i4UKNwLGuBB9qCf0/JUdEFGDPmA=
+github.com/devopsfaith/flatmap v0.0.0-20190628155411-90b768d6668b h1:mToxoDhxMLiuRxit4/kotDMfVbK9Hd90BLBUhTpOw9k=
+github.com/devopsfaith/flatmap v0.0.0-20190628155411-90b768d6668b/go.mod h1:J9Y/58s7wx7HbHT3i4UKNwLGuBB9qCf0/JUdEFGDPmA=
 github.com/devopsfaith/krakend v0.0.0-20190306181519-f4927628fef8/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend v0.0.0-20190317162006-f20e199dec42/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend v0.0.0-20190407202152-c56f62cc5110/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
@@ -202,6 +204,8 @@ github.com/devopsfaith/krakend v0.0.0-20190511123421-5061ec786823 h1:7/9b0L8avk7
 github.com/devopsfaith/krakend v0.0.0-20190511123421-5061ec786823/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend v0.0.0-20190616151918-b11cce82be2d h1:VafXzSXfEl2LxfVQjyeFzVP6mgmxtcPKotaN69u4UwM=
 github.com/devopsfaith/krakend v0.0.0-20190616151918-b11cce82be2d/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
+github.com/devopsfaith/krakend v0.0.0-20190709180003-baa425335d1b h1:klGCbCD6p1Etju+SoPT5foM54xVD/RDJpPEjRUt/QxE=
+github.com/devopsfaith/krakend v0.0.0-20190709180003-baa425335d1b/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694 h1:Tk+S9zvltFAq8x15F2xAyt/wwed0okbSTaPYRguKfzA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694/go.mod h1:/c/BrN6w3Lqip/3WRcYprolGvfT+gLgSzdDrT9d2LUc=
 github.com/devopsfaith/krakend-cel v0.0.0-20190404122610-4ab152faf99c h1:WVEupgNcmMzkU+OTM8DgJpGHcYdqxB9sE8F8106z4dI=

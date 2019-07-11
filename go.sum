@@ -208,6 +208,10 @@ github.com/devopsfaith/krakend v0.0.0-20190709180003-baa425335d1b h1:klGCbCD6p1E
 github.com/devopsfaith/krakend v0.0.0-20190709180003-baa425335d1b/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694 h1:Tk+S9zvltFAq8x15F2xAyt/wwed0okbSTaPYRguKfzA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694/go.mod h1:/c/BrN6w3Lqip/3WRcYprolGvfT+gLgSzdDrT9d2LUc=
+github.com/devopsfaith/krakend-botdetector v0.0.0-20190711142956-019b8b47d70c h1:XI0+Ex/DW4/GD6ebp7qlmijCVtLLtV3iLl8Nj+IcP2I=
+github.com/devopsfaith/krakend-botdetector v0.0.0-20190711142956-019b8b47d70c/go.mod h1:paVtowgZMrZRprRq/SGoYNPMYhdNhfi411/fJS6cbAo=
+github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb h1:UPEhn6qChET2Ynrj5bugtrzzUN0WutP9IeHJqS9y20Q=
+github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb/go.mod h1:paVtowgZMrZRprRq/SGoYNPMYhdNhfi411/fJS6cbAo=
 github.com/devopsfaith/krakend-cel v0.0.0-20190404122610-4ab152faf99c h1:WVEupgNcmMzkU+OTM8DgJpGHcYdqxB9sE8F8106z4dI=
 github.com/devopsfaith/krakend-cel v0.0.0-20190404122610-4ab152faf99c/go.mod h1:CwIyUsXJUD/eb3nsFqX2AULic5zmrKUDl0wPdEH25Ko=
 github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e h1:E9zdm77HzhqUPmEs67xyyZAvKAz9n+Dju1FHVdIe94s=

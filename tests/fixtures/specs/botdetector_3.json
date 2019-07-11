@@ -1,0 +1,17 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/param_forwarding/some/foo/bar",
+		"header": {
+			"User-Agent": "Pingdom.com_bot_version_1.14"
+		}
+	},
+	"out": {
+		"status_code": 403,
+		"body": "",
+		"header": {
+			"content-type": "",
+			"X-Krakend-Completed": ""
+		}
+	}
+}

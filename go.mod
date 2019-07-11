@@ -29,6 +29,7 @@ require (
 	github.com/devopsfaith/flatmap v0.0.0-20190628155411-90b768d6668b
 	github.com/devopsfaith/krakend v0.0.0-20190709180003-baa425335d1b
 	github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694
+	github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
 	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981
 	github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e

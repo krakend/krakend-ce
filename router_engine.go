@@ -3,6 +3,7 @@ package krakend
 import (
 	"io"
 
+	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
 	cors "github.com/devopsfaith/krakend-cors/gin"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
 	lua "github.com/devopsfaith/krakend-lua/router/gin"
@@ -29,6 +30,8 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 	}
 
 	lua.Register(logger, cfg.ExtraConfig, engine)
+
+	botdetector.Register(cfg, logger, engine)
 
 	return engine
 }

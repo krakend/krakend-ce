@@ -1,0 +1,17 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/param_forwarding/some/foo/bar",
+		"header": {
+			"User-Agent": "facebookexternalhit/1.2.3"
+		}
+	},
+	"out": {
+		"status_code": 403,
+		"body": "",
+		"header": {
+			"content-type": "",
+			"X-Krakend-Completed": ""
+		}
+	}
+}

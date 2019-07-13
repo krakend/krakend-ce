@@ -54,6 +54,27 @@
             ]
         },
         {
+            "endpoint": "/xml/xml",
+            "output_encoding": "xml",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/xml",
+                    "encoding": "xml"
+                }
+            ]
+        },
+        {
+            "endpoint": "/xml/json",
+            "output_encoding": "xml",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding"
+                }
+            ]
+        },
+        {
             "endpoint": "/negotiate",
             "method": "GET",
             "output_encoding": "negotiate",

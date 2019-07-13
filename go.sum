@@ -276,6 +276,8 @@ github.com/devopsfaith/krakend-xml v0.0.0-20180408220837-5ce94062a4cc h1:wnzsw3U
 github.com/devopsfaith/krakend-xml v0.0.0-20180408220837-5ce94062a4cc/go.mod h1:xyNKiNHdl5WY/CiUyWJgmx4hdzwT+lLInGKj7qio5d4=
 github.com/devopsfaith/krakend-xml v0.0.0-20190709144612-0cd19aeb1104 h1:NobQ2b0qTIUfByKVQDz4q64lfwmi7+HQ3b+aEEoJz/Q=
 github.com/devopsfaith/krakend-xml v0.0.0-20190709144612-0cd19aeb1104/go.mod h1:xyNKiNHdl5WY/CiUyWJgmx4hdzwT+lLInGKj7qio5d4=
+github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f h1:wyDziW3fHGpAFDWk+8C2xRP284lqZr8qPVb30uq37vo=
+github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f/go.mod h1:xyNKiNHdl5WY/CiUyWJgmx4hdzwT+lLInGKj7qio5d4=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
 github.com/dgryski/go-bitstream v0.0.0-20180413035011-3522498ce2c8/go.mod h1:VMaSuZ+SZcx/wljOQKvp5srsbCiKDEb6K2wC4+PiBmQ=

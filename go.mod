@@ -55,7 +55,7 @@ require (
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c
 	github.com/devopsfaith/krakend-viper v0.0.0-20190407170411-1cbb76813774
-	github.com/devopsfaith/krakend-xml v0.0.0-20190709144612-0cd19aeb1104
+	github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3

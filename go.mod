@@ -27,7 +27,7 @@ require (
 	github.com/coreos/go-semver v0.2.0
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
 	github.com/devopsfaith/flatmap v0.0.0-20190628155411-90b768d6668b
-	github.com/devopsfaith/krakend v0.0.0-20190709180003-baa425335d1b
+	github.com/devopsfaith/krakend v0.0.0-20190724131222-22f729161f7a
 	github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e

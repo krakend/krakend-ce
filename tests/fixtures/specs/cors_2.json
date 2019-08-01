@@ -5,20 +5,19 @@
 		"header": {
 			"User-Agent": "some",
 			"Origin": "http://foo.example.tld",
-			"Access-Control-Request-Method": "PUT",
-			"Access-Control-Request-Headers": "X-PINGOTHER"
+			"Access-Control-Request-Method": "PUT"
 		}
 	},
 	"out": {
-		"status_code": 204,
+		"status_code": 200,
 		"body": "",
 		"header": {
 			"content-type": "",
 			"Cache-Control": "",
 			"X-Krakend-Completed": "",
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Methods": "POST,GET",
-			"Access-Control-Allow-Headers": "Origin,Authorization,Content-Type"
+			"Access-Control-Allow-Origin": "",
+			"Access-Control-Allow-Methods": "",
+			"Access-Control-Allow-Headers": ""
 		}
 	}
 }

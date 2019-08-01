@@ -5,8 +5,8 @@
 		"header": {
 			"User-Agent": "some",
 			"Origin": "http://foo.example",
-			"Access-Control-Request-Method": "GET",
-			"Access-Control-Request-Headers": "Origin,Content-Type"
+			"Access-Control-Request-Method": "POST",
+			"Access-Control-Request-Headers": "X-PINGOTHER"
 		}
 	},
 	"out": {
@@ -16,9 +16,9 @@
 			"content-type": "",
 			"Cache-Control": "",
 			"X-Krakend-Completed": "",
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Methods": "GET",
-			"Access-Control-Allow-Headers": "Origin, Content-Type"
+			"Access-Control-Allow-Origin": "",
+			"Access-Control-Allow-Methods": "",
+			"Access-Control-Allow-Headers": ""
 		}
 	}
 }

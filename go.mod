@@ -34,7 +34,7 @@ require (
 	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981
 	github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e
 	github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1
-	github.com/devopsfaith/krakend-cors v0.0.0-20190627191518-bffd849ef712
+	github.com/devopsfaith/krakend-cors v0.0.0-20190801140305-7b81cf84c2cd
 	github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c
 	github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf
 	github.com/devopsfaith/krakend-gelf v0.0.0-20181019222239-59c0250b1c60
@@ -58,11 +58,11 @@ require (
 	github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.4.7
-	github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3
+	github.com/gin-contrib/sse v0.1.0
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-contrib/uuid v1.2.0
 	github.com/golang/mock v1.3.0 // indirect
-	github.com/golang/protobuf v1.3.1
+	github.com/golang/protobuf v1.3.2
 	github.com/google/btree v1.0.0 // indirect
 	github.com/google/cel-go v0.2.0
 	github.com/google/go-cmp v0.3.0 // indirect
@@ -82,13 +82,13 @@ require (
 	github.com/influxdata/influxdb v1.7.4
 	github.com/influxdata/platform v0.0.0-20190117200541-d500d3cf5589
 	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
-	github.com/json-iterator/go v1.1.6
+	github.com/json-iterator/go v1.1.7
 	github.com/juju/ratelimit v1.0.1
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c
-	github.com/kr/pty v1.1.4 // indirect
+	github.com/kr/pty v1.1.8 // indirect
 	github.com/letgoapp/krakend-influx v0.0.0-20190214142340-d2fc9466bb3a
 	github.com/magiconair/properties v1.8.0
-	github.com/mattn/go-isatty v0.0.7
+	github.com/mattn/go-isatty v0.0.8
 	github.com/matttproud/golang_protobuf_extensions v1.0.1
 	github.com/mitchellh/go-homedir v1.0.0
 	github.com/mitchellh/mapstructure v1.1.2
@@ -118,6 +118,7 @@ require (
 	github.com/spf13/pflag v1.0.3
 	github.com/spf13/viper v1.3.2
 	github.com/streadway/amqp v0.0.0-20190402114354-16ed540749f6
+	github.com/stretchr/objx v0.2.0 // indirect
 	github.com/tmthrgd/asm v0.0.0-20180106020940-4be3ab5ca701
 	github.com/tmthrgd/atomics v0.0.0-20180217065130-6910de195248
 	github.com/tmthrgd/go-bitset v0.0.0-20180106085139-4d1be735fbfb
@@ -126,6 +127,7 @@ require (
 	github.com/tmthrgd/go-hex v0.0.0-20180828131331-d1fb3dbb16a1
 	github.com/tmthrgd/go-memset v0.0.0-20180828131805-6f4e59bf1e1d
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97
+	github.com/ugorji/go v1.1.7 // indirect
 	// github.com/ugorji/go v1.1.4
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
@@ -134,18 +136,18 @@ require (
 	go.opencensus.io v0.21.0
 	gocloud.dev v0.12.0
 	golang.org/x/build v0.0.0-20190111050920-041ab4dc3f9d // indirect
-	golang.org/x/crypto v0.0.0-20190506204251-e1dfcc566284
+	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
 	golang.org/x/exp v0.0.0-20190429183610-475c5042d3f1 // indirect
 	golang.org/x/image v0.0.0-20190507092727-e4e5bf290fec // indirect
 	golang.org/x/lint v0.0.0-20190409202823-959b441ac422 // indirect
 	golang.org/x/mobile v0.0.0-20190415191353-3e0bab5405d6 // indirect
-	golang.org/x/net v0.0.0-20190503192946-f4e77d36d62c
+	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80
 	golang.org/x/oauth2 v0.0.0-20190402181905-9f3314589c9a
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
-	golang.org/x/sys v0.0.0-20190508100423-12bbe5a7a520
+	golang.org/x/sys v0.0.0-20190801041406-cbf593c0f2f3
 	golang.org/x/text v0.3.2
 	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
-	golang.org/x/tools v0.0.0-20190508150211-cf84161cff3f // indirect
+	golang.org/x/tools v0.0.0-20190731214159-1e85ed8060aa // indirect
 	golang.org/x/xerrors v0.0.0-20190410155217-1f06c39b4373
 	google.golang.org/api v0.4.0
 	google.golang.org/appengine v1.5.0

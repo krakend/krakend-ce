@@ -121,7 +121,7 @@
 
 [[constraint]]
   version = "0.8.1"
-  name = "github.com/devopsfaith/krakend-jose"
+  name = "github.com/openrm/krakend-jose"
 
 [[constraint]]
   branch = "master"

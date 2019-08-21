@@ -1,219 +1,932 @@
 {
-    "version": 2,
-    "name": "My lovely gateway",
-    "port": 8000,
-    "cache_ttl": "3600s",
-    "timeout": "3s",
-    "extra_config": {
-      "github_com/devopsfaith/krakend-gologging": {
-        "level":  "DEBUG",
-        "prefix": "[KRAKEND]",
-        "syslog": false,
-        "stdout": true
+  "version": 2,
+  "port": "8080",
+  "timeout": "60000ms",
+  "name": "gateway-ocr",
+  "endpoints": [
+    {
+      "endpoint": "/health",
+      "method": "GET",
+      "extra_config": {
+        "github.com/devopsfaith/krakend/proxy": {
+          "sequential": true,
+          "static": {
+            "data": { "alive": true },
+            "strategy": "success"
+          }
+        }
       },
-      "github_com/devopsfaith/krakend-metrics": {
-        "collection_time": "60s",
-        "proxy_disabled": false,
-        "router_disabled": false,
-        "backend_disabled": false,
-        "endpoint_disabled": false,
-        "listen_address": ":8090"
-      },
-      "github_com/devopsfaith/krakend-cors": {
-        "allow_origins": [ "http://192.168.99.100:3000", "http://localhost:3000" ],
-        "allow_methods": [ "POST", "GET" ],
-        "allow_headers": [ "Origin", "Authorization", "Content-Type" ],
-        "expose_headers": [ "Content-Length" ],
-        "max_age": "12h"
-      }
+      "backend": [
+        {
+          "url_pattern": "/healthz",
+          "host": [
+            "http://localhost:8081"
+          ]
+        },
+        {
+          "url_pattern": "/v1/healthz",
+          "host": [
+            "http://localhost:3333"
+          ]
+        },
+        {
+          "url_pattern": "/v1/healthz",
+          "host": [
+            "http://localhost:3030"
+          ]
+        },
+        {
+          "url_pattern": "/healthz",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
     },
-    "endpoints": [
+    {
+      "endpoint": "/v1/convert-pdf/",
+      "method": "POST",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Forest-Version"
+      ],
+      "backend": [
         {
-            "endpoint": "/supu",
-            "method": "GET",
-            "headers_to_pass": ["Authorization", "Content-Type"],
-            "backend": [
-                {
-                    "host": [
-                        "http://127.0.0.1:8000"
-                    ],
-                    "url_pattern": "/__debug/supu",
-                    "extra_config": {
-                        "github.com/devopsfaith/krakend-martian": {
-                            "fifo.Group": {
-                                "scope": ["request", "response"],
-                                "aggregateErrors": true,
-                                "modifiers": [
-                                {
-                                    "header.Modifier": {
-                                        "scope": ["request", "response"],
-                                        "name" : "X-Martian",
-                                        "value" : "ouh yeah!"
-                                    }
-                                },
-                                {
-                                    "header.RegexFilter": {
-                                        "scope": ["request"],
-                                        "header" : "X-Neptunian",
-                                        "regex" : "no!",
-                                        "modifier": {
-                                            "header.Modifier": {
-                                                "scope": ["request"],
-                                                "name" : "X-Martian-New",
-                                                "value" : "some value"
-                                            }
-                                        }
-                                    }
-                                }
-                                ]
-                            }
-                        },
-                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
-                            "interval": 60,
-                            "timeout": 10,
-                            "maxErrors": 1
-                        }
-                    }
-                }
-            ]
-        },
+          "url_pattern": "/v1/pdf-to-images/",
+          "host": [
+            "http://localhost:3333"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/process-document/",
+      "method": "POST",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
         {
-            "endpoint": "/github/{user}",
-            "method": "GET",
-            "backend": [
+          "url_pattern": "/v1/process-document/",
+          "host": [
+            "http://localhost:3434"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
                 {
-                    "host": [
-                        "https://api.github.com"
-                    ],
-                    "url_pattern": "/",
-                    "whitelist": [
-                        "authorizations_url",
-                        "code_search_url"
-                    ],
-                    "disable_host_sanitize": true,
-                    "extra_config": {
-                        "github.com/devopsfaith/krakend-martian": {
-                            "fifo.Group": {
-                                "scope": ["request", "response"],
-                                "aggregateErrors": true,
-                                "modifiers": [
-                                {
-                                    "header.Modifier": {
-                                        "scope": ["request", "response"],
-                                        "name" : "X-Martian",
-                                        "value" : "ouh yeah!"
-                                    }
-                                },
-                                {
-                                    "body.Modifier": {
-                                        "scope": ["request"],
-                                        "contentType" : "application/json",
-                                        "body" : "eyJtc2ciOiJ5b3Ugcm9jayEifQ=="
-                                    }
-                                },
-                                {
-                                    "header.RegexFilter": {
-                                        "scope": ["request"],
-                                        "header" : "X-Neptunian",
-                                        "regex" : "no!",
-                                        "modifier": {
-                                            "header.Modifier": {
-                                                "scope": ["request"],
-                                                "name" : "X-Martian-New",
-                                                "value" : "some value"
-                                            }
-                                        }
-                                    }
-                                }
-                                ]
-                            }
-                        },
-                        "github.com/devopsfaith/krakend-ratelimit/juju/proxy": {
-                            "maxRate": 2,
-                            "capacity": 2
-                        },
-                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
-                            "interval": 60,
-                            "timeout": 10,
-                            "maxErrors": 1
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "endpoint": "/private/{user}",
-            "backend": [
-                {
-                    "host": [ "http://api.github.com" ],
-                    "url_pattern": "/",
-                    "whitelist": [
-                        "authorizations_url",
-                        "code_search_url"
-                    ]
-                }
-            ],
-            "extra_config": {
-                "github.com/devopsfaith/krakend-jose/validator": {
-                    "alg": "RS256",
-                    "aud": "http://api.example.com",
-                    "roles_key": "http://api.example.com/custom/roles",
-                    "roles": [ "user", "admin" ],
-                    "jwk-url": "https://albert-test.auth0.com/.well-known/jwks.json"
-                }
-            }
-        },
-        {
-            "endpoint": "/show/{id}",
-            "backend": [
-                {
-                    "host": [
-                        "http://showrss.info/"
-                    ],
-                    "url_pattern": "/user/schedule/{id}.rss",
-                    "encoding": "rss",
-                    "group": "schedule",
-                    "whitelist": ["items", "title"],
-                    "extra_config": {
-                        "github.com/devopsfaith/krakend-ratelimit/juju/proxy": {
-                            "maxRate": 1,
-                            "capacity": 1
-                        },
-                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
-                            "interval": 60,
-                            "timeout": 10,
-                            "maxErrors": 1
-                        }
-                    }
+                  "type": "move",
+                  "args": ["_id", "id"]
                 },
                 {
-                    "host": [
-                        "http://showrss.info/"
-                    ],
-                    "url_pattern": "/user/{id}.rss",
-                    "encoding": "rss",
-                    "group": "available",
-                    "whitelist": ["items", "title"],
-                    "extra_config": {
-                        "github.com/devopsfaith/krakend-ratelimit/juju/proxy": {
-                            "maxRate": 2,
-                            "capacity": 2
-                        },
-                        "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
-                            "interval": 60,
-                            "timeout": 10,
-                            "maxErrors": 1
-                        }
-                    }
+                  "type": "move",
+                  "args": ["pages.*._id", "pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*._id", "pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*.zones.*._id", "pages.*.regions.*.zones.*.id"]
                 }
-            ],
-            "extra_config": {
-                "github.com/devopsfaith/krakend-ratelimit/juju/router": {
-                    "maxRate": 50,
-                    "clientMaxRate": 5,
-                    "strategy": "ip"
-                }
+              ]
             }
+          }
         }
-    ]
+      ]
+    },
+    {
+      "endpoint": "/v1/banners/",
+      "method": "POST",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/?realm=banners&thumbsize=142x13",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
+                {
+                  "type": "move",
+                  "args": ["_id", "id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*._id", "pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*._id", "pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*.zones.*._id", "pages.*.regions.*.zones.*.id"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/banners/",
+      "method": "PUT",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/?realm=banners&thumbsize=142x13",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
+                {
+                  "type": "move",
+                  "args": ["_id", "id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*._id", "pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*._id", "pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*.zones.*._id", "pages.*.regions.*.zones.*.id"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/banners/",
+      "method": "DELETE",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/?realm=banners",
+          "encoding": "no-op",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/onepagers/",
+      "method": "POST",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/process-onepager/",
+          "host": [
+            "http://localhost:3434"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
+                {
+                  "type": "move",
+                  "args": ["_id", "id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*._id", "pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*._id", "pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*.zones.*._id", "pages.*.regions.*.zones.*.id"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/onepagers/",
+      "method": "PUT",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/?realm=onepagers&thumbsize=300x211",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
+                {
+                  "type": "move",
+                  "args": ["_id", "id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*._id", "pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*._id", "pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*.zones.*._id", "pages.*.regions.*.zones.*.id"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/onepagers/",
+      "method": "DELETE",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/?realm=onepagers",
+          "encoding": "no-op",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/ocr/zones/",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Forest-Version"
+      ],
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        },
+        "github.com/devopsfaith/krakend-ratelimit/juju/router": {
+          "clientMaxRate": 0,
+          "strategy": "ip"
+        }
+      },
+      "backend": [
+        {
+          "url_pattern": "/v1/ocr-zones/",
+          "encoding": "no-op",
+          "host": [
+            "http://localhost:3434"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/banners/",
+      "method": "GET",
+      "cache_ttl": "1ms",
+      "extra_config": {
+        "github.com/openrm/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true,
+          "bloomd_addr": "localhost:8673"
+        }
+      },
+      "querystring_params": [
+        "limit",
+        "skip",
+        "createdAt[gt]",
+        "createdAt[lt]"
+      ],
+      "headers_to_pass": [
+        "Authorization",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/?realm=banners&includePages=true",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
+                {
+                  "type": "move",
+                  "args": ["documents.*._id", "documents.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["documents.*.pages.*._id", "documents.*.pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["documents.*.pages.*.regions.*._id", "documents.*.pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["documents.*.pages.*.regions.*.zones.*._id", "documents.*.pages.*.regions.*.zones.*.id"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/onepagers/",
+      "method": "GET",
+      "cache_ttl": "1ms",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "querystring_params": [
+        "limit",
+        "skip",
+        "text",
+        "createdAt[gt]",
+        "createdAt[lt]",
+        "sort[createdAt]"
+      ],
+      "headers_to_pass": [
+        "Authorization",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/?realm=onepagers",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
+                {
+                  "type": "move",
+                  "args": ["documents.*._id", "documents.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["documents.*.pages.*._id", "documents.*.pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["documents.*.pages.*.regions.*._id", "documents.*.pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["documents.*.pages.*.regions.*.zones.*._id", "documents.*.pages.*.regions.*.zones.*.id"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/documents/fallback/",
+      "method": "POST",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/save-files/",
+          "encoding": "no-op",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/banners/{documentId}",
+      "cache_ttl": "1ms",
+      "method": "GET",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/{documentId}",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
+                {
+                  "type": "move",
+                  "args": ["_id", "id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*._id", "pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*._id", "pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*.zones.*._id", "pages.*.regions.*.zones.*.id"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/onepagers/{documentId}",
+      "method": "GET",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "querystring_params": [
+        "text"
+      ],
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/{documentId}",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "flatmap_filter": [
+                {
+                  "type": "move",
+                  "args": ["_id", "id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*._id", "pages.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*._id", "pages.*.regions.*.id"]
+                },
+                {
+                  "type": "move",
+                  "args": ["pages.*.regions.*.zones.*._id", "pages.*.regions.*.zones.*.id"]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/documents/",
+      "method": "DELETE",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/documents/",
+          "encoding": "no-op",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/regions/",
+      "method": "DELETE",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/regions/",
+          "encoding": "no-op",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/images/page/",
+      "method": "POST",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/images/page/",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/images/zones/",
+      "method": "POST",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/images/zones/",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/zones/save-group/",
+      "method": "POST",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/zones/save-group/",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "mapping": {
+            "_id": "id"
+          }
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/download/{documentId}",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/download/{documentId}",
+          "host": [
+            "http://localhost:3000"
+          ],
+          "encoding": "no-op"
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/share/email",
+      "method": "POST",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "Content-Type",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/v1/share/email",
+          "host": [
+            "http://localhost:3000"
+          ]
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/me",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "RS256",
+          "jwk-url": "http://localhost:8091/keys/jwk.json",
+          "cookie_key": "openroom_jwt",
+          "disable_jwk_security": true,
+          "issuer": "openroom",
+          "cache": true
+        }
+      },
+      "headers_to_pass": [
+        "Authorization",
+        "X-Forest-Version"
+      ],
+      "querystring_params": [
+        "scopes"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/userprofile",
+          "host": [
+            "http://localhost:15394"
+          ]
+        }
+      ]
+    }
+  ],
+  "extra_config": {
+    "github_com/devopsfaith/krakend-cors": {
+      "allow_methods": [
+        "GET",
+        "HEAD",
+        "POST",
+        "DELETE",
+        "PUT"
+      ],
+      "allow_headers": [
+        "Content-Type",
+        "Origin",
+        "Authorization",
+        "X-Openrm-Trace",
+        "X-Forest-Version"
+      ],
+      "expose_headers": [
+        "Content-Length",
+        "Content-Disposition",
+        "X-File-Name"
+      ],
+      "allow_origins": [
+        "http://localhost:49081",
+        "http://localhost:49082"
+      ]
+    },
+    "github_com/devopsfaith/krakend-gologging": {
+      "level": "ERROR",
+      "prefix": "[KRAKND]",
+      "syslog": false,
+      "stdout": true,
+      "format": "default"
+    }
+  }
 }

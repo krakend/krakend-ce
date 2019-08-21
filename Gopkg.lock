@@ -418,7 +418,7 @@
 
 [[projects]]
   digest = "1:b9d21f1f616f5454d9124ebdfebf92dca7d882379039ef687265b72f4a713af1"
-  name = "github.com/devopsfaith/krakend-jose"
+  name = "github.com/openrm/krakend-jose"
   packages = [
     ".",
     "gin",
@@ -1559,8 +1559,8 @@
     "github.com/devopsfaith/krakend-gologging",
     "github.com/devopsfaith/krakend-httpcache",
     "github.com/devopsfaith/krakend-httpsecure/gin",
-    "github.com/devopsfaith/krakend-jose",
-    "github.com/devopsfaith/krakend-jose/gin",
+    "github.com/openrm/krakend-jose",
+    "github.com/openrm/krakend-jose/gin",
     "github.com/devopsfaith/krakend-jsonschema",
     "github.com/devopsfaith/krakend-logstash",
     "github.com/devopsfaith/krakend-martian",

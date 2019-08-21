@@ -65,7 +65,7 @@ deps:
 
 build:
 	@echo "Building the binary..."
-	@go build -ldflags="-X github.com/devopsfaith/krakend-ce/vendor/github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
+	@go build -ldflags="-X github.com/openrm/krakend-ce/vendor/github.com/openrm/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"
 
 test: build

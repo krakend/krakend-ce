@@ -1,0 +1,8 @@
+builder
+tests
+.*
+*.md
+krakend
+krakend-alpine
+LICENSE
+Dockerfile

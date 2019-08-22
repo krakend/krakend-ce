@@ -1,11 +1,10 @@
-.PHONY: all prepare deps build
+.PHONY: all build
 
 # This Makefile is a simple example that demonstrates usual steps to build a binary that can be run in the same
 # architecture that was compiled in. The "ldflags" in the build assure that any needed dependency is included in the
 # binary and no external dependencies are needed to run the service.
 
 BIN_NAME :=krakend
-DEP_VERSION=0.5.0
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 VERSION := 0.9.0
 PKGNAME := krakend
@@ -48,20 +47,7 @@ RPM_OPTS =--rpm-user $(USER) \
 DEBNAME=${PKGNAME}_${VERSION}-${RELEASE}_${ARCH}.deb
 RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 
-all: deps build
-
-prepare:
-	@echo "Installing dep..."
-	@curl -L -s https://github.com/golang/dep/releases/download/v${DEP_VERSION}/dep-${OS}-amd64 -o ${GOPATH}/bin/dep
-	@chmod a+x ${GOPATH}/bin/dep
-
-deps:
-	@echo "Setting up the vendors folder..."
-	@dep ensure -v
-	@echo ""
-	@echo "Resolved dependencies:"
-	@dep status
-	@echo ""
+all: build
 
 build:
 	@echo "Building the binary..."
@@ -76,7 +62,7 @@ docker_build:
 
 docker_build_alpine:
 	docker build -t krakend_alpine_compiler builder/alpine
-	docker run --rm -it -e "BIN_NAME=krakend-alpine" -e "GO111MODULE=on" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} krakend_alpine_compiler go build
+	docker run --rm -it -e "BIN_NAME=krakend-alpine" -e "GO111MODULE=on" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} krakend_alpine_compiler go build -o krakend-alpine
 
 krakend_docker:
 	@echo "You need to compile krakend using 'make docker_build_alpine' to build this container."
@@ -196,4 +182,3 @@ clean:
 	rm -f *.rpm
 	rm -f *.tar.gz
 	rm -f krakend
-	rm -rf vendor/

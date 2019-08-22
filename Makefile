@@ -72,17 +72,15 @@ test: build
 	go test -v ./tests
 
 docker_build:
-	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} ${DOCKER_DEP} ensure -v
-	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} golang:${GOLANG_VERSION} make build
+	docker run --rm -e "GO111MODULE=on" -it golang:${GOLANG_VERSION} make build
 
 docker_build_alpine:
 	docker build -t krakend_alpine_compiler builder/alpine
-	docker run --rm -it -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} ${DOCKER_DEP} ensure -v
-	docker run --rm -it -e "BIN_NAME=krakend-alpine" -e "GOPATH=/go" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} krakend_alpine_compiler make -e build
+	docker run --rm -it -e "BIN_NAME=krakend-alpine" -e "GO111MODULE=on" -v "${PWD}:/go/${GOBASEDIR}" -w /go/${GOBASEDIR} krakend_alpine_compiler go build
 
 krakend_docker:
 	@echo "You need to compile krakend using 'make docker_build_alpine' to build this container."
-	docker build -t devopsfaith/krakend:${VERSION} .
+	docker build -t openrm/krakend:${VERSION} .
 
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json

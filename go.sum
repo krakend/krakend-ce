@@ -520,6 +520,8 @@ github.com/opencontainers/runc v0.1.1/go.mod h1:qT5XzbpPznkRYVz/mWwUaVBUv2rmF59P
 github.com/openrm/krakend-ce v0.0.0-20190425160200-1cd78ea16973/go.mod h1:4ViJe+8ohp6rdtj2+7u5oSsLjYZ2vdwncFAe4C4Mrws=
 github.com/openrm/krakend-jose v0.0.0-20190226224132-34c0555a9893 h1:VJoz07Cj6YyZq+fweyTWA9MaUUHU2202YWLqp8ek7ec=
 github.com/openrm/krakend-jose v0.0.0-20190226224132-34c0555a9893/go.mod h1:RQO17T5c8HIMmR6kBkuSy4NatZQb02KENHkBSAqI5Ok=
+github.com/openrm/krakend-jose v0.0.0-20190822020746-e9fcc8b242cb h1:fvCa9Zo2MdpNeBanEv0iQvHWyyXhAbsDCe2WUrEusAA=
+github.com/openrm/krakend-jose v0.0.0-20190822020746-e9fcc8b242cb/go.mod h1:drFBoZbB7W3Z+EnbUGaM6FAxnxsE0eibO1UGvDCl4J8=
 github.com/opentracing/opentracing-go v1.0.2/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=
 github.com/opentracing/opentracing-go v1.1.0 h1:pWlfV3Bxv7k65HYwkikxat0+s3pV4bsqf19k25Ur8rU=
 github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=

@@ -95,7 +95,7 @@ require (
 	github.com/nats-io/nkeys v0.0.2
 	github.com/nats-io/nuid v1.0.1
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
-	github.com/openrm/krakend-jose v0.8.1
+	github.com/openrm/krakend-jose v0.0.0-20190822020746-e9fcc8b242cb
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/openzipkin/zipkin-go v0.1.6
 	github.com/pelletier/go-toml v1.2.0
@@ -146,5 +146,3 @@ require (
 	gopkg.in/yaml.v2 v2.2.2
 	pack.ag/amqp v0.11.0
 )
-
-replace github.com/openrm/krakend-jose => ../krakend-jose

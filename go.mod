@@ -42,6 +42,7 @@ require (
 	github.com/devopsfaith/krakend-gologging v0.0.0-20190131142345-f3f256584ecc
 	github.com/devopsfaith/krakend-httpcache v0.0.0-20181030153148-8474476ff874
 	github.com/devopsfaith/krakend-httpsecure v0.0.0-20180922151646-cce73b27c717
+	github.com/devopsfaith/krakend-jose v0.0.0-20190226224132-34c0555a9893
 	github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502
 	github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91
@@ -56,7 +57,7 @@ require (
 	github.com/devopsfaith/krakend-xml v0.0.0-20180408220837-5ce94062a4cc
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.4.7
-	github.com/geetarista/go-bloomd v0.0.0-20140722181834-7f8e8a358bec // indirect
+	github.com/geetarista/go-bloomd v0.0.0-20140722181834-7f8e8a358bec
 	github.com/gin-contrib/sse v0.0.0-20190125020943-a7658810eb74
 	github.com/gin-gonic/gin v1.3.0
 	github.com/go-contrib/uuid v1.2.0
@@ -95,7 +96,6 @@ require (
 	github.com/nats-io/nkeys v0.0.2
 	github.com/nats-io/nuid v1.0.1
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
-	github.com/openrm/krakend-jose v0.0.0-20190822020746-e9fcc8b242cb
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/openzipkin/zipkin-go v0.1.6
 	github.com/pelletier/go-toml v1.2.0

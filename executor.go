@@ -6,12 +6,11 @@ import (
 	"io"
 	"os"
 
-	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	cel "github.com/devopsfaith/krakend-cel"
 	"github.com/devopsfaith/krakend-cobra"
 	gelf "github.com/devopsfaith/krakend-gelf"
 	"github.com/devopsfaith/krakend-gologging"
-	"github.com/openrm/krakend-jose"
+	"github.com/devopsfaith/krakend-jose"
 	logstash "github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	"github.com/devopsfaith/krakend-opencensus"
@@ -69,7 +68,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		startReporter(ctx, logger, cfg)
 
-		reg := RegisterSubscriberFactories(ctx, cfg, logger)
+		// reg := RegisterSubscriberFactories(ctx, cfg, logger)
 
 		// create the metrics collector
 		metricCollector := metrics.New(ctx, cfg.ExtraConfig, logger)
@@ -82,14 +81,19 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("opencensus:", err.Error())
 		}
 
-		rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, logger, reg)
+		// rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, logger, reg)
+		// if err != nil {
+		// 	logger.Warning("bloomFilter:", err.Error())
+		// }
+
+		rejecter, err := registerBloomd(cfg, logger)
 		if err != nil {
-			logger.Warning("bloomFilter:", err.Error())
+			logger.Warning("bloomd:", err.Error())
 		}
 
 		tokenRejecterFactory := jose.ChainedRejecterFactory([]jose.RejecterFactory{
 			jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
-				return jose.RejecterFunc(rejecter.RejectToken)
+				return rejecter
 			}),
 			jose.RejecterFactoryFunc(func(l logging.Logger, cfg *config.EndpointConfig) jose.Rejecter {
 				if r := cel.NewRejecter(l, cfg); r != nil {

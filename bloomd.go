@@ -75,8 +75,6 @@ func (r rejecter) Reject(claims map[string]interface{}) bool {
 
 	found, err := r.filter.Multi([]string{hash})
 
-	r.filter.Set(hash)
-
 	if err != nil {
 		r.logger.Error("Bloomd error:", err.Error())
 	}

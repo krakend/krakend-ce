@@ -195,6 +195,8 @@ github.com/devopsfaith/krakend-httpcache v0.0.0-20181030153148-8474476ff874 h1:D
 github.com/devopsfaith/krakend-httpcache v0.0.0-20181030153148-8474476ff874/go.mod h1:cNBLieKKu6+0aLd3bwOGg5dGGqkK2U+zEIbmYot1nhI=
 github.com/devopsfaith/krakend-httpsecure v0.0.0-20180922151646-cce73b27c717 h1:MZYGaXMcCxoGrOs2kWZxj0BGVCfm1gRtlfJiKo3sJX4=
 github.com/devopsfaith/krakend-httpsecure v0.0.0-20180922151646-cce73b27c717/go.mod h1:H2qRuYv4A56Kw/cynhiFBP9nFNFhHwj70DEU0CSldbI=
+github.com/devopsfaith/krakend-jose v0.0.0-20190226224132-34c0555a9893 h1:VJoz07Cj6YyZq+fweyTWA9MaUUHU2202YWLqp8ek7ec=
+github.com/devopsfaith/krakend-jose v0.0.0-20190226224132-34c0555a9893/go.mod h1:RQO17T5c8HIMmR6kBkuSy4NatZQb02KENHkBSAqI5Ok=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a h1:VEl62LlUIqkPb0WcUvzzBr/2hu8+uMaHypBK3FqkyI0=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a/go.mod h1:PYIFUHqJMhgZwxunzrdwZ8N0OFpnneH0uC55f7wq7GM=
 github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502 h1:dp2Q9DlR/qcN8sESUk4etOQ3sFBkW1+YXVw0+GWSPpc=
@@ -472,6 +474,7 @@ github.com/miekg/dns v1.1.1/go.mod h1:W1PPwlIAgtquWBMBEV9nkV9Cazfe8ScdGz/Lj7v3Nr
 github.com/mitchellh/cli v1.0.0/go.mod h1:hNIlj7HEI86fIcpObd7a0FcrxTWetlwJDGcceTlRvqc=
 github.com/mitchellh/copystructure v1.0.0/go.mod h1:SNtv71yrdKgLRyLFxmLdkAbkKEFWgYaq1OVrnRcwhnw=
 github.com/mitchellh/go-homedir v0.0.0-20180523094522-3864e76763d9/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrkLzIz1N1q0pr0=
+github.com/mitchellh/go-homedir v1.0.0 h1:vKb8ShqSby24Yrqr/yDYkuFz8d0WUjys40rvnGC8aR0=
 github.com/mitchellh/go-homedir v1.0.0/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrkLzIz1N1q0pr0=
 github.com/mitchellh/go-testing-interface v0.0.0-20171004221916-a61a99592b77/go.mod h1:kRemZodwjscx+RGhAo8eIhFbs2+BFgRtFPeD/KE+zxI=
 github.com/mitchellh/go-testing-interface v1.0.0/go.mod h1:kRemZodwjscx+RGhAo8eIhFbs2+BFgRtFPeD/KE+zxI=

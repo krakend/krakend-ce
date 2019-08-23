@@ -1,8 +1,8 @@
 package krakend
 
 import (
-	"github.com/openrm/krakend-jose"
-	ginjose "github.com/openrm/krakend-jose/gin"
+	"github.com/devopsfaith/krakend-jose"
+	ginjose "github.com/devopsfaith/krakend-jose/gin"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	opencensus "github.com/devopsfaith/krakend-opencensus/router/gin"
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/router/gin"

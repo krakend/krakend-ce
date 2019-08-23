@@ -132,7 +132,7 @@
                         "check_expr": "size(JWT.roles)>1"
                     }
                 ],
-                "github.com/openrm/krakend-jose/validator": {
+                "github.com/devopsfaith/krakend-jose/validator": {
                     "alg": "HS256",
                     "audience": ["http://api.example.com"],
                     "roles_key": "roles",
@@ -392,7 +392,7 @@
                         }
                     }
                 },
-                "github.com/openrm/krakend-jose/validator": {
+                "github.com/devopsfaith/krakend-jose/validator": {
                     "alg": "HS256",
                     "audience": ["http://api.example.com"],
                     "roles_key": "roles",
@@ -428,7 +428,7 @@
                         }
                     }
                 },
-                "github.com/openrm/krakend-jose/signer": {
+                "github.com/devopsfaith/krakend-jose/signer": {
                     "alg": "HS256",
                     "kid": "sim2",
                     "keys-to-sign": ["access_token"],

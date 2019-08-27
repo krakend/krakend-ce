@@ -81,12 +81,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("opencensus:", err.Error())
 		}
 
-		// rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, logger, reg)
-		// if err != nil {
-		// 	logger.Warning("bloomFilter:", err.Error())
-		// }
-
-		rejecter, err := registerBloomd(cfg, logger)
+		rejecter, err := RegisterBloomd(cfg, logger)
 		if err != nil {
 			logger.Warning("bloomd:", err.Error())
 		}

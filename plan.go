@@ -11,7 +11,7 @@ import (
 
     "net/http"
     "github.com/gin-gonic/gin"
-	auth0 "github.com/auth0-community/go-auth0"
+    auth0 "github.com/auth0-community/go-auth0"
 )
 
 func NewJoseHandlerFactory(hf ginkrakend.HandlerFactory, logger logging.Logger, rf krakendjose.RejecterFactory) ginkrakend.HandlerFactory {
@@ -33,8 +33,13 @@ func planValidatorFactory(hf ginkrakend.HandlerFactory, logger logging.Logger) g
 
         if cfg, ok := cfg.(map[string]interface{}); ok {
             if v, ok := cfg["grade"]; ok {
-                if g, ok := v.(int); ok {
-                    grade = g
+                switch v := v.(type) {
+                case int:
+                    grade = v
+                case int64:
+                    grade = int(v)
+                case float64:
+                    grade = int(v)
                 }
             }
         }
@@ -43,7 +48,7 @@ func planValidatorFactory(hf ginkrakend.HandlerFactory, logger logging.Logger) g
             return handler
         }
 
-		scfg, err := krakendjose.GetSignatureConfig(ecfg)
+        scfg, err := krakendjose.GetSignatureConfig(ecfg)
         if err != nil {
             return handler
         }
@@ -53,20 +58,20 @@ func planValidatorFactory(hf ginkrakend.HandlerFactory, logger logging.Logger) g
             auth0.RequestTokenExtractorFunc(ginjose.FromCookie(scfg.CookieKey)),
         )
 
-		logger.Info("IAM: plan validator enabled for the endpoint", ecfg.Endpoint)
+        logger.Info("IAM: plan validator enabled for the endpoint", ecfg.Endpoint)
 
         return func(c *gin.Context) {
             token, err := extractor.Extract(c.Request)
             if err != nil {
-				c.AbortWithError(http.StatusUnauthorized, err)
-				return
+                c.AbortWithError(http.StatusUnauthorized, err)
+                return
             }
 
             claims := map[string]interface{}{}
             // NOTICE it requires the validation is done before coming here
             if err := token.UnsafeClaimsWithoutVerification(&claims); err != nil {
-				c.AbortWithError(http.StatusUnauthorized, err)
-				return
+                c.AbortWithError(http.StatusUnauthorized, err)
+                return
             }
 
             if v, ok := claims["grade"]; ok {

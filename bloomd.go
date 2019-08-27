@@ -87,7 +87,7 @@ func (r rejecter) Reject(claims map[string]interface{}) bool {
 }
 
 type nopRejecter struct {}
-func (nr nopRejecter) Reject(map[string]interface{}) bool { return true }
+func (nr nopRejecter) Reject(map[string]interface{}) bool { return false }
 
 
 // config map

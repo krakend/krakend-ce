@@ -75,10 +75,20 @@ func planValidatorFactory(hf ginkrakend.HandlerFactory, logger logging.Logger) g
             }
 
             if v, ok := claims["grade"]; ok {
-                if claimGrade, ok := v.(int); ok {
-                    if claimGrade >= grade {
-                        handler(c)
-                    }
+                var g int
+
+                switch v := v.(type) {
+                case int:
+                    g = v
+                case int64:
+                    g = int(v)
+                case float64:
+                    g = int(v)
+                }
+
+                if g >= grade {
+                    handler(c)
+                    return
                 }
             }
 

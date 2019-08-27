@@ -81,7 +81,7 @@ make docker_build
 ```
 
 ## FPM
-You can set up your fpm docker image to run setting `DOCKER_FPM` on the `Makefike`.
+You can set up your fpm docker image to run setting `DOCKER_FPM` on the `Makefile`.
 
 
 ## Using the generated packages

@@ -102,8 +102,8 @@ func createFilter(addr string, filter *bloomd.Filter) error {
 	return client.CreateFilter(filter)
 }
 
-func registerBloomd(scfg config.ServiceConfig, logger logging.Logger) (jose.Rejecter, error) {
-	
+func RegisterBloomd(scfg config.ServiceConfig, logger logging.Logger) (jose.Rejecter, error) {
+
 	data, ok := scfg.ExtraConfig[Namespace]
 
 	if !ok {

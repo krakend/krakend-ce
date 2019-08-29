@@ -45,7 +45,7 @@ func (r rejecter) assertFields(claims map[string]interface{}) ([]string, error) 
 		v, ok := claims[k]
 
 		if !ok {
-			return fields, errFieldNotExist
+			// return fields, errFieldNotExist
 		}
 
 		fields[i] = fmt.Sprintf("%v", v)

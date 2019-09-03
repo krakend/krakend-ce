@@ -48,7 +48,15 @@ func (r rejecter) assertFields(claims map[string]interface{}) ([]string, error) 
 			// return fields, errFieldNotExist
 		}
 
-		fields[i] = fmt.Sprintf("%v", v)
+		switch v := v.(type) {
+		case int:
+			fields[i] = fmt.Sprintf("%d", v)
+		case int64:
+			fields[i] = fmt.Sprintf("%d", v)
+		case float64:
+			fields[i] = fmt.Sprintf("%d", int(v))
+		}
+
 	}
 
 	return fields, nil
@@ -134,7 +142,6 @@ func createFilter(addr string, filterName string) *bloomd.Filter {
 }
 
 func RegisterBloomd(scfg config.ServiceConfig, logger logging.Logger) (jose.Rejecter, error) {
-
 	data, ok := scfg.ExtraConfig[Namespace]
 
 	if !ok {

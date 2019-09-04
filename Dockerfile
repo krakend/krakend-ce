@@ -31,4 +31,6 @@ VOLUME [ "/etc/krakend" ]
 
 CMD [ "/usr/bin/krakend", "run", "-c", "/etc/krakend/krakend.json" ]
 
+ENV GODEBUG=netdns=cgo 
+
 EXPOSE 8000 8090

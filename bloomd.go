@@ -2,11 +2,11 @@ package krakend
 
 import (
 	"fmt"
-	"log"
 	"errors"
 	"strings"
 	"encoding/json"
 	"crypto/sha256"
+	"time"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
 	"github.com/devopsfaith/krakend-jose"
@@ -73,10 +73,16 @@ func (r rejecter) Reject(claims map[string]interface{}) bool {
 
 	hash := r.calcHash(fields)
 
+	if r.filter.Conn.Socket != nil {
+		r.filter.Conn.Socket.SetReadDeadline(time.Now().Add(1 * time.Second))
+		r.filter.Conn.Socket.SetWriteDeadline(time.Now().Add(1 * time.Second))
+	}
+
 	found, err := r.filter.Multi([]string{hash})
 
 	if err != nil {
 		r.logger.Error("Bloomd error:", err.Error())
+		connectAndConfigure(r.filter)
 	}
 
 	if len(found) > 0 && found[0] {
@@ -96,10 +102,35 @@ type bloomdConfig struct {
 	Address string `json:"server_addr"`
 }
 
+func connectAndConfigure(filter *bloomd.Filter) bool {
+	if filter.Conn.Socket != nil {
+		filter.Conn.Socket.Close()
+		filter.Conn.Socket = nil
+	}
 
-func createFilter(addr string, filter *bloomd.Filter) error {
+	info, err := filter.Info()
+
+	if err != nil {
+		fmt.Println("Error connecting to bloomd:", err)
+		return false
+	}
+
+	fmt.Println("Connected to bloomd: %v", info)
+
+	filter.Conn.Socket.SetKeepAlive(true)
+	filter.Conn.Socket.SetKeepAlivePeriod(20 * time.Second)
+
+	return true
+}
+
+
+func createFilter(addr string, filterName string) *bloomd.Filter {
 	client := bloomd.NewClient(addr)
-	return client.CreateFilter(filter)
+	filter := client.GetFilter(filterName)
+
+	connectAndConfigure(filter)
+
+	return filter
 }
 
 func RegisterBloomd(scfg config.ServiceConfig, logger logging.Logger) (jose.Rejecter, error) {
@@ -128,12 +159,7 @@ func RegisterBloomd(scfg config.ServiceConfig, logger logging.Logger) (jose.Reje
 		return nopRejecter{}, errNoFilterName
 	}
 
-	filter := &bloomd.Filter{ Name: cfg.Name }
-
-	if err := createFilter(cfg.Address, filter); err != nil {
-		log.Fatalf("Bloomd filter creation failed (%s):", cfg.Address, err.Error())
-	}
-	logger.Info("BLOOMD: connected")
+	filter := createFilter(cfg.Address, cfg.Name )
 
 	return rejecter{filter, logger}, nil
 }

@@ -23,6 +23,7 @@ const (
 var hashFields = []string{"id", "organizationId", claimIssuedAt, claimExpirationTime}
 
 // errors
+const errPrefix = "bloomd error: "
 var (
 	errNoConfig = errors.New("no config for bloomd")
 	errInvalidConfig = errors.New("invalid config for bloomd")
@@ -67,7 +68,19 @@ func (r rejecter) calcHash(fields []string) string {
 	return fmt.Sprintf("%x", sha256.Sum256([]byte(id)))
 }
 
+func (r rejecter) recoverFromPanic() {
+	if err := recover(); err != nil {
+		if err, ok := err.(error); ok {
+			r.logger.Error(errPrefix, err.Error())
+		}
+		if err, ok := err.(string); ok {
+			r.logger.Error(errPrefix, err)
+		}
+	}
+}
+
 func (r rejecter) Reject(claims map[string]interface{}) bool {
+	defer r.recoverFromPanic()
 
 	if r.filter == nil || r.filter.Conn == nil {
 		return false
@@ -89,8 +102,8 @@ func (r rejecter) Reject(claims map[string]interface{}) bool {
 	found, err := r.filter.Multi([]string{hash})
 
 	if err != nil {
-		r.logger.Error("Bloomd error:", err.Error())
-		connectAndConfigure(r.filter)
+		r.logger.Error(errPrefix, err.Error())
+		connectAndConfigure(r.filter, r.logger)
 	}
 
 	if len(found) > 0 && found[0] {
@@ -110,7 +123,7 @@ type bloomdConfig struct {
 	Address string `json:"server_addr"`
 }
 
-func connectAndConfigure(filter *bloomd.Filter) bool {
+func connectAndConfigure(filter *bloomd.Filter, logger logging.Logger) bool {
 	if filter.Conn.Socket != nil {
 		filter.Conn.Socket.Close()
 		filter.Conn.Socket = nil
@@ -119,11 +132,11 @@ func connectAndConfigure(filter *bloomd.Filter) bool {
 	info, err := filter.Info()
 
 	if err != nil {
-		fmt.Println("Error connecting to bloomd:", err)
+		logger.Error("error connecting to bloomd:", err)
 		return false
 	}
 
-	fmt.Println("Connected to bloomd: %v", info)
+	logger.Info("connected to bloomd: %v", info)
 
 	filter.Conn.Socket.SetKeepAlive(true)
 	filter.Conn.Socket.SetKeepAlivePeriod(20 * time.Second)
@@ -132,11 +145,11 @@ func connectAndConfigure(filter *bloomd.Filter) bool {
 }
 
 
-func createFilter(addr string, filterName string) *bloomd.Filter {
+func createFilter(addr string, filterName string, logger logging.Logger) *bloomd.Filter {
 	client := bloomd.NewClient(addr)
 	filter := client.GetFilter(filterName)
 
-	connectAndConfigure(filter)
+	connectAndConfigure(filter, logger)
 
 	return filter
 }
@@ -166,7 +179,7 @@ func RegisterBloomd(scfg config.ServiceConfig, logger logging.Logger) (jose.Reje
 		return nopRejecter{}, errNoFilterName
 	}
 
-	filter := createFilter(cfg.Address, cfg.Name )
+	filter := createFilter(cfg.Address, cfg.Name, logger)
 
 	return rejecter{filter, logger}, nil
 }

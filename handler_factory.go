@@ -11,6 +11,7 @@ import (
 
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
 func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory) router.HandlerFactory {
+	router.RegisterRender("json_error", jsonErrorRender)
 	handlerFactory := juju.HandlerFactory
 	handlerFactory = NewJoseHandlerFactory(handlerFactory, logger, rejecter)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)

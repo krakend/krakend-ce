@@ -18,7 +18,9 @@ func newLoggingHandler(logger logrus.FieldLogger, skip map[string]struct{}, trac
 		r := c.Request
 		headers := r.Header
 
-		entry := logger.WithFields(logrus.Fields{
+        entry := logger.WithField("module", "GIN")
+
+		entry = entry.WithFields(logrus.Fields{
 			"ip": c.ClientIP(),
 			"method": r.Method,
 			"protocol": r.Proto,
@@ -81,7 +83,12 @@ func NewRouterLogger(cfg config.ExtraConfig) gin.HandlerFunc {
 	logger := logrus.New()
 
 	logger.SetOutput(os.Stdout)
-	logger.SetFormatter(&logrus.JSONFormatter{})
+	logger.SetFormatter(&logrus.JSONFormatter{
+        FieldMap: logrus.FieldMap{
+            logrus.FieldKeyTime: "@timestamp",
+            logrus.FieldKeyMsg: "message",
+        },
+    })
 
 	return newLoggingHandler(logger, skip, traceHeader)
 }

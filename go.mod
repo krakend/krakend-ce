@@ -96,6 +96,7 @@ require (
 	github.com/nats-io/nkeys v0.0.2
 	github.com/nats-io/nuid v1.0.1
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
+	github.com/openrm/module-tracing-golang v1.0.6
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/openzipkin/zipkin-go v0.1.6
 	github.com/pelletier/go-toml v1.2.0
@@ -105,6 +106,7 @@ require (
 	github.com/prometheus/common v0.2.0
 	github.com/prometheus/procfs v0.0.0-20190117184657-bf6a532e95b1
 	github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a
+	github.com/sirupsen/logrus v1.4.2
 	github.com/sony/gobreaker v0.0.0-20170530031423-e9556a45379e
 	github.com/spf13/afero v1.1.2
 	github.com/spf13/cast v1.3.0

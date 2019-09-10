@@ -10,9 +10,9 @@
 		"status_code": 403,
 		"body": "",
 		"header": {
-			"content-type": "",
-			"Cache-Control": "",
-			"X-Krakend-Completed": ""
+			"content-type": [""],
+			"Cache-Control": [""],
+			"X-Krakend-Completed": [""]
 		}
 	}
 }

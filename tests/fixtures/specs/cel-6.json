@@ -10,8 +10,8 @@
 		"status_code": 401,
 		"body": "",
 		"header": {
-			"content-type": "",
-			"Cache-Control": ""
+			"content-type": [""],
+			"Cache-Control": [""]
 		}
 	}
 }

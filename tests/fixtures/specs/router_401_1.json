@@ -7,9 +7,9 @@
 		"status_code": 401,
 		"body": "",
 		"header": {
-			"content-type": "",
-			"Cache-Control": "",
-			"X-Krakend-Completed": ""
+			"Cache-Control": [""],
+			"content-type": [""],
+			"X-Krakend-Completed": [""]
 		}
 	}
 }

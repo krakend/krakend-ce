@@ -7,9 +7,10 @@
 		"status_code": 200,
 		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"Content-Length\":[\"0\"],\"User-Agent\":[\"KrakenD Version 0.10.0-dev\"]},\"path\":\"/param_forwarding/\",\"query\":{}}\n",
 		"header": {
-			"content-type": "application/json",
-			"Cache-Control": "",
-			"X-Krakend-Completed": "false"
+			"content-type": ["application/json"],
+			"Cache-Control": [""],
+			"Set-Cookie": ["test1=test1","test2=test2"],
+			"X-Krakend-Completed": ["false"]
 		}
 	}
 }

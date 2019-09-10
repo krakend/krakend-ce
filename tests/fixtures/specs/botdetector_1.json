@@ -10,8 +10,8 @@
 		"status_code": 403,
 		"body": "",
 		"header": {
-			"content-type": "",
-			"X-Krakend-Completed": ""
+			"content-type": [""],
+			"X-Krakend-Completed": [""]
 		}
 	}
 }

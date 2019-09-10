@@ -10,9 +10,9 @@
 		"status_code": 200,
 		"body": "{\"age\":25,\"firstName\":\"John\",\"id_user\":1,\"lastName\":\"Smith\"}",
 		"header": {
-			"content-type": "application/json; charset=utf-8",
-			"Cache-Control": "public, max-age=3600",
-			"X-Krakend-Completed": "true"
+			"content-type": ["application/json; charset=utf-8"],
+			"Cache-Control": ["public, max-age=3600"],
+			"X-Krakend-Completed": ["true"]
 		}
 	}
 }

@@ -12,9 +12,9 @@
 		"status_code": 200,
 		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"Authorization\":[\"bearer 123456\"],\"User-Agent\":[\"KrakenD Version 0.10.0-dev\"],\"X-Y-Z\":[\"true\"]},\"path\":\"/param_forwarding/bar\",\"query\":{\"foo\":[\"foo\"]}}",
 		"header": {
-			"content-type": "application/json; charset=utf-8",
-			"Cache-Control": "public, max-age=3600",
-			"X-Krakend-Completed": "true"
+			"content-type": ["application/json; charset=utf-8"],
+			"Cache-Control": ["public, max-age=3600"],
+			"X-Krakend-Completed": ["true"]
 		}
 	}
 }

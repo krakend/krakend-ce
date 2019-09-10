@@ -1,0 +1,20 @@
+{
+	"in": {
+		"method": "POST",
+		"url": "http://localhost:8080/param_forwarding/some/foo/bar?a=1&b=2",
+		"header": {
+			"autHoriZatiOn": "bearer 123456",
+			"x-y-Z": "true",
+			"a-b-c": "ignore"
+		}
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"Authorization\":[\"bearer 123456\"],\"Content-Length\":[\"0\"],\"User-Agent\":[\"KrakenD Version 0.10.0-dev\"],\"X-Y-Z\":[\"true\"]},\"path\":\"/param_forwarding/bar\",\"query\":{\"foo\":[\"foo\"]}}",
+		"header": {
+			"content-type": "application/json; charset=utf-8",
+			"Cache-Control": "public, max-age=3600",
+			"X-Krakend-Completed": "true"
+		}
+	}
+}

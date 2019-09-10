@@ -7,9 +7,9 @@
 		"status_code": 200,
 		"body": "{\"error_backend_b\":{\"http_status_code\":404,\"http_body\":\"404 page not found\\n\"},\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"User-Agent\":[\"KrakenD Version 0.10.0-dev\"]},\"path\":\"/param_forwarding/\",\"query\":{}}",
 		"header": {
-			"content-type": "application/json; charset=utf-8",
-			"Cache-Control": "",
-			"X-Krakend-Completed": "false"
+			"content-type": ["application/json; charset=utf-8"],
+			"Cache-Control": [""],
+			"X-Krakend-Completed": ["false"]
 		}
 	}
 }

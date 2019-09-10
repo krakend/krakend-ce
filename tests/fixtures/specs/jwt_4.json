@@ -7,9 +7,9 @@
 		"status_code": 200,
 		"body": "{\"access_token\":\"eyJhbGciOiJIUzI1NiIsImtpZCI6InNpbTIifQ.eyJhdWQiOiJodHRwOi8vYXBpLmV4YW1wbGUuY29tIiwiZXhwIjoxNzM1Njg5NjAwLCJpc3MiOiJodHRwczovL2tyYWtlbmQuaW8iLCJqdGkiOiJtbmIyM3Zjc3J0NzU2eXVpb21uYnZjeDk4ZXJ0eXVpb3AiLCJyb2xlcyI6WyJyb2xlX3kiXSwic3ViIjoiMTIzNDU2Nzg5MHF3ZXJ0eXVpbyJ9.LRUfHzFra-9kmG_VTqA1FWFEbe3yZon7Y8yWN6CGPzk\"}",
 		"header": {
-			"content-type": "application/json; charset=utf-8",
-			"Cache-Control": "",
-			"X-Krakend-Completed": ""
+			"content-type": ["application/json; charset=utf-8"],
+			"Cache-Control": [""],
+			"X-Krakend-Completed": [""]
 		}
 	}
 }

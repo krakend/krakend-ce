@@ -10,9 +10,9 @@
 		"status_code": 200,
 		"body": "{\"backend2\":{\"message\":\"pong\"}}",
 		"header": {
-			"content-type": "application/json; charset=utf-8",
-			"X-Krakend-Completed": "false",
-			"Cache-Control": ""
+			"content-type": ["application/json; charset=utf-8"],
+			"X-Krakend-Completed": ["false"],
+			"Cache-Control": [""]
 		}
 	}
 }

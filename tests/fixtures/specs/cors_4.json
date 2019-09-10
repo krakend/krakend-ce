@@ -13,12 +13,12 @@
 		"status_code": 200,
 		"body": "",
 		"header": {
-			"content-type": "",
-			"Cache-Control": "",
-			"X-Krakend-Completed": "",
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Methods": "GET",
-			"Access-Control-Allow-Headers": "Origin, Content-Type"
+			"content-type": [""],
+			"Cache-Control": [""],
+			"X-Krakend-Completed": [""],
+			"Access-Control-Allow-Origin": ["*"],
+			"Access-Control-Allow-Methods": ["GET"],
+			"Access-Control-Allow-Headers": ["Origin, Content-Type"]
 		}
 	}
 }

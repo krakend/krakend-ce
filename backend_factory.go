@@ -16,6 +16,7 @@ import (
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
 	"github.com/devopsfaith/krakend/proxy"
+	"github.com/devopsfaith/krakend/encoding"
 	"github.com/devopsfaith/krakend/transport/http/client"
 )
 
@@ -45,7 +46,29 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 		}
 		return opencensus.HTTPRequestExecutor(clientFactory)
 	}
-	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
+
+	//  the line below registers martian.staticModifierFromJSON
+	var _ = martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
+
+	backendFactory := func(cfg *config.Backend) proxy.Proxy {
+		re := requestExecutorFactory(cfg)
+		if result, ok := martian.ConfigGetter(cfg.ExtraConfig).(martian.Result); ok {
+			if result.Err == nil {
+				re = martian.HTTPRequestExecutor(result.Result, re)
+			} else if result.Err != martian.ErrEmptyValue {
+				logger.Error(result, cfg.ExtraConfig)
+			}
+		}
+
+		rp := proxy.NoOpHTTPResponseParser
+		if cfg.Encoding != encoding.NOOP {
+			ef := proxy.NewEntityFormatter(cfg)
+			rp = proxy.DefaultHTTPResponseParserFactory(proxy.HTTPResponseParserConfig{cfg.Decoder, ef})
+		}
+
+		return proxy.NewHTTPProxyDetailed(cfg, re, GetHTTPStatusHandler(cfg), rp)
+	}
+
 	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = bf.New
 	backendFactory = amqp.NewBackendFactory(ctx, logger, backendFactory)

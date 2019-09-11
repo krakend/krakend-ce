@@ -8,7 +8,7 @@ require (
 	contrib.go.opencensus.io/exporter/jaeger v0.0.0-20190424224017-5b8293c22f36
 	contrib.go.opencensus.io/exporter/ocagent v0.4.12
 	contrib.go.opencensus.io/exporter/prometheus v0.0.0-20190424224027-f02a6e68f94d
-	contrib.go.opencensus.io/exporter/stackdriver v0.12.5
+	contrib.go.opencensus.io/exporter/stackdriver v0.12.7
 	contrib.go.opencensus.io/exporter/zipkin v0.0.0-20190424224031-c96617f51dc6
 	github.com/Applifier/go-bloomd v0.0.0-20180928133347-be6f5f504c5d // indirect
 	github.com/Applifier/go-conn-pool v2.0.0+incompatible // indirect
@@ -96,7 +96,7 @@ require (
 	github.com/nats-io/nkeys v0.0.2
 	github.com/nats-io/nuid v1.0.1
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
-	github.com/openrm/module-tracing-golang v1.0.6
+	github.com/openrm/module-tracing-golang v1.0.7
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/openzipkin/zipkin-go v0.1.6
 	github.com/pelletier/go-toml v1.2.0
@@ -128,7 +128,7 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415
 	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609
-	go.opencensus.io v0.22.0
+	go.opencensus.io v0.22.1
 	gocloud.dev v0.12.0
 	golang.org/x/crypto v0.0.0-20190605123033-f99c8df09eb5
 	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80

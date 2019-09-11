@@ -6,19 +6,36 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/gin-gonic/gin"
 	"github.com/devopsfaith/krakend/config"
-	tracing "github.com/openrm/module-tracing-golang/opentracing"
+	"go.opencensus.io/trace"
+	"github.com/openrm/module-tracing-golang/propagation"
 )
 
 const LoggerNamespace = "github_com/openrm/logging"
 
-func newLoggingHandler(logger logrus.FieldLogger, skip map[string]struct{}, traceHeader string) gin.HandlerFunc {
+func spanContextMap(sc trace.SpanContext) map[string]interface{} {
+	return map[string]interface{}{
+		"traceId": sc.TraceID.String(),
+		"spanId": sc.SpanID.String(),
+		"sampled": sc.IsSampled(),
+	}
+}
+
+func loggingHandler(logger logrus.FieldLogger, skip map[string]struct{}, traceHeader string) gin.HandlerFunc {
+	format := propagation.HTTPFormat{Header: traceHeader}
+
 	return func(c *gin.Context) {
 		start := time.Now()
 
 		r := c.Request
-		headers := r.Header
 
-        entry := logger.WithField("module", "GIN")
+		if u := r.URL; u != nil {
+			if _, ok := skip[u.Path]; ok {
+				c.Next()
+				return
+			}
+		}
+
+		entry := logger.WithField("module", "GIN")
 
 		entry = entry.WithFields(logrus.Fields{
 			"ip": c.ClientIP(),
@@ -32,17 +49,19 @@ func newLoggingHandler(logger logrus.FieldLogger, skip map[string]struct{}, trac
 			"contentLength": r.ContentLength,
 		})
 
-		if h := headers.Get(traceHeader); h != "" {
-			if span := tracing.NewFromTraceParent(h); span != nil {
-				entry = entry.WithFields(logrus.Fields{
-					"span": span.JSON(true),
-					"traceId": span.TraceId,
-					"spanId": span.SpanId,
-				})
-			}
+		traceData := make(map[string]interface{})
+		if sc, ok := format.SpanContextFromRequest(r); ok{
+			traceData["parent"] = spanContextMap(sc)
 		}
 
 		c.Next()
+
+		if span := trace.FromContext(c.Request.Context()); span != nil {
+			for k, v := range spanContextMap(span.SpanContext()) {
+				traceData[k] = v
+			}
+			entry = entry.WithField("span", traceData)
+		}
 
 		w := c.Writer
 
@@ -65,10 +84,12 @@ func NewRouterLogger(cfg config.ExtraConfig) gin.HandlerFunc {
 	if e, ok := cfg[LoggerNamespace]; ok {
 		if m, ok := e.(map[string]interface{}); ok {
 			if v, ok := m["skip_paths"]; ok {
-				if ps, ok := v.([]string); ok && len(ps) > 0 {
+				if ps, ok := v.([]interface{}); ok && len(ps) > 0 {
 					skip = make(map[string]struct{}, len(ps))
-					for _, path := range ps {
-						skip[path] = struct{}{}
+					for _, v := range ps {
+						if path, ok := v.(string); ok {
+							skip[path] = struct{}{}
+						}
 					}
 				}
 			}
@@ -84,11 +105,11 @@ func NewRouterLogger(cfg config.ExtraConfig) gin.HandlerFunc {
 
 	logger.SetOutput(os.Stdout)
 	logger.SetFormatter(&logrus.JSONFormatter{
-        FieldMap: logrus.FieldMap{
-            logrus.FieldKeyTime: "@timestamp",
-            logrus.FieldKeyMsg: "message",
-        },
-    })
+		FieldMap: logrus.FieldMap{
+			logrus.FieldKeyTime: "@timestamp",
+			logrus.FieldKeyMsg: "message",
+		},
+	})
 
-	return newLoggingHandler(logger, skip, traceHeader)
+	return loggingHandler(logger, skip, traceHeader)
 }

@@ -98,15 +98,16 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			}),
 		})
 
-		middlewares := []gin.HandlerFunc{NewOpenCensusMiddleware(cfg.ExtraConfig)}
+		// middlewares := []gin.HandlerFunc{NewOpenCensusMiddleware(cfg.ExtraConfig)}
+		middlewares := []gin.HandlerFunc{}
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
 			Engine:         NewEngine(cfg, logger),
-			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(ctx, logger, metricCollector), metricCollector),
+			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(cfg, ctx, logger, metricCollector), metricCollector),
 			Middlewares:    middlewares,
 			Logger:         logger,
-			HandlerFactory: NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
+			HandlerFactory: NewHandlerFactory(cfg, logger, metricCollector, tokenRejecterFactory),
 			RunServer:      krakendrouter.RunServer,
 		})
 

@@ -2,6 +2,8 @@ module github.com/openrm/krakend-ce
 
 go 1.12
 
+replace github.com/testcontainers/testcontainer-go => github.com/testcontainers/testcontainers-go v0.0.0-20190108154635-47c0da630f72
+
 require (
 	cloud.google.com/go v0.43.0
 	contrib.go.opencensus.io/exporter/aws v0.0.0-20181029163544-2befc13012d0
@@ -58,8 +60,8 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/geetarista/go-bloomd v0.0.0-20140722181834-7f8e8a358bec
-	github.com/gin-contrib/sse v0.0.0-20190125020943-a7658810eb74
-	github.com/gin-gonic/gin v1.3.0
+	github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3
+	github.com/gin-gonic/gin v1.4.0
 	github.com/go-contrib/uuid v1.2.0
 	github.com/golang/protobuf v1.3.2
 	github.com/google/cel-go v0.2.0
@@ -78,13 +80,13 @@ require (
 	github.com/influxdata/influxdb v1.7.4
 	github.com/influxdata/platform v0.0.0-20190117200541-d500d3cf5589
 	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
-	github.com/json-iterator/go v1.1.5
+	github.com/json-iterator/go v1.1.6
 	github.com/juju/ratelimit v0.0.0-20171026090426-59fac5042749
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c
 	github.com/kr/pty v1.1.3 // indirect
 	github.com/letgoapp/krakend-influx v0.0.0-20190214142340-d2fc9466bb3a
 	github.com/magiconair/properties v1.8.0
-	github.com/mattn/go-isatty v0.0.4
+	github.com/mattn/go-isatty v0.0.7
 	github.com/matttproud/golang_protobuf_extensions v1.0.1
 	github.com/mitchellh/go-homedir v1.0.0
 	github.com/mitchellh/mapstructure v1.1.2
@@ -96,7 +98,7 @@ require (
 	github.com/nats-io/nkeys v0.0.2
 	github.com/nats-io/nuid v1.0.1
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
-	github.com/openrm/module-tracing-golang v1.0.7
+	github.com/openrm/module-tracing-golang v1.0.9
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/openzipkin/zipkin-go v0.1.6
 	github.com/pelletier/go-toml v1.2.0
@@ -123,7 +125,7 @@ require (
 	github.com/tmthrgd/go-hex v0.0.0-20180828131331-d1fb3dbb16a1
 	github.com/tmthrgd/go-memset v0.0.0-20180828131805-6f4e59bf1e1d
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97
-	github.com/ugorji/go v1.1.2
+	github.com/ugorji/go v1.1.7
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415
@@ -137,6 +139,7 @@ require (
 	golang.org/x/sys v0.0.0-20190804053845-51ab0e2deafa
 	golang.org/x/text v0.3.2
 	golang.org/x/xerrors v0.0.0-20190410155217-1f06c39b4373
+	gonum.org/v1/netlib v0.0.0-20190331212654-76723241ea4e // indirect
 	google.golang.org/api v0.7.0
 	google.golang.org/appengine v1.6.1
 	google.golang.org/genproto v0.0.0-20190801165951-fa694d86fc64
@@ -148,5 +151,23 @@ require (
 	gopkg.in/yaml.v2 v2.2.2
 	pack.ag/amqp v0.11.0
 )
+
+replace github.com/golang/lint => golang.org/x/lint v0.0.0-20190909230951-414d861bb4ac
+
+replace github.com/hashicorp/vault-plugin-auth-pcf => github.com/hashicorp/vault-plugin-auth-cf v0.0.0-20190821162840-1c2205826fee
+
+replace gopkg.in/gin-contrib/cors.v1 => github.com/gin-contrib/cors v1.3.0
+
+replace gopkg.in/urfave/cli.v1 => github.com/urfave/cli v1.22.0
+
+replace sourcegraph.com/sourcegraph/go-diff => github.com/sourcegraph/go-diff v0.5.1
+
+replace github.com/go-xorm/core => xorm.io/core v0.7.0
+
+replace github.com/Unknwon/com => github.com/unknwon/com v1.0.1
+
+replace github.com/Unknwon/i18n => github.com/unknwon/i18n v0.0.0-20190805065654-5c6446a380b6
+
+replace gopkg.in/stretchr/testify.v1 => github.com/stretchr/testify v1.4.0
 
 replace git.apache.org/thrift.git => github.com/apache/thrift v0.12.0

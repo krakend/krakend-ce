@@ -69,7 +69,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		startReporter(ctx, logger, cfg)
 
-		// reg := RegisterSubscriberFactories(ctx, cfg, logger)
+		_ = RegisterSubscriberFactories(ctx, cfg, logger)
 
 		// create the metrics collector
 		metricCollector := metrics.New(ctx, cfg.ExtraConfig, logger)

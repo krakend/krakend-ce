@@ -16,9 +16,11 @@ func NewOpenCensusClient(lcfg loggingConfig, clientFactory client.HTTPClientFact
 		if transport == nil {
 			transport = http.DefaultTransport
 		}
-		client.Transport = &ochttp.Transport{
-			Base: transport,
-			Propagation: lcfg.httpFormat(),
+		if _, ok := transport.(*ochttp.Transport); !ok {
+			client.Transport = &ochttp.Transport{
+				Base: transport,
+				Propagation: lcfg.httpFormat(),
+			}
 		}
 		return client
 	}

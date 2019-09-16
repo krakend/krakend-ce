@@ -9,10 +9,10 @@ import (
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware
-func NewEngine(cfg config.ServiceConfig, logger logging.Logger) *gin.Engine {
+func NewEngine(cfg config.ServiceConfig, logger logging.Logger, lcfg loggingConfig) *gin.Engine {
 	engine := gin.New()
 
-	engine.Use(NewRouterLogger(cfg.ExtraConfig), gin.Recovery())
+	engine.Use(NewRouterLogger(lcfg), gin.Recovery())
 
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true

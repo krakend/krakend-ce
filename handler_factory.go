@@ -13,14 +13,12 @@ import (
 )
 
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
-func NewHandlerFactory(scfg config.ServiceConfig, logger logging.Logger, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory) router.HandlerFactory {
+func NewHandlerFactory(logger logging.Logger, lcfg loggingConfig, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory) router.HandlerFactory {
 	router.RegisterRender("json_error", jsonErrorRender)
 	handlerFactory := juju.HandlerFactory
 	handlerFactory = NewJoseHandlerFactory(handlerFactory, logger, rejecter)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)
-	// handlerFactory = opencensus.New(handlerFactory)
 	return func(cfg *config.EndpointConfig, p proxy.Proxy) gin.HandlerFunc {
-		prop, _ := parseLoggingConfig(scfg.ExtraConfig)
-		return opencensus.HandlerFunc(cfg, handlerFactory(cfg, p), prop)
+		return opencensus.HandlerFunc(cfg, handlerFactory(cfg, p), lcfg.httpFormat())
 	}
 }

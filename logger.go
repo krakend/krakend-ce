@@ -7,10 +7,45 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/devopsfaith/krakend/config"
 	"go.opencensus.io/trace"
-	"github.com/openrm/module-tracing-golang/propagation"
+	"go.opencensus.io/trace/propagation"
+	orpropagation "github.com/openrm/module-tracing-golang/propagation"
 )
 
 const LoggerNamespace = "github_com/openrm/logging"
+
+type loggingConfig struct {
+	traceHeader string
+	skipPaths map[string]struct{}
+}
+
+func (c loggingConfig) httpFormat() propagation.HTTPFormat {
+	return &orpropagation.HTTPFormat{Header: c.traceHeader}
+}
+
+func parseLoggingConfig(cfg config.ExtraConfig) loggingConfig {
+	var header string
+	var skip map[string]struct{}
+	if v, ok := cfg[LoggerNamespace]; ok {
+		if cfg, ok := v.(map[string]interface{}); ok {
+			if v, ok := cfg["skip_paths"]; ok {
+				if ps, ok := v.([]interface{}); ok && len(ps) > 0 {
+					skip = make(map[string]struct{}, len(ps))
+					for _, v := range ps {
+						if path, ok := v.(string); ok {
+							skip[path] = struct{}{}
+						}
+					}
+				}
+			}
+			if v, ok := cfg["trace_header"]; ok {
+				if h, ok := v.(string); ok {
+					header = h
+				}
+			}
+		}
+	}
+	return loggingConfig{header, skip}
+}
 
 func spanContextMap(sc trace.SpanContext) map[string]interface{} {
 	return map[string]interface{}{
@@ -20,8 +55,8 @@ func spanContextMap(sc trace.SpanContext) map[string]interface{} {
 	}
 }
 
-func loggingHandler(logger logrus.FieldLogger, skip map[string]struct{}, traceHeader string) gin.HandlerFunc {
-	format := propagation.HTTPFormat{Header: traceHeader}
+func loggingHandler(logger logrus.FieldLogger, cfg loggingConfig) gin.HandlerFunc {
+	format, skip := cfg.httpFormat(), cfg.skipPaths
 
 	return func(c *gin.Context) {
 		start := time.Now()
@@ -77,30 +112,7 @@ func loggingHandler(logger logrus.FieldLogger, skip map[string]struct{}, traceHe
 	}
 }
 
-func NewRouterLogger(cfg config.ExtraConfig) gin.HandlerFunc {
-	var skip map[string]struct{}
-	var traceHeader string
-
-	if e, ok := cfg[LoggerNamespace]; ok {
-		if m, ok := e.(map[string]interface{}); ok {
-			if v, ok := m["skip_paths"]; ok {
-				if ps, ok := v.([]interface{}); ok && len(ps) > 0 {
-					skip = make(map[string]struct{}, len(ps))
-					for _, v := range ps {
-						if path, ok := v.(string); ok {
-							skip[path] = struct{}{}
-						}
-					}
-				}
-			}
-			if v, ok := m["trace_header"]; ok {
-				if h, ok := v.(string); ok {
-					traceHeader = h
-				}
-			}
-		}
-	}
-
+func NewRouterLogger(cfg loggingConfig) gin.HandlerFunc {
 	logger := logrus.New()
 
 	logger.SetOutput(os.Stdout)
@@ -111,5 +123,5 @@ func NewRouterLogger(cfg config.ExtraConfig) gin.HandlerFunc {
 		},
 	})
 
-	return loggingHandler(logger, skip, traceHeader)
+	return loggingHandler(logger, cfg)
 }

@@ -36,7 +36,7 @@ import (
 // }
 
 // NewBackendFactory creates a BackendFactory by stacking all the available middlewares and injecting the received context
-func NewBackendFactoryWithContext(scfg config.ServiceConfig, ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, lcfg loggingConfig, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
 		var clientFactory client.HTTPClientFactory
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
@@ -44,7 +44,7 @@ func NewBackendFactoryWithContext(scfg config.ServiceConfig, ctx context.Context
 		} else {
 			clientFactory = httpcache.NewHTTPClient(cfg)
 		}
-		clientFactory = NewOpenCensusClient(scfg.ExtraConfig, clientFactory)
+		clientFactory = NewOpenCensusClient(lcfg, clientFactory)
 		return opencensus.HTTPRequestExecutor(clientFactory)
 	}
 

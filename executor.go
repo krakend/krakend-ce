@@ -47,6 +47,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			})
 		}
 		logger, gologgingErr := logstash.NewLogger(cfg.ExtraConfig)
+		loggingCfg := parseLoggingConfig(cfg.ExtraConfig)
 
 		if gologgingErr != nil {
 			logger, gologgingErr = gologging.NewLogger(cfg.ExtraConfig, writers...)
@@ -98,16 +99,13 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			}),
 		})
 
-		// middlewares := []gin.HandlerFunc{NewOpenCensusMiddleware(cfg.ExtraConfig)}
-		middlewares := []gin.HandlerFunc{}
-
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
-			Engine:         NewEngine(cfg, logger),
-			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(cfg, ctx, logger, metricCollector), metricCollector),
-			Middlewares:    middlewares,
+			Engine:         NewEngine(cfg, logger, loggingCfg),
+			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(ctx, logger, loggingCfg, metricCollector), metricCollector),
+			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,
-			HandlerFactory: NewHandlerFactory(cfg, logger, metricCollector, tokenRejecterFactory),
+			HandlerFactory: NewHandlerFactory(logger, loggingCfg, metricCollector, tokenRejecterFactory),
 			RunServer:      krakendrouter.RunServer,
 		})
 

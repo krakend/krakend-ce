@@ -103,7 +103,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		routerFactory := router.NewFactory(router.Config{
 			Engine:         NewEngine(cfg, logger, loggingCfg),
 			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(ctx, logger, loggingCfg, metricCollector), metricCollector),
-			Middlewares:    []gin.HandlerFunc{},
+			Middlewares:    []gin.HandlerFunc{NewSentryMiddleware(cfg)},
 			Logger:         logger,
 			HandlerFactory: NewHandlerFactory(logger, loggingCfg, metricCollector, tokenRejecterFactory),
 			RunServer:      krakendrouter.RunServer,

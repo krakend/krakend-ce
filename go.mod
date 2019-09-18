@@ -171,3 +171,5 @@ replace github.com/Unknwon/i18n => github.com/unknwon/i18n v0.0.0-20190805065654
 replace gopkg.in/stretchr/testify.v1 => github.com/stretchr/testify v1.4.0
 
 replace git.apache.org/thrift.git => github.com/apache/thrift v0.12.0
+
+replace gopkg.in/src-d/go-git-fixtures.v3 => github.com/src-d/go-git-fixtures v3.5.0+incompatible

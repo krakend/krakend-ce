@@ -3,8 +3,12 @@ package krakend
 import (
 	"context"
 	"net/http"
+	"github.com/devopsfaith/krakend/config"
+	"github.com/devopsfaith/krakend/proxy"
 	"github.com/gin-gonic/gin"
+	router "github.com/devopsfaith/krakend/router/gin"
 	"github.com/devopsfaith/krakend/transport/http/client"
+	"github.com/devopsfaith/krakend-opencensus"
 	"go.opencensus.io/plugin/ochttp"
 	"go.opencensus.io/trace"
 )
@@ -26,26 +30,34 @@ func NewOpenCensusClient(lcfg loggingConfig, clientFactory client.HTTPClientFact
 	}
 }
 
-func NewOpenCensusMiddleware(lcfg loggingConfig) gin.HandlerFunc {
-	skip := lcfg.skipPaths
-	handler := ochttp.Handler{
-		Propagation: lcfg.httpFormat(),
-		GetStartOptions: func(r *http.Request) trace.StartOptions{
-			if u := r.URL; u != nil {
-				if _, ok := skip[u.Path]; ok {
-					return trace.StartOptions{
-						Sampler: trace.NeverSample(),
-					}
+func NewOpenCensusHandlerFactory(hf router.HandlerFactory, lcfg loggingConfig) router.HandlerFactory {
+	skip, prop := lcfg.skipPaths, lcfg.httpFormat()
+	filterPath := func(r *http.Request) trace.StartOptions{
+		if u := r.URL; u != nil {
+			if _, ok := skip[u.Path]; ok {
+				return trace.StartOptions{
+					Sampler: trace.NeverSample(),
 				}
 			}
-			return trace.StartOptions{}
-		},
+		}
+		return trace.StartOptions{}
 	}
-	return func(c *gin.Context) {
-		handler.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			c.Request = r
-			c.Next()
-		})
-		handler.ServeHTTP(c.Writer, c.Request)
+	return func(cfg *config.EndpointConfig, p proxy.Proxy) gin.HandlerFunc {
+		handler := hf(cfg, p)
+		traceHandler := ochttp.Handler{
+			Propagation: prop,
+			GetStartOptions: filterPath,
+			FormatSpanName: func(*http.Request) string {
+				return cfg.Endpoint
+			},
+		}
+		return func(c *gin.Context) {
+			traceHandler.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				c.Request = r
+				c.Set(opencensus.ContextKey, trace.FromContext(c.Request.Context()))
+				handler(c)
+			})
+			traceHandler.ServeHTTP(c.Writer, c.Request)
+		}
 	}
 }

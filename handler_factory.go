@@ -1,14 +1,10 @@
 package krakend
 
 import (
-	"github.com/devopsfaith/krakend/config"
-	"github.com/devopsfaith/krakend/proxy"
 	"github.com/devopsfaith/krakend-jose"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
-	opencensus "github.com/devopsfaith/krakend-opencensus/router/gin"
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/router/gin"
 	"github.com/devopsfaith/krakend/logging"
-	"github.com/gin-gonic/gin"
 	router "github.com/devopsfaith/krakend/router/gin"
 )
 
@@ -18,7 +14,5 @@ func NewHandlerFactory(logger logging.Logger, lcfg loggingConfig, metricCollecto
 	handlerFactory := juju.HandlerFactory
 	handlerFactory = NewJoseHandlerFactory(handlerFactory, logger, rejecter)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)
-	return func(cfg *config.EndpointConfig, p proxy.Proxy) gin.HandlerFunc {
-		return opencensus.HandlerFunc(cfg, handlerFactory(cfg, p), lcfg.httpFormat())
-	}
+	return NewOpenCensusHandlerFactory(handlerFactory, lcfg)
 }

@@ -13,7 +13,7 @@ import (
 	"github.com/geetarista/go-bloomd/bloomd"
 )
 
-const Namespace = "github_com/openrm/bloomd"
+const bloomdNamespace = "github_com/openrm/bloomd"
 
 const (
 	claimIssuedAt = "iat"
@@ -155,7 +155,7 @@ func createFilter(addr string, filterName string, logger logging.Logger) *bloomd
 }
 
 func RegisterBloomd(scfg config.ServiceConfig, logger logging.Logger) (jose.Rejecter, error) {
-	data, ok := scfg.ExtraConfig[Namespace]
+	data, ok := scfg.ExtraConfig[bloomdNamespace]
 
 	if !ok {
 		logger.Debug(errNoConfig.Error())

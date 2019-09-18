@@ -60,6 +60,7 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/geetarista/go-bloomd v0.0.0-20140722181834-7f8e8a358bec
+	github.com/getsentry/sentry-go v0.3.0
 	github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-contrib/uuid v1.2.0
@@ -86,7 +87,7 @@ require (
 	github.com/kr/pty v1.1.3 // indirect
 	github.com/letgoapp/krakend-influx v0.0.0-20190214142340-d2fc9466bb3a
 	github.com/magiconair/properties v1.8.0
-	github.com/mattn/go-isatty v0.0.7
+	github.com/mattn/go-isatty v0.0.9
 	github.com/matttproud/golang_protobuf_extensions v1.0.1
 	github.com/mitchellh/go-homedir v1.0.0
 	github.com/mitchellh/mapstructure v1.1.2
@@ -127,16 +128,16 @@ require (
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97
 	github.com/ugorji/go v1.1.7
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6
-	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
+	github.com/xeipuuv/gojsonpointer v0.0.0-20190809123943-df4f5c81cb3b
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415
-	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609
+	github.com/xeipuuv/gojsonschema v1.1.0
 	go.opencensus.io v0.22.1
 	gocloud.dev v0.12.0
-	golang.org/x/crypto v0.0.0-20190605123033-f99c8df09eb5
+	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
 	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
-	golang.org/x/sys v0.0.0-20190804053845-51ab0e2deafa
+	golang.org/x/sys v0.0.0-20190813064441-fde4db37ae7a
 	golang.org/x/text v0.3.2
 	golang.org/x/xerrors v0.0.0-20190410155217-1f06c39b4373
 	gonum.org/v1/netlib v0.0.0-20190331212654-76723241ea4e // indirect

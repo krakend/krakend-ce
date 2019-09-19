@@ -47,6 +47,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			})
 		}
 		logger, gologgingErr := logstash.NewLogger(cfg.ExtraConfig)
+		loggingCfg := parseLoggingConfig(cfg.ExtraConfig)
 
 		if gologgingErr != nil {
 			logger, gologgingErr = gologging.NewLogger(cfg.ExtraConfig, writers...)
@@ -68,7 +69,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		startReporter(ctx, logger, cfg)
 
-		// reg := RegisterSubscriberFactories(ctx, cfg, logger)
+		_ = RegisterSubscriberFactories(ctx, cfg, logger)
 
 		// create the metrics collector
 		metricCollector := metrics.New(ctx, cfg.ExtraConfig, logger)
@@ -100,11 +101,11 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
-			Engine:         NewEngine(cfg, logger),
-			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(ctx, logger, metricCollector), metricCollector),
-			Middlewares:    []gin.HandlerFunc{},
+			Engine:         NewEngine(cfg, logger, loggingCfg),
+			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(ctx, logger, loggingCfg, metricCollector), metricCollector),
+			Middlewares:    []gin.HandlerFunc{NewSentryMiddleware(cfg)},
 			Logger:         logger,
-			HandlerFactory: NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
+			HandlerFactory: NewHandlerFactory(logger, loggingCfg, metricCollector, tokenRejecterFactory),
 			RunServer:      krakendrouter.RunServer,
 		})
 

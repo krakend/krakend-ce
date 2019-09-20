@@ -2,6 +2,7 @@ package krakend
 
 import (
 	"strconv"
+    "net/http"
 	"github.com/devopsfaith/krakend/config"
 	"go.opencensus.io/trace"
 	"github.com/getsentry/sentry-go"
@@ -50,19 +51,21 @@ func NewSentryMiddleware(cfg config.ServiceConfig) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
 		handler(c)
-		if len(c.Errors) > 0 {
-			if hub := sentrygin.GetHubFromContext(c); hub != nil {
-				if span := trace.FromContext(c.Request.Context()); span != nil {
-					sc := span.SpanContext()
-					hub.Scope().SetContext("trace", map[string]interface{}{
-						"trace_id": sc.TraceID.String(),
-						"span_id": sc.SpanID.String(),
-					})
-				}
-				for _, err := range c.Errors {
-					hub.CaptureException(err)
-				}
-			}
+        if len(c.Errors) > 0 {
+            if status := c.Writer.Status(); status >= http.StatusInternalServerError {
+                if hub := sentrygin.GetHubFromContext(c); hub != nil {
+                    if span := trace.FromContext(c.Request.Context()); span != nil {
+                        sc := span.SpanContext()
+                        hub.Scope().SetContext("trace", map[string]interface{}{
+                            "trace_id": sc.TraceID.String(),
+                            "span_id": sc.SpanID.String(),
+                        })
+                    }
+                    for _, err := range c.Errors {
+                        hub.CaptureException(err)
+                    }
+                }
+            }
 		}
 	}
 }

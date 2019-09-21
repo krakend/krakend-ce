@@ -10,4 +10,4 @@ before_install:
     - export GOPATH="/home/travis/gopath-tmp"
 
 script:
-    - make test
+    - make tests

@@ -18,14 +18,14 @@ require (
 	github.com/codegangsta/negroni v1.0.0 // indirect
 	github.com/coreos/etcd v3.3.13+incompatible // indirect
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
-	github.com/devopsfaith/krakend v0.0.0-20190910150530-1a660b14ec4c
+	github.com/devopsfaith/krakend v0.0.0-20190921111907-6ff3a6860ce0
 	github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
 	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981
 	github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e
 	github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1
-	github.com/devopsfaith/krakend-cors v0.0.0-20190801140305-7b81cf84c2cd
+	github.com/devopsfaith/krakend-cors v0.0.0-20190921115348-8233f1195319
 	github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c
 	github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf
 	github.com/devopsfaith/krakend-gelf v0.0.0-20181019222239-59c0250b1c60
@@ -40,9 +40,9 @@ require (
 	github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91
 	github.com/devopsfaith/krakend-metrics v0.0.0-20190114200758-1e2c2a1f6a62
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v0.0.0-20190206125733-11a9f7170c44
-	github.com/devopsfaith/krakend-opencensus v0.0.0-20190916170103-845b2cd067f0
+	github.com/devopsfaith/krakend-opencensus v0.0.0-20190425142549-a584d6fd2cc1
 	github.com/devopsfaith/krakend-pubsub v0.0.0-20190424155946-2884ffb54959
-	github.com/devopsfaith/krakend-ratelimit v0.0.0-20190404110207-d63774e96e82
+	github.com/devopsfaith/krakend-ratelimit v0.0.0-20190921120547-5fe6dc6139d8
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c
 	github.com/devopsfaith/krakend-viper v0.0.0-20190407170411-1cbb76813774
@@ -58,7 +58,6 @@ require (
 	github.com/hashicorp/golang-lru v0.5.3 // indirect
 	github.com/influxdata/influxdb v1.7.4 // indirect
 	github.com/json-iterator/go v1.1.7 // indirect
-	github.com/juju/ratelimit v1.0.1 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c // indirect
 	github.com/letgoapp/krakend-consul v0.0.0-20190130102841-7623a4da32a1 // indirect
 	github.com/letgoapp/krakend-influx v0.0.0-20190214142340-d2fc9466bb3a
@@ -79,7 +78,7 @@ require (
 	github.com/tmthrgd/go-hex v0.0.0-20180828131331-d1fb3dbb16a1 // indirect
 	github.com/tmthrgd/go-memset v0.0.0-20180828131805-6f4e59bf1e1d // indirect
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97 // indirect
-	github.com/ugorji/go/codec v1.1.7 // indirect
+	github.com/ugorji/go v1.1.7 // indirect
 	// github.com/ugorji/go v1.1.4
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
@@ -87,9 +86,7 @@ require (
 	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609 // indirect
 	go.opencensus.io v0.22.1 // indirect
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
-	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80 // indirect
 	golang.org/x/oauth2 v0.0.0-20190402181905-9f3314589c9a // indirect
-	golang.org/x/sync v0.0.0-20190423024810-112230192c58 // indirect
 	golang.org/x/sys v0.0.0-20190801041406-cbf593c0f2f3 // indirect
 	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
 	golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7 // indirect

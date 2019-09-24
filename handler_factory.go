@@ -1,7 +1,7 @@
 package krakend
 
 import (
-	"github.com/devopsfaith/krakend-jose"
+	"github.com/openrm/krakend-jose"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/router/gin"
 	"github.com/devopsfaith/krakend/logging"
@@ -13,6 +13,7 @@ func NewHandlerFactory(logger logging.Logger, lcfg loggingConfig, metricCollecto
 	router.RegisterRender("json_error", jsonErrorRender)
 	handlerFactory := juju.HandlerFactory
 	handlerFactory = NewJoseHandlerFactory(handlerFactory, logger, rejecter)
+	// handlerFactory = NewRefreshHandlerFactory(handlerFactory, logger)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)
 	return NewOpenCensusHandlerFactory(handlerFactory, lcfg)
 }

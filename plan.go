@@ -5,8 +5,8 @@ import (
     "github.com/devopsfaith/krakend/logging"
     "github.com/devopsfaith/krakend/proxy"
 
-    krakendjose "github.com/devopsfaith/krakend-jose"
-    ginjose "github.com/devopsfaith/krakend-jose/gin"
+    krakendjose "github.com/openrm/krakend-jose"
+    ginjose "github.com/openrm/krakend-jose/gin"
     ginkrakend "github.com/devopsfaith/krakend/router/gin"
 
     "net/http"

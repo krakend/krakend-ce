@@ -9,7 +9,7 @@ import (
 	"time"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
-	"github.com/devopsfaith/krakend-jose"
+	"github.com/openrm/krakend-jose"
 	"github.com/geetarista/go-bloomd/bloomd"
 )
 

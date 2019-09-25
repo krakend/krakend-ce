@@ -56,14 +56,14 @@ require (
 	github.com/mmcdole/goxpp v0.0.0-20170720115402-77e4a51a73ed // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
-	github.com/openrm/krakend-jose v0.0.0-20190924044504-f80d1a5d635a
+	github.com/openrm/krakend-jose v0.0.0-20190925083548-04bd6fcc5643
 	github.com/openrm/module-tracing-golang v1.0.9
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/sirupsen/logrus v1.4.2
 	github.com/sony/gobreaker v0.0.0-20170530031423-e9556a45379e // indirect
 	github.com/spf13/viper v1.3.2 // indirect
 	github.com/streadway/amqp v0.0.0-20190402114354-16ed540749f6 // indirect
-	github.com/ugorji/go v1.1.7 // indirect
+	github.com/ugorji/go/codec v1.1.7 // indirect
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6 // indirect
 	go.opencensus.io v0.22.1
 	golang.org/x/crypto v0.0.0-20190923035154-9ee001bba392 // indirect
@@ -94,5 +94,3 @@ replace gopkg.in/stretchr/testify.v1 => github.com/stretchr/testify v1.4.0
 replace git.apache.org/thrift.git@v0.12.0 => github.com/apache/thrift v0.12.0
 
 replace gopkg.in/src-d/go-git-fixtures.v3 => github.com/src-d/go-git-fixtures v3.5.0+incompatible
-
-replace github.com/openrm/krakend-jose => ../krakend-jose

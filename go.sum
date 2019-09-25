@@ -586,8 +586,8 @@ github.com/op/go-logging v0.0.0-20160315200505-970db520ece7/go.mod h1:HzydrMdWEr
 github.com/opencontainers/go-digest v1.0.0-rc1/go.mod h1:cMLVZDEM3+U2I4VmLI6N8jQYUd2OVphdqWwCJHrFt2s=
 github.com/opencontainers/image-spec v1.0.1/go.mod h1:BtxoFyWECRxE4U/7sNtV5W15zMzWCbyJoFRP3s7yZA0=
 github.com/opencontainers/runc v0.1.1/go.mod h1:qT5XzbpPznkRYVz/mWwUaVBUv2rmF59PVA73FjuZG0U=
-github.com/openrm/krakend-jose v0.0.0-20190924044504-f80d1a5d635a h1:CSh9VN+BW9s2VAOLMSTcxhxrd3cBaL5ZOlafu4CAgl0=
-github.com/openrm/krakend-jose v0.0.0-20190924044504-f80d1a5d635a/go.mod h1:SxA+8Y+fHgWHJMTASLu5SJJgL5ILndBsy7vPm7Itvis=
+github.com/openrm/krakend-jose v0.0.0-20190925083548-04bd6fcc5643 h1:SjxwPTVsp+koEwjopfKR3dDaYW5R2iJ3FGoVW9DU+eo=
+github.com/openrm/krakend-jose v0.0.0-20190925083548-04bd6fcc5643/go.mod h1:G8r45OXQkLUvIAGXqLG5V6weHD8jeJX1rXhaXYM26SQ=
 github.com/openrm/module-tracing-golang v1.0.9 h1:FCDcAikgz0s0KWiREVXyk712NQRJaWfUkSYu5WTOi90=
 github.com/openrm/module-tracing-golang v1.0.9/go.mod h1:CBEwg9vVmA1idi9sX4d/aFmnNlORaeTH+n+Wji3lrIk=
 github.com/opentracing/opentracing-go v1.0.2/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=

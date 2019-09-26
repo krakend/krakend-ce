@@ -63,11 +63,11 @@ require (
 	github.com/sony/gobreaker v0.0.0-20170530031423-e9556a45379e // indirect
 	github.com/spf13/viper v1.3.2 // indirect
 	github.com/streadway/amqp v0.0.0-20190402114354-16ed540749f6 // indirect
-	github.com/ugorji/go/codec v1.1.7 // indirect
+	github.com/ugorji/go v1.1.7 // indirect
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6 // indirect
 	go.opencensus.io v0.22.1
 	golang.org/x/crypto v0.0.0-20190923035154-9ee001bba392 // indirect
-	golang.org/x/xerrors v0.0.0-20190528162220-0421b64034aa // indirect
+	golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20180326133423-4dbb9d721348 // indirect
 	gopkg.in/gin-contrib/cors.v1 v1.0.0-20170318125340-cf4846e6a636 // indirect
 	gopkg.in/square/go-jose.v2 v2.3.1 // indirect

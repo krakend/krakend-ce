@@ -14,7 +14,6 @@ import (
 	"github.com/devopsfaith/krakend-jose"
 	logstash "github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
-	"github.com/devopsfaith/krakend-opencensus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
@@ -27,13 +26,14 @@ import (
 	"github.com/devopsfaith/krakend/logging"
 	krakendrouter "github.com/devopsfaith/krakend/router"
 	router "github.com/devopsfaith/krakend/router/gin"
-	httprequestexecutor "github.com/devopsfaith/krakend/transport/http/client/plugin"
 	server "github.com/devopsfaith/krakend/transport/http/server/plugin"
 	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
 	"github.com/letgoapp/krakend-influx"
 )
 
+// NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
+// registering the components and composing a RouterFactory wrapping all the middlewares.
 func NewExecutor(ctx context.Context) cmd.Executor {
 	return func(cfg config.ServiceConfig) {
 		var writers []io.Writer
@@ -72,17 +72,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		startReporter(ctx, logger, cfg)
 
 		if cfg.Plugin != nil {
-			n, err := httprequestexecutor.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, httprequestexecutor.RegisterClient)
-			if err != nil {
-				logger.Warning("loading plugins:", err)
-			}
-			logger.Info("http executor plugins loaded:", n)
-
-			n, err = server.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, server.RegisterHandler)
-			if err != nil {
-				logger.Warning("loading plugins:", err)
-			}
-			logger.Info("http handler plugins loaded:", n)
+			LoadPlugins(cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
 		}
 
 		reg := RegisterSubscriberFactories(ctx, cfg, logger)
@@ -117,8 +107,11 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
-			Engine:         NewEngine(cfg, logger, gelfWriter),
-			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(ctx, logger, metricCollector), metricCollector),
+			Engine: NewEngine(cfg, logger, gelfWriter),
+			ProxyFactory: NewProxyFactory(
+				logger, NewBackendFactoryWithContext(ctx, logger, metricCollector),
+				metricCollector,
+			),
 			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,
 			HandlerFactory: NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),

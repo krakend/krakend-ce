@@ -1,8 +1,8 @@
 ### BUILDER
 
-FROM golang:1.12-alpine3.9 as BUILDER
+FROM golang:1.12.10-alpine3.10 as BUILDER
 
-RUN apk add --no-cache make curl git build-base
+RUN apk add --no-cache make curl git build-base ca-certificates
 
 WORKDIR /build
 
@@ -19,7 +19,7 @@ RUN chmod +x main
 
 ### RUNNER
 
-FROM alpine:3.9
+FROM alpine:3.10
 
 LABEL maintainer="dortiz@devops.faith"
 

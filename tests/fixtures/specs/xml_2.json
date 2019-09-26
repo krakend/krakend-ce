@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/xml/json"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "<doc><foo>42</foo><headers><Accept-Encoding>gzip</Accept-Encoding><Referer>http://127.0.0.1:8081/param_forwarding</Referer><User-Agent>KrakenD Version 1.0.0</User-Agent></headers><path>/param_forwarding/</path><query/></doc>",
+		"header": {
+			"content-type": ["application/xml"],
+			"Cache-Control": ["public, max-age=3600"],
+			"X-Krakend-Completed": ["true"]
+		}
+	}
+}

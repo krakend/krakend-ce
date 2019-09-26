@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/xml/xml"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "<user type=\"admin\"><name>Elliot</name><social><facebook>https://facebook.com</facebook><twitter>https://twitter.com</twitter><youtube>https://youtube.com</youtube></social></user>",
+		"header": {
+			"content-type": ["application/xml"],
+			"Cache-Control": ["public, max-age=3600"],
+			"X-Krakend-Completed": ["true"]
+		}
+	}
+}

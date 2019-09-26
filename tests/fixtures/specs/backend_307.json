@@ -5,11 +5,11 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"Referer\":[\"http://127.0.0.1:8081/redirect/?status=307\"],\"User-Agent\":[\"KrakenD Version 0.9.0\"]},\"path\":\"/param_forwarding/\",\"query\":{\"status\":[\"307\"]}}",
+		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"Referer\":[\"http://127.0.0.1:8081/redirect/?status=307\"],\"User-Agent\":[\"KrakenD Version 1.0.0\"]},\"path\":\"/param_forwarding/\",\"query\":{\"status\":[\"307\"]}}",
 		"header": {
-			"content-type": "application/json; charset=utf-8",
-			"Cache-Control": "public, max-age=3600",
-			"X-Krakend-Completed": "true"
+			"content-type": ["application/json; charset=utf-8"],
+			"Cache-Control": ["public, max-age=3600"],
+			"X-Krakend-Completed": ["true"]
 		}
 	}
 }

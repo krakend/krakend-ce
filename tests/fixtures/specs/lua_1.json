@@ -1,0 +1,18 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/lua/collection",
+		"header": {
+			"Authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWQiOjEsImlhdCI6MTUxNjIzOTAyMn0.X_M6O0tdAGnnqqYoV_Q4xQZeG58gth-PG7KSW96tsic"
+		}
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"collection\":{},\"paths\":{\"1\":\"/collection/1\",\"10\":\"/collection/1\",\"2\":\"/collection/1\",\"3\":\"/collection/1\",\"4\":\"/collection/1\",\"5\":\"/collection/1\",\"6\":\"/collection/1\",\"7\":\"/collection/1\",\"8\":\"/collection/1\",\"9\":\"/collection/1\"},\"total\":10}",
+		"header": {
+			"content-type": ["application/json; charset=utf-8"],
+			"Cache-Control": ["public, max-age=3600"],
+			"X-Krakend-Completed": ["true"]
+		}
+	}
+}

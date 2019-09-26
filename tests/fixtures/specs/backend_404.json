@@ -7,9 +7,9 @@
 		"status_code": 500,
 		"body": "",
 		"header": {
-			"content-type": "",
-			"Cache-Control": "",
-			"X-Krakend-Completed": "false"
+			"content-type": [""],
+			"Cache-Control": [""],
+			"X-Krakend-Completed": ["false"]
 		}
 	}
 }

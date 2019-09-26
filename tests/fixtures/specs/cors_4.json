@@ -4,7 +4,7 @@
 		"url": "http://localhost:8080/param_forwarding/some/foo/bar?a=1&b=2",
 		"header": {
 			"User-Agent": "some",
-			"Origin": "http://foo.example",
+			"Origin": "http://foo.example.tld",
 			"Access-Control-Request-Method": "GET",
 			"Access-Control-Request-Headers": "Origin,Content-Type"
 		}

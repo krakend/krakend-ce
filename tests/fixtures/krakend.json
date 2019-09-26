@@ -21,6 +21,14 @@
         "allow_headers": [ "Origin", "Authorization", "Content-Type" ],
         "expose_headers": [ "Content-Length" ],
         "max_age": "12h"
+      },
+      "github_com/devopsfaith/krakend-botdetector": {
+        "blacklist": ["a", "b"],
+        "whitelist": ["c", "Pingdom.com_bot_version_1.1"],
+        "patterns": [
+            "(Pingdom.com_bot_version_).*",
+            "(facebookexternalhit)/.*"
+        ]
       }
     },
     "endpoints": [
@@ -42,6 +50,27 @@
                     "encoding": "no-op",
                     "host": [ "http://127.0.0.1:8081" ],
                     "url_pattern": "/param_forwarding/"
+                }
+            ]
+        },
+        {
+            "endpoint": "/xml/xml",
+            "output_encoding": "xml",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/xml",
+                    "encoding": "xml"
+                }
+            ]
+        },
+        {
+            "endpoint": "/xml/json",
+            "output_encoding": "xml",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding"
                 }
             ]
         },
@@ -145,6 +174,20 @@
         },
         {
             "endpoint": "/param_forwarding/some/{foo}/{bar}",
+            "headers_to_pass": [
+                "Authorization",
+                "X-Y-Z"
+            ],
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/{bar}?foo={foo}"
+                }
+            ]
+        },
+        {
+            "endpoint": "/param_forwarding/some/{foo}/{bar}",
+            "method": "POST",
             "headers_to_pass": [
                 "Authorization",
                 "X-Y-Z"
@@ -434,6 +477,79 @@
                     "keys-to-sign": ["access_token"],
                     "jwk-url": "http://127.0.0.1:8081/jwk/symmetric",
                     "disable_jwk_security": true
+                }
+            }
+        },
+        {
+            "endpoint": "/lua/collection",
+            "headers_to_pass": ["*"],
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/collection/",
+                    "is_collection": true,
+                    "extra_config": {
+                        "github.com/devopsfaith/krakend-lua/proxy/backend": {
+                            "sources": [
+                                "fixtures/lua/json.lua",
+                                "fixtures/lua/base64.lua",
+                                "fixtures/lua/collection.lua"
+                            ],
+                            "pre": "pre_backend(request.load())",
+                            "live": true,
+                            "allow_open_libs": true
+                        }
+                    }
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend-lua/proxy": {
+                    "sources": [
+                        "fixtures/lua/json.lua",
+                        "fixtures/lua/base64.lua",
+                        "fixtures/lua/collection.lua"
+                    ],
+                    "post": "post_proxy(response.load())",
+                    "live": true,
+                    "allow_open_libs": true
+                }
+            }
+        },
+        {
+            "endpoint": "/lua/modify_response/fail",
+            "backend": [
+                {
+                    "host": [ "http://www.mocky.io" ],
+                    "url_pattern": "/v2/5d765eb4320000925b297af6",
+                    "group": "source_result"
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend-lua/proxy": {
+                    "sources": [
+                        "fixtures/lua/decorator.lua"
+                    ],
+                    "post": "post_proxy_decorator(response.load())",
+                    "allow_open_libs": true
+                }
+            }
+        },
+        {
+            "endpoint": "/lua/modify_response/success",
+            "backend": [
+                {
+                    "host": [ "http://www.mocky.io" ],
+                    "url_pattern": "/v2/5d765f653200004f25297afd",
+                    "group": "source_result"
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend-lua/proxy": {
+                    "sources": [
+                        "fixtures/lua/decorator.lua"
+                    ],
+                    "post": "post_proxy_decorator(response.load())",
+                    "allow_open_libs": true
                 }
             }
         }

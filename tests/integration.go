@@ -11,8 +11,10 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"net/textproto"
 	"os/exec"
 	"path"
+	"reflect"
 	"strconv"
 	"strings"
 	"sync"
@@ -45,9 +47,9 @@ type Input struct {
 
 // Output contains the data required to verify the response received in a given TestCase
 type Output struct {
-	StatusCode int               `json:"status_code"`
-	Body       string            `json:"body"`
-	Header     map[string]string `json:"header"`
+	StatusCode int                 `json:"status_code"`
+	Body       string              `json:"body"`
+	Header     map[string][]string `json:"header"`
 }
 
 // CmdBuilder defines an interface for building the cmd to be managed by the Runner
@@ -201,9 +203,20 @@ func assertResponse(actual *http.Response, expected Output) error {
 		return fmt.Errorf("unexpected status code. have: %d, want: %d", actual.StatusCode, expected.StatusCode)
 	}
 
-	for k, v := range expected.Header {
-		if h := actual.Header.Get(k); h != v {
-			return fmt.Errorf("unexpected value for header %s. have: %s, want: %s", k, h, v)
+	for k, vs := range expected.Header {
+		k = textproto.CanonicalMIMEHeaderKey(k)
+		hs, ok := actual.Header[k]
+		isEqual := reflect.DeepEqual(vs, hs)
+		if ok && isEqual {
+			continue
+		}
+
+		if ok {
+			return fmt.Errorf("unexpected value for header %s. have: %s, want: %s", k, hs, vs)
+		}
+
+		if vs[0] != "" {
+			return fmt.Errorf("header %s not present: %+v", k, actual.Header)
 		}
 	}
 
@@ -362,12 +375,13 @@ func xmlEndpoint(rw http.ResponseWriter, _ *http.Request) {
     <twitter>https://twitter.com</twitter>
     <youtube>https://youtube.com</youtube>
   </social>
-</user>
-`))
+</user>`))
 }
 
 func echoEndpoint(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Add("Content-Type", "application/json")
+	rw.Header().Add("Set-Cookie", "test1=test1")
+	rw.Header().Add("Set-Cookie", "test2=test2")
 	r.Header.Del("X-Forwarded-For")
 	json.NewEncoder(rw).Encode(map[string]interface{}{
 		"path":    r.URL.Path,

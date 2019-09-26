@@ -1,13 +1,15 @@
 {
 	"in": {
 		"method": "GET",
-		"url": "http://localhost:8080/private/custom"
+		"url": "http://localhost:8080/param_forwarding/some/foo/bar",
+		"header": {
+			"User-Agent": "a"
+		}
 	},
 	"out": {
-		"status_code": 401,
+		"status_code": 403,
 		"body": "",
 		"header": {
-			"Cache-Control": [""],
 			"content-type": [""],
 			"X-Krakend-Completed": [""]
 		}

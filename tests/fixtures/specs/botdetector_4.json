@@ -1,17 +1,16 @@
 {
 	"in": {
 		"method": "GET",
-		"url": "http://localhost:8080/private/custom",
+		"url": "http://localhost:8080/param_forwarding/some/foo/bar",
 		"header": {
-			"authorization": "bearer a.bad.token"
+			"User-Agent": "facebookexternalhit/1.2.3"
 		}
 	},
 	"out": {
-		"status_code": 401,
+		"status_code": 403,
 		"body": "",
 		"header": {
 			"content-type": [""],
-			"Cache-Control": [""],
 			"X-Krakend-Completed": [""]
 		}
 	}

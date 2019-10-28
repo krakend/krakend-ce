@@ -23,7 +23,7 @@ func (c loggingConfig) httpFormat() propagation.HTTPFormat {
 }
 
 func parseLoggingConfig(cfg config.ExtraConfig) loggingConfig {
-	var header string
+	var header string = "Trace"
 	var skip map[string]struct{}
 	if v, ok := cfg[LoggerNamespace]; ok {
 		if cfg, ok := v.(map[string]interface{}); ok {

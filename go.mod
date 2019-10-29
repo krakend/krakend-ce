@@ -48,6 +48,7 @@ require (
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-contrib/uuid v1.2.0
 	github.com/google/cel-go v0.2.0 // indirect
+	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/influxdata/influxdb v1.7.4 // indirect
 	github.com/juju/ratelimit v0.0.0-20171026090426-59fac5042749 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c // indirect

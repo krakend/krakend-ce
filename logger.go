@@ -14,6 +14,7 @@ import (
 const LoggerNamespace = "github_com/openrm/logging"
 
 type loggingConfig struct {
+	configured bool
 	traceHeader string
 	skipPaths map[string]struct{}
 }
@@ -44,7 +45,7 @@ func parseLoggingConfig(cfg config.ExtraConfig) loggingConfig {
 			}
 		}
 	}
-	return loggingConfig{header, skip}
+	return loggingConfig{true, header, skip}
 }
 
 func spanContextMap(sc trace.SpanContext) map[string]interface{} {

@@ -14,6 +14,9 @@ import (
 )
 
 func NewOpenCensusClient(lcfg loggingConfig, clientFactory client.HTTPClientFactory) client.HTTPClientFactory {
+	if !lcfg.configured {
+		return clientFactory
+	}
 	return func(ctx context.Context) *http.Client {
 		client := clientFactory(ctx)
 		transport := client.Transport
@@ -31,6 +34,10 @@ func NewOpenCensusClient(lcfg loggingConfig, clientFactory client.HTTPClientFact
 }
 
 func NewOpenCensusHandlerFactory(hf router.HandlerFactory, lcfg loggingConfig) router.HandlerFactory {
+	if !lcfg.configured {
+		return hf
+	}
+
 	skip, prop := lcfg.skipPaths, lcfg.httpFormat()
 	filterPath := func(r *http.Request) trace.StartOptions{
 		if u := r.URL; u != nil {
@@ -42,6 +49,7 @@ func NewOpenCensusHandlerFactory(hf router.HandlerFactory, lcfg loggingConfig) r
 		}
 		return trace.StartOptions{}
 	}
+
 	return func(cfg *config.EndpointConfig, p proxy.Proxy) gin.HandlerFunc {
 		handler := hf(cfg, p)
 		traceHandler := ochttp.Handler{

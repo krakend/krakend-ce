@@ -31,7 +31,7 @@ require (
 	github.com/dancannon/gorethink v4.0.0+incompatible // indirect
 	github.com/denisenkom/go-mssqldb v0.0.0-20190121005146-b04fd42d9952 // indirect
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
-	github.com/devopsfaith/krakend v0.0.0-20190930092458-9e6fc3784eca
+	github.com/devopsfaith/krakend v0.0.0-20191120165832-696db14166d2
 	github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e

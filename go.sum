@@ -232,6 +232,8 @@ github.com/devopsfaith/krakend v0.0.0-20190921111907-6ff3a6860ce0 h1:YFdmX6EN8jy
 github.com/devopsfaith/krakend v0.0.0-20190921111907-6ff3a6860ce0/go.mod h1:k7XnDvnLPfAMLy8kykUydoViIg5LeCqRNCV5UK8DVdY=
 github.com/devopsfaith/krakend v0.0.0-20190930092458-9e6fc3784eca h1:UnoXbxZmbykKqpFLVWSoikQWSUE0Xh81JpcpgNC9CUc=
 github.com/devopsfaith/krakend v0.0.0-20190930092458-9e6fc3784eca/go.mod h1:k7XnDvnLPfAMLy8kykUydoViIg5LeCqRNCV5UK8DVdY=
+github.com/devopsfaith/krakend v0.0.0-20191120165832-696db14166d2 h1:OatZk2yQt4qdRgi7QslXNNtvd5ZLkno6gYUCID0E9hI=
+github.com/devopsfaith/krakend v0.0.0-20191120165832-696db14166d2/go.mod h1:xM0O7nJcXuJWWL0PollS0NFBQLf1KJgA1BI2XAPgdmo=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694 h1:Tk+S9zvltFAq8x15F2xAyt/wwed0okbSTaPYRguKfzA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694/go.mod h1:/c/BrN6w3Lqip/3WRcYprolGvfT+gLgSzdDrT9d2LUc=
 github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb h1:UPEhn6qChET2Ynrj5bugtrzzUN0WutP9IeHJqS9y20Q=
@@ -845,6 +847,8 @@ github.com/ugorji/go/codec v1.1.7/go.mod h1:Ax+UKWsSmolVDwsd+7N3ZtXu+yMGCf907BLY
 github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6 h1:F7JRmt1ligDMMT48wp7I+780A9aSdlJd/pYJu20wzPE=
 github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6/go.mod h1:mnPT77IAdsi/kV7+Es7y+pXALeV3h7G6dQF6mNYjcLA=
 github.com/urfave/negroni v0.3.0/go.mod h1:Meg73S6kFm/4PpbYdq35yYWoCZ9mS/YSx+lKnmiohz4=
+github.com/valyala/fastrand v1.0.0 h1:LUKT9aKer2dVQNUi3waewTbKV+7H17kvWFNKs2ObdkI=
+github.com/valyala/fastrand v1.0.0/go.mod h1:HWqCzkrkg6QXT8V2EXWvXCoow7vLwOFN002oeRzjapQ=
 github.com/willf/bitset v1.1.9/go.mod h1:RjeCKbqT1RxIR/KWY6phxZiaY1IyutSBfGjNPySAYV4=
 github.com/xanzy/ssh-agent v0.2.0/go.mod h1:0NyE30eGUDliuLEHJgYte/zncp2zdTStcOnWhgSqHD8=
 github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c/go.mod h1:lB8K/P019DLNhemzwFU4jHLhdvlE6uDZjXFejJXr49I=

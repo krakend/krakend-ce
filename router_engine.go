@@ -14,6 +14,10 @@ import (
 
 // NewEngine creates a new gin engine with some default values and a secure middleware
 func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gin.Engine {
+	if !cfg.Debug {
+		gin.SetMode(gin.ReleaseMode)
+	}
+
 	engine := gin.New()
 	engine.Use(gin.LoggerWithConfig(gin.LoggerConfig{Output: w}), gin.Recovery())
 

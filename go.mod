@@ -47,7 +47,7 @@ require (
 	github.com/devopsfaith/krakend-httpsecure v0.0.0-20191009151918-298638962e76
 	github.com/devopsfaith/krakend-jose v0.0.0-20190226224132-34c0555a9893
 	github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a
-	github.com/devopsfaith/krakend-lambda v0.0.0-20190505185714-4a509c7d9c5d
+	github.com/devopsfaith/krakend-lambda v0.0.0-20191205190331-004012e93dbe
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502
 	github.com/devopsfaith/krakend-lua v0.0.0-20190615141219-523d807d45b7
 	github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91

@@ -278,6 +278,8 @@ github.com/devopsfaith/krakend-lua v0.0.0-20190615141219-523d807d45b7 h1:RrABogh
 github.com/devopsfaith/krakend-lua v0.0.0-20190615141219-523d807d45b7/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
 github.com/devopsfaith/krakend-lua v0.0.0-20200114095936-d217dc2c1f0c h1:0k5ALrwPw1O3gf+suA7wJWdrQjG9u3raqq8zwPysD6w=
 github.com/devopsfaith/krakend-lua v0.0.0-20200114095936-d217dc2c1f0c/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
+github.com/devopsfaith/krakend-lua v0.0.0-20200114134735-330e4e58c483 h1:HvSK76Fz1JlvQyGqzOhJ2yDliUQSkEw03NNTkk01OPM=
+github.com/devopsfaith/krakend-lua v0.0.0-20200114134735-330e4e58c483/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
 github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91 h1:kvAuufTGV9xZ5Xd7OUumOVGB2fuqJ6dfug+FXdsNj0g=
 github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91/go.mod h1:rgjNUD1sqpJj2VFeJdm7NA41BrEOf/Uj8Iv2rPQPlGI=
 github.com/devopsfaith/krakend-metrics v0.0.0-20190114200758-1e2c2a1f6a62 h1:2QdpUnc40aRaWjD7DX0Vp3+diT3zjT6jW1RWtGanE+g=

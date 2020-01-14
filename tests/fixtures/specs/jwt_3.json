@@ -8,7 +8,7 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"age\":25,\"firstName\":\"John\",\"id_user\":1,\"lastName\":\"Smith\"}",
+		"body": "{\"age\":25,\"firstName\":\"John\",\"id_user\":1,\"lastName\":\"Smith\"}\n",
 		"header": {
 			"content-type": ["application/json; charset=utf-8"],
 			"Cache-Control": ["public, max-age=3600"],

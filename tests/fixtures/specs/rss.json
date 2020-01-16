@@ -5,7 +5,7 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"available\":{\"title\":\"showRSS personal feed\"},\"schedule\":{\"title\":\"showRSS schedule feed\"}}",
+		"body": "{\"available\":{\"title\":\"showRSS personal feed\"},\"schedule\":{\"title\":\"showRSS schedule feed\"}}\n",
 		"header": {
 			"content-type": ["application/json; charset=utf-8"],
 			"Cache-Control": ["public, max-age=3600"],

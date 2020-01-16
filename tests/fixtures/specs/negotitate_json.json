@@ -8,7 +8,7 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"user\":{\"-type\":\"admin\",\"name\":\"Elliot\",\"social\":{\"facebook\":\"https://facebook.com\",\"twitter\":\"https://twitter.com\",\"youtube\":\"https://youtube.com\"}}}",
+		"body": "{\"user\":{\"-type\":\"admin\",\"name\":\"Elliot\",\"social\":{\"facebook\":\"https://facebook.com\",\"twitter\":\"https://twitter.com\",\"youtube\":\"https://youtube.com\"}}}\n",
 		"header": {
 			"content-type": ["application/json; charset=utf-8"],
 			"Cache-Control": ["public, max-age=3600"],

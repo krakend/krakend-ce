@@ -8,7 +8,7 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"message\":\"pong\"}",
+		"body": "{\"message\":\"pong\"}\n",
 		"header": {
 			"content-type": ["application/json; charset=utf-8"],
 			"Cache-Control": ["public, max-age=3600"],

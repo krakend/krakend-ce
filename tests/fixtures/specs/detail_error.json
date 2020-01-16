@@ -5,7 +5,7 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"error_backend_b\":{\"http_status_code\":404,\"http_body\":\"404 page not found\\n\"},\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"User-Agent\":[\"KrakenD Version 1.0.0\"]},\"path\":\"/param_forwarding/\",\"query\":{}}",
+		"body": "{\"error_backend_b\":{\"http_status_code\":404,\"http_body\":\"404 page not found\\n\"},\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"User-Agent\":[\"KrakenD Version 1.0.0\"]},\"path\":\"/param_forwarding/\",\"query\":{}}\n",
 		"header": {
 			"content-type": ["application/json; charset=utf-8"],
 			"Cache-Control": [""],

@@ -66,14 +66,12 @@ require (
 	github.com/gammazero/deque v0.0.0-20180920172122-f6adf94963e4 // indirect
 	github.com/gammazero/workerpool v0.0.0-20181230203049-86a96b5d5d92 // indirect
 	github.com/garyburd/redigo v1.6.0 // indirect
-	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.4.0
+	github.com/gin-gonic/gin v1.5.0
 	github.com/go-contrib/uuid v1.2.0
 	github.com/go-errors/errors v1.0.1 // indirect
 	github.com/go-ldap/ldap v3.0.0+incompatible // indirect
 	github.com/go-stomp/stomp v2.0.2+incompatible // indirect
 	github.com/gocql/gocql v0.0.0-20190122205811-30de9a1866a8 // indirect
-	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/google/btree v1.0.0 // indirect
 	github.com/google/cel-go v0.2.0 // indirect
 	github.com/gorhill/cronexpr v0.0.0-20180427100037-88b0669f7d75 // indirect
@@ -143,8 +141,6 @@ require (
 	github.com/uber-go/atomic v1.3.2 // indirect
 	github.com/uber/jaeger-client-go v2.15.0+incompatible // indirect
 	github.com/uber/jaeger-lib v1.5.0 // indirect
-	github.com/ugorji/go v1.1.7 // indirect
-	// github.com/ugorji/go v1.1.4
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
@@ -154,7 +150,6 @@ require (
 	go.opencensus.io v0.22.1 // indirect
 	golang.org/x/build v0.0.0-20190111050920-041ab4dc3f9d // indirect
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
-	golang.org/x/sys v0.0.0-20190801041406-cbf593c0f2f3 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20180326133423-4dbb9d721348 // indirect
 	gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d // indirect
 	gopkg.in/gorethink/gorethink.v4 v4.1.0 // indirect
@@ -167,5 +162,3 @@ require (
 	layeh.com/radius v0.0.0-20190118135028-0f678f039617 // indirect
 	sigs.k8s.io/yaml v1.1.0 // indirect
 )
-
-replace github.com/ugorji/go v1.1.4 => github.com/ugorji/go/codec v0.0.0-20190204201341-e444a5086c43

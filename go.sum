@@ -208,6 +208,8 @@ github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a h1:
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a/go.mod h1:PYIFUHqJMhgZwxunzrdwZ8N0OFpnneH0uC55f7wq7GM=
 github.com/devopsfaith/krakend-lambda v0.0.0-20191205190331-004012e93dbe h1:7pnLuJJNvKLrggish+lhmwfYwKgSQdUpIGdNW9eYisM=
 github.com/devopsfaith/krakend-lambda v0.0.0-20191205190331-004012e93dbe/go.mod h1:Odw1Ol/KfbGXcIThPsv9t4jNB1eMQ6fn7FPa5qcB2h4=
+github.com/devopsfaith/krakend-lambda v0.0.0-20200123123306-cce9724ca461 h1:VwAYth9OP/FNrroE/zSPORL0WnnRGSW9fP+WTha0nHU=
+github.com/devopsfaith/krakend-lambda v0.0.0-20200123123306-cce9724ca461/go.mod h1:Odw1Ol/KfbGXcIThPsv9t4jNB1eMQ6fn7FPa5qcB2h4=
 github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502 h1:dp2Q9DlR/qcN8sESUk4etOQ3sFBkW1+YXVw0+GWSPpc=
 github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502/go.mod h1:eCirEc9yh2V1qPcnh3oLWwYJujPAzEqa+ZtJGOGN2dE=
 github.com/devopsfaith/krakend-lua v0.0.0-20200114134735-330e4e58c483 h1:HvSK76Fz1JlvQyGqzOhJ2yDliUQSkEw03NNTkk01OPM=

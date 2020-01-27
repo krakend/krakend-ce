@@ -226,6 +226,8 @@ github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd h1:2LmP
 github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd/go.mod h1:80NhdyV8q7rBEhxjsrR3u7MIHfyb66wNYcCgBdNPpMM=
 github.com/devopsfaith/krakend-ratelimit v0.0.0-20191115163910-0ff8fda51edd h1:BNhYwRVJGJozC9U6kgIdchPdbioiNZMRkAPL2EbTPh0=
 github.com/devopsfaith/krakend-ratelimit v0.0.0-20191115163910-0ff8fda51edd/go.mod h1:7sciYcl2r36fubYBODhHfx4Y0vqAYabdfcq/fz3VNoA=
+github.com/devopsfaith/krakend-ratelimit v1.1.0 h1:9LH8ln4H2SakS+3msPYveimtBxPswTGWxp6eTzCZnTE=
+github.com/devopsfaith/krakend-ratelimit v1.1.0/go.mod h1:7sciYcl2r36fubYBODhHfx4Y0vqAYabdfcq/fz3VNoA=
 github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee h1:fH/XtIs3Xlsi3nda0nxTN3+2/TfRyyCJJtmVo59ijLY=
 github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee/go.mod h1:8Pja/oCPauHW6SFcIIRvY2+34HIlHCpfiZRfRP9fHHE=
 github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c h1:FuAkXt/3/x96mKFNsHMIbrZP7AZCtlopTp3UVa+SZ5Y=

@@ -55,7 +55,7 @@ require (
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v0.0.0-20190206125733-11a9f7170c44
 	github.com/devopsfaith/krakend-opencensus v0.0.0-20190425142549-a584d6fd2cc1
 	github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd
-	github.com/devopsfaith/krakend-ratelimit v0.0.0-20191115163910-0ff8fda51edd
+	github.com/devopsfaith/krakend-ratelimit v1.1.0
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c
 	github.com/devopsfaith/krakend-viper v0.0.0-20190407170411-1cbb76813774

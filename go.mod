@@ -13,7 +13,6 @@ require (
 	github.com/aliyun/alibaba-cloud-sdk-go v0.0.0-20190122153857-e0ace9b64d22 // indirect
 	github.com/andybalholm/cascadia v1.0.0 // indirect
 	github.com/araddon/gou v0.0.0-20190110011759-c797efecbb61 // indirect
-	github.com/auth0-community/go-auth0 v1.0.0 // indirect
 	github.com/boombuler/barcode v1.0.0 // indirect
 	github.com/briankassouf/jose v0.9.1 // indirect
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
@@ -45,7 +44,7 @@ require (
 	github.com/devopsfaith/krakend-gologging v0.0.0-20190131142345-f3f256584ecc
 	github.com/devopsfaith/krakend-httpcache v0.0.0-20181030153148-8474476ff874
 	github.com/devopsfaith/krakend-httpsecure v0.0.0-20191009151918-298638962e76
-	github.com/devopsfaith/krakend-jose v0.0.0-20190226224132-34c0555a9893
+	github.com/devopsfaith/krakend-jose v1.1.0
 	github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a
 	github.com/devopsfaith/krakend-lambda v0.0.0-20200123123306-cce9724ca461
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502
@@ -155,7 +154,6 @@ require (
 	gopkg.in/gorethink/gorethink.v4 v4.1.0 // indirect
 	gopkg.in/ory-am/dockertest.v2 v2.2.3 // indirect
 	gopkg.in/pipe.v2 v2.0.0-20140414041502-3c2ca4d52544 // indirect
-	gopkg.in/square/go-jose.v2 v2.2.2 // indirect
 	k8s.io/api v0.0.0-20181221193117-173ce66c1e39 // indirect
 	k8s.io/apimachinery v0.0.0-20190119020841-d41becfba9ee // indirect
 	k8s.io/klog v0.1.0 // indirect

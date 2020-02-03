@@ -115,7 +115,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 
 	return func(cfg config.ServiceConfig) {
 		logger, gelfWriter, gelfErr := e.LoggerFactory.NewLogger(cfg)
-		if gelfErr == nil {
+		if gelfErr != nil {
 			return
 		}
 

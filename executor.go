@@ -14,7 +14,7 @@ import (
 	"github.com/devopsfaith/krakend-jose"
 	logstash "github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
-	"github.com/devopsfaith/krakend-opencensus"
+	opencensus "github.com/devopsfaith/krakend-opencensus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
@@ -25,6 +25,7 @@ import (
 	"github.com/devopsfaith/krakend-usage/client"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
+	"github.com/devopsfaith/krakend/proxy"
 	krakendrouter "github.com/devopsfaith/krakend/router"
 	router "github.com/devopsfaith/krakend/router/gin"
 	server "github.com/devopsfaith/krakend/transport/http/server/plugin"
@@ -36,6 +37,78 @@ import (
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
 // registering the components and composing a RouterFactory wrapping all the middlewares.
 func NewExecutor(ctx context.Context) cmd.Executor {
+	executor := new(Executor)
+	return executor.NewCmdExecutor(ctx)
+}
+
+type PluginLoader interface {
+	Load(folder, pattern string, logger logging.Logger)
+}
+
+type SubscriberFactoriesRegister interface {
+	Register(context.Context, config.ServiceConfig, logging.Logger) func(string, int)
+}
+
+type TokenRejecterFactory interface {
+	NewTokenRejecter(context.Context, config.ServiceConfig, logging.Logger, func(string, int)) (jose.ChainedRejecterFactory, error)
+}
+type MetricsAndTracesRegister interface {
+	Register(context.Context, config.ServiceConfig, logging.Logger) *metrics.Metrics
+}
+type EngineFactory interface {
+	NewEngine(config.ServiceConfig, logging.Logger, io.Writer) *gin.Engine
+}
+type ProxyFactory interface {
+	NewProxyFactory(logging.Logger, proxy.BackendFactory, *metrics.Metrics) proxy.Factory
+}
+
+type BackendFactory interface {
+	NewBackendFactory(context.Context, logging.Logger, *metrics.Metrics) proxy.BackendFactory
+}
+
+type HandlerFactory interface {
+	NewHandlerFactory(logging.Logger, *metrics.Metrics, jose.RejecterFactory) router.HandlerFactory
+}
+
+type Executor struct {
+	PluginLoader                PluginLoader
+	SubscriberFactoriesRegister SubscriberFactoriesRegister
+	TokenRejecterFactory        TokenRejecterFactory
+	MetricsAndTracesRegister    MetricsAndTracesRegister
+	EngineFactory               EngineFactory
+	ProxyFactory                ProxyFactory
+	BackendFactory              BackendFactory
+	HandlerFactory              HandlerFactory
+
+	Middlewares []gin.HandlerFunc
+}
+
+func (e *Executor) NewCmdExecutor(ctx context.Context) cmd.Executor {
+	if e.PluginLoader == nil {
+		e.PluginLoader = new(pluginLoader)
+	}
+	if e.SubscriberFactoriesRegister == nil {
+		e.SubscriberFactoriesRegister = new(registerSubscriberFactories)
+	}
+	if e.TokenRejecterFactory == nil {
+		e.TokenRejecterFactory = new(tokenRejecterFactory)
+	}
+	if e.MetricsAndTracesRegister == nil {
+		e.MetricsAndTracesRegister = new(metricsAndTracesRegister)
+	}
+	if e.EngineFactory == nil {
+		e.EngineFactory = new(engineFactory)
+	}
+	if e.ProxyFactory == nil {
+		e.ProxyFactory = new(proxyFactory)
+	}
+	if e.BackendFactory == nil {
+		e.BackendFactory = new(backendFactory)
+	}
+	if e.HandlerFactory == nil {
+		e.HandlerFactory = new(handlerFactory)
+	}
+
 	return func(cfg config.ServiceConfig) {
 		var writers []io.Writer
 		gelfWriter, gelfErr := gelf.NewWriter(cfg.ExtraConfig)
@@ -73,55 +146,72 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		startReporter(ctx, logger, cfg)
 
 		if cfg.Plugin != nil {
-			LoadPlugins(cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
+			e.PluginLoader.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
 		}
 
-		reg := RegisterSubscriberFactories(ctx, cfg, logger)
+		metricCollector := e.MetricsAndTracesRegister.Register(ctx, cfg, logger)
 
-		// create the metrics collector
-		metricCollector := metrics.New(ctx, cfg.ExtraConfig, logger)
-
-		if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, logger); err != nil {
-			logger.Warning(err.Error())
-		}
-
-		if err := opencensus.Register(ctx, cfg, append(opencensus.DefaultViews, pubsub.OpenCensusViews...)...); err != nil {
-			logger.Warning("opencensus:", err.Error())
-		}
-
-		rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, logger, reg)
+		tokenRejecterFactory, err := e.TokenRejecterFactory.NewTokenRejecter(
+			ctx,
+			cfg,
+			logger,
+			e.SubscriberFactoriesRegister.Register(ctx, cfg, logger),
+		)
 		if err != nil {
 			logger.Warning("bloomFilter:", err.Error())
 		}
 
-		tokenRejecterFactory := jose.ChainedRejecterFactory([]jose.RejecterFactory{
-			jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
-				return jose.RejecterFunc(rejecter.RejectToken)
-			}),
-			jose.RejecterFactoryFunc(func(l logging.Logger, cfg *config.EndpointConfig) jose.Rejecter {
-				if r := cel.NewRejecter(l, cfg); r != nil {
-					return r
-				}
-				return jose.FixedRejecter(false)
-			}),
-		})
-
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
-			Engine: NewEngine(cfg, logger, gelfWriter),
-			ProxyFactory: NewProxyFactory(
-				logger, NewBackendFactoryWithContext(ctx, logger, metricCollector),
+			Engine: e.EngineFactory.NewEngine(cfg, logger, gelfWriter),
+			ProxyFactory: e.ProxyFactory.NewProxyFactory(
+				logger,
+				e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
 				metricCollector,
 			),
-			Middlewares:    []gin.HandlerFunc{},
+			Middlewares:    e.Middlewares,
 			Logger:         logger,
-			HandlerFactory: NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
+			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
 			RunServer:      router.RunServerFunc(server.New(logger, krakendrouter.RunServer)),
 		})
 
 		// start the engines
 		routerFactory.NewWithContext(ctx).Run(cfg)
 	}
+}
+
+type tokenRejecterFactory struct{}
+
+func (t tokenRejecterFactory) NewTokenRejecter(ctx context.Context, cfg config.ServiceConfig, l logging.Logger, reg func(n string, p int)) (jose.ChainedRejecterFactory, error) {
+	rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, l, reg)
+
+	return jose.ChainedRejecterFactory([]jose.RejecterFactory{
+		jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
+			return jose.RejecterFunc(rejecter.RejectToken)
+		}),
+		jose.RejecterFactoryFunc(func(l logging.Logger, cfg *config.EndpointConfig) jose.Rejecter {
+			if r := cel.NewRejecter(l, cfg); r != nil {
+				return r
+			}
+			return jose.FixedRejecter(false)
+		}),
+	}), err
+}
+
+type metricsAndTracesRegister struct{}
+
+func (m metricsAndTracesRegister) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
+	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
+
+	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
+		l.Warning(err.Error())
+	}
+
+	if err := opencensus.Register(ctx, cfg, append(opencensus.DefaultViews, pubsub.OpenCensusViews...)...); err != nil {
+		l.Warning("opencensus:", err.Error())
+	}
+
+	return metricCollector
 }
 
 const (

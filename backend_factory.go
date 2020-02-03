@@ -63,3 +63,9 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	backendFactory = opencensus.BackendFactory(backendFactory)
 	return backendFactory
 }
+
+type backendFactory struct{}
+
+func (b backendFactory) NewBackendFactory(ctx context.Context, l logging.Logger, m *metrics.Metrics) proxy.BackendFactory {
+	return NewBackendFactoryWithContext(ctx, l, m)
+}

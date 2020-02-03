@@ -28,3 +28,9 @@ func LoadPlugins(folder, pattern string, logger logging.Logger) {
 	}
 	logger.Info("total http handler plugins loaded:", n)
 }
+
+type pluginLoader struct{}
+
+func (d pluginLoader) Load(folder, pattern string, logger logging.Logger) {
+	LoadPlugins(folder, pattern, logger)
+}

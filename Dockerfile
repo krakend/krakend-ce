@@ -1,9 +1,13 @@
-FROM alpine:3.10
+FROM debian:buster
 
 LABEL maintainer="dortiz@devops.faith"
 
-RUN apk add --no-cache ca-certificates
-ADD krakend-alpine /usr/bin/krakend
+RUN apt-get update && \
+	apt-get install -y ca-certificates && \
+	update-ca-certificates && \
+	rm -rf /var/lib/apt/lists/*
+
+ADD krakend /usr/bin/krakend
 
 VOLUME [ "/etc/krakend" ]
 

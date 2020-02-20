@@ -59,12 +59,7 @@ test: build
 docker_build:
 	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make build
 
-docker_build_alpine:
-	docker build -t krakend_alpine_compiler builder/alpine
-	docker run --rm -it -e "BIN_NAME=krakend-alpine" -v "${PWD}:/app" -w /app krakend_alpine_compiler make -e build
-
-krakend_docker:
-	@echo "You need to compile krakend using 'make docker_build_alpine' to build this container."
+krakend_docker: docker_build
 	docker build -t devopsfaith/krakend:${VERSION} .
 
 tgz: builder/skel/tgz/usr/bin/krakend

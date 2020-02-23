@@ -1,0 +1,22 @@
+FROM golang:1.13.1-alpine3.10 as builder
+
+WORKDIR /app
+
+RUN apk add --no-cache make curl git build-base
+
+COPY . .
+
+RUN make build
+
+FROM alpine:3.10
+
+LABEL maintainer="dortiz@devops.faith"
+
+COPY --from=builder /app/krakend /usr/bin/krakend
+
+VOLUME [ "/etc/krakend" ]
+
+ENTRYPOINT [ "/usr/bin/krakend" ]
+CMD [ "run", "-c", "/etc/krakend/krakend.json" ]
+
+EXPOSE 8000 8090

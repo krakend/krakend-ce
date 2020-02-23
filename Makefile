@@ -62,6 +62,9 @@ docker_build:
 krakend_docker: docker_build
 	docker build -t devopsfaith/krakend:${VERSION} .
 
+krakend_docker_alpine:
+	docker build -t devopsfaith/krakend:${VERSION}-alpine -f Dockerfile.alpine .
+
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json
 tgz: builder/skel/tgz/etc/init.d/krakend

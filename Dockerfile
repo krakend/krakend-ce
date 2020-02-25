@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:buster-slim
 
 LABEL maintainer="dortiz@devops.faith"
 

@@ -21,3 +21,9 @@ func NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory,
 	proxyFactory = opencensus.ProxyFactory(proxyFactory)
 	return proxyFactory
 }
+
+type proxyFactory struct{}
+
+func (p proxyFactory) NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory, metricCollector *metrics.Metrics) proxy.Factory {
+	return NewProxyFactory(logger, backendFactory, metricCollector)
+}

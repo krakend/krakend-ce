@@ -32,3 +32,9 @@ func RegisterSubscriberFactories(ctx context.Context, cfg config.ServiceConfig, 
 		// TODO: add the call to the etcd service register
 	}
 }
+
+type registerSubscriberFactories struct{}
+
+func (d registerSubscriberFactories) Register(ctx context.Context, cfg config.ServiceConfig, logger logging.Logger) func(n string, p int) {
+	return RegisterSubscriberFactories(ctx, cfg, logger)
+}

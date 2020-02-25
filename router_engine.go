@@ -39,3 +39,9 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 
 	return engine
 }
+
+type engineFactory struct{}
+
+func (e engineFactory) NewEngine(cfg config.ServiceConfig, l logging.Logger, w io.Writer) *gin.Engine {
+	return NewEngine(cfg, l, w)
+}

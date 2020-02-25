@@ -22,3 +22,9 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 	handlerFactory = botdetector.New(handlerFactory, logger)
 	return handlerFactory
 }
+
+type handlerFactory struct{}
+
+func (h handlerFactory) NewHandlerFactory(l logging.Logger, m *metrics.Metrics, r jose.RejecterFactory) router.HandlerFactory {
+	return NewHandlerFactory(l, m, r)
+}

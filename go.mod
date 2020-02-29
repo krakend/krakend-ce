@@ -30,7 +30,7 @@ require (
 	github.com/dancannon/gorethink v4.0.0+incompatible // indirect
 	github.com/denisenkom/go-mssqldb v0.0.0-20190121005146-b04fd42d9952 // indirect
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
-	github.com/devopsfaith/krakend v0.0.0-20191120165832-696db14166d2
+	github.com/devopsfaith/krakend v1.1.0
 	github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
@@ -48,10 +48,10 @@ require (
 	github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a
 	github.com/devopsfaith/krakend-lambda v0.0.0-20200123123306-cce9724ca461
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502
-	github.com/devopsfaith/krakend-lua v0.0.0-20200114134735-330e4e58c483
+	github.com/devopsfaith/krakend-lua v1.1.0
 	github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91
 	github.com/devopsfaith/krakend-metrics v0.0.0-20190114200758-1e2c2a1f6a62
-	github.com/devopsfaith/krakend-oauth2-clientcredentials v0.0.0-20190206125733-11a9f7170c44
+	github.com/devopsfaith/krakend-oauth2-clientcredentials v1.1.0
 	github.com/devopsfaith/krakend-opencensus v0.0.0-20190425142549-a584d6fd2cc1
 	github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd
 	github.com/devopsfaith/krakend-ratelimit v1.1.0
@@ -141,6 +141,7 @@ require (
 	github.com/uber/jaeger-client-go v2.15.0+incompatible // indirect
 	github.com/uber/jaeger-lib v1.5.0 // indirect
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6 // indirect
+	github.com/valyala/fastrand v1.0.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609 // indirect

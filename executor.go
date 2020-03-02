@@ -21,6 +21,7 @@ import (
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/stackdriver"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/xray"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/ocagent"
 	pubsub "github.com/devopsfaith/krakend-pubsub"
 	"github.com/devopsfaith/krakend-usage/client"
 	"github.com/devopsfaith/krakend/config"

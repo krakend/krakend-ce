@@ -52,7 +52,7 @@ require (
 	github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91
 	github.com/devopsfaith/krakend-metrics v0.0.0-20190114200758-1e2c2a1f6a62
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v1.1.0
-	github.com/devopsfaith/krakend-opencensus v0.0.0-20190425142549-a584d6fd2cc1
+	github.com/devopsfaith/krakend-opencensus v1.1.0
 	github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd
 	github.com/devopsfaith/krakend-ratelimit v1.1.0
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
@@ -87,7 +87,6 @@ require (
 	github.com/hashicorp/go-sockaddr v1.0.1 // indirect
 	github.com/hashicorp/go-uuid v1.0.1 // indirect
 	github.com/hashicorp/go-version v1.1.0 // indirect
-	github.com/hashicorp/golang-lru v0.5.3 // indirect
 	github.com/hashicorp/nomad v0.8.7 // indirect
 	github.com/hashicorp/vault v1.0.2 // indirect
 	github.com/hashicorp/vault-plugin-auth-alicloud v0.0.0-20181109180636-f278a59ca3e8 // indirect
@@ -147,7 +146,6 @@ require (
 	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609 // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
 	go.etcd.io/etcd v3.3.11+incompatible // indirect
-	go.opencensus.io v0.22.1 // indirect
 	golang.org/x/build v0.0.0-20190111050920-041ab4dc3f9d // indirect
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20180326133423-4dbb9d721348 // indirect

@@ -50,7 +50,7 @@ require (
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502
 	github.com/devopsfaith/krakend-lua v1.1.0
 	github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91
-	github.com/devopsfaith/krakend-metrics v0.0.0-20190114200758-1e2c2a1f6a62
+	github.com/devopsfaith/krakend-metrics v1.1.0
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v1.1.0
 	github.com/devopsfaith/krakend-opencensus v1.1.0
 	github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd

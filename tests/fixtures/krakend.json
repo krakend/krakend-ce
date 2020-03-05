@@ -301,29 +301,17 @@
             "method": "GET",
             "backend": [
                 {
-                    "host": [
-                        "https://jsonplaceholder.typicode.com"
-                    ],
-                    "url_pattern": "/posts?userId={id}",
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/collection/{id}",
                     "is_collection": true,
                     "mapping": {
                         "collection": "posts"
-                    },
-                    "extra_config": {
-                        "github.com/devopsfaith/krakend-httpcache": {}
                     }
                 },
                 {
-                    "host": [
-                        "https://jsonplaceholder.typicode.com"
-                    ],
-                    "url_pattern": "/users/{id}",
-                    "mapping": {
-                        "email": "personal_email"
-                    },
-                    "extra_config": {
-                        "github.com/devopsfaith/krakend-httpcache": {}
-                    }
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/{id}",
+                    "whitelist": [ "foo" ]
                 }
             ]
         },

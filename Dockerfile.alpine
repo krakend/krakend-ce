@@ -14,6 +14,10 @@ LABEL maintainer="dortiz@devops.faith"
 
 COPY --from=builder /app/krakend /usr/bin/krakend
 
+RUN addgroup -S krakend && adduser -S -G krakend krakend
+
+USER krakend
+
 VOLUME [ "/etc/krakend" ]
 
 ENTRYPOINT [ "/usr/bin/krakend" ]

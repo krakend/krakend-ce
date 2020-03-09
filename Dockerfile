@@ -9,6 +9,10 @@ RUN apt-get update && \
 
 ADD krakend /usr/bin/krakend
 
+RUN useradd -r -c "KrakenD user" -U krakend
+
+USER krakend
+
 VOLUME [ "/etc/krakend" ]
 
 WORKDIR /etc/krakend

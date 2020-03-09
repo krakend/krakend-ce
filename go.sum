@@ -199,6 +199,8 @@ github.com/devopsfaith/krakend v0.0.0-20190921111907-6ff3a6860ce0/go.mod h1:k7Xn
 github.com/devopsfaith/krakend v0.0.0-20190930092458-9e6fc3784eca/go.mod h1:k7XnDvnLPfAMLy8kykUydoViIg5LeCqRNCV5UK8DVdY=
 github.com/devopsfaith/krakend v1.1.0 h1:zBPKjf9LNS1BXO/sv6dacfHmDa5PrMiD68YTYfgOOjM=
 github.com/devopsfaith/krakend v1.1.0/go.mod h1:xM0O7nJcXuJWWL0PollS0NFBQLf1KJgA1BI2XAPgdmo=
+github.com/devopsfaith/krakend v1.1.1 h1:nG624R4OOg2YEN1dDGZJ+dosk3GkPz2qBLLJhhJTtX4=
+github.com/devopsfaith/krakend v1.1.1/go.mod h1:xM0O7nJcXuJWWL0PollS0NFBQLf1KJgA1BI2XAPgdmo=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694 h1:Tk+S9zvltFAq8x15F2xAyt/wwed0okbSTaPYRguKfzA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694/go.mod h1:/c/BrN6w3Lqip/3WRcYprolGvfT+gLgSzdDrT9d2LUc=
 github.com/devopsfaith/krakend-amqp v1.1.0 h1:mWTfMUrRq6zj4w+N70HL/f5xhgclc95JbQHrg7whBGA=

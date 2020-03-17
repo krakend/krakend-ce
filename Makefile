@@ -31,6 +31,7 @@ FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --verbose
 
 DEB_OPTS= -t deb --deb-user $(USER) \
+	--depends ca-certificates \
 	--before-remove builder/scripts/prerm.deb \
   --after-remove builder/scripts/postrm.deb \
 	--before-install builder/scripts/preinst.deb

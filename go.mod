@@ -5,19 +5,20 @@ go 1.12
 replace github.com/testcontainers/testcontainer-go => github.com/testcontainers/testcontainers-go v0.0.0-20190108154635-47c0da630f72
 
 require (
+	contrib.go.opencensus.io/exporter/aws v0.0.0-20190807220307-c50fb1bd7f21 // indirect
 	contrib.go.opencensus.io/exporter/jaeger v0.0.0-20190424224017-5b8293c22f36 // indirect
-	contrib.go.opencensus.io/exporter/ocagent v0.4.12 // indirect
 	contrib.go.opencensus.io/exporter/prometheus v0.0.0-20190424224027-f02a6e68f94d // indirect
 	contrib.go.opencensus.io/exporter/zipkin v0.0.0-20190424224031-c96617f51dc6 // indirect
-	github.com/Azure/azure-service-bus-go v0.4.1 // indirect
-	github.com/Azure/go-autorest v11.6.0+incompatible // indirect
+	github.com/Azure/azure-amqp-common-go v1.1.3 // indirect
 	github.com/PuerkitoBio/goquery v1.4.0 // indirect
 	github.com/andybalholm/cascadia v1.0.0 // indirect
 	github.com/auth0-community/go-auth0 v1.0.0
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
 	github.com/clbanning/mxj v0.0.0-20180418195244-1f00e0bf9bac // indirect
+	github.com/codahale/hdrhistogram v0.0.0-20161010025455-3a0bb77429bd // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
 	github.com/coreos/etcd v3.3.15+incompatible // indirect
+	github.com/coreos/go-etcd v2.0.0+incompatible // indirect
 	github.com/devopsfaith/krakend v0.0.0-20190921111907-6ff3a6860ce0
 	github.com/devopsfaith/krakend-ce v0.0.0-20190917135805-07029e9a7b49
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
@@ -37,7 +38,7 @@ require (
 	github.com/devopsfaith/krakend-metrics v0.0.0-20190114200758-1e2c2a1f6a62
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v0.0.0-20190206125733-11a9f7170c44
 	github.com/devopsfaith/krakend-opencensus v0.0.0-20190425142549-a584d6fd2cc1
-	github.com/devopsfaith/krakend-pubsub v0.0.0-20190424155946-2884ffb54959
+	github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd
 	github.com/devopsfaith/krakend-ratelimit v0.0.0-20190404110207-d63774e96e82
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c
@@ -50,6 +51,7 @@ require (
 	github.com/google/cel-go v0.2.0 // indirect
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/influxdata/influxdb v1.7.4 // indirect
+	github.com/influxdata/platform v0.0.0-20190117200541-d500d3cf5589 // indirect
 	github.com/juju/ratelimit v0.0.0-20171026090426-59fac5042749 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c // indirect
 	github.com/letgoapp/krakend-influx v0.0.0-20190214142340-d2fc9466bb3a
@@ -58,12 +60,14 @@ require (
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/openrm/krakend-jose v0.0.0-20190925083548-04bd6fcc5643
-	github.com/openrm/module-tracing-golang v1.0.9
+	github.com/openrm/module-tracing-golang v1.0.16
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/sirupsen/logrus v1.4.2
 	github.com/sony/gobreaker v0.0.0-20170530031423-e9556a45379e // indirect
-	github.com/spf13/viper v1.3.2 // indirect
-	github.com/streadway/amqp v0.0.0-20190402114354-16ed540749f6 // indirect
+	github.com/spf13/cobra v0.0.7 // indirect
+	github.com/uber-go/atomic v1.3.2 // indirect
+	github.com/uber/jaeger-client-go v2.15.0+incompatible // indirect
+	github.com/uber/jaeger-lib v1.5.0 // indirect
 	github.com/ugorji/go v1.1.7 // indirect
 	github.com/unrolled/secure v0.0.0-20171102162350-0f73fc7feba6 // indirect
 	go.opencensus.io v0.22.1

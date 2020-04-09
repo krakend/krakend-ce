@@ -1,6 +1,7 @@
 package krakend
 
 import (
+	"net/http"
 	"context"
 
 	// amqp "github.com/devopsfaith/krakend-amqp"
@@ -18,6 +19,7 @@ import (
 	"github.com/devopsfaith/krakend/proxy"
 	"github.com/devopsfaith/krakend/encoding"
 	"github.com/devopsfaith/krakend/transport/http/client"
+	"go.opencensus.io/trace"
 )
 
 // NewBackendFactory creates a BackendFactory by stacking all the available middlewares:
@@ -45,7 +47,10 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, lc
 			clientFactory = httpcache.NewHTTPClient(cfg)
 		}
 		clientFactory = NewOpenCensusClient(lcfg, clientFactory)
-		return opencensus.HTTPRequestExecutor(clientFactory)
+		re := opencensus.HTTPRequestExecutor(clientFactory)
+		return func(ctx context.Context, req *http.Request) (*http.Response, error) {
+			return re(trace.NewContext(ctx, ctx.Value(opencensus.ContextKey).(*trace.Span)), req)
+		}
 	}
 
 	//  the line below registers martian.staticModifierFromJSON

@@ -61,8 +61,8 @@ func NewOpenCensusHandlerFactory(hf router.HandlerFactory, lcfg loggingConfig) r
 		}
 		return func(c *gin.Context) {
 			traceHandler.Handler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				c.Set(opencensus.ContextKey, trace.FromContext(r.Context()))
 				c.Request = r
-				c.Set(opencensus.ContextKey, trace.FromContext(c.Request.Context()))
 				handler(c)
 			})
 			traceHandler.ServeHTTP(c.Writer, c.Request)

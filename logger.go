@@ -3,6 +3,8 @@ package krakend
 import (
 	"os"
 	"time"
+	"regexp"
+	"net/http"
 	"github.com/sirupsen/logrus"
 	"github.com/gin-gonic/gin"
 	"github.com/devopsfaith/krakend/config"
@@ -48,6 +50,28 @@ func parseLoggingConfig(cfg config.ExtraConfig) loggingConfig {
 	return loggingConfig{true, header, skip}
 }
 
+var filterHeaderPatterns = []*regexp.Regexp{
+	regexp.MustCompile(`[Aa]uthorization`),
+	regexp.MustCompile(`[Cc]ookie`),
+	regexp.MustCompile(`[Ss]et-[Cc]ookie`),
+}
+
+func filterHeader(headers http.Header) map[string]string {
+	filtered := make(map[string]string)
+	for k, _ := range headers {
+		var value string = headers.Get(k)
+
+		for _, re := range filterHeaderPatterns {
+			if re.MatchString(k) {
+				value = "[Filtered]"
+			}
+		}
+
+		filtered[k] = value
+	}
+	return filtered
+}
+
 func spanContextMap(sc trace.SpanContext) map[string]interface{} {
 	return map[string]interface{}{
 		"traceId": sc.TraceID.String(),
@@ -83,6 +107,7 @@ func loggingHandler(logger logrus.FieldLogger, cfg loggingConfig) gin.HandlerFun
 			"referer": r.Referer(),
 			"userAgent": r.UserAgent(),
 			"contentLength": r.ContentLength,
+			"headers": filterHeader(r.Header),
 		})
 
 		traceData := make(map[string]interface{})

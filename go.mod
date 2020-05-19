@@ -7,6 +7,7 @@ require (
 	contrib.go.opencensus.io/exporter/prometheus v0.0.0-20190424224027-f02a6e68f94d // indirect
 	contrib.go.opencensus.io/exporter/zipkin v0.0.0-20190424224031-c96617f51dc6 // indirect
 	github.com/Azure/azure-amqp-common-go v1.1.4 // indirect
+	github.com/DataDog/opencensus-go-exporter-datadog v0.0.0-20191210083620-6965a1cfed68
 	github.com/PuerkitoBio/goquery v1.4.0 // indirect
 	github.com/SAP/go-hdb v0.13.2 // indirect
 	github.com/SermoDigital/jose v0.9.2-0.20161205224733-f6df55f235c2 // indirect
@@ -52,7 +53,7 @@ require (
 	github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91
 	github.com/devopsfaith/krakend-metrics v1.1.0
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v1.1.0
-	github.com/devopsfaith/krakend-opencensus v1.1.0
+	github.com/devopsfaith/krakend-opencensus v1.1.1-0.20200317162023-3ffd692ac4ad
 	github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd
 	github.com/devopsfaith/krakend-ratelimit v1.1.0
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
@@ -148,6 +149,7 @@ require (
 	go.etcd.io/etcd v3.3.11+incompatible // indirect
 	golang.org/x/build v0.0.0-20190111050920-041ab4dc3f9d // indirect
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
+	gopkg.in/DataDog/dd-trace-go.v1 v1.22.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20180326133423-4dbb9d721348 // indirect
 	gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d // indirect
 	gopkg.in/gorethink/gorethink.v4 v4.1.0 // indirect

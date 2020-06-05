@@ -191,6 +191,8 @@ github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a/go.mod h1:
 github.com/devopsfaith/flatmap v0.0.0-20190327225844-8d71d61e07ac/go.mod h1:J9Y/58s7wx7HbHT3i4UKNwLGuBB9qCf0/JUdEFGDPmA=
 github.com/devopsfaith/flatmap v0.0.0-20190628155411-90b768d6668b h1:mToxoDhxMLiuRxit4/kotDMfVbK9Hd90BLBUhTpOw9k=
 github.com/devopsfaith/flatmap v0.0.0-20190628155411-90b768d6668b/go.mod h1:J9Y/58s7wx7HbHT3i4UKNwLGuBB9qCf0/JUdEFGDPmA=
+github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc h1:WM1VdC8LW8GIZUJuvXgQWm6LcZ8niL0D0WVuC3lKkQU=
+github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc/go.mod h1:J9Y/58s7wx7HbHT3i4UKNwLGuBB9qCf0/JUdEFGDPmA=
 github.com/devopsfaith/krakend v0.0.0-20181030151625-f82f671d8f1d/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend v0.0.0-20190306181519-f4927628fef8/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
 github.com/devopsfaith/krakend v0.0.0-20190317162006-f20e199dec42/go.mod h1:yxQ154W+9WspAsoGcnsttb30YJHuSbDZivUdLH09PiA=
@@ -205,6 +207,8 @@ github.com/devopsfaith/krakend v1.1.0 h1:zBPKjf9LNS1BXO/sv6dacfHmDa5PrMiD68YTYfg
 github.com/devopsfaith/krakend v1.1.0/go.mod h1:xM0O7nJcXuJWWL0PollS0NFBQLf1KJgA1BI2XAPgdmo=
 github.com/devopsfaith/krakend v1.1.1 h1:nG624R4OOg2YEN1dDGZJ+dosk3GkPz2qBLLJhhJTtX4=
 github.com/devopsfaith/krakend v1.1.1/go.mod h1:xM0O7nJcXuJWWL0PollS0NFBQLf1KJgA1BI2XAPgdmo=
+github.com/devopsfaith/krakend v1.1.2-0.20200605160540-40b5d80a5807 h1:BQfU8hqJJpqO41dES5Y8Jj2THAH/pQGUv7OEZvb9vCQ=
+github.com/devopsfaith/krakend v1.1.2-0.20200605160540-40b5d80a5807/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694 h1:Tk+S9zvltFAq8x15F2xAyt/wwed0okbSTaPYRguKfzA=
 github.com/devopsfaith/krakend-amqp v0.0.0-20190315181526-5f14dc177694/go.mod h1:/c/BrN6w3Lqip/3WRcYprolGvfT+gLgSzdDrT9d2LUc=
 github.com/devopsfaith/krakend-amqp v1.1.0 h1:mWTfMUrRq6zj4w+N70HL/f5xhgclc95JbQHrg7whBGA=
@@ -272,6 +276,8 @@ github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c/go.mod h
 github.com/devopsfaith/krakend-viper v0.0.0-20171110192827-3abc4134a773/go.mod h1:QNRqgiGBrFbQj4MIxMs0fiKf9uqngQHJBUsS5/SfZmw=
 github.com/devopsfaith/krakend-viper v0.0.0-20190407170411-1cbb76813774 h1:hqB5U/989dSrX8/QxSroNkKPWDVF82RcKPn54b92c44=
 github.com/devopsfaith/krakend-viper v0.0.0-20190407170411-1cbb76813774/go.mod h1:QNRqgiGBrFbQj4MIxMs0fiKf9uqngQHJBUsS5/SfZmw=
+github.com/devopsfaith/krakend-viper v0.0.0-20200605164302-854fa4ff4a66 h1:2z1FxU1ievMWGJ/DjfwF6RhUnQnwnOGyM3SLqaFJA/I=
+github.com/devopsfaith/krakend-viper v0.0.0-20200605164302-854fa4ff4a66/go.mod h1:udpmpXwzN39AB8Suy1fXsoi1KQ5BRLQxHr25d6hEZwE=
 github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f h1:wyDziW3fHGpAFDWk+8C2xRP284lqZr8qPVb30uq37vo=
 github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f/go.mod h1:xyNKiNHdl5WY/CiUyWJgmx4hdzwT+lLInGKj7qio5d4=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
@@ -666,6 +672,8 @@ github.com/pelletier/go-buffruneio v0.2.0/go.mod h1:JkE26KsDizTr40EUHkXVtNPvgGtb
 github.com/pelletier/go-toml v1.1.0/go.mod h1:5z9KED0ma1S8pY6P1sdut58dfprrGBbd/94hg7ilaic=
 github.com/pelletier/go-toml v1.2.0 h1:T5zMGML61Wp+FlcbWjRDT7yAxhJNAiPPLOFECq181zc=
 github.com/pelletier/go-toml v1.2.0/go.mod h1:5z9KED0ma1S8pY6P1sdut58dfprrGBbd/94hg7ilaic=
+github.com/pelletier/go-toml v1.3.0 h1:e5+lF2E4Y2WCIxBefVowBuB0iHrUH4HZ8q+6mGF7fJc=
+github.com/pelletier/go-toml v1.3.0/go.mod h1:PN7xzY2wHTK0K9p34ErDQMlFxa51Fk0OUruD3k1mMwo=
 github.com/philhofer/fwd v1.0.0 h1:UbZqGr5Y38ApvM/V/jEljVxwocdweyH+vmYvRPBnbqQ=
 github.com/philhofer/fwd v1.0.0/go.mod h1:gk3iGcWd9+svBvR0sR+KPcfE+RNWozjowpeBVG3ZVNU=
 github.com/pierrec/lz4 v0.0.0-20190327172049-315a67e90e41/go.mod h1:3/3N9NVKO0jef7pBehbT1qWhCMrIgbYNnFAZCqQ5LRc=
@@ -764,6 +772,8 @@ github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72/go.mod h1:JwIasO
 github.com/spf13/afero v1.1.0/go.mod h1:j4pytiNVoe2o6bmDsKpLACNPDBIoEAkihy7loJ1B0CQ=
 github.com/spf13/afero v1.1.2 h1:m8/z1t7/fwjysjQRYbP0RD+bUIF/8tJwPdEZsI83ACI=
 github.com/spf13/afero v1.1.2/go.mod h1:j4pytiNVoe2o6bmDsKpLACNPDBIoEAkihy7loJ1B0CQ=
+github.com/spf13/afero v1.2.2 h1:5jhuqJyZCZf2JRofRvN/nIFgIWNzPa3/Vz8mYylgbWc=
+github.com/spf13/afero v1.2.2/go.mod h1:9ZxEEn6pIJ8Rxe320qSDBk6AsU0r9pR7Q4OcevTdifk=
 github.com/spf13/cast v1.2.0/go.mod h1:r2rcYCSwa1IExKTDiTfzaxqT2FNHs8hODu4LnUfgKEg=
 github.com/spf13/cast v1.3.0 h1:oget//CVOEoFewqQxwr0Ej5yjygnqGkvggSE/gB35Q8=
 github.com/spf13/cast v1.3.0/go.mod h1:Qx5cxh0v+4UWYiBimWS+eyWzqEqokIECu5etghLkUJE=
@@ -772,6 +782,8 @@ github.com/spf13/cobra v0.0.3/go.mod h1:1l0Ry5zgKvJasoi3XT1TypsSe7PqH0Sj9dhYf7v3
 github.com/spf13/jwalterweatherman v0.0.0-20180109140146-7c0cea34c8ec/go.mod h1:cQK4TGJAtQXfYWX+Ddv3mKDzgVb68N+wFjFa4jdeBTo=
 github.com/spf13/jwalterweatherman v1.0.0 h1:XHEdyB+EcvlqZamSM4ZOMGlc93t6AcsBEu9Gc1vn7yk=
 github.com/spf13/jwalterweatherman v1.0.0/go.mod h1:cQK4TGJAtQXfYWX+Ddv3mKDzgVb68N+wFjFa4jdeBTo=
+github.com/spf13/jwalterweatherman v1.1.0 h1:ue6voC5bR5F8YxI5S67j9i582FU4Qvo2bmqnqMYADFk=
+github.com/spf13/jwalterweatherman v1.1.0/go.mod h1:aNWZUN0dPAAO/Ljvb5BEdw96iTZ0EXowPYD95IqWIGo=
 github.com/spf13/pflag v1.0.1/go.mod h1:DYY7MBk1bdzusC3SYhjObp+wFpr4gzcvqqNjLnInEg4=
 github.com/spf13/pflag v1.0.2/go.mod h1:DYY7MBk1bdzusC3SYhjObp+wFpr4gzcvqqNjLnInEg4=
 github.com/spf13/pflag v1.0.3 h1:zPAT6CGy6wXeQ7NtTnaTerfKOsV6V6F8agHXFiazDkg=

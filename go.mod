@@ -31,7 +31,7 @@ require (
 	github.com/dancannon/gorethink v4.0.0+incompatible // indirect
 	github.com/denisenkom/go-mssqldb v0.0.0-20190121005146-b04fd42d9952 // indirect
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
-	github.com/devopsfaith/krakend v1.1.1
+	github.com/devopsfaith/krakend v1.1.2-0.20200605160540-40b5d80a5807
 	github.com/devopsfaith/krakend-amqp v1.1.0
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
@@ -58,7 +58,7 @@ require (
 	github.com/devopsfaith/krakend-ratelimit v1.1.0
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c
-	github.com/devopsfaith/krakend-viper v0.0.0-20190407170411-1cbb76813774
+	github.com/devopsfaith/krakend-viper v0.0.0-20200605164302-854fa4ff4a66
 	github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f
 	github.com/dnaeon/go-vcr v1.0.1 // indirect
 	github.com/duosecurity/duo_api_golang v0.0.0-20190107154727-539434bf0d45 // indirect

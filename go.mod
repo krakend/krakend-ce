@@ -46,7 +46,7 @@ require (
 	github.com/devopsfaith/krakend-httpcache v0.0.0-20181030153148-8474476ff874
 	github.com/devopsfaith/krakend-httpsecure v0.0.0-20191009151918-298638962e76
 	github.com/devopsfaith/krakend-jose v1.1.0
-	github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a
+	github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3
 	github.com/devopsfaith/krakend-lambda v0.0.0-20200123123306-cce9724ca461
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502
 	github.com/devopsfaith/krakend-lua v1.1.0
@@ -144,7 +144,6 @@ require (
 	github.com/valyala/fastrand v1.0.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
-	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609 // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
 	go.etcd.io/etcd v3.3.11+incompatible // indirect
 	golang.org/x/build v0.0.0-20190111050920-041ab4dc3f9d // indirect

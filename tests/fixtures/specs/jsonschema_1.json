@@ -1,0 +1,10 @@
+{
+	"in": {
+		"method": "POST",
+		"url": "http://localhost:8080/jsonschema",
+		"body": "{\"foo\":42}"
+	},
+	"out": {
+		"status_code": 400
+	}
+}

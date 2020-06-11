@@ -239,6 +239,8 @@ github.com/devopsfaith/krakend-httpsecure v0.0.0-20191009151918-298638962e76 h1:
 github.com/devopsfaith/krakend-httpsecure v0.0.0-20191009151918-298638962e76/go.mod h1:H2qRuYv4A56Kw/cynhiFBP9nFNFhHwj70DEU0CSldbI=
 github.com/devopsfaith/krakend-jose v1.1.0 h1:PtmL5ABELCs+38Odbpu+JazVkgZP4e+n9nS23pfCpGY=
 github.com/devopsfaith/krakend-jose v1.1.0/go.mod h1:cwnPCZWJe6aVSKPZDKfRX6gUvou0u6N86wLfkU7mBzU=
+github.com/devopsfaith/krakend-jose v1.1.1-0.20200611151403-16b353bcefdc h1:NtvPyyXVTUifphWNDllh4TOFI7UnxdNcGNxwBrSrSyg=
+github.com/devopsfaith/krakend-jose v1.1.1-0.20200611151403-16b353bcefdc/go.mod h1:cwnPCZWJe6aVSKPZDKfRX6gUvou0u6N86wLfkU7mBzU=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a h1:VEl62LlUIqkPb0WcUvzzBr/2hu8+uMaHypBK3FqkyI0=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20190124184701-5705a5015d7a/go.mod h1:PYIFUHqJMhgZwxunzrdwZ8N0OFpnneH0uC55f7wq7GM=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3 h1:KygyOdHu01dq6IqN6nDAWruCVUq/WYbqTJ1F4j5RdjE=

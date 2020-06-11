@@ -540,6 +540,19 @@
                     "allow_open_libs": true
                 }
             }
+        },
+        {
+            "endpoint": "/jsonschema",
+            "method": "POST",
+            "backend": [
+                {
+                    "host": ["http://127.0.0.1:8081"],
+                    "url_pattern": "/"
+                }
+            ],
+            "extra_config":{
+                "github.com/devopsfaith/krakend-jsonschema": {"type": "number"}
+            }
         }
     ]
 }

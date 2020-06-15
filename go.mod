@@ -38,7 +38,7 @@ require (
 	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981
 	github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e
 	github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1
-	github.com/devopsfaith/krakend-cors v0.0.0-20190921115348-8233f1195319
+	github.com/devopsfaith/krakend-cors v0.0.0-20200615164006-ad82a58ac55d
 	github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c
 	github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf
 	github.com/devopsfaith/krakend-gelf v0.0.0-20181019222239-59c0250b1c60

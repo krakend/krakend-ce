@@ -9,6 +9,7 @@ import (
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	cel "github.com/devopsfaith/krakend-cel"
 	"github.com/devopsfaith/krakend-cobra"
+	cors "github.com/devopsfaith/krakend-cors/gin"
 	gelf "github.com/devopsfaith/krakend-gelf"
 	"github.com/devopsfaith/krakend-gologging"
 	"github.com/devopsfaith/krakend-jose"
@@ -17,11 +18,11 @@ import (
 	opencensus "github.com/devopsfaith/krakend-opencensus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
+	_ "github.com/devopsfaith/krakend-opencensus/exporter/ocagent"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/stackdriver"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/xray"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/ocagent"
 	pubsub "github.com/devopsfaith/krakend-pubsub"
 	"github.com/devopsfaith/krakend-usage/client"
 	"github.com/devopsfaith/krakend/config"
@@ -151,7 +152,10 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
 			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
-			RunServer:      router.RunServerFunc(server.New(logger, krakendrouter.RunServer)),
+			RunServer: router.RunServerFunc(server.New(
+				logger,
+				server.RunServer(cors.NewRunServer(krakendrouter.RunServer)),
+			)),
 		})
 
 		// start the engines

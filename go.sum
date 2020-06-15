@@ -225,6 +225,8 @@ github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1 h1:K4OS
 github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1/go.mod h1:YrseOkHTnkZr9nsfsYnzHB9Z9VWR9oouw4FhfGG5PUo=
 github.com/devopsfaith/krakend-cors v0.0.0-20190921115348-8233f1195319 h1:KBg6DO7Qj5sqMrZu+cDTmuNlmawJ07MnhKUZ4OW0VAY=
 github.com/devopsfaith/krakend-cors v0.0.0-20190921115348-8233f1195319/go.mod h1:nvpTPYYXyfnmMV+6lkGK5ht2Gy9EJ2sN+VpO85VC7ow=
+github.com/devopsfaith/krakend-cors v0.0.0-20200615164006-ad82a58ac55d h1:GMzsKuJ3O2soZiEQWTBbaqkprp/mi1aSPJfLbpWZ6Qc=
+github.com/devopsfaith/krakend-cors v0.0.0-20200615164006-ad82a58ac55d/go.mod h1:nvpTPYYXyfnmMV+6lkGK5ht2Gy9EJ2sN+VpO85VC7ow=
 github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c h1:XZY/6DFD4pFVQBu7fRuEUlDwO6s2gFvUM0EBCWxpSM8=
 github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c/go.mod h1:eN8KUWXFsMOophxB4Y3YFjJbjX2vZwcOueRMS/OuP/s=
 github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf h1:tt+lvwMGG/M+/llO23naqfQt6PbczaLEJGdfmeI5m/Y=

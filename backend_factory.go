@@ -46,9 +46,12 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, lc
 		} else {
 			clientFactory = httpcache.NewHTTPClient(cfg)
 		}
+
 		clientFactory = NewOpenCensusClient(lcfg, clientFactory)
-		re := opencensus.HTTPRequestExecutor(clientFactory)
+		
 		return func(ctx context.Context, req *http.Request) (*http.Response, error) {
+			re := opencensus.HTTPRequestExecutor(clientFactory)
+
 			return re(trace.NewContext(ctx, ctx.Value(opencensus.ContextKey).(*trace.Span)), req)
 		}
 	}

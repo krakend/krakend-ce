@@ -51,7 +51,7 @@ type PluginLoader interface {
 
 // SubscriberFactoriesRegister registers all the required subscriber factories from the available service
 // discover components and adapters and returns a service register function.
-// The service reguster function will register the service by the given name and port to all the available
+// The service register function will register the service by the given name and port to all the available
 // service discover clients
 type SubscriberFactoriesRegister interface {
 	Register(context.Context, config.ServiceConfig, logging.Logger) func(string, int)

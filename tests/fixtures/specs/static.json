@@ -5,7 +5,7 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"bar\":\"foobar\",\"foo\":42}\n",
+		"body": "{\"bar\":\"foobar\",\"foo\":42}",
 		"header": {
 			"content-type": ["application/json; charset=utf-8"],
 			"Cache-Control": ["public, max-age=3600"],

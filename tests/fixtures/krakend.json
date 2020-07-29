@@ -23,8 +23,8 @@
         "max_age": "12h"
       },
       "github_com/devopsfaith/krakend-botdetector": {
-        "blacklist": ["a", "b"],
-        "whitelist": ["c", "Pingdom.com_bot_version_1.1"],
+        "denylist": ["a", "b"],
+        "allowlist": ["c", "Pingdom.com_bot_version_1.1"],
         "patterns": [
             "(Pingdom.com_bot_version_).*",
             "(facebookexternalhit)/.*"

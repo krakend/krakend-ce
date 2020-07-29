@@ -14,7 +14,7 @@ require (
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
 	github.com/devopsfaith/krakend v1.1.2-0.20200722191256-977e18f19398
 	github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af
-	github.com/devopsfaith/krakend-botdetector v0.0.0-20190711145323-c5fcb969addb
+	github.com/devopsfaith/krakend-botdetector v0.0.0-20200729112051-82f1b8f8fdfe
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
 	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20200703180246-3ea7a4c22c3b
 	github.com/devopsfaith/krakend-cobra v0.0.0-20190403130617-3f056666a23e
@@ -35,7 +35,7 @@ require (
 	github.com/devopsfaith/krakend-metrics v1.1.0
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v1.1.0
 	github.com/devopsfaith/krakend-opencensus v1.1.1-0.20200317162023-3ffd692ac4ad
-	github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd
+	github.com/devopsfaith/krakend-pubsub v0.0.0-20200728135630-1781054836a5
 	github.com/devopsfaith/krakend-ratelimit v1.1.0
 	github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c

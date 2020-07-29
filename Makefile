@@ -48,6 +48,38 @@ RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 
 all: test
 
+update_krakend_deps:
+	go get github.com/devopsfaith/krakend@master
+	go get github.com/devopsfaith/krakend-amqp@master
+	go get github.com/devopsfaith/krakend-botdetector@master
+	go get github.com/devopsfaith/krakend-cel@master
+	go get github.com/devopsfaith/krakend-circuitbreaker@master
+	go get github.com/devopsfaith/krakend-cobra@master
+	go get github.com/devopsfaith/krakend-consul@master
+	go get github.com/devopsfaith/krakend-cors@master
+	go get github.com/devopsfaith/krakend-etcd@master
+	go get github.com/devopsfaith/krakend-flexibleconfig@master
+	go get github.com/devopsfaith/krakend-gelf@master
+	go get github.com/devopsfaith/krakend-gologging@master
+	go get github.com/devopsfaith/krakend-httpcache@master
+	go get github.com/devopsfaith/krakend-httpsecure@master
+	go get github.com/devopsfaith/krakend-jose@master
+	go get github.com/devopsfaith/krakend-jsonschema@master
+	go get github.com/devopsfaith/krakend-lambda@master
+	go get github.com/devopsfaith/krakend-logstash@master
+	go get github.com/devopsfaith/krakend-lua@master
+	go get github.com/devopsfaith/krakend-martian@master
+	go get github.com/devopsfaith/krakend-metrics@master
+	go get github.com/devopsfaith/krakend-oauth2-clientcredentials@master
+	go get github.com/devopsfaith/krakend-opencensus@master
+	go get github.com/devopsfaith/krakend-pubsub@master
+	go get github.com/devopsfaith/krakend-ratelimit@master
+	go get github.com/devopsfaith/krakend-rss@master
+	go get github.com/devopsfaith/krakend-usage@master
+	go get github.com/devopsfaith/krakend-viper@master
+	go get github.com/devopsfaith/krakend-xml@master
+	make test
+
 build:
 	@echo "Building the binary..."
 	@GOPROXY=https://goproxy.io go get .

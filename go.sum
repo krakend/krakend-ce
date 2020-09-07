@@ -193,6 +193,10 @@ github.com/devopsfaith/krakend v1.1.2-0.20200729122018-f4c0957b10e4 h1:MogU9KSGz
 github.com/devopsfaith/krakend v1.1.2-0.20200729122018-f4c0957b10e4/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend v1.1.2-0.20200811153840-18f22a5642e1 h1:MpZRALg4KOSnUjmEXpf/ZCrmntTIJkqj1sVEnjQ8I1Y=
 github.com/devopsfaith/krakend v1.1.2-0.20200811153840-18f22a5642e1/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/devopsfaith/krakend v1.1.2-0.20200825112309-c32c3b2f8df3 h1:MCX1dPgQnrNJbYjBilE7f85Z+drLkURpFR2haCDGjLw=
+github.com/devopsfaith/krakend v1.1.2-0.20200825112309-c32c3b2f8df3/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/devopsfaith/krakend v1.1.2-0.20200826121428-f41e024bd50a h1:OYax39TqeNEnCEDX7WXxw8Z5yjKa1orYg+ppE1OFh9Q=
+github.com/devopsfaith/krakend v1.1.2-0.20200826121428-f41e024bd50a/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend-amqp v1.1.0 h1:mWTfMUrRq6zj4w+N70HL/f5xhgclc95JbQHrg7whBGA=
 github.com/devopsfaith/krakend-amqp v1.1.0/go.mod h1:zhWeDJB1F6GCx9mngyCP+jBr8gdRJV4gOVDySAzmD94=
 github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af h1:Nkg1/u93cQJBDsUEX7wyXdmZ40zCZmr2JZ3dlLdDlRE=
@@ -233,6 +237,10 @@ github.com/devopsfaith/krakend-jose v1.1.1-0.20200611151403-16b353bcefdc h1:NtvP
 github.com/devopsfaith/krakend-jose v1.1.1-0.20200611151403-16b353bcefdc/go.mod h1:cwnPCZWJe6aVSKPZDKfRX6gUvou0u6N86wLfkU7mBzU=
 github.com/devopsfaith/krakend-jose v1.1.1-0.20200703171549-fd4096987628 h1:qtfldq4vaNw/+6JB9xXEGgss6yqXDdbBtK/xNxlNIKc=
 github.com/devopsfaith/krakend-jose v1.1.1-0.20200703171549-fd4096987628/go.mod h1:jyq7VeMIh53ZG3w8cppY2S+qk7vdh4ttzaRiJpS3wrA=
+github.com/devopsfaith/krakend-jose v1.1.1-0.20200825113902-8361d96a3898 h1:DdHmTfiKjygU8qs7ki7ckvlfRivK+KNmc5nfqLzbHj8=
+github.com/devopsfaith/krakend-jose v1.1.1-0.20200825113902-8361d96a3898/go.mod h1:X/sZgID7vBw8DtT5Vmv+dbLo/7BDMofe4Pfs473TsGY=
+github.com/devopsfaith/krakend-jose v1.1.1-0.20200907123904-82b489073b49 h1:m4y15+9COhDCFiTQmrUefZucjt+RdcG46BB2kxhAVHQ=
+github.com/devopsfaith/krakend-jose v1.1.1-0.20200907123904-82b489073b49/go.mod h1:ltn8GrNAt6w8jy9hwjMWR06oAAqLQIin0Sm35SVF+aM=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3 h1:KygyOdHu01dq6IqN6nDAWruCVUq/WYbqTJ1F4j5RdjE=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3/go.mod h1:t9+2XzrPivngNl1NY4j3T9iNLzzAxvIF7Hcer5jw1g4=
 github.com/devopsfaith/krakend-lambda v0.0.0-20200123123306-cce9724ca461 h1:VwAYth9OP/FNrroE/zSPORL0WnnRGSW9fP+WTha0nHU=
@@ -279,6 +287,8 @@ github.com/devopsfaith/krakend-viper v0.0.0-20200605164302-854fa4ff4a66 h1:2z1Fx
 github.com/devopsfaith/krakend-viper v0.0.0-20200605164302-854fa4ff4a66/go.mod h1:udpmpXwzN39AB8Suy1fXsoi1KQ5BRLQxHr25d6hEZwE=
 github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f h1:wyDziW3fHGpAFDWk+8C2xRP284lqZr8qPVb30uq37vo=
 github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f/go.mod h1:xyNKiNHdl5WY/CiUyWJgmx4hdzwT+lLInGKj7qio5d4=
+github.com/devopsfaith/krakend-xml v0.0.0-20200824111110-baa61b333b05 h1:1Oe6FwLtQoYIGrnugoslOKH4xQfK9hLqmeVBP4J31YM=
+github.com/devopsfaith/krakend-xml v0.0.0-20200824111110-baa61b333b05/go.mod h1:xyNKiNHdl5WY/CiUyWJgmx4hdzwT+lLInGKj7qio5d4=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
 github.com/dgryski/go-bitstream v0.0.0-20180413035011-3522498ce2c8/go.mod h1:VMaSuZ+SZcx/wljOQKvp5srsbCiKDEb6K2wC4+PiBmQ=

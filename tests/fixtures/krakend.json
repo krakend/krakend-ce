@@ -407,8 +407,40 @@
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8080" ],
-                    "url_pattern": "/__debug",
+                    "url_pattern": "/__debug/",
                     "blacklist": ["message"]
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend/proxy": {
+                    "static": {
+                        "strategy": "always",
+                        "data": {
+                            "id_user": 1,
+                            "firstName": "John",
+                            "lastName": "Smith",
+                            "age": 25
+                        }
+                    }
+                },
+                "github.com/devopsfaith/krakend-jose/validator": {
+                    "alg": "HS256",
+                    "audience": ["http://api.example.com"],
+                    "roles_key": "roles",
+                    "issuer": "https://krakend.io",
+                    "roles": ["role_a", "role_c"],
+                    "jwk-url": "http://127.0.0.1:8081/jwk/symmetric",
+                    "disable_jwk_security": true
+                }
+            }
+        },
+        {
+            "endpoint": "/private/extract_jwt_claim",
+            "backend": [
+                {
+                    "url_pattern": "/param_forwarding/{JWT.sub}",
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "blacklist": ["foo", "headers", "query"]
                 }
             ],
             "extra_config": {

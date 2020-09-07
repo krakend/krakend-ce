@@ -1,0 +1,18 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/private/extract_jwt_claim",
+		"header": {
+			"authorization": "bearer eyJhbGciOiJIUzI1NiIsImtpZCI6InNpbTIifQ.eyJhdWQiOiJodHRwOi8vYXBpLmV4YW1wbGUuY29tIiwiZXhwIjoxNzM1Njg5NjAwLCJpc3MiOiJodHRwczovL2tyYWtlbmQuaW8iLCJqdGkiOiJtbmIyM3Zjc3J0NzU2eXVpb21uYnZjeDk4ZXJ0eXVpb3AiLCJyb2xlcyI6WyJyb2xlX2EiLCJyb2xlX2IiXSwic3ViIjoiMTIzNDU2Nzg5MHF3ZXJ0eXVpbyJ9.htgbhantGcv6zrN1i43Rl58q1sokh3lzuFgzfenI0Rk"
+		}
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"age\":25,\"firstName\":\"John\",\"id_user\":1,\"lastName\":\"Smith\",\"path\":\"/param_forwarding/1234567890qwertyuio\"}",
+		"header": {
+			"content-type": ["application/json; charset=utf-8"],
+			"Cache-Control": ["public, max-age=3600"],
+			"X-Krakend-Completed": ["true"]
+		}
+	}
+}

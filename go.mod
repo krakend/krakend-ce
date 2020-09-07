@@ -13,7 +13,7 @@ require (
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
 	github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc // indirect
-	github.com/devopsfaith/krakend v1.1.2-0.20200811153840-18f22a5642e1
+	github.com/devopsfaith/krakend v1.1.2-0.20200826121428-f41e024bd50a
 	github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20200729112051-82f1b8f8fdfe
 	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
@@ -27,7 +27,7 @@ require (
 	github.com/devopsfaith/krakend-gologging v0.0.0-20190131142345-f3f256584ecc
 	github.com/devopsfaith/krakend-httpcache v0.0.0-20181030153148-8474476ff874
 	github.com/devopsfaith/krakend-httpsecure v0.0.0-20191009151918-298638962e76
-	github.com/devopsfaith/krakend-jose v1.1.1-0.20200703171549-fd4096987628
+	github.com/devopsfaith/krakend-jose v1.1.1-0.20200907123904-82b489073b49
 	github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3
 	github.com/devopsfaith/krakend-lambda v0.0.0-20200123123306-cce9724ca461
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502
@@ -41,7 +41,7 @@ require (
 	github.com/devopsfaith/krakend-rss v0.0.0-20190129231017-47ac2b10547c
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c
 	github.com/devopsfaith/krakend-viper v0.0.0-20200605164302-854fa4ff4a66
-	github.com/devopsfaith/krakend-xml v0.0.0-20190713155104-2cd38185308f
+	github.com/devopsfaith/krakend-xml v0.0.0-20200824111110-baa61b333b05
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-contrib/uuid v1.2.0
 	github.com/google/btree v1.0.0 // indirect

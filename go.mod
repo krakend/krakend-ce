@@ -16,7 +16,7 @@ require (
 	github.com/devopsfaith/krakend v1.1.2-0.20200826121428-f41e024bd50a
 	github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20200729112051-82f1b8f8fdfe
-	github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e
+	github.com/devopsfaith/krakend-cel v0.0.0-20200908134208-7162c125376d
 	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20200703180246-3ea7a4c22c3b
 	github.com/devopsfaith/krakend-cobra v0.0.0-20200317174411-3518505e8cd2
 	github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1
@@ -45,7 +45,6 @@ require (
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-contrib/uuid v1.2.0
 	github.com/google/btree v1.0.0 // indirect
-	github.com/google/cel-go v0.2.0 // indirect
 	github.com/gorilla/websocket v1.4.0 // indirect
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.0.0 // indirect

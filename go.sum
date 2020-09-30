@@ -40,6 +40,7 @@ github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/DataDog/datadog-go v0.0.0-20180822151419-281ae9f2d895 h1:dmc/C8bpE5VkQn65PNbbyACDC8xw8Hpp/NEurdPmQDQ=
 github.com/DataDog/datadog-go v0.0.0-20180822151419-281ae9f2d895/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
+github.com/DataDog/datadog-go v3.4.1+incompatible h1:hRUopimy+td4Lc3QDvP/hsbQKI3n5xsmGJTRghwaA7U=
 github.com/DataDog/datadog-go v3.4.1+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
 github.com/DataDog/opencensus-go-exporter-datadog v0.0.0-20191210083620-6965a1cfed68 h1:mH5GS97R/ubxJHOcCx2+x+wlwfkiSvaKbDzPxdkROmM=
 github.com/DataDog/opencensus-go-exporter-datadog v0.0.0-20191210083620-6965a1cfed68/go.mod h1:gMGUEe16aZh0QN941HgDjwrdjU4iTthPoz2/AtDRADE=
@@ -199,6 +200,10 @@ github.com/devopsfaith/krakend v1.1.2-0.20200825112309-c32c3b2f8df3 h1:MCX1dPgQn
 github.com/devopsfaith/krakend v1.1.2-0.20200825112309-c32c3b2f8df3/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend v1.1.2-0.20200826121428-f41e024bd50a h1:OYax39TqeNEnCEDX7WXxw8Z5yjKa1orYg+ppE1OFh9Q=
 github.com/devopsfaith/krakend v1.1.2-0.20200826121428-f41e024bd50a/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/devopsfaith/krakend v1.1.2-0.20200925130430-a1040a6ab898 h1:8QkbGzNgqUGe/qAxARreDrX60aib6YCw2WGxjjJlPzM=
+github.com/devopsfaith/krakend v1.1.2-0.20200925130430-a1040a6ab898/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/devopsfaith/krakend v1.1.2-0.20200930142252-7c9d4ace4128 h1:y6NUf8X12Ub3yGSFrOBSkk0WfReMIJlyAmDpF6cLRC0=
+github.com/devopsfaith/krakend v1.1.2-0.20200930142252-7c9d4ace4128/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend-amqp v1.1.0 h1:mWTfMUrRq6zj4w+N70HL/f5xhgclc95JbQHrg7whBGA=
 github.com/devopsfaith/krakend-amqp v1.1.0/go.mod h1:zhWeDJB1F6GCx9mngyCP+jBr8gdRJV4gOVDySAzmD94=
 github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af h1:Nkg1/u93cQJBDsUEX7wyXdmZ40zCZmr2JZ3dlLdDlRE=
@@ -245,6 +250,8 @@ github.com/devopsfaith/krakend-jose v1.1.1-0.20200825113902-8361d96a3898 h1:DdHm
 github.com/devopsfaith/krakend-jose v1.1.1-0.20200825113902-8361d96a3898/go.mod h1:X/sZgID7vBw8DtT5Vmv+dbLo/7BDMofe4Pfs473TsGY=
 github.com/devopsfaith/krakend-jose v1.1.1-0.20200907123904-82b489073b49 h1:m4y15+9COhDCFiTQmrUefZucjt+RdcG46BB2kxhAVHQ=
 github.com/devopsfaith/krakend-jose v1.1.1-0.20200907123904-82b489073b49/go.mod h1:ltn8GrNAt6w8jy9hwjMWR06oAAqLQIin0Sm35SVF+aM=
+github.com/devopsfaith/krakend-jose v1.1.1-0.20200927132843-c4142bb4e22c h1:Gh2Z7ijSlfHtZOZfGamjDLpoLEB3p+7A03VO+S2fxz0=
+github.com/devopsfaith/krakend-jose v1.1.1-0.20200927132843-c4142bb4e22c/go.mod h1:ltn8GrNAt6w8jy9hwjMWR06oAAqLQIin0Sm35SVF+aM=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3 h1:KygyOdHu01dq6IqN6nDAWruCVUq/WYbqTJ1F4j5RdjE=
 github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3/go.mod h1:t9+2XzrPivngNl1NY4j3T9iNLzzAxvIF7Hcer5jw1g4=
 github.com/devopsfaith/krakend-lambda v0.0.0-20200123123306-cce9724ca461 h1:VwAYth9OP/FNrroE/zSPORL0WnnRGSW9fP+WTha0nHU=
@@ -259,6 +266,8 @@ github.com/devopsfaith/krakend-lua v1.1.2-0.20200515164843-c5067907900a h1:i9lvt
 github.com/devopsfaith/krakend-lua v1.1.2-0.20200515164843-c5067907900a/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
 github.com/devopsfaith/krakend-lua v1.1.2-0.20200720143435-12767996777a h1:bf0rEucR/atxZhTauoyr3zQ8BMaf9lSBiTTc4JCdyso=
 github.com/devopsfaith/krakend-lua v1.1.2-0.20200720143435-12767996777a/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
+github.com/devopsfaith/krakend-lua v1.1.2-0.20200909152058-1b4e6c9afb8f h1:9Vk2jXya6FoPoqyiymfmJzrUAYPYXq8puuPFjVyD7CI=
+github.com/devopsfaith/krakend-lua v1.1.2-0.20200909152058-1b4e6c9afb8f/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
 github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91 h1:kvAuufTGV9xZ5Xd7OUumOVGB2fuqJ6dfug+FXdsNj0g=
 github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91/go.mod h1:rgjNUD1sqpJj2VFeJdm7NA41BrEOf/Uj8Iv2rPQPlGI=
 github.com/devopsfaith/krakend-martian v0.0.0-20191207191841-92e3287c36d9 h1:KR9u7DoS8pvFsRrWP+pR6jJPFaSYLkCXCkfmv+WnMq0=
@@ -283,6 +292,8 @@ github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee h1:fH/XtIs
 github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee/go.mod h1:8Pja/oCPauHW6SFcIIRvY2+34HIlHCpfiZRfRP9fHHE=
 github.com/devopsfaith/krakend-rss v0.0.0-20190129231017-47ac2b10547c h1:707W4pySZuplwIWAdV1rGqVhKccwAPg017J31CRV0SY=
 github.com/devopsfaith/krakend-rss v0.0.0-20190129231017-47ac2b10547c/go.mod h1:8Pja/oCPauHW6SFcIIRvY2+34HIlHCpfiZRfRP9fHHE=
+github.com/devopsfaith/krakend-rss v0.0.0-20200914123253-f81cced96000 h1:+xHUuBQoJs+a2f5Ic2ALod6LH+ivSFlxxDho3/9CQtA=
+github.com/devopsfaith/krakend-rss v0.0.0-20200914123253-f81cced96000/go.mod h1:8Pja/oCPauHW6SFcIIRvY2+34HIlHCpfiZRfRP9fHHE=
 github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c h1:FuAkXt/3/x96mKFNsHMIbrZP7AZCtlopTp3UVa+SZ5Y=
 github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c/go.mod h1:bWFatcSzxvpMsdOCtB+M43fBGq8RRVXsagONQCEOuLk=
 github.com/devopsfaith/krakend-viper v0.0.0-20171110192827-3abc4134a773/go.mod h1:QNRqgiGBrFbQj4MIxMs0fiKf9uqngQHJBUsS5/SfZmw=
@@ -775,6 +786,7 @@ github.com/tcnksm/go-input v0.0.0-20180404061846-548a7d7a8ee8/go.mod h1:IlWNj9v/
 github.com/testcontainers/testcontainer-go v0.0.0-20181115231424-8e868ca12c0f/go.mod h1:SrG3IY071gtmZJjGbKO+POJ57a/MMESerYNWt6ZRtKs=
 github.com/tinylib/msgp v1.0.2 h1:DfdQrzQa7Yh2es9SuLkixqxuXS2SxsdYn0KbdrOGWD8=
 github.com/tinylib/msgp v1.0.2/go.mod h1:+d+yLhGm8mzTaHzB+wgMYrodPfmZrzkirds8fDWklFE=
+github.com/tinylib/msgp v1.1.2 h1:gWmO7n0Ys2RBEb7GPYB9Ujq8Mk5p2U08lRnmMcGy6BQ=
 github.com/tinylib/msgp v1.1.2/go.mod h1:+d+yLhGm8mzTaHzB+wgMYrodPfmZrzkirds8fDWklFE=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5 h1:LnC5Kc/wtumK+WB441p7ynQJzVuNRJiqddSIE3IlSEQ=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=

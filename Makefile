@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 1.1.1
+VERSION := 1.2.0
 PKGNAME := krakend
 LICENSE := Apache 2.0
 VENDOR=
@@ -18,7 +18,7 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@devops.faith>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.14.0
+GOLANG_VERSION := 1.15.2
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -47,6 +47,38 @@ DEBNAME=${PKGNAME}_${VERSION}-${RELEASE}_${ARCH}.deb
 RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 
 all: test
+
+update_krakend_deps:
+	go get github.com/devopsfaith/krakend@master
+	go get github.com/devopsfaith/krakend-amqp@master
+	go get github.com/devopsfaith/krakend-botdetector@master
+	go get github.com/devopsfaith/krakend-cel@master
+	go get github.com/devopsfaith/krakend-circuitbreaker@master
+	go get github.com/devopsfaith/krakend-cobra@master
+	go get github.com/devopsfaith/krakend-consul@master
+	go get github.com/devopsfaith/krakend-cors@master
+	go get github.com/devopsfaith/krakend-etcd@master
+	go get github.com/devopsfaith/krakend-flexibleconfig@master
+	go get github.com/devopsfaith/krakend-gelf@master
+	go get github.com/devopsfaith/krakend-gologging@master
+	go get github.com/devopsfaith/krakend-httpcache@master
+	go get github.com/devopsfaith/krakend-httpsecure@master
+	go get github.com/devopsfaith/krakend-jose@master
+	go get github.com/devopsfaith/krakend-jsonschema@master
+	go get github.com/devopsfaith/krakend-lambda@master
+	go get github.com/devopsfaith/krakend-logstash@master
+	go get github.com/devopsfaith/krakend-lua@master
+	go get github.com/devopsfaith/krakend-martian@master
+	go get github.com/devopsfaith/krakend-metrics@master
+	go get github.com/devopsfaith/krakend-oauth2-clientcredentials@master
+	go get github.com/devopsfaith/krakend-opencensus@master
+	go get github.com/devopsfaith/krakend-pubsub@master
+	go get github.com/devopsfaith/krakend-ratelimit@master
+	go get github.com/devopsfaith/krakend-rss@master
+	go get github.com/devopsfaith/krakend-usage@master
+	go get github.com/devopsfaith/krakend-viper@master
+	go get github.com/devopsfaith/krakend-xml@master
+	make test
 
 build:
 	@echo "Building the binary..."

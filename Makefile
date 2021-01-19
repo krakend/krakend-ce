@@ -57,7 +57,7 @@ update_krakend_deps:
 	go get github.com/devopsfaith/krakend-cobra@master
 	go get github.com/devopsfaith/krakend-consul@master
 	go get github.com/devopsfaith/krakend-cors@master
-	go get github.com/devopsfaith/krakend-etcd@master
+	# go get github.com/devopsfaith/krakend-etcd@master
 	go get github.com/devopsfaith/krakend-flexibleconfig@master
 	go get github.com/devopsfaith/krakend-gelf@master
 	go get github.com/devopsfaith/krakend-gologging@master

@@ -12,9 +12,11 @@ import (
 	"net"
 	"net/http"
 	"net/textproto"
+	"os"
 	"os/exec"
 	"path"
 	"reflect"
+	"regexp"
 	"strconv"
 	"strings"
 	"sync"
@@ -22,11 +24,24 @@ import (
 )
 
 var (
-	defaultBinPath     *string        = flag.String("krakend_bin_path", ".././krakend", "The default path to the krakend bin")
-	defaultCfgPath     *string        = flag.String("krakend_config_path", "fixtures/krakend.json", "The default path to the krakend config")
-	defaultSpecsPath   *string        = flag.String("krakend_specs_path", "./fixtures/specs", "The default path to the specs folder")
-	defaultBackendPort *int           = flag.Int("krakend_backend_port", 8081, "The port for the mocked backend api")
-	defaultDelay       *time.Duration = flag.Duration("krakend_delay", 200*time.Millisecond, "The delay for the delayed backend endpoint")
+	defaultBinPath     *string = flag.String("krakend_bin_path", ".././krakend", "The default path to the krakend bin")
+	defaultSpecsPath   *string = flag.String("krakend_specs_path", "./fixtures/specs", "The default path to the specs folder")
+	defaultBackendPort *int    = flag.Int("krakend_backend_port", 8081, "The port for the mocked backend api")
+	defaultCfgPath     *string = flag.String(
+		"krakend_config_path",
+		"fixtures/krakend.json",
+		"The default path to the krakend config",
+	)
+	defaultDelay *time.Duration = flag.Duration(
+		"krakend_delay",
+		200*time.Millisecond,
+		"The delay for the delayed backend endpoint",
+	)
+	defaultEnvironPatterns *string = flag.String(
+		"krakend_envar_pattern",
+		"",
+		"Comma separated list of patterns to use to filter the envars to pass (set to \".*\" to pass everything)",
+	)
 )
 
 // TestCase defines a single case to be tested
@@ -64,11 +79,12 @@ type BackendBuilder interface {
 
 // Config contains options for running a test.
 type Config struct {
-	BinPath     string
-	CfgPath     string
-	SpecsPath   string
-	BackendPort int
-	Delay       time.Duration
+	BinPath         string
+	CfgPath         string
+	SpecsPath       string
+	EnvironPatterns string
+	BackendPort     int
+	Delay           time.Duration
 }
 
 func (c *Config) getBinPath() string {
@@ -104,6 +120,13 @@ func (c *Config) getDelay() time.Duration {
 		return c.Delay
 	}
 	return *defaultDelay
+}
+
+func (c *Config) getEnvironPatterns() string {
+	if c.EnvironPatterns != "" {
+		return c.EnvironPatterns
+	}
+	return *defaultEnvironPatterns
 }
 
 var defaultConfig Config
@@ -198,9 +221,18 @@ func (i *Runner) Check(tc TestCase) error {
 	return assertResponse(resp, tc.Out)
 }
 
+type responseError struct {
+	errMessage []string
+}
+
+func (m responseError) Error() string {
+	return "wrong response:\n\t" + strings.Join(m.errMessage, "\n\t")
+}
+
 func assertResponse(actual *http.Response, expected Output) error {
+	errMsgs := []string{}
 	if actual.StatusCode != expected.StatusCode {
-		return fmt.Errorf("unexpected status code. have: %d, want: %d", actual.StatusCode, expected.StatusCode)
+		errMsgs = append(errMsgs, fmt.Sprintf("unexpected status code. have: %d, want: %d", actual.StatusCode, expected.StatusCode))
 	}
 
 	for k, vs := range expected.Header {
@@ -212,11 +244,12 @@ func assertResponse(actual *http.Response, expected Output) error {
 		}
 
 		if ok {
-			return fmt.Errorf("unexpected value for header %s. have: %s, want: %s", k, hs, vs)
+			errMsgs = append(errMsgs, fmt.Sprintf("unexpected value for header %s. have: %s, want: %s", k, hs, vs))
+			continue
 		}
 
 		if vs[0] != "" {
-			return fmt.Errorf("header %s not present: %+v", k, actual.Header)
+			errMsgs = append(errMsgs, fmt.Sprintf("header %s not present: %+v", k, actual.Header))
 		}
 	}
 
@@ -232,9 +265,15 @@ func assertResponse(actual *http.Response, expected Output) error {
 	}
 
 	if expected.Body != body {
-		return fmt.Errorf("unexpected body.\nhave: %s\nwant: %s", body, expected.Body)
+		errMsgs = append(errMsgs, fmt.Sprintf("unexpected body.\n\t\thave: %s\n\t\twant: %s", body, expected.Body))
 	}
-	return nil
+	if len(errMsgs) == 0 {
+		return nil
+	}
+
+	return responseError{
+		errMessage: errMsgs,
+	}
 }
 
 func testCases(cfg Config) ([]TestCase, error) {
@@ -304,14 +343,34 @@ var defaultCmdBuilder krakendCmdBuilder
 
 type krakendCmdBuilder struct{}
 
-func (krakendCmdBuilder) New(cfg *Config) *exec.Cmd {
+func (k krakendCmdBuilder) New(cfg *Config) *exec.Cmd {
 	cmd := exec.Command(cfg.getBinPath(), "run", "-d", "-c", cfg.getCfgPath())
-
-	if len(cmd.Env) == 0 {
-		cmd.Env = []string{}
-	}
-	cmd.Env = append(cmd.Env, "USAGE_DISABLE=1")
+	cmd.Env = k.getEnviron(cfg)
 	return cmd
+}
+
+func (krakendCmdBuilder) getEnviron(cfg *Config) []string {
+	environ := []string{"USAGE_DISABLE=1"}
+
+	patterns := []*regexp.Regexp{}
+	for _, pattern := range strings.Split(cfg.getEnvironPatterns(), ",") {
+		re, err := regexp.Compile(pattern)
+		if err != nil {
+			continue
+		}
+		patterns = append(patterns, re)
+	}
+
+	for _, candidate := range os.Environ() {
+		for _, pattern := range patterns {
+			if pattern.MatchString(candidate) {
+				environ = append(environ, candidate)
+				break
+			}
+		}
+	}
+
+	return environ
 }
 
 var defaultBackendBuilder mockBackendBuilder

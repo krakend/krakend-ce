@@ -87,14 +87,7 @@ The package creates a krakend user to run the service and configures the service
 
 ## Linux Distributions
 * just any Linux (using the `tar.gz`)
-* ubuntu 14.04, 16.04 (should run un 17.04/10 too)
-* Debian 7, 8, 9
-* centos 6, 7
+* Ubuntu
+* Debian
+* CentOS/RedHat
 
-```
-deb: ubuntu debian
-rpm: el6 el7
-
-ubuntu: ubuntu-trusty ubuntu-xenial
-debian: debian-wheezy debian-jessie debian-stretch
-```

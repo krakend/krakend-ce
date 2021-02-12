@@ -3,8 +3,6 @@
 # KrakenD API Gateway
 Ultra-High performance API Gateway with middlewares
 
-[![Build Status](https://travis-ci.org/devopsfaith/krakend-ce.svg?branch=master)](https://travis-ci.org/devopsfaith/krakend-ce)
-
 **KrakenD Community Edition** (or *KrakenD-CE*) is the binary distribution of [KrakenD](http://www.krakend.io).
 
 In this repository, you'll find the utils to build the KrakenD binary yourself. If you want to use KrakenD [download the binary](http://www.krakend.io/download/)

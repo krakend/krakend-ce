@@ -505,6 +505,9 @@ github.com/devopsfaith/krakend v1.1.2-0.20200925130430-a1040a6ab898 h1:8QkbGzNgq
 github.com/devopsfaith/krakend v1.1.2-0.20200925130430-a1040a6ab898/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend v1.1.2-0.20200930142252-7c9d4ace4128 h1:y6NUf8X12Ub3yGSFrOBSkk0WfReMIJlyAmDpF6cLRC0=
 github.com/devopsfaith/krakend v1.1.2-0.20200930142252-7c9d4ace4128/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/devopsfaith/krakend v1.2.0/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e h1:72Fr+CxekI8uUoHeqMuL24V7WdgeGIMHWeABZUmo3GQ=
+github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend-amqp v1.1.0 h1:mWTfMUrRq6zj4w+N70HL/f5xhgclc95JbQHrg7whBGA=
 github.com/devopsfaith/krakend-amqp v1.1.0/go.mod h1:zhWeDJB1F6GCx9mngyCP+jBr8gdRJV4gOVDySAzmD94=
 github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af h1:Nkg1/u93cQJBDsUEX7wyXdmZ40zCZmr2JZ3dlLdDlRE=
@@ -517,6 +520,8 @@ github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e h1:E9zdm77
 github.com/devopsfaith/krakend-cel v0.0.0-20190502130550-d6872fd4f97e/go.mod h1:CwIyUsXJUD/eb3nsFqX2AULic5zmrKUDl0wPdEH25Ko=
 github.com/devopsfaith/krakend-cel v0.0.0-20200908134208-7162c125376d h1:/xFnVmlZp0kucuYGgzep+Ski7dPczIvnjqg4qjkeJR8=
 github.com/devopsfaith/krakend-cel v0.0.0-20200908134208-7162c125376d/go.mod h1:0ys3H2B8d6fw4pPdvSO7ZtCqf3k8nVG98H9pYTIOpOQ=
+github.com/devopsfaith/krakend-cel v0.0.0-20210127195753-2e4f1c7580e4 h1:MIh7jCT+eIY7GBHhk9dI39q5C2d/UL7qz6iN+0AKq3A=
+github.com/devopsfaith/krakend-cel v0.0.0-20210127195753-2e4f1c7580e4/go.mod h1:0ys3H2B8d6fw4pPdvSO7ZtCqf3k8nVG98H9pYTIOpOQ=
 github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981 h1:kak/LmjiKUBXQ5yOw0tW7+bSPAdsHLgkdJf3TRhXVAk=
 github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20190405155253-cf7c0a538981/go.mod h1:f8aiqw0hMfLVFCPJ6j1tnL4NMGwJ2y/lKoXLwa3xwjk=
 github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20200703180246-3ea7a4c22c3b h1:QIalyRGLmZE2nRNy5ZE57HXOxMM41viJotcCXyaJvdY=
@@ -527,8 +532,12 @@ github.com/devopsfaith/krakend-cobra v0.0.0-20200317174411-3518505e8cd2 h1:gcKnD
 github.com/devopsfaith/krakend-cobra v0.0.0-20200317174411-3518505e8cd2/go.mod h1:HdXIoNBN/+v3N+el5cAGoXL5O4q3KKbl4+9B+DfaFlY=
 github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1 h1:K4OSn+IG3ugJ1sPbyvkxvzWDSFnDLhdzvr8LKjv56N8=
 github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1/go.mod h1:YrseOkHTnkZr9nsfsYnzHB9Z9VWR9oouw4FhfGG5PUo=
+github.com/devopsfaith/krakend-consul v0.0.0-20210209180917-00d2bff69730 h1:w3ber+q9yhpmVjSZQfqmjaS6B0lqpmZnTTMlOeGoLTU=
+github.com/devopsfaith/krakend-consul v0.0.0-20210209180917-00d2bff69730/go.mod h1:ddKteueI08RJN1bKtUdT01+Np5XAmYUz6VOnmz4UWGY=
 github.com/devopsfaith/krakend-cors v0.0.0-20200615164006-ad82a58ac55d h1:GMzsKuJ3O2soZiEQWTBbaqkprp/mi1aSPJfLbpWZ6Qc=
 github.com/devopsfaith/krakend-cors v0.0.0-20200615164006-ad82a58ac55d/go.mod h1:nvpTPYYXyfnmMV+6lkGK5ht2Gy9EJ2sN+VpO85VC7ow=
+github.com/devopsfaith/krakend-cors v0.0.0-20210126212640-09bb3851d085 h1:ONHRQU1lwicqiSJ4FrBd8cHyIf+jCg6/sCYkS1YPcu0=
+github.com/devopsfaith/krakend-cors v0.0.0-20210126212640-09bb3851d085/go.mod h1:nvpTPYYXyfnmMV+6lkGK5ht2Gy9EJ2sN+VpO85VC7ow=
 github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c h1:XZY/6DFD4pFVQBu7fRuEUlDwO6s2gFvUM0EBCWxpSM8=
 github.com/devopsfaith/krakend-etcd v0.0.0-20180215165313-bd645943ff8c/go.mod h1:eN8KUWXFsMOophxB4Y3YFjJbjX2vZwcOueRMS/OuP/s=
 github.com/devopsfaith/krakend-etcd v0.0.0-20190425091451-d989a26508d7 h1:1hXWmV8GhwEEXCrt4rlvFsI9adzFx6C9OGe05C1gE98=
@@ -573,6 +582,8 @@ github.com/devopsfaith/krakend-lua v1.1.2-0.20200720143435-12767996777a h1:bf0rE
 github.com/devopsfaith/krakend-lua v1.1.2-0.20200720143435-12767996777a/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
 github.com/devopsfaith/krakend-lua v1.1.2-0.20200909152058-1b4e6c9afb8f h1:9Vk2jXya6FoPoqyiymfmJzrUAYPYXq8puuPFjVyD7CI=
 github.com/devopsfaith/krakend-lua v1.1.2-0.20200909152058-1b4e6c9afb8f/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
+github.com/devopsfaith/krakend-lua v1.1.2-0.20210209235241-e842cd2d676e h1:kis1hwdj0CSN54Q3IzZ/PGv6QBP7dZuo+zbs/laU/bI=
+github.com/devopsfaith/krakend-lua v1.1.2-0.20210209235241-e842cd2d676e/go.mod h1:GLwStxNkjHi7bIa9fm8TqLquzzSY7H/D6fpVFAWHNgY=
 github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91 h1:kvAuufTGV9xZ5Xd7OUumOVGB2fuqJ6dfug+FXdsNj0g=
 github.com/devopsfaith/krakend-martian v0.0.0-20190424133031-29314a524a91/go.mod h1:rgjNUD1sqpJj2VFeJdm7NA41BrEOf/Uj8Iv2rPQPlGI=
 github.com/devopsfaith/krakend-martian v0.0.0-20191207191841-92e3287c36d9 h1:KR9u7DoS8pvFsRrWP+pR6jJPFaSYLkCXCkfmv+WnMq0=
@@ -585,6 +596,7 @@ github.com/devopsfaith/krakend-opencensus v1.1.1-0.20200317162023-3ffd692ac4ad h
 github.com/devopsfaith/krakend-opencensus v1.1.1-0.20200317162023-3ffd692ac4ad/go.mod h1:Ji5FAg3LXgyk7gSFqKCMwIsPyTkhygz5yzDRE2vifxM=
 github.com/devopsfaith/krakend-opencensus v1.1.1-0.20200707175954-c3b3652bb365 h1:p/cKMGfjgvIeVochi3MIeVrZJYiilAF8uxgztLFXiRo=
 github.com/devopsfaith/krakend-opencensus v1.1.1-0.20200707175954-c3b3652bb365/go.mod h1:Ji5FAg3LXgyk7gSFqKCMwIsPyTkhygz5yzDRE2vifxM=
+github.com/devopsfaith/krakend-opencensus v1.1.1-0.20201119132304-815fbc5addba/go.mod h1:Ji5FAg3LXgyk7gSFqKCMwIsPyTkhygz5yzDRE2vifxM=
 github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd h1:2LmPysRcGOg9XFuMeCNEbTP9dl9XbJLWnvrA47oGiXM=
 github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd/go.mod h1:80NhdyV8q7rBEhxjsrR3u7MIHfyb66wNYcCgBdNPpMM=
 github.com/devopsfaith/krakend-pubsub v0.0.0-20200728135630-1781054836a5 h1:W++CLKEbbCcxRwKwkxtA3AjHHW7+RFHieaKu9cz8cgc=
@@ -593,6 +605,8 @@ github.com/devopsfaith/krakend-ratelimit v1.1.0 h1:9LH8ln4H2SakS+3msPYveimtBxPsw
 github.com/devopsfaith/krakend-ratelimit v1.1.0/go.mod h1:7sciYcl2r36fubYBODhHfx4Y0vqAYabdfcq/fz3VNoA=
 github.com/devopsfaith/krakend-ratelimit v1.1.1-0.20200309135238-076143483904 h1:izCACjyHKeOZmCUjeQEl8GHx88Xs7kuN0F0z1IpFnxM=
 github.com/devopsfaith/krakend-ratelimit v1.1.1-0.20200309135238-076143483904/go.mod h1:7sciYcl2r36fubYBODhHfx4Y0vqAYabdfcq/fz3VNoA=
+github.com/devopsfaith/krakend-ratelimit v1.1.1-0.20210208161207-53a76133553a h1:ZXBFTDBp8zxrD/rPz5uVGjoshTqUV1G62dXyyHB5jFA=
+github.com/devopsfaith/krakend-ratelimit v1.1.1-0.20210208161207-53a76133553a/go.mod h1:7sciYcl2r36fubYBODhHfx4Y0vqAYabdfcq/fz3VNoA=
 github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee h1:fH/XtIs3Xlsi3nda0nxTN3+2/TfRyyCJJtmVo59ijLY=
 github.com/devopsfaith/krakend-rss v0.0.0-20180408220939-4c18c62a99ee/go.mod h1:8Pja/oCPauHW6SFcIIRvY2+34HIlHCpfiZRfRP9fHHE=
 github.com/devopsfaith/krakend-rss v0.0.0-20190129231017-47ac2b10547c h1:707W4pySZuplwIWAdV1rGqVhKccwAPg017J31CRV0SY=

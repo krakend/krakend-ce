@@ -48,7 +48,7 @@ require (
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect
 	github.com/hashicorp/consul v1.6.10 // indirect
-	github.com/hashicorp/vault v1.6.1 // indirect
+	github.com/hashicorp/vault v1.6.0 // indirect
 	github.com/influxdata/influxdb v1.7.4 // indirect
 	github.com/influxdata/platform v0.0.0-20190117200541-d500d3cf5589 // indirect
 	github.com/jonboulle/clockwork v0.1.0 // indirect
@@ -78,4 +78,5 @@ require (
 	gocloud.dev/pubsub/rabbitpubsub v0.21.0 // indirect
 	gocloud.dev/secrets/hashivault v0.21.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20180326133423-4dbb9d721348 // indirect
+	k8s.io/api v0.20.2 // indirect
 )

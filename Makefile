@@ -82,7 +82,6 @@ update_krakend_deps:
 
 build:
 	@echo "Building the binary..."
-	@go get github.com/hashicorp/vault@v1.6.0
 	@go get .
 	@go build -ldflags="-X github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"

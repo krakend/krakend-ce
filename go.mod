@@ -27,7 +27,7 @@ require (
 	github.com/devopsfaith/krakend-gologging v0.0.0-20190131142345-f3f256584ecc
 	github.com/devopsfaith/krakend-httpcache v0.0.0-20181030153148-8474476ff874
 	github.com/devopsfaith/krakend-httpsecure v0.0.0-20191009151918-298638962e76
-	github.com/devopsfaith/krakend-jose v1.1.1-0.20210218171104-d5455916a0ba
+	github.com/devopsfaith/krakend-jose v1.1.1-0.20210219175810-9b453c61a92e
 	github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3
 	github.com/devopsfaith/krakend-lambda v0.0.0-20201005114349-3d7d5730c1fa
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502

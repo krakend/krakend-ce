@@ -547,6 +547,8 @@ github.com/devopsfaith/krakend-etcd v0.0.0-20190425091451-d989a26508d7 h1:1hXWmV
 github.com/devopsfaith/krakend-etcd v0.0.0-20190425091451-d989a26508d7/go.mod h1:eN8KUWXFsMOophxB4Y3YFjJbjX2vZwcOueRMS/OuP/s=
 github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf h1:tt+lvwMGG/M+/llO23naqfQt6PbczaLEJGdfmeI5m/Y=
 github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf/go.mod h1:knJYjT+Q8Q7w+dPp9Un2O45ZQY10C5mFMqFSl/bk9WE=
+github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20210222183249-754d3c696149 h1:80/ngVPowkng0ROgVQFQAkzAeaw+8p3g7BkJVIT+PKA=
+github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20210222183249-754d3c696149/go.mod h1:knJYjT+Q8Q7w+dPp9Un2O45ZQY10C5mFMqFSl/bk9WE=
 github.com/devopsfaith/krakend-gelf v0.0.0-20181019222239-59c0250b1c60 h1:7DgATQUDX7XXmGCJd0Ji41jp+DsGSag1/t6ZyAKMXr4=
 github.com/devopsfaith/krakend-gelf v0.0.0-20181019222239-59c0250b1c60/go.mod h1:ALp5WjRedbEZl7C0JvbBrowIGnjcR2wBaej/f5SboYM=
 github.com/devopsfaith/krakend-gologging v0.0.0-20190131142345-f3f256584ecc h1:wHbEGQeCc3PuxQH7rijh+7vLtfP+xllEyFw7fPX5C1E=

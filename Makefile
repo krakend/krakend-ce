@@ -36,8 +36,6 @@ DEB_OPTS= -t deb --deb-user $(USER) \
   --after-remove builder/scripts/postrm.deb \
 	--before-install builder/scripts/preinst.deb
 
-DEB_INIT=--deb-init builder/files/krakend.init
-
 RPM_OPTS =--rpm-user $(USER) \
 	--before-install builder/scripts/preinst.rpm \
 	--before-remove builder/scripts/prerm.rpm \

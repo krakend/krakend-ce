@@ -36,8 +36,6 @@ DEB_OPTS= -t deb --deb-user $(USER) \
   --after-remove builder/scripts/postrm.deb \
 	--before-install builder/scripts/preinst.deb
 
-DEB_INIT=--deb-init builder/files/krakend.init
-
 RPM_OPTS =--rpm-user $(USER) \
 	--before-install builder/scripts/preinst.rpm \
 	--before-remove builder/scripts/prerm.rpm \
@@ -89,33 +87,11 @@ build:
 test: build
 	go test -v ./tests
 
-docker_build:
+build_on_docker:
 	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make build
 
-krakend_docker: docker_build
-	docker build -t devopsfaith/krakend:${VERSION} .
-
-krakend_docker_alpine:
-	docker build -t devopsfaith/krakend:${VERSION}-alpine -f Dockerfile.alpine .
-
-tgz: builder/skel/tgz/usr/bin/krakend
-tgz: builder/skel/tgz/etc/krakend/krakend.json
-tgz: builder/skel/tgz/etc/init.d/krakend
-	tar zcvf krakend_${VERSION}_${ARCH}.tar.gz -C builder/skel/tgz/ .
-
-deb: ubuntu debian
-rpm: el6 el7
-
-ubuntu: ubuntu-trusty ubuntu-xenial
-debian: debian-wheezy debian-jessie debian-stretch
-
-builder/skel/el6/etc/init/krakend.conf: builder/files/krakend.conf.el6
-	mkdir -p "$(dir $@)"
-	cp builder/files/krakend.conf.el6 "$@"
-
-builder/skel/%/etc/init/krakend.conf: builder/files/krakend.conf
-	mkdir -p "$(dir $@)"
-	cp builder/files/krakend.conf "$@"
+docker:
+	docker build --pull -t devopsfaith/krakend:${VERSION} .
 
 builder/skel/%/etc/init.d/krakend: builder/files/krakend.init
 	mkdir -p "$(dir $@)"
@@ -137,73 +113,30 @@ builder/skel/%/usr/lib/systemd/system/krakend.service: builder/files/krakend.ser
 	mkdir -p "$(dir $@)"
 	cp builder/files/krakend.service "$@"
 
-.PHONY: ubuntu-trusty
-ubuntu-trusty: builder/skel/ubuntu-trusty/usr/bin/krakend
-ubuntu-trusty: builder/skel/ubuntu-trusty/etc/krakend/krakend.json
-ubuntu-trusty: builder/skel/ubuntu-trusty/etc/init.d/krakend
-ubuntu-trusty: builder/skel/ubuntu-trusty/etc/init/krakend.conf
-	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:deb -t deb ${DEB_OPTS} \
-		--iteration ${RELEASE}.ubuntu-trusty \
-		-C builder/skel/ubuntu-trusty \
-		${DEB_INIT} \
-		${FPM_OPTS}
+.PHONE: tgz
+tgz: builder/skel/tgz/usr/bin/krakend
+tgz: builder/skel/tgz/etc/krakend/krakend.json
+tgz: builder/skel/tgz/etc/init.d/krakend
+	tar zcvf krakend_${VERSION}_${ARCH}.tar.gz -C builder/skel/tgz/ .
 
-.PHONY: ubuntu-xenial
-ubuntu-xenial: builder/skel/ubuntu-xenial/usr/bin/krakend
-ubuntu-xenial: builder/skel/ubuntu-xenial/etc/krakend/krakend.json
+.PHONY: deb
+deb: builder/skel/deb/usr/bin/krakend
+deb: builder/skel/deb/etc/krakend/krakend.json
 	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:deb -t deb ${DEB_OPTS} \
-		--iteration ${RELEASE}.ubuntu-xenial \
+		--iteration ${RELEASE} \
 		--deb-systemd builder/files/krakend.service \
-		-C builder/skel/ubuntu-xenial \
+		-C builder/skel/deb \
 		${FPM_OPTS}
 
-.PHONY: debian-wheezy
-debian-wheezy: builder/skel/debian-wheezy/usr/bin/krakend
-debian-wheezy: builder/skel/debian-wheezy/etc/krakend/krakend.json
-debian-wheezy: builder/skel/debian-wheezy/etc/init.d/krakend
-debian-wheezy: builder/skel/debian-wheezy/etc/init/krakend.conf
-	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:deb -t deb ${DEB_OPTS} \
-		--iteration ${RELEASE}.debian-wheezy \
-		-C builder/skel/debian-wheezy \
-		--before-install builder/scripts/preinst-debian-wheezy.deb \
-		${DEB_INIT} \
-		${FPM_OPTS}
-
-.PHONY: debian-jessie
-debian-jessie: builder/skel/debian-jessie/usr/bin/krakend
-debian-jessie: builder/skel/debian-jessie/etc/krakend/krakend.json
-	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:deb -t deb ${DEB_OPTS} \
-		--iteration ${RELEASE}.debian-jessie \
-		--deb-systemd builder/files/krakend.service \
-		-C builder/skel/debian-jessie \
-		${FPM_OPTS}
-
-.PHONY: debian-stretch
-debian-stretch: builder/skel/debian-stretch/usr/bin/krakend
-debian-stretch: builder/skel/debian-stretch/etc/krakend/krakend.json
-	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:deb -t deb ${DEB_OPTS} \
-		--iteration ${RELEASE}.debian-stretch \
-		--deb-systemd builder/files/krakend.service \
-		-C builder/skel/debian-stretch \
-		${FPM_OPTS}
-
-.PHONY: el7
-el7: builder/skel/el7/usr/lib/systemd/system/krakend.service
-el7: builder/skel/el7/usr/bin/krakend
-el7: builder/skel/el7/etc/krakend/krakend.json
+.PHONY: rpm
+rpm: builder/skel/rpm/usr/lib/systemd/system/krakend.service
+rpm: builder/skel/rpm/usr/bin/krakend
+rpm: builder/skel/rpm/etc/krakend/krakend.json
 	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:rpm -t rpm ${RPM_OPTS} \
-		--iteration ${RELEASE}.el7 \
-		-C builder/skel/el7 \
+		--iteration ${RELEASE} \
+		-C builder/skel/rpm \
 		${FPM_OPTS}
 
-.PHONY: el6
-el6: builder/skel/el6/etc/init/krakend.conf
-el6: builder/skel/el6/usr/bin/krakend
-el6: builder/skel/el6/etc/krakend/krakend.json
-	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:rpm -t rpm ${RPM_OPTS} \
-		--iteration ${RELEASE}.el6 \
-		-C builder/skel/el6 \
-		${FPM_OPTS}
 
 .PHONY: clean
 clean:

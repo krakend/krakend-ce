@@ -13,31 +13,31 @@ require (
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
 	github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc // indirect
-	github.com/devopsfaith/krakend v1.1.2-0.20200930142252-7c9d4ace4128
+	github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e
 	github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20200729112051-82f1b8f8fdfe
-	github.com/devopsfaith/krakend-cel v0.0.0-20200908134208-7162c125376d
+	github.com/devopsfaith/krakend-cel v0.0.0-20210127195753-2e4f1c7580e4
 	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20200703180246-3ea7a4c22c3b
 	github.com/devopsfaith/krakend-cobra v0.0.0-20200317174411-3518505e8cd2
-	github.com/devopsfaith/krakend-consul v0.0.0-20190130102841-7623a4da32a1
-	github.com/devopsfaith/krakend-cors v0.0.0-20200615164006-ad82a58ac55d
+	github.com/devopsfaith/krakend-consul v0.0.0-20210209180917-00d2bff69730
+	github.com/devopsfaith/krakend-cors v0.0.0-20210126212640-09bb3851d085
 	github.com/devopsfaith/krakend-etcd v0.0.0-20190425091451-d989a26508d7
-	github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20190408143848-fc4ef2b4d5cf
+	github.com/devopsfaith/krakend-flexibleconfig v0.0.0-20210222183249-754d3c696149
 	github.com/devopsfaith/krakend-gelf v0.0.0-20181019222239-59c0250b1c60
 	github.com/devopsfaith/krakend-gologging v0.0.0-20190131142345-f3f256584ecc
 	github.com/devopsfaith/krakend-httpcache v0.0.0-20181030153148-8474476ff874
 	github.com/devopsfaith/krakend-httpsecure v0.0.0-20191009151918-298638962e76
-	github.com/devopsfaith/krakend-jose v1.1.1-0.20210119142416-ee6196d50d07
+	github.com/devopsfaith/krakend-jose v1.1.1-0.20210219175810-9b453c61a92e
 	github.com/devopsfaith/krakend-jsonschema v0.0.0-20200611142303-11a34c8149c3
 	github.com/devopsfaith/krakend-lambda v0.0.0-20201005114349-3d7d5730c1fa
 	github.com/devopsfaith/krakend-logstash v0.0.0-20190131142205-17f4745d3502
-	github.com/devopsfaith/krakend-lua v1.1.2-0.20200909152058-1b4e6c9afb8f
+	github.com/devopsfaith/krakend-lua v1.1.2-0.20210209235241-e842cd2d676e
 	github.com/devopsfaith/krakend-martian v0.0.0-20191207191841-92e3287c36d9
 	github.com/devopsfaith/krakend-metrics v1.1.0
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v1.1.0
-	github.com/devopsfaith/krakend-opencensus v1.1.1-0.20200707175954-c3b3652bb365
+	github.com/devopsfaith/krakend-opencensus v1.1.1-0.20201119132304-815fbc5addba
 	github.com/devopsfaith/krakend-pubsub v0.0.0-20200728135630-1781054836a5
-	github.com/devopsfaith/krakend-ratelimit v1.1.1-0.20200309135238-076143483904
+	github.com/devopsfaith/krakend-ratelimit v1.1.1-0.20210208161207-53a76133553a
 	github.com/devopsfaith/krakend-rss v0.0.0-20200914123253-f81cced96000
 	github.com/devopsfaith/krakend-usage v0.0.0-20181025134340-476779c0a36c
 	github.com/devopsfaith/krakend-viper v0.0.0-20200605164302-854fa4ff4a66

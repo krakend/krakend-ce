@@ -9,11 +9,11 @@ import (
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	cel "github.com/devopsfaith/krakend-cel"
-	"github.com/devopsfaith/krakend-cobra"
+	cmd "github.com/devopsfaith/krakend-cobra"
 	cors "github.com/devopsfaith/krakend-cors/gin"
 	gelf "github.com/devopsfaith/krakend-gelf"
-	"github.com/devopsfaith/krakend-gologging"
-	"github.com/devopsfaith/krakend-jose"
+	gologging "github.com/devopsfaith/krakend-gologging"
+	jose "github.com/devopsfaith/krakend-jose"
 	logstash "github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	opencensus "github.com/devopsfaith/krakend-opencensus"
@@ -35,7 +35,7 @@ import (
 	server "github.com/devopsfaith/krakend/transport/http/server/plugin"
 	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
-	"github.com/letgoapp/krakend-influx"
+	influxdb "github.com/letgoapp/krakend-influx"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -211,7 +211,7 @@ type DefaultRunServerFactory struct{}
 func (d *DefaultRunServerFactory) NewRunServer(l logging.Logger, next router.RunServerFunc) RunServer {
 	return RunServer(server.New(
 		l,
-		server.RunServer(cors.NewRunServer(cors.RunServer(next))),
+		server.RunServer(cors.NewRunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l))),
 	))
 }
 

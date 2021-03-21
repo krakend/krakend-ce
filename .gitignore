@@ -3,3 +3,4 @@ krakend
 krakend-alpine
 cmd/krakend-integration/krakend-integration
 tests/fixtures/krakend.json.final
+.idea

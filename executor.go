@@ -6,16 +6,18 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"unicode"
+	"unicode/utf8"
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	cel "github.com/devopsfaith/krakend-cel"
 	cmd "github.com/devopsfaith/krakend-cobra"
-	cors "github.com/devopsfaith/krakend-cors/gin"
+	cors "github.com/devopsfaith/krakend-cors/mux"
 	gelf "github.com/devopsfaith/krakend-gelf"
 	gologging "github.com/devopsfaith/krakend-gologging"
 	jose "github.com/devopsfaith/krakend-jose"
 	logstash "github.com/devopsfaith/krakend-logstash"
-	metrics "github.com/devopsfaith/krakend-metrics/gin"
+	metrics "github.com/devopsfaith/krakend-metrics/mux"
 	opencensus "github.com/devopsfaith/krakend-opencensus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/datadog"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
@@ -31,11 +33,10 @@ import (
 	"github.com/devopsfaith/krakend/logging"
 	"github.com/devopsfaith/krakend/proxy"
 	krakendrouter "github.com/devopsfaith/krakend/router"
-	router "github.com/devopsfaith/krakend/router/gin"
+	"github.com/devopsfaith/krakend/router/httptreemux"
+	router "github.com/devopsfaith/krakend/router/mux"
 	server "github.com/devopsfaith/krakend/transport/http/server/plugin"
-	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
-	influxdb "github.com/letgoapp/krakend-influx"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -70,9 +71,9 @@ type MetricsAndTracesRegister interface {
 	Register(context.Context, config.ServiceConfig, logging.Logger) *metrics.Metrics
 }
 
-// EngineFactory returns a gin engine, ready to be passed to the KrakenD RouterFactory
+// EngineFactory returns a mux engine, ready to be passed to the KrakenD RouterFactory
 type EngineFactory interface {
-	NewEngine(config.ServiceConfig, logging.Logger, io.Writer) *gin.Engine
+	NewEngine(config.ServiceConfig, logging.Logger, io.Writer) httptreemux.Engine
 }
 
 // ProxyFactory returns a KrakenD proxy factory, ready to be passed to the KrakenD RouterFactory
@@ -116,7 +117,15 @@ type ExecutorBuilder struct {
 	HandlerFactory              HandlerFactory
 	RunServerFactory            RunServerFactory
 
-	Middlewares []gin.HandlerFunc
+	Middlewares []router.HandlerMiddleware
+}
+
+func lowerFirst(s string) string {
+	if s == "" {
+		return ""
+	}
+	r, n := utf8.DecodeRuneInString(s)
+	return string(unicode.ToLower(r)) + s[n:]
 }
 
 // NewCmdExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -211,8 +220,28 @@ type DefaultRunServerFactory struct{}
 func (d *DefaultRunServerFactory) NewRunServer(l logging.Logger, next router.RunServerFunc) RunServer {
 	return RunServer(server.New(
 		l,
-		server.RunServer(cors.NewRunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l))),
+		server.RunServer(NewRunServer(NewRunServerWithLogger(RunServer(next), l))),
 	))
+}
+
+// NewRunServer returns a RunServer wrapping the injected one with a CORS middleware, so it is called before the
+// actual router checks the URL, method and other details related to selecting the proper handler for the
+// incoming request
+func NewRunServer(next RunServer) RunServer {
+	return NewRunServerWithLogger(next, nil)
+}
+
+// NewRunServerWithLogger returns a RunServer wrapping the injected one with a CORS middleware, so it is called before the
+// actual router checks the URL, method and other details related to selecting the proper handler for the
+// incoming request
+func NewRunServerWithLogger(next RunServer, l logging.Logger) RunServer {
+	return func(ctx context.Context, cfg config.ServiceConfig, handler http.Handler) error {
+		corsMw := cors.NewWithLogger(cfg.ExtraConfig, l)
+		if corsMw == nil {
+			return next(ctx, cfg, handler)
+		}
+		return next(ctx, cfg, corsMw.Handler(handler))
+	}
 }
 
 // LoggerBuilder is the default BuilderFactory implementation.
@@ -280,10 +309,6 @@ type MetricsAndTraces struct{}
 // Register registers the metrcis, influx and opencensus packages as required by the given configuration.
 func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
-
-	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
-		l.Warning(err.Error())
-	}
 
 	if err := opencensus.Register(ctx, cfg, append(opencensus.DefaultViews, pubsub.OpenCensusViews...)...); err != nil {
 		l.Warning("opencensus:", err.Error())

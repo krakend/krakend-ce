@@ -3,6 +3,8 @@ package krakend
 import (
 	"context"
 	"fmt"
+	httpsecure "github.com/devopsfaith/krakend-httpsecure/mux"
+	lua "github.com/devopsfaith/krakend-lua/router/mux"
 	"io"
 	"net/http"
 	"os"
@@ -160,6 +162,9 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		if err != nil {
 			logger.Warning("bloomFilter:", err.Error())
 		}
+
+		e.Middlewares = lua.RegisterMiddleware(logger, cfg.ExtraConfig, httptreemux.ParamsExtractor, e.Middlewares)
+		e.Middlewares = append(e.Middlewares, httpsecure.NewSecureMw(cfg.ExtraConfig))
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{

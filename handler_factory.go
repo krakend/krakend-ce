@@ -1,8 +1,6 @@
 package krakend
 
 import (
-	botdetector "github.com/devopsfaith/krakend-botdetector"
-	"github.com/devopsfaith/krakend-botdetector/krakend"
 	"github.com/devopsfaith/krakend-jose"
 	muxjose "github.com/devopsfaith/krakend-jose/mux"
 	lua "github.com/devopsfaith/krakend-lua/router/mux"
@@ -33,41 +31,6 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 }
 
 type handlerFactory struct{}
-
-// New checks the configuration and, if required, wraps the handler factory with a bot detector middleware
-func NewBotDetector(hf mux.HandlerFactory, l logging.Logger) mux.HandlerFactory {
-	return func(cfg *config.EndpointConfig, p proxy.Proxy) http.HandlerFunc {
-		next := hf(cfg, p)
-
-		detectorCfg, err := krakend.ParseConfig(cfg.ExtraConfig)
-		if err == krakend.ErrNoConfig {
-			l.Debug("botdetector: ", err.Error())
-			return next
-		}
-		if err != nil {
-			l.Warning("botdetector: ", err.Error())
-			return next
-		}
-
-		d, err := botdetector.New(detectorCfg)
-		if err != nil {
-			l.Warning("botdetector: unable to create the LRU detector:", err.Error())
-			return next
-		}
-		return BotDetectorhandler(d, next)
-	}
-}
-
-func BotDetectorhandler(f botdetector.DetectorFunc, next http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		if f(r) {
-			http.Error(w, "bot rejected", http.StatusForbidden)
-			return
-		}
-
-		next(w, r)
-	}
-}
 
 // HandlerFactory is the out-of-the-box basic ratelimit handler factory using the default krakend endpoint
 // handler for the mux router

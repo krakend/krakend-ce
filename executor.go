@@ -3,22 +3,16 @@ package krakend
 import (
 	"context"
 	"fmt"
-	httpsecure "github.com/devopsfaith/krakend-httpsecure/mux"
-	lua "github.com/devopsfaith/krakend-lua/router/mux"
-	"io"
-	"net/http"
-	"os"
-	"unicode"
-	"unicode/utf8"
-
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	cel "github.com/devopsfaith/krakend-cel"
 	cmd "github.com/devopsfaith/krakend-cobra"
 	cors "github.com/devopsfaith/krakend-cors/mux"
 	gelf "github.com/devopsfaith/krakend-gelf"
 	gologging "github.com/devopsfaith/krakend-gologging"
+	httpsecure "github.com/devopsfaith/krakend-httpsecure/mux"
 	jose "github.com/devopsfaith/krakend-jose"
 	logstash "github.com/devopsfaith/krakend-logstash"
+	lua "github.com/devopsfaith/krakend-lua/router/mux"
 	metrics "github.com/devopsfaith/krakend-metrics/mux"
 	opencensus "github.com/devopsfaith/krakend-opencensus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/datadog"
@@ -39,6 +33,9 @@ import (
 	router "github.com/devopsfaith/krakend/router/mux"
 	server "github.com/devopsfaith/krakend/transport/http/server/plugin"
 	"github.com/go-contrib/uuid"
+	"io"
+	"net/http"
+	"os"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -122,14 +119,6 @@ type ExecutorBuilder struct {
 	Middlewares []router.HandlerMiddleware
 }
 
-func lowerFirst(s string) string {
-	if s == "" {
-		return ""
-	}
-	r, n := utf8.DecodeRuneInString(s)
-	return string(unicode.ToLower(r)) + s[n:]
-}
-
 // NewCmdExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
 // delegating most of the tasks to the injected collaborators. They register the components and
 // compose a RouterFactory wrapping all the middlewares.
@@ -165,6 +154,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 
 		e.Middlewares = lua.RegisterMiddleware(logger, cfg.ExtraConfig, httptreemux.ParamsExtractor, e.Middlewares)
 		e.Middlewares = append(e.Middlewares, httpsecure.NewSecureMw(cfg.ExtraConfig))
+		e.Middlewares = Register(cfg.ExtraConfig, logger, e.Middlewares)
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{

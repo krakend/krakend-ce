@@ -23,6 +23,8 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true
 	engine.HandleMethodNotAllowed = true
+	engine.UseRawPath = true
+	engine.UnescapePathValues = false
 
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
 		logger.Warning(err)

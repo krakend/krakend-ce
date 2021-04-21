@@ -264,6 +264,10 @@ github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d h1:G0m3OIz70MZUW
 github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d/go.mod h1:3eOhrUMpNV+6aFIbp5/iudMxNCF27Vw2OZgy4xEx0Fg=
 github.com/Unacademy/krakend v1.3.0 h1:17Q8UuLpo/EZ1oEbYpUh8Hyvd6D4kRAiIX+CINerM54=
 github.com/Unacademy/krakend v1.3.0/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/Unacademy/krakend v1.3.1 h1:y7Wp4ZupkmKfzDLsQgCUVR1i+c1WlOM1cdhA0Zgm2/w=
+github.com/Unacademy/krakend v1.3.1/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/Unacademy/krakend-gin-logger v1.0.0 h1:n2+Fi0k0NJDCXCi709j7mRupBXO+XgK/JRHEIcsxsaU=
+github.com/Unacademy/krakend-gin-logger v1.0.0/go.mod h1:soaRM/KM06Tm+H3ht0GECnuZuWfpxWTrisCqf3pMK1Q=
 github.com/VividCortex/gohistogram v1.0.0/go.mod h1:Pf5mBqqDxYaXu3hDrrU+w6nw50o/4+TcAqDqk/vUH7g=
 github.com/abdullin/seq v0.0.0-20160510034733-d5467c17e7af/go.mod h1:5Jv4cbFiHJMsVxt52+i0Ha45fjshj6wxYr1r19tB9bw=
 github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5/go.mod h1:SkGFH1ia65gfNATL8TAiHDNxPzPdmEL5uirI2Uyuz6c=
@@ -507,6 +511,13 @@ github.com/devopsfaith/krakend v1.1.1/go.mod h1:xM0O7nJcXuJWWL0PollS0NFBQLf1KJgA
 github.com/devopsfaith/krakend v1.1.2-0.20200605160540-40b5d80a5807/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend v1.1.2-0.20200826121428-f41e024bd50a/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
 github.com/devopsfaith/krakend v1.2.0/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+<<<<<<< HEAD
+=======
+github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e h1:72Fr+CxekI8uUoHeqMuL24V7WdgeGIMHWeABZUmo3GQ=
+github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+github.com/devopsfaith/krakend v1.3.0 h1:vz5p0bjEFW7hIJz0fkLsWapq/bQP7tY6rHFKjFkD7Vo=
+github.com/devopsfaith/krakend v1.3.0/go.mod h1:b8i/JCI1/iFjg7w9tvg3QFpT5Tc6Qy/75nj+i5dhPCA=
+>>>>>>> b32705d (feat: bump krakend core version to use 1.3.1)
 github.com/devopsfaith/krakend-amqp v1.1.0 h1:mWTfMUrRq6zj4w+N70HL/f5xhgclc95JbQHrg7whBGA=
 github.com/devopsfaith/krakend-amqp v1.1.0/go.mod h1:zhWeDJB1F6GCx9mngyCP+jBr8gdRJV4gOVDySAzmD94=
 github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af h1:Nkg1/u93cQJBDsUEX7wyXdmZ40zCZmr2JZ3dlLdDlRE=

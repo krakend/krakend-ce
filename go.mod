@@ -4,6 +4,8 @@ go 1.12
 
 require (
 	github.com/Azure/go-autorest/autorest v0.11.12 // indirect
+	github.com/DataDog/datadog-go v3.4.1+incompatible // indirect
+	github.com/DataDog/opencensus-go-exporter-datadog v0.0.0-20191210083620-6965a1cfed68 // indirect
 	github.com/PuerkitoBio/goquery v1.4.0 // indirect
 	github.com/andybalholm/cascadia v1.0.0 // indirect
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
@@ -13,7 +15,7 @@ require (
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/devopsfaith/bloomfilter v0.0.0-20190317200532-4687d0b9aa2a
 	github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc // indirect
-	github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e
+	github.com/devopsfaith/krakend v1.3.1-0.20210427162108-a49afef983eb
 	github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af
 	github.com/devopsfaith/krakend-botdetector v0.0.0-20200729112051-82f1b8f8fdfe
 	github.com/devopsfaith/krakend-cel v0.0.0-20210127195753-2e4f1c7580e4
@@ -35,7 +37,7 @@ require (
 	github.com/devopsfaith/krakend-martian v0.0.0-20191207191841-92e3287c36d9
 	github.com/devopsfaith/krakend-metrics v1.1.0
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v1.1.0
-	github.com/devopsfaith/krakend-opencensus v1.1.1-0.20201119132304-815fbc5addba
+	github.com/devopsfaith/krakend-opencensus v1.1.1-0.20210427134933-acf2807e4a96
 	github.com/devopsfaith/krakend-pubsub v0.0.0-20200728135630-1781054836a5
 	github.com/devopsfaith/krakend-ratelimit v1.1.1-0.20210208161207-53a76133553a
 	github.com/devopsfaith/krakend-rss v0.0.0-20200914123253-f81cced96000
@@ -61,6 +63,7 @@ require (
 	github.com/soheilhy/cmux v0.1.4 // indirect
 	github.com/spf13/afero v1.2.2 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
+	github.com/tinylib/msgp v1.1.2 // indirect
 	github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5 // indirect
 	github.com/tmthrgd/atomics v0.0.0-20180217065130-6910de195248 // indirect
 	github.com/tmthrgd/go-bitset v0.0.0-20180106085139-4d1be735fbfb // indirect
@@ -77,6 +80,7 @@ require (
 	gocloud.dev/pubsub/natspubsub v0.21.0 // indirect
 	gocloud.dev/pubsub/rabbitpubsub v0.21.0 // indirect
 	gocloud.dev/secrets/hashivault v0.21.0 // indirect
+	gopkg.in/DataDog/dd-trace-go.v1 v1.22.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20180326133423-4dbb9d721348 // indirect
 	k8s.io/api v0.20.2 // indirect
 )

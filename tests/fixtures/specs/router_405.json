@@ -9,7 +9,7 @@
 		"header": {
 			"content-type": ["text/plain"],
 			"Cache-Control": [""],
-			"X-Krakend-Completed": [""]
+			"X-Krakend-Completed": ["false"]
 		}
 	}
 }

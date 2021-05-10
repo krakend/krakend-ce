@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"time"
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
 	cel "github.com/devopsfaith/krakend-cel"
@@ -294,6 +295,7 @@ func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, 
 
 const (
 	usageDisable = "USAGE_DISABLE"
+	usageDelay   = 5 * time.Second
 )
 
 func startReporter(ctx context.Context, logger logging.Logger, cfg config.ServiceConfig) {
@@ -309,6 +311,8 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 	}
 
 	go func() {
+		time.Sleep(usageDelay)
+
 		serverID := uuid.NewV4().String()
 		logger.Info(fmt.Sprintf("registering usage stats for cluster ID '%s'", clusterID))
 

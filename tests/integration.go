@@ -131,6 +131,12 @@ func (c *Config) getEnvironPatterns() string {
 
 var defaultConfig Config
 
+var httpClient = &http.Client{
+	CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		return http.ErrUseLastResponse
+	},
+}
+
 // NewIntegration sets up a runner for the integration test and returns it with the parsed specs from the specs folder
 // and an error signaling if something went wrong. It uses the default values for any nil argument
 func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []TestCase, error) {
@@ -209,7 +215,7 @@ func (i *Runner) Check(tc TestCase) error {
 	if err != nil {
 		return err
 	}
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := httpClient.Do(req)
 	if err != nil && err.Error() != tc.Err {
 		return err
 	}

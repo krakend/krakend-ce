@@ -42,6 +42,7 @@ var (
 		"",
 		"Comma separated list of patterns to use to filter the envars to pass (set to \".*\" to pass everything)",
 	)
+	followRedirects = flag.Bool("client_follow_redirects", true, "Whether the test http client should follow http redirects or not")
 )
 
 // TestCase defines a single case to be tested
@@ -85,6 +86,7 @@ type Config struct {
 	EnvironPatterns string
 	BackendPort     int
 	Delay           time.Duration
+	HttpClient      *http.Client
 }
 
 func (c *Config) getBinPath() string {
@@ -127,6 +129,25 @@ func (c *Config) getEnvironPatterns() string {
 		return c.EnvironPatterns
 	}
 	return *defaultEnvironPatterns
+}
+
+func (c *Config) getHttpClient() *http.Client {
+	if c.HttpClient != nil {
+		return c.HttpClient
+	}
+	return defaultHttpClient()
+
+}
+
+func defaultHttpClient() *http.Client {
+	if *followRedirects {
+		return http.DefaultClient
+	}
+	return &http.Client{
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			return http.ErrUseLastResponse
+		},
+	}
 }
 
 var defaultConfig Config
@@ -182,6 +203,7 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 	return &Runner{
 		closeFuncs: closeFuncs,
 		once:       new(sync.Once),
+		httpClient: cfg.getHttpClient(),
 	}, tcs, nil
 }
 
@@ -190,6 +212,7 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 type Runner struct {
 	closeFuncs []func()
 	once       *sync.Once
+	httpClient *http.Client
 }
 
 // Close shuts down the mocked backend server and the process of the instance
@@ -209,7 +232,7 @@ func (i *Runner) Check(tc TestCase) error {
 	if err != nil {
 		return err
 	}
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := i.httpClient.Do(req)
 	if err != nil && err.Error() != tc.Err {
 		return err
 	}

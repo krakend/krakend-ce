@@ -1,7 +1,7 @@
 {
 	"in": {
 		"method": "GET",
-		"url": "http://localhost:8080/param_forwarding/some/foo//bar/",
+		"url": "http://localhost:8080/param_forwarding/some/foo/bar",
 		"header": {
 			"User-Agent": "some",
 			"Origin": "http://foo.example.tld"

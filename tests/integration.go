@@ -86,7 +86,6 @@ type Config struct {
 	EnvironPatterns string
 	BackendPort     int
 	Delay           time.Duration
-	HttpClient      http.Client
 }
 
 func (c *Config) getBinPath() string {

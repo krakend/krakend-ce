@@ -42,7 +42,7 @@ var (
 		"",
 		"Comma separated list of patterns to use to filter the envars to pass (set to \".*\" to pass everything)",
 	)
-	followRedirects = flag.Bool("client_follow_redirects", true, "Whether the test http client should follow http redirects or not")
+	notFollowRedirects = flag.Bool("client_not_follow_redirects", false, "The test http client should not follow http redirects")
 )
 
 // TestCase defines a single case to be tested
@@ -140,14 +140,14 @@ func (c *Config) getHttpClient() *http.Client {
 }
 
 func defaultHttpClient() *http.Client {
-	if *followRedirects {
-		return http.DefaultClient
+	if *notFollowRedirects {
+		return &http.Client{
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
+				return http.ErrUseLastResponse
+			},
+		}
 	}
-	return &http.Client{
-		CheckRedirect: func(req *http.Request, via []*http.Request) error {
-			return http.ErrUseLastResponse
-		},
-	}
+	return http.DefaultClient
 }
 
 var defaultConfig Config

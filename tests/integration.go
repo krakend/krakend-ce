@@ -86,6 +86,7 @@ type Config struct {
 	EnvironPatterns string
 	BackendPort     int
 	Delay           time.Duration
+	HttpClient      *http.Client
 }
 
 func (c *Config) getBinPath() string {
@@ -131,6 +132,14 @@ func (c *Config) getEnvironPatterns() string {
 }
 
 func (c *Config) getHttpClient() *http.Client {
+	if c.HttpClient != nil {
+		return c.HttpClient
+	}
+	return getDefaultHttpClient()
+
+}
+
+func getDefaultHttpClient() *http.Client {
 	if *followRedirects {
 		return http.DefaultClient
 	}

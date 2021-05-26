@@ -2,14 +2,14 @@ package krakend
 
 import (
 	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
-	"github.com/devopsfaith/krakend-jose"
+	jose "github.com/devopsfaith/krakend-jose"
 	ginjose "github.com/devopsfaith/krakend-jose/gin"
 	lua "github.com/devopsfaith/krakend-lua/router/gin"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
 	opencensus "github.com/devopsfaith/krakend-opencensus/router/gin"
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/router/gin"
-	"github.com/devopsfaith/krakend/logging"
-	router "github.com/devopsfaith/krakend/router/gin"
+	"github.com/luraproject/lura/logging"
+	router "github.com/luraproject/lura/router/gin"
 )
 
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected

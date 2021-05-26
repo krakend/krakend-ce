@@ -8,8 +8,7 @@
 		"body": "404 page not found",
 		"header": {
 			"content-type": ["text/plain"],
-			"Cache-Control": [""],
-			"X-Krakend-Completed": ["false"]
+			"Cache-Control": [""]
 		}
 	}
 }

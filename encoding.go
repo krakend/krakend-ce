@@ -4,7 +4,7 @@ import (
 	"github.com/devopsfaith/krakend-rss"
 	"github.com/devopsfaith/krakend-xml"
 	ginxml "github.com/devopsfaith/krakend-xml/gin"
-	"github.com/devopsfaith/krakend/router/gin"
+	"github.com/luraproject/lura/router/gin"
 )
 
 // RegisterEncoders registers all the available encoders

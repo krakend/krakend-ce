@@ -5,9 +5,9 @@ import (
 	"fmt"
 
 	consul "github.com/devopsfaith/krakend-consul"
-	"github.com/devopsfaith/krakend/config"
-	"github.com/devopsfaith/krakend/logging"
-	"github.com/devopsfaith/krakend/sd/dnssrv"
+	"github.com/luraproject/lura/config"
+	"github.com/luraproject/lura/logging"
+	"github.com/luraproject/lura/sd/dnssrv"
 )
 
 // RegisterSubscriberFactories registers all the available sd adaptors

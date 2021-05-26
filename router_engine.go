@@ -6,9 +6,9 @@ import (
 	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
 	lua "github.com/devopsfaith/krakend-lua/router/gin"
-	"github.com/devopsfaith/krakend/config"
-	"github.com/devopsfaith/krakend/logging"
 	"github.com/gin-gonic/gin"
+	"github.com/luraproject/lura/config"
+	"github.com/luraproject/lura/logging"
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware

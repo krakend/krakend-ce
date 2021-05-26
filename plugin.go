@@ -1,9 +1,9 @@
 package krakend
 
 import (
-	"github.com/devopsfaith/krakend/logging"
-	client "github.com/devopsfaith/krakend/transport/http/client/plugin"
-	server "github.com/devopsfaith/krakend/transport/http/server/plugin"
+	"github.com/luraproject/lura/logging"
+	client "github.com/luraproject/lura/transport/http/client/plugin"
+	server "github.com/luraproject/lura/transport/http/server/plugin"
 )
 
 // LoadPlugins loads and registers the plugins so they can be used if enabled at the configuration

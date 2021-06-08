@@ -74,3 +74,5 @@ require (
 	gocloud.dev/secrets/hashivault v0.21.0 // indirect
 	k8s.io/api v0.20.2 // indirect
 )
+
+replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f

@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 1.4.0
+VERSION := 1.4.1
 PKGNAME := krakend
 LICENSE := Apache 2.0
 VENDOR=
@@ -47,7 +47,7 @@ RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 all: test
 
 update_krakend_deps:
-	go get github.com/luraproject/lura@v1.4.0
+	go get github.com/luraproject/lura@v1.4.1
 	go get github.com/devopsfaith/bloomfilter@v1.4.0
 	go get github.com/devopsfaith/krakend-amqp@v1.4.0
 	go get github.com/devopsfaith/krakend-botdetector@v1.4.0
@@ -71,7 +71,7 @@ update_krakend_deps:
 	go get github.com/devopsfaith/krakend-martian@v1.4.0
 	go get github.com/devopsfaith/krakend-metrics@v1.4.0
 	go get github.com/devopsfaith/krakend-oauth2-clientcredentials@v1.4.0
-	go get github.com/devopsfaith/krakend-opencensus@v1.4.0
+	go get github.com/devopsfaith/krakend-opencensus@v1.4.1
 	go get github.com/devopsfaith/krakend-pubsub@v1.4.0
 	go get github.com/devopsfaith/krakend-ratelimit@v1.4.0
 	go get github.com/devopsfaith/krakend-rss@v1.4.0

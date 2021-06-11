@@ -34,7 +34,7 @@ require (
 	github.com/devopsfaith/krakend-martian v1.4.0
 	github.com/devopsfaith/krakend-metrics v1.4.0
 	github.com/devopsfaith/krakend-oauth2-clientcredentials v1.4.0
-	github.com/devopsfaith/krakend-opencensus v1.4.0
+	github.com/devopsfaith/krakend-opencensus v1.4.1
 	github.com/devopsfaith/krakend-pubsub v1.4.0
 	github.com/devopsfaith/krakend-ratelimit v1.4.0
 	github.com/devopsfaith/krakend-rss v1.4.0
@@ -53,7 +53,7 @@ require (
 	github.com/jonboulle/clockwork v0.1.0 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c // indirect
 	github.com/letgoapp/krakend-consul v0.0.0-20190130102841-7623a4da32a1 // indirect
-	github.com/luraproject/lura v1.4.0
+	github.com/luraproject/lura v1.4.1
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/soheilhy/cmux v0.1.4 // indirect
 	github.com/spf13/afero v1.2.2 // indirect

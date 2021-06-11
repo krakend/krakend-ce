@@ -9,9 +9,9 @@ import (
 	httpcache "github.com/devopsfaith/krakend-httpcache"
 	lambda "github.com/devopsfaith/krakend-lambda"
 	lua "github.com/devopsfaith/krakend-lua/proxy"
-	"github.com/devopsfaith/krakend-martian"
+	martian "github.com/devopsfaith/krakend-martian"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
-	"github.com/devopsfaith/krakend-oauth2-clientcredentials"
+	oauth2client "github.com/devopsfaith/krakend-oauth2-clientcredentials"
 	opencensus "github.com/devopsfaith/krakend-opencensus"
 	pubsub "github.com/devopsfaith/krakend-pubsub"
 	juju "github.com/devopsfaith/krakend-ratelimit/juju/proxy"
@@ -47,7 +47,7 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 		} else {
 			clientFactory = httpcache.NewHTTPClient(cfg)
 		}
-		return opencensus.HTTPRequestExecutor(clientFactory)
+		return opencensus.HTTPRequestExecutorFromConfig(clientFactory, cfg)
 	}
 	requestExecutorFactory = httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)

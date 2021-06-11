@@ -645,6 +645,8 @@ github.com/devopsfaith/krakend-opencensus v1.1.1-0.20201119132304-815fbc5addba h
 github.com/devopsfaith/krakend-opencensus v1.1.1-0.20201119132304-815fbc5addba/go.mod h1:Ji5FAg3LXgyk7gSFqKCMwIsPyTkhygz5yzDRE2vifxM=
 github.com/devopsfaith/krakend-opencensus v1.4.0 h1:d46+MkoC9TH1Sk3jcSxnN9y86On5YvqTQB5YeZavESk=
 github.com/devopsfaith/krakend-opencensus v1.4.0/go.mod h1:7vR9KOShn0YZTx9s69Dn1ROl6wmLJQyHMilZo2XRPNU=
+github.com/devopsfaith/krakend-opencensus v1.4.1 h1:KP3erFBYgJBYoWtJpp+FWivBK3KGcNniQNhv2cMEG7k=
+github.com/devopsfaith/krakend-opencensus v1.4.1/go.mod h1:7vR9KOShn0YZTx9s69Dn1ROl6wmLJQyHMilZo2XRPNU=
 github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd h1:2LmPysRcGOg9XFuMeCNEbTP9dl9XbJLWnvrA47oGiXM=
 github.com/devopsfaith/krakend-pubsub v0.0.0-20191115170019-2fe979e965cd/go.mod h1:80NhdyV8q7rBEhxjsrR3u7MIHfyb66wNYcCgBdNPpMM=
 github.com/devopsfaith/krakend-pubsub v0.0.0-20200728135630-1781054836a5 h1:W++CLKEbbCcxRwKwkxtA3AjHHW7+RFHieaKu9cz8cgc=
@@ -1475,6 +1477,8 @@ github.com/linode/linodego v0.7.1 h1:4WZmMpSA2NRwlPZcc0+4Gyn7rr99Evk9bnr0B3gXRKE
 github.com/linode/linodego v0.7.1/go.mod h1:ga11n3ivecUrPCHN0rANxKmfWBJVkOXfLMZinAbj2sY=
 github.com/luraproject/lura v1.4.0 h1:ujFow7MaYUntNvq3865asjF4Al0wZ/stbYmELMxuLaI=
 github.com/luraproject/lura v1.4.0/go.mod h1:KIo1/+nsRZVxIO04Hkbth0GXSSzypvkFpF5KaIoLvlo=
+github.com/luraproject/lura v1.4.1 h1:zNzLYMzM13EaSrb9bfaPICD4bXtNqMCdyi42R1eBgro=
+github.com/luraproject/lura v1.4.1/go.mod h1:KIo1/+nsRZVxIO04Hkbth0GXSSzypvkFpF5KaIoLvlo=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f h1:MBcrTbmCf7CZa9yAwcB7ArveQb9TPVy4zFnQGz/LiUU=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f/go.mod h1:UawoqorwkpZ58qWiL+nVJM0Po7FrzAdCxYVh9GgTTaA=

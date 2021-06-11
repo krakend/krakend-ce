@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 1.4.0
+VERSION := 1.4.1
 PKGNAME := krakend
 LICENSE := Apache 2.0
 VENDOR=

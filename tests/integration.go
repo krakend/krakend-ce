@@ -64,7 +64,7 @@ type Input struct {
 // Output contains the data required to verify the response received in a given TestCase
 type Output struct {
 	StatusCode int                 `json:"status_code"`
-	Body       string              `json:"body"`
+	Body       interface{}         `json:"body"`
 	Header     map[string][]string `json:"header"`
 }
 
@@ -164,7 +164,7 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 	}
 	cmd := cb.New(cfg)
 
-	tcs := []TestCase{}
+	var tcs []TestCase
 	if err := cmd.Start(); err != nil {
 		return nil, tcs, err
 	}
@@ -253,7 +253,7 @@ func (m responseError) Error() string {
 }
 
 func assertResponse(actual *http.Response, expected Output) error {
-	errMsgs := []string{}
+	var errMsgs []string
 	if actual.StatusCode != expected.StatusCode {
 		errMsgs = append(errMsgs, fmt.Sprintf("unexpected status code. have: %d, want: %d", actual.StatusCode, expected.StatusCode))
 	}
@@ -276,19 +276,25 @@ func assertResponse(actual *http.Response, expected Output) error {
 		}
 	}
 
-	body := ""
+	var body interface{}
 
 	if actual.Body != nil {
 		b, err := ioutil.ReadAll(actual.Body)
 		if err != nil {
 			return err
 		}
-		actual.Body.Close()
-		body = string(b)
+		_ = actual.Body.Close()
+
+		switch expected.Body.(type) {
+		case string:
+			body = string(b)
+		default:
+			_ = json.Unmarshal(b, &body)
+		}
 	}
 
-	if expected.Body != body {
-		errMsgs = append(errMsgs, fmt.Sprintf("unexpected body.\n\t\thave: %s\n\t\twant: %s", body, expected.Body))
+	if !reflect.DeepEqual(body, expected.Body) {
+		errMsgs = append(errMsgs, fmt.Sprintf("unexpected body.\n\t\thave: %v\n\t\twant: %v", body, expected.Body))
 	}
 	if len(errMsgs) == 0 {
 		return nil
@@ -300,7 +306,7 @@ func assertResponse(actual *http.Response, expected Output) error {
 }
 
 func testCases(cfg Config) ([]TestCase, error) {
-	tcs := []TestCase{}
+	var tcs []TestCase
 	content, err := readSpecs(cfg.getSpecsPath())
 	if err != nil {
 		return tcs, err
@@ -375,7 +381,7 @@ func (k krakendCmdBuilder) New(cfg *Config) *exec.Cmd {
 func (krakendCmdBuilder) getEnviron(cfg *Config) []string {
 	environ := []string{"USAGE_DISABLE=1"}
 
-	patterns := []*regexp.Regexp{}
+	var patterns []*regexp.Regexp
 	for _, pattern := range strings.Split(cfg.getEnvironPatterns(), ",") {
 		re, err := regexp.Compile(pattern)
 		if err != nil {
@@ -418,7 +424,7 @@ func (mockBackendBuilder) New(cfg *Config) http.Server {
 
 func collectionEndpoint(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Add("Content-Type", "application/json")
-	res := []interface{}{}
+	var res []interface{}
 
 	for i := 0; i < 10; i++ {
 		res = append(res, map[string]interface{}{

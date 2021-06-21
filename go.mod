@@ -75,4 +75,8 @@ require (
 	k8s.io/api v0.20.2 // indirect
 )
 
-replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
+replace (
+	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
+	github.com/devopsfaith/krakend v1.2.1-0.20210212160439-f312fca7be1e => github.com/Unacademy/krakend v1.3.0
+	github.com/luraproject/lura v1.2.1-0.20210212160439-f312fca7be1e => github.com/Unacademy/krakend v1.3.0
+)

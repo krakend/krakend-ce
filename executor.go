@@ -32,6 +32,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
 	"github.com/luraproject/lura/config"
+	"github.com/luraproject/lura/core"
 	"github.com/luraproject/lura/logging"
 	"github.com/luraproject/lura/proxy"
 	krakendrouter "github.com/luraproject/lura/router"
@@ -319,6 +320,7 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 		if err := client.StartReporter(ctx, client.Options{
 			ClusterID: clusterID,
 			ServerID:  serverID,
+			Version:   core.KrakendVersion,
 		}); err != nil {
 			logger.Warning("unable to create the usage report client:", err.Error())
 		}

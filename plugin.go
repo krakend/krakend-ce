@@ -2,6 +2,7 @@ package krakend
 
 import (
 	"github.com/luraproject/lura/logging"
+	proxy "github.com/luraproject/lura/proxy/plugin"
 	client "github.com/luraproject/lura/transport/http/client/plugin"
 	server "github.com/luraproject/lura/transport/http/server/plugin"
 )
@@ -27,6 +28,16 @@ func LoadPlugins(folder, pattern string, logger logging.Logger) {
 		logger.Warning("loading plugins:", err)
 	}
 	logger.Info("total http handler plugins loaded:", n)
+
+	n, err = proxy.LoadModifiers(
+		folder,
+		pattern,
+		proxy.RegisterModifier,
+	)
+	if err != nil {
+		logger.Warning("loading plugins:", err)
+	}
+	logger.Info("total modifier plugins loaded:", n)
 }
 
 type pluginLoader struct{}

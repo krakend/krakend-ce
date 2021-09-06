@@ -4,7 +4,8 @@ go 1.12
 
 require (
 	github.com/Azure/go-autorest/autorest v0.11.12 // indirect
-	github.com/Unacademy/krakend-gin-logger v1.4.0
+	github.com/Unacademy/krakend-error-handler v1.1.0
+	github.com/Unacademy/krakend-gin-logger v1.4.1
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
 	github.com/clbanning/mxj v1.8.4 // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect

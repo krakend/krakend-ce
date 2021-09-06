@@ -4,9 +4,7 @@ go 1.12
 
 require (
 	github.com/Azure/go-autorest/autorest v0.11.12 // indirect
-	github.com/PuerkitoBio/goquery v1.4.0 // indirect
-	github.com/Unacademy/krakend-gin-logger v1.0.0
-	github.com/andybalholm/cascadia v1.0.0 // indirect
+	github.com/Unacademy/krakend-gin-logger v1.4.0
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
 	github.com/clbanning/mxj v1.8.4 // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
@@ -14,14 +12,14 @@ require (
 	github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f // indirect
 	github.com/devopsfaith/bloomfilter v1.4.0
 	github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc // indirect
-	github.com/devopsfaith/krakend v1.3.0
-	github.com/devopsfaith/krakend-amqp v1.1.1-0.20200703170727-f0e7ebe619af
-	github.com/devopsfaith/krakend-botdetector v0.0.0-20200729112051-82f1b8f8fdfe
-	github.com/devopsfaith/krakend-cel v0.0.0-20210127195753-2e4f1c7580e4
-	github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20200703180246-3ea7a4c22c3b
-	github.com/devopsfaith/krakend-cobra v0.0.0-20200317174411-3518505e8cd2
-	github.com/devopsfaith/krakend-consul v0.0.0-20210209180917-00d2bff69730
-	github.com/devopsfaith/krakend-cors v0.0.0-20210126212640-09bb3851d085
+	github.com/devopsfaith/krakend v1.2.0 // indirect
+	github.com/devopsfaith/krakend-amqp v1.4.0
+	github.com/devopsfaith/krakend-botdetector v1.4.0
+	github.com/devopsfaith/krakend-cel v1.4.0
+	github.com/devopsfaith/krakend-circuitbreaker v1.4.0
+	github.com/devopsfaith/krakend-cobra v1.4.0
+	github.com/devopsfaith/krakend-consul v1.4.0
+	github.com/devopsfaith/krakend-cors v1.4.0
 	github.com/devopsfaith/krakend-etcd v0.0.0-20190425091451-d989a26508d7
 	github.com/devopsfaith/krakend-flexibleconfig v1.4.0
 	github.com/devopsfaith/krakend-gelf v1.4.0
@@ -79,4 +77,5 @@ require (
 )
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
-replace github.com/devopsfaith/krakend v1.3.0 => github.com/Unacademy/krakend v1.3.1
+
+replace github.com/luraproject/lura v1.4.1 => github.com/Unacademy/krakend v1.4.1

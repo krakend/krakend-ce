@@ -1,6 +1,7 @@
 package krakend
 
 import (
+	errorHandler "github.com/Unacademy/krakend-error-handler"
 	cel "github.com/devopsfaith/krakend-cel"
 	jsonschema "github.com/devopsfaith/krakend-jsonschema"
 	lua "github.com/devopsfaith/krakend-lua/proxy"
@@ -14,6 +15,7 @@ import (
 func NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory, metricCollector *metrics.Metrics) proxy.Factory {
 	proxyFactory := proxy.NewDefaultFactory(backendFactory, logger)
 	proxyFactory = proxy.NewShadowFactory(proxyFactory)
+	proxyFactory = errorHandler.ProxyFactory(proxyFactory)
 	proxyFactory = jsonschema.ProxyFactory(proxyFactory)
 	proxyFactory = cel.ProxyFactory(logger, proxyFactory)
 	proxyFactory = lua.ProxyFactory(logger, proxyFactory)

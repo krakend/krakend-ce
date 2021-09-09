@@ -220,8 +220,10 @@ github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6/go.mod h1:3eOhrU
 github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d/go.mod h1:3eOhrUMpNV+6aFIbp5/iudMxNCF27Vw2OZgy4xEx0Fg=
 github.com/Unacademy/krakend v1.4.1 h1:Zx5ZpIz4BeoFKKjcGAHSeyrCh4ZyQyZI/+HaBuSj6q4=
 github.com/Unacademy/krakend v1.4.1/go.mod h1:KIo1/+nsRZVxIO04Hkbth0GXSSzypvkFpF5KaIoLvlo=
-github.com/Unacademy/krakend-gin-logger v1.4.0 h1:ZEyF0nMAg+4VCkcgoqVeEqSz0G8G5LHYCnvpOu8rPeM=
-github.com/Unacademy/krakend-gin-logger v1.4.0/go.mod h1:frxsVywAjZ7d92smia7CgdXFm+ofeD9QnT3Oj4Ls/A8=
+github.com/Unacademy/krakend-error-handler v1.1.0 h1:/NguqIi4P6WVNMfmIhk/GyeG8XB0HYByBGEzZW5KMbM=
+github.com/Unacademy/krakend-error-handler v1.1.0/go.mod h1:jLTYfyNUHPEZoQQ1UyzFxQKCiNqqe5xqiO2AkH5nkRQ=
+github.com/Unacademy/krakend-gin-logger v1.4.1 h1:9oX/JwHqRY270RryTK5PchSWrTp4FsWAsM+Rjbs5JzI=
+github.com/Unacademy/krakend-gin-logger v1.4.1/go.mod h1:frxsVywAjZ7d92smia7CgdXFm+ofeD9QnT3Oj4Ls/A8=
 github.com/VividCortex/gohistogram v1.0.0/go.mod h1:Pf5mBqqDxYaXu3hDrrU+w6nw50o/4+TcAqDqk/vUH7g=
 github.com/abdullin/seq v0.0.0-20160510034733-d5467c17e7af/go.mod h1:5Jv4cbFiHJMsVxt52+i0Ha45fjshj6wxYr1r19tB9bw=
 github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5/go.mod h1:SkGFH1ia65gfNATL8TAiHDNxPzPdmEL5uirI2Uyuz6c=

@@ -1,13 +1,13 @@
-![Krakend logo](https://github.com/devopsfaith/krakend/blob/master/docs/images/krakend.png)
+![Krakend logo](https://raw.githubusercontent.com/devopsfaith/krakend.io/master/images/logo.png)
 
 # KrakenD API Gateway
 Ultra-High performance API Gateway with middlewares
 
-**KrakenD Community Edition** (or *KrakenD-CE*) is the binary distribution of [KrakenD](http://www.krakend.io).
+**KrakenD Community Edition** (or *KrakenD-CE*) is the binary distribution of [KrakenD](https://www.krakend.io).
 
-In this repository, you'll find the utils to build the KrakenD binary yourself. If you want to use KrakenD [download the binary](http://www.krakend.io/download/)
+In this repository, you'll find the utils to build the KrakenD binary yourself. If you want to use KrakenD [download the binary](https://www.krakend.io/download/)
 
-[KrakenD Site](http://www.krakend.io/) | [Documentation](http://www.krakend.io/docs/overview/introduction/) | [Blog](http://www.krakend.io/blog) | [Twitter](https://twitter.com/devopsfaith)
+[KrakenD Site](https://www.krakend.io/) | [Documentation](https://www.krakend.io/docs/overview/introduction/) | [Blog](https://www.krakend.io/blog) | [Twitter](https://twitter.com/krakend_io)
 
 ## Features
 Some of the features you get with KrakenD are:
@@ -22,7 +22,7 @@ Some of the features you get with KrakenD are:
 - **Response filtering** (whitelist and blacklist)
 - **Concurrent** API calls to the backend for the same request
 - **Simple configuration**: All application configuration and behavior declared in a `krakend.json`.
-- **Friendly**: No development needed to build your gateway. Use the Visual API [Designer](http://www.krakend.io/designer/) (UI to generate the `krakend.json`)
+- **Friendly**: No development needed to build your gateway. Use the Visual API [Designer](https://www.krakend.io/designer/) (UI to generate the `krakend.json`)
 - **SSL**
 - **HTTP2** ready
 - **Circuit breaker** (fail fast and avoid smashing stressed backends)
@@ -53,12 +53,12 @@ Some of the features you get with KrakenD are:
     - Cross-origin resource sharing (CORS)
 
 
-For a more nice description of the features have a look in the [website](http://www.krakend.io/features/).
+For a more nice description of the features have a look in the [website](https://www.krakend.io/features/).
 ## Gateway documentation
 
 Full, comprehensive documentation is viewable on the KrakenD website:
 
-http://www.krakend.io/docs/overview/introduction/
+https://www.krakend.io/docs/overview/introduction/
 
 ## Build Requirements
 

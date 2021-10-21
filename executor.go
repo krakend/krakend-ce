@@ -35,9 +35,9 @@ import (
 	"github.com/luraproject/lura/core"
 	"github.com/luraproject/lura/logging"
 	"github.com/luraproject/lura/proxy"
-	krakendrouter "github.com/luraproject/lura/router"
 	router "github.com/luraproject/lura/router/gin"
 	server "github.com/luraproject/lura/transport/http/server/plugin"
+	serverhttp "github.com/luraproject/lura/v2/transport/http/server"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -165,7 +165,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
 			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
-			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, krakendrouter.RunServer)),
+			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServer)),
 		})
 
 		// start the engines

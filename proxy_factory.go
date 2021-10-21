@@ -1,13 +1,13 @@
 package krakend
 
 import (
-	cel "github.com/devopsfaith/krakend-cel"
-	jsonschema "github.com/devopsfaith/krakend-jsonschema"
-	lua "github.com/devopsfaith/krakend-lua/proxy"
-	metrics "github.com/devopsfaith/krakend-metrics/gin"
-	opencensus "github.com/devopsfaith/krakend-opencensus"
-	"github.com/luraproject/lura/logging"
-	"github.com/luraproject/lura/proxy"
+	cel "github.com/devopsfaith/krakend-cel/v2"
+	jsonschema "github.com/devopsfaith/krakend-jsonschema/v2"
+	lua "github.com/devopsfaith/krakend-lua/v2/proxy"
+	metrics "github.com/devopsfaith/krakend-metrics/v2/gin"
+	opencensus "github.com/devopsfaith/krakend-opencensus/v2"
+	"github.com/luraproject/lura/v2/logging"
+	"github.com/luraproject/lura/v2/proxy"
 )
 
 // NewProxyFactory returns a new ProxyFactory wrapping the injected BackendFactory with the default proxy stack and a metrics collector

@@ -3,12 +3,12 @@ package krakend
 import (
 	"io"
 
-	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
-	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
-	lua "github.com/devopsfaith/krakend-lua/router/gin"
+	botdetector "github.com/devopsfaith/krakend-botdetector/v2/gin"
+	httpsecure "github.com/devopsfaith/krakend-httpsecure/v2/gin"
+	lua "github.com/devopsfaith/krakend-lua/v2/router/gin"
 	"github.com/gin-gonic/gin"
-	"github.com/luraproject/lura/config"
-	"github.com/luraproject/lura/logging"
+	"github.com/luraproject/lura/v2/config"
+	"github.com/luraproject/lura/v2/logging"
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware

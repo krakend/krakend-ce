@@ -23,8 +23,8 @@
         "max_age": "12h"
       },
       "github_com/devopsfaith/krakend-botdetector": {
-        "denylist": ["a", "b"],
-        "allowlist": ["c", "Pingdom.com_bot_version_1.1"],
+        "deny": ["a", "b"],
+        "allow": ["c", "Pingdom.com_bot_version_1.1"],
         "patterns": [
             "(Pingdom.com_bot_version_).*",
             "(facebookexternalhit)/.*"
@@ -92,7 +92,7 @@
                 {
                     "host": [ "http://127.0.0.1:8080" ],
                     "url_pattern": "/__debug",
-                    "blacklist": ["message"]
+                    "deny": ["message"]
                 }
             ],
             "extra_config": {
@@ -167,7 +167,7 @@
                     "roles_key": "roles",
                     "issuer": "https://krakend.io",
                     "roles": ["role_a", "role_b", "role_y"],
-                    "jwk-url": "http://127.0.0.1:8081/jwk/symmetric",
+                    "jwk_url": "http://127.0.0.1:8081/jwk/symmetric",
                     "disable_jwk_security": true
                 }
             }
@@ -240,7 +240,7 @@
             {
               "url_pattern": "/param_forwarding/{param}",
               "host": [ "http://127.0.0.1:8081" ],
-              "whitelist": [ "foo" ]
+              "allow": [ "foo" ]
             },
             {
               "url_pattern": "/param_forwarding/{resp0_foo}",
@@ -259,7 +259,7 @@
             {
               "url_pattern": "/param_forwarding/{param}",
               "host": [ "http://127.0.0.1:8081" ],
-              "whitelist": [ "foo" ]
+              "allow": [ "foo" ]
             },
             {
               "url_pattern": "/{resp0_foo}",
@@ -311,7 +311,7 @@
                 {
                     "host": [ "http://127.0.0.1:8081" ],
                     "url_pattern": "/param_forwarding/{id}",
-                    "whitelist": [ "foo" ]
+                    "allow": [ "foo" ]
                 }
             ]
         },
@@ -325,12 +325,12 @@
                     "url_pattern": "/user/schedule/{id}.rss",
                     "encoding": "rss",
                     "group": "schedule",
-                    "whitelist": ["title"],
+                    "allow": ["title"],
                     "extra_config": {
                         "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
                             "interval": 60,
                             "timeout": 10,
-                            "maxErrors": 1
+                            "max_errors": 1
                         },
                         "github.com/devopsfaith/krakend-httpcache": {}
                     }
@@ -342,12 +342,12 @@
                     "url_pattern": "/user/{id}.rss",
                     "encoding": "rss",
                     "group": "available",
-                    "whitelist": ["title"],
+                    "allow": ["title"],
                     "extra_config": {
                         "github.com/devopsfaith/krakend-circuitbreaker/gobreaker": {
                             "interval": 60,
                             "timeout": 10,
-                            "maxErrors": 1
+                            "max_errors": 1
                         },
                         "github.com/devopsfaith/krakend-httpcache": {}
                     }
@@ -408,7 +408,7 @@
                 {
                     "host": [ "http://127.0.0.1:8080" ],
                     "url_pattern": "/__debug/",
-                    "blacklist": ["message"]
+                    "deny": ["message"]
                 }
             ],
             "extra_config": {
@@ -429,7 +429,7 @@
                     "roles_key": "roles",
                     "issuer": "https://krakend.io",
                     "roles": ["role_a", "role_c"],
-                    "jwk-url": "http://127.0.0.1:8081/jwk/symmetric",
+                    "jwk_url": "http://127.0.0.1:8081/jwk/symmetric",
                     "disable_jwk_security": true
                 }
             }
@@ -440,7 +440,7 @@
                 {
                     "url_pattern": "/param_forwarding/{JWT.sub}",
                     "host": [ "http://127.0.0.1:8081" ],
-                    "blacklist": ["foo", "headers", "query"]
+                    "deny": ["foo", "headers", "query"]
                 }
             ],
             "extra_config": {
@@ -461,7 +461,7 @@
                     "roles_key": "roles",
                     "issuer": "https://krakend.io",
                     "roles": ["role_a", "role_c"],
-                    "jwk-url": "http://127.0.0.1:8081/jwk/symmetric",
+                    "jwk_url": "http://127.0.0.1:8081/jwk/symmetric",
                     "disable_jwk_security": true
                 }
             }
@@ -472,7 +472,7 @@
                 {
                     "host": [ "http://127.0.0.1:8080" ],
                     "url_pattern": "/__debug",
-                    "blacklist": ["message"]
+                    "deny": ["message"]
                 }
             ],
             "extra_config": {
@@ -494,8 +494,8 @@
                 "github.com/devopsfaith/krakend-jose/signer": {
                     "alg": "HS256",
                     "kid": "sim2",
-                    "keys-to-sign": ["access_token"],
-                    "jwk-url": "http://127.0.0.1:8081/jwk/symmetric",
+                    "keys_to_sign": ["access_token"],
+                    "jwk_url": "http://127.0.0.1:8081/jwk/symmetric",
                     "disable_jwk_security": true
                 }
             }
@@ -511,9 +511,9 @@
                     "extra_config": {
                         "github.com/devopsfaith/krakend-lua/proxy/backend": {
                             "sources": [
-                                "fixtures/lua/json.lua",
-                                "fixtures/lua/base64.lua",
-                                "fixtures/lua/collection.lua"
+                                "./fixtures/lua/json.lua",
+                                "./fixtures/lua/base64.lua",
+                                "./fixtures/lua/collection.lua"
                             ],
                             "pre": "pre_backend(request.load())",
                             "live": true,

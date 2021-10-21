@@ -9,7 +9,7 @@ require (
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211021155313-9f6c82c9f06e
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289
 	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20211021154457-b72c34ad3179
-	github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211020151811-68d27f1893d6
+	github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211021210139-56f3b443bda7
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20211020152253-4af7b2b93c96
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4
 	github.com/devopsfaith/krakend-gologging/v2 v2.0.0-20211021151950-cc8f98a75534

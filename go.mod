@@ -3,8 +3,8 @@ module github.com/devopsfaith/krakend-ce/v2
 go 1.17
 
 require (
-	github.com/devopsfaith/bloomfilter/v2 v2.0.0-20211021162945-76897837db8b
-	github.com/devopsfaith/krakend-amqp/v2 v2.0.0-dev
+	github.com/devopsfaith/bloomfilter/v2 v2.0.0-20211022131028-0baca1203ef5
+	github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20211021214757-66814e3939a0
 	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211020160610-ed9c0ef34f73
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211021155313-9f6c82c9f06e
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289
@@ -12,10 +12,10 @@ require (
 	github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211021210139-56f3b443bda7
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20211020152253-4af7b2b93c96
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4
-	github.com/devopsfaith/krakend-gologging/v2 v2.0.0-20211021151950-cc8f98a75534
+	github.com/devopsfaith/krakend-gologging/v2 v2.0.0-20211022150531-5fffc04546fd
 	github.com/devopsfaith/krakend-httpcache/v2 v2.0.0-20211021164159-6211da0fca04
 	github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f
-	github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211021164722-0aba106388d7
+	github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34
 	github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211021170641-a988ff20d9b6
 	github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211021171135-aba29704574a
 	github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211021153159-245133700463
@@ -24,17 +24,15 @@ require (
 	github.com/devopsfaith/krakend-martian/v2 v2.0.0-20211021173102-cae9b395f331
 	github.com/devopsfaith/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500
 	github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410
-	github.com/devopsfaith/krakend-opencensus/v2 v2.0.0-20211021125509-2c49e9b16e43
+	github.com/devopsfaith/krakend-opencensus/v2 v2.0.0-20211022133055-a008ff652e8b
 	github.com/devopsfaith/krakend-pubsub/v2 v2.0.0-20211021174017-85ef3982a465
 	github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0-20211021175728-26894c1a8810
 	github.com/devopsfaith/krakend-rss/v2 v2.0.0-20211021151134-d7fc811ec546
 	github.com/devopsfaith/krakend-usage v1.4.0
 	github.com/devopsfaith/krakend-viper/v2 v2.0.0-20211020152843-fef58b415f68
-	github.com/devopsfaith/krakend-xml v1.4.0
 	github.com/devopsfaith/krakend-xml/v2 v2.0.0-20211021150603-d68b920c7542
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-contrib/uuid v1.2.0
-	github.com/luraproject/lura v1.4.1
 	github.com/luraproject/lura/v2 v2.0.0-dev
 )
 

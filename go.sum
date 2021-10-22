@@ -756,6 +756,8 @@ github.com/lightstep/lightstep-tracer-go v0.18.1/go.mod h1:jlF1pusYV4pidLvZ+XD0U
 github.com/luraproject/lura v1.4.0/go.mod h1:KIo1/+nsRZVxIO04Hkbth0GXSSzypvkFpF5KaIoLvlo=
 github.com/luraproject/lura v1.4.1 h1:zNzLYMzM13EaSrb9bfaPICD4bXtNqMCdyi42R1eBgro=
 github.com/luraproject/lura v1.4.1/go.mod h1:KIo1/+nsRZVxIO04Hkbth0GXSSzypvkFpF5KaIoLvlo=
+github.com/luraproject/lura/v2 v2.0.0-20211022140159-1962b2e36ccd h1:d3fHI0MjuwwSGzp1KANwKoCcIbzXMs9O74Gw1Z3NZIE=
+github.com/luraproject/lura/v2 v2.0.0-20211022140159-1962b2e36ccd/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
 github.com/luraproject/lura/v2 v2.0.0-dev h1:5QLEEUtIZ83QiC+kU2iP0oJ7XvHn9HGc/m0mouQlmFE=
 github.com/luraproject/lura/v2 v2.0.0-dev/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=

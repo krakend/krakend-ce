@@ -15,9 +15,11 @@ import (
 // NewEngine creates a new gin engine with some default values and a secure middleware
 func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gin.Engine {
 	engine := luragin.NewEngine(cfg, logger, w)
-
-	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
-		logger.Warning(err)
+	logPrefix := "[SERVICE: Gin]"
+	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil && err != httpsecure.ErrNoConfig {
+		logger.Warning(logPrefix+"[HTTPsecure]", err)
+	} else if err == nil {
+		logger.Debug(logPrefix + "[HTTPsecure] Successfuly loaded module")
 	}
 
 	lua.Register(logger, cfg.ExtraConfig, engine)

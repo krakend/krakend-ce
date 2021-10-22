@@ -2,7 +2,6 @@ package krakend
 
 import (
 	"context"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -151,8 +150,8 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger,
 			e.SubscriberFactoriesRegister.Register(ctx, cfg, logger),
 		)
-		if err != nil {
-			logger.Warning("bloomFilter:", err.Error())
+		if err != nil && err != krakendbf.ErrNoConfig {
+			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
 
 		// setup the krakend router
@@ -247,11 +246,11 @@ func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Wri
 			if err != nil {
 				return logger, gelfWriter, err
 			}
-			logger.Error("unable to create the gologging logger:", gologgingErr.Error())
+			logger.Error("[SERVICE: Logging] Unable to create the logger:", gologgingErr.Error())
 		}
 	}
-	if gelfErr != nil {
-		logger.Error("unable to create the GELF writer:", gelfErr.Error())
+	if gelfErr != nil && gelfErr != gelf.ErrWrongConfig {
+		logger.Error("[SERVICE: Logging][GELF] Unable to create the writer:", gelfErr.Error())
 	}
 	return logger, gelfWriter, nil
 }
@@ -280,16 +279,24 @@ func (t BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.Service
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.
 type MetricsAndTraces struct{}
 
-// Register registers the metrcis, influx and opencensus packages as required by the given configuration.
+// Register registers the metrics, influx and opencensus packages as required by the given configuration.
 func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
 
 	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
-		l.Warning(err.Error())
+		if err != influxdb.ErrNoConfig {
+			l.Warning("[SERVICE: InfluxDB]", err.Error())
+		}
+	} else {
+		l.Debug("[SERVICE: InfluxDB] Service correctly registered")
 	}
 
 	if err := opencensus.Register(ctx, cfg, append(opencensus.DefaultViews, pubsub.OpenCensusViews...)...); err != nil {
-		l.Warning("opencensus:", err.Error())
+		if err != opencensus.ErrNoConfig {
+			l.Warning("[SERVICE: OpenCensus]", err.Error())
+		}
+	} else {
+		l.Debug("[SERVICE: OpenCensus] Service correctly registered")
 	}
 
 	return metricCollector
@@ -301,14 +308,15 @@ const (
 )
 
 func startReporter(ctx context.Context, logger logging.Logger, cfg config.ServiceConfig) {
+	logPrefix := "[SERVICE: Telemetry]"
 	if os.Getenv(usageDisable) == "1" {
-		logger.Info("usage report client disabled")
+		logger.Debug(logPrefix, "Usage report client disabled")
 		return
 	}
 
 	clusterID, err := cfg.Hash()
 	if err != nil {
-		logger.Warning("unable to hash the service configuration:", err.Error())
+		logger.Debug(logPrefix, "Unable to create the Cluster ID hash:", err.Error())
 		return
 	}
 
@@ -316,14 +324,14 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 		time.Sleep(usageDelay)
 
 		serverID := uuid.NewV4().String()
-		logger.Info(fmt.Sprintf("registering usage stats for cluster ID '%s'", clusterID))
+		logger.Debug(logPrefix, "Registering usage stats for Cluster ID", clusterID)
 
 		if err := client.StartReporter(ctx, client.Options{
 			ClusterID: clusterID,
 			ServerID:  serverID,
 			Version:   core.KrakendVersion,
 		}); err != nil {
-			logger.Warning("unable to create the usage report client:", err.Error())
+			logger.Debug(logPrefix, "Unable to create the usage report client:", err.Error())
 		}
 	}()
 }

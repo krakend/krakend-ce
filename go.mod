@@ -20,7 +20,7 @@ require (
 	github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211021171135-aba29704574a
 	github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211021153159-245133700463
 	github.com/devopsfaith/krakend-logstash/v2 v2.0.0-20211021152228-04b1b39c185d
-	github.com/devopsfaith/krakend-lua/v2 v2.0.0-20211022162115-ea9163a0f255
+	github.com/devopsfaith/krakend-lua/v2 v2.0.0-20211025165916-56575993dbb2
 	github.com/devopsfaith/krakend-martian/v2 v2.0.0-20211021173102-cae9b395f331
 	github.com/devopsfaith/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500
 	github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410

@@ -242,7 +242,7 @@ func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Wri
 
 		if gologgingErr != nil {
 			var err error
-			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
+			logger, err = logging.NewLogger("DEBUG", os.Stdout, "KRAKEND")
 			if err != nil {
 				return logger, gelfWriter, err
 			}

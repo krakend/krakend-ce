@@ -8,7 +8,7 @@ require (
 	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211020160610-ed9c0ef34f73
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211021155313-9f6c82c9f06e
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289
-	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20211021154457-b72c34ad3179
+	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20211025161152-275555889b7b
 	github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211021210139-56f3b443bda7
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20211020152253-4af7b2b93c96
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4
@@ -217,4 +217,4 @@ require (
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
 
-replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20211022140159-1962b2e36ccd
+replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20211025165134-b04abdc57f71

@@ -278,6 +278,8 @@ github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20211021214757-66814e3939a0 h1:Hfs
 github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20211021214757-66814e3939a0/go.mod h1:dp506u6Fu+MQX0ev5NsYLMuzgLgH8FAK4Xg2t7uHrjs=
 github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211020160610-ed9c0ef34f73 h1:VU80KkQuyZznjuOVDOQ0Qb1sRmAnJ+PiGNcB4s53r9g=
 github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211020160610-ed9c0ef34f73/go.mod h1:A6Z293GtJ7UAg6vQUOU4s5cSJQHFkgrH0R1OW5wUnoo=
+github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702 h1:g26W/8+9bc5q7mW0oeR155W2rWCkxVkB/I7ZnmaY1Vw=
+github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702/go.mod h1:A6Z293GtJ7UAg6vQUOU4s5cSJQHFkgrH0R1OW5wUnoo=
 github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211021155313-9f6c82c9f06e h1:i9W06IBe2A/LGmJXOMnSLytO9mPXmUlpt9B3F+/bBxE=
 github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211021155313-9f6c82c9f06e/go.mod h1:pYo+qjlnUmZjoPbrQDDNRUdF79la3xFNRgC1QWhJGW0=
 github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289 h1:znMcZctvNp05LXB8TanhG0Qcx2HNlWkTujuddZVuqkQ=
@@ -302,6 +304,8 @@ github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34 h1:+
 github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34/go.mod h1:98ydUCA8SEFPmsaZZJE9ONLIiBGOdLyF/eQRmuB6QUY=
 github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211021170641-a988ff20d9b6 h1:Z46/x7FUaF8+x5o5BoeaMNcO7XJ+T/AO8CfovrNKR3o=
 github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211021170641-a988ff20d9b6/go.mod h1:xqe3A7RSVRLp10/xfd5Fg0t72qQGC0XcqAfjU7GQM3Q=
+github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211026125257-b5fd6c590198 h1:eZroyASvXIO4jFQJHcx4hlnSUIU0wqcNSeKfyvg1XF0=
+github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211026125257-b5fd6c590198/go.mod h1:xqe3A7RSVRLp10/xfd5Fg0t72qQGC0XcqAfjU7GQM3Q=
 github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211021171135-aba29704574a h1:NN896U+42FlqTaMhCnCFCkYb2QkyOcEl2/vyDkvvp8E=
 github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211021171135-aba29704574a/go.mod h1:tJzMn6aT7Ab2UzBSggSdV3szYEiqX7GYTscoOHyE9CQ=
 github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211021153159-245133700463 h1:x0vyhXDJ/i9hpXq2MYTqOc3ObAidqSTY9BnXmYZzPrI=
@@ -743,6 +747,8 @@ github.com/luraproject/lura/v2 v2.0.0-20211022140159-1962b2e36ccd h1:d3fHI0Mjuww
 github.com/luraproject/lura/v2 v2.0.0-20211022140159-1962b2e36ccd/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
 github.com/luraproject/lura/v2 v2.0.0-20211025165134-b04abdc57f71 h1:EjceP2VIoqfbZh3bvTqP9ck2l4nGNlCdnDUjZ7hr8s8=
 github.com/luraproject/lura/v2 v2.0.0-20211025165134-b04abdc57f71/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
+github.com/luraproject/lura/v2 v2.0.0-20211026123841-2336b88aff98 h1:6eXicWKuQJmp4ONN0C4Yw5iyr/BRcTKkdOcr3/HhU8o=
+github.com/luraproject/lura/v2 v2.0.0-20211026123841-2336b88aff98/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f h1:MBcrTbmCf7CZa9yAwcB7ArveQb9TPVy4zFnQGz/LiUU=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f/go.mod h1:UawoqorwkpZ58qWiL+nVJM0Po7FrzAdCxYVh9GgTTaA=

@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/devopsfaith/bloomfilter/v2 v2.0.0-20211022131028-0baca1203ef5
 	github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20211021214757-66814e3939a0
-	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211020160610-ed9c0ef34f73
+	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211021155313-9f6c82c9f06e
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289
 	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20211025161152-275555889b7b
@@ -16,7 +16,7 @@ require (
 	github.com/devopsfaith/krakend-httpcache/v2 v2.0.0-20211021164159-6211da0fca04
 	github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f
 	github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34
-	github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211021170641-a988ff20d9b6
+	github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211026125257-b5fd6c590198
 	github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211021171135-aba29704574a
 	github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211021153159-245133700463
 	github.com/devopsfaith/krakend-logstash/v2 v2.0.0-20211021152228-04b1b39c185d
@@ -217,4 +217,4 @@ require (
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
 
-replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20211025165134-b04abdc57f71
+replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20211026123841-2336b88aff98

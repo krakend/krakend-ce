@@ -10,11 +10,13 @@ import (
 	juju "github.com/devopsfaith/krakend-ratelimit/v2/juju/router/gin"
 	"github.com/luraproject/lura/v2/logging"
 	router "github.com/luraproject/lura/v2/router/gin"
+	"github.com/luraproject/lura/v2/transport/http/server"
 )
 
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
 func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory) router.HandlerFactory {
-	handlerFactory := juju.HandlerFactory
+	handlerFactory := router.CustomErrorEndpointHandler(logger, server.DefaultToHTTPError)
+	handlerFactory = juju.NewRateLimiterMw(handlerFactory)
 	handlerFactory = lua.HandlerFactory(logger, handlerFactory)
 	handlerFactory = ginjose.HandlerFactory(handlerFactory, logger, rejecter)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)

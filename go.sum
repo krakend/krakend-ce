@@ -282,6 +282,8 @@ github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702
 github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702/go.mod h1:A6Z293GtJ7UAg6vQUOU4s5cSJQHFkgrH0R1OW5wUnoo=
 github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211021155313-9f6c82c9f06e h1:i9W06IBe2A/LGmJXOMnSLytO9mPXmUlpt9B3F+/bBxE=
 github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211021155313-9f6c82c9f06e/go.mod h1:pYo+qjlnUmZjoPbrQDDNRUdF79la3xFNRgC1QWhJGW0=
+github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b h1:BdTEsvU5sQY66uZPEdZr/56Y0yK2vTlZ/qfGibAUCFU=
+github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b/go.mod h1:pYo+qjlnUmZjoPbrQDDNRUdF79la3xFNRgC1QWhJGW0=
 github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289 h1:znMcZctvNp05LXB8TanhG0Qcx2HNlWkTujuddZVuqkQ=
 github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289/go.mod h1:rafMZmt3m9yKvc/zJbgubtzXs4Eb+TUwJG0KFPlzU3E=
 github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20211021154457-b72c34ad3179 h1:fTIfhKh3EsYbkESBDfWyldbgeOhISwtx5GQo08c3B68=
@@ -749,6 +751,12 @@ github.com/luraproject/lura/v2 v2.0.0-20211025165134-b04abdc57f71 h1:EjceP2VIoqf
 github.com/luraproject/lura/v2 v2.0.0-20211025165134-b04abdc57f71/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
 github.com/luraproject/lura/v2 v2.0.0-20211026123841-2336b88aff98 h1:6eXicWKuQJmp4ONN0C4Yw5iyr/BRcTKkdOcr3/HhU8o=
 github.com/luraproject/lura/v2 v2.0.0-20211026123841-2336b88aff98/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
+github.com/luraproject/lura/v2 v2.0.0-20211026164009-4e84d28a2db7 h1:A+Ve6tJEmvh2eS5xUGhUYfaYvXYsD8UVQXt0mPHF1JQ=
+github.com/luraproject/lura/v2 v2.0.0-20211026164009-4e84d28a2db7/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
+github.com/luraproject/lura/v2 v2.0.0-20211028134905-ed838756705a h1:/Zqe9c49Qs3Cu8gXFoUrTfn87OfOUujm/OEf7Zaf/V4=
+github.com/luraproject/lura/v2 v2.0.0-20211028134905-ed838756705a/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
+github.com/luraproject/lura/v2 v2.0.0-20211028150746-4790758e818f h1:QtE4Px3qlgIjfawxgKnQ4P6DEF5CsnivUNsQzyuC+0w=
+github.com/luraproject/lura/v2 v2.0.0-20211028150746-4790758e818f/go.mod h1:OqrMGe6pOC526IlGWLfhLjjRPyc8vRATXZYih9EbEZs=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f h1:MBcrTbmCf7CZa9yAwcB7ArveQb9TPVy4zFnQGz/LiUU=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f/go.mod h1:UawoqorwkpZ58qWiL+nVJM0Po7FrzAdCxYVh9GgTTaA=

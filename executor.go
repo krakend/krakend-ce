@@ -310,7 +310,6 @@ const (
 func startReporter(ctx context.Context, logger logging.Logger, cfg config.ServiceConfig) {
 	logPrefix := "[SERVICE: Telemetry]"
 	if os.Getenv(usageDisable) == "1" {
-		logger.Debug(logPrefix, "Usage report client disabled")
 		return
 	}
 

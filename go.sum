@@ -310,6 +310,8 @@ github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211026125257-b5fd6c590198 h1:eZr
 github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211026125257-b5fd6c590198/go.mod h1:xqe3A7RSVRLp10/xfd5Fg0t72qQGC0XcqAfjU7GQM3Q=
 github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211029170303-a192c76afbcf h1:q4XAVpQciMmAbbUPOByICf8ZSa3rlBXesRG3D799NaM=
 github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211029170303-a192c76afbcf/go.mod h1:xqe3A7RSVRLp10/xfd5Fg0t72qQGC0XcqAfjU7GQM3Q=
+github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211102123144-4482f95102bd h1:4dQEThuz4xozfklxq9NrHAkwIMG50hq+crkYiHWy5sQ=
+github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211102123144-4482f95102bd/go.mod h1:xqe3A7RSVRLp10/xfd5Fg0t72qQGC0XcqAfjU7GQM3Q=
 github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211021171135-aba29704574a h1:NN896U+42FlqTaMhCnCFCkYb2QkyOcEl2/vyDkvvp8E=
 github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211021171135-aba29704574a/go.mod h1:tJzMn6aT7Ab2UzBSggSdV3szYEiqX7GYTscoOHyE9CQ=
 github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211021153159-245133700463 h1:x0vyhXDJ/i9hpXq2MYTqOc3ObAidqSTY9BnXmYZzPrI=

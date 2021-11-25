@@ -18,7 +18,8 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@devops.faith>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.16.4
+GOLANG_VERSION := 1.17.3
+ALPINE_VERSION := 3.14
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -91,7 +92,7 @@ build_on_docker:
 	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make build
 
 docker:
-	docker build --pull -t devopsfaith/krakend:${VERSION} .
+	docker build --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
 
 builder/skel/%/etc/init.d/krakend: builder/files/krakend.init
 	mkdir -p "$(dir $@)"

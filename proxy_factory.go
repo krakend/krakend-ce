@@ -14,7 +14,7 @@ import (
 func NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory, metricCollector *metrics.Metrics) proxy.Factory {
 	proxyFactory := proxy.NewDefaultFactory(backendFactory, logger)
 	proxyFactory = proxy.NewShadowFactory(proxyFactory)
-	proxyFactory = jsonschema.ProxyFactory(proxyFactory)
+	proxyFactory = jsonschema.ProxyFactory(logger, proxyFactory)
 	proxyFactory = cel.ProxyFactory(logger, proxyFactory)
 	proxyFactory = lua.ProxyFactory(logger, proxyFactory)
 	proxyFactory = metricCollector.ProxyFactory("pipe", proxyFactory)

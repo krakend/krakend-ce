@@ -16,22 +16,22 @@ require (
 	github.com/devopsfaith/krakend-httpcache/v2 v2.0.0-20211021164159-6211da0fca04
 	github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f
 	github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34
-	github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211102123144-4482f95102bd
-	github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211021171135-aba29704574a
-	github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211021153159-245133700463
+	github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211102130458-93c23f5972ed
+	github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211102170836-0cb59fd10016
+	github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211102183949-0021084c2154
 	github.com/devopsfaith/krakend-logstash/v2 v2.0.0-20211021152228-04b1b39c185d
-	github.com/devopsfaith/krakend-lua/v2 v2.0.0-20211025165916-56575993dbb2
+	github.com/devopsfaith/krakend-lua/v2 v2.0.0-20211105183158-728855f9797d
 	github.com/devopsfaith/krakend-martian/v2 v2.0.0-20211021173102-cae9b395f331
 	github.com/devopsfaith/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500
 	github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410
 	github.com/devopsfaith/krakend-opencensus/v2 v2.0.0-20211022133055-a008ff652e8b
 	github.com/devopsfaith/krakend-pubsub/v2 v2.0.0-20211021174017-85ef3982a465
-	github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0-20211021175728-26894c1a8810
+	github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0-20220114205036-e439f3a4820e
 	github.com/devopsfaith/krakend-rss/v2 v2.0.0-20211021151134-d7fc811ec546
 	github.com/devopsfaith/krakend-usage v1.4.0
 	github.com/devopsfaith/krakend-viper/v2 v2.0.0-20211020152843-fef58b415f68
 	github.com/devopsfaith/krakend-xml/v2 v2.0.0-20211021150603-d68b920c7542
-	github.com/gin-gonic/gin v1.7.4
+	github.com/gin-gonic/gin v1.7.7
 	github.com/go-contrib/uuid v1.2.0
 	github.com/luraproject/lura/v2 v2.0.0-dev
 )
@@ -96,6 +96,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
 	github.com/go-test/deep v1.0.7 // indirect
+	github.com/goccy/go-json v0.7.10 // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.2 // indirect
@@ -217,4 +218,6 @@ require (
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
 
-replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20211028150746-4790758e818f
+replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20220113221426-68fdb2beb712
+
+// replace github.com/luraproject/lura/v2 v2.0.0-dev => /home/kpacha/workspace/luraproject/lura

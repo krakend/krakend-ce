@@ -5,24 +5,24 @@
     "cache_ttl": "3600s",
     "timeout": "3s",
     "extra_config": {
-      "github_com/devopsfaith/krakend-gologging": {
+      "telemetry/logging": {
         "level":  "DEBUG",
         "prefix": "[KRAKEND]",
         "syslog": false,
         "stdout": true
       },
-      "github_com/devopsfaith/krakend-metrics": {
+      "telemetry/metrics": {
         "collection_time": "60s",
         "listen_address": ":8090"
       },
-      "github_com/devopsfaith/krakend-cors": {
+      "security/cors": {
         "allow_origins": [ "*" ],
         "allow_methods": [ "POST", "GET" ],
         "allow_headers": [ "Origin", "Authorization", "Content-Type" ],
         "expose_headers": [ "Content-Length" ],
         "max_age": "12h"
       },
-      "github_com/devopsfaith/krakend-botdetector": {
+      "security/bot-detector": {
         "deny": ["a", "b"],
         "allow": ["c", "Pingdom.com_bot_version_1.1"],
         "patterns": [
@@ -40,6 +40,29 @@
                     "url_pattern": "/unknown"
                 }
             ]
+        },
+        {
+          "endpoint": "/timeout2/{param}",
+          "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+              "sequential": true
+            }
+          },
+          "timeout": "150us",
+          "backend": [
+            {
+              "url_pattern": "/__debug/{param}",
+              "host": [ "http://127.0.0.1:8080" ],
+              "timeout": "30us",
+              "allow": [ "message" ]
+            },
+            {
+              "url_pattern": "/__debug/{param}/{resp0_message}",
+              "timeout": "30us",
+              "host": [ "http://127.0.0.1:8080" ],
+              "group": "second"
+            }
+          ]
         },
         {
             "endpoint": "/no-op",
@@ -108,12 +131,36 @@
             }
         },
         {
+            "endpoint": "/static/merge",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8080" ],
+                    "url_pattern": "/unknown"
+                },
+                {
+                    "host": [ "http://127.0.0.1:8080" ],
+                    "url_pattern": "/not-really-a-url"
+                }
+            ],
+            "extra_config": {
+                "github.com/devopsfaith/krakend/proxy": {
+                    "static": {
+                        "strategy": "always",
+                        "data": {
+                            "foo": 42,
+                            "bar": "foobar"
+                        }
+                    }
+                }
+            }
+        },
+        {
             "endpoint": "/cel/req-resp/{id}",
             "headers_to_pass": ["X-Header"],
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8080" ],
-                    "url_pattern": "/__debug/{id}",
+                    "url_pattern": "/__debug/1/{id}",
                     "group": "backend1",
                     "extra_config":{
                         "github.com/devopsfaith/krakend-cel": [
@@ -125,7 +172,7 @@
                 },
                 {
                     "host": [ "http://127.0.0.1:8080" ],
-                    "url_pattern": "/__debug/{id}",
+                    "url_pattern": "/__debug/2/{id}",
                     "group": "backend2",
                     "extra_config":{
                         "github.com/devopsfaith/krakend-cel": [
@@ -578,8 +625,8 @@
             "method": "POST",
             "backend": [
                 {
-                    "host": ["http://127.0.0.1:8081"],
-                    "url_pattern": "/"
+                    "host": ["http://127.0.0.1:8080"],
+                    "url_pattern": "/__debug/"
                 }
             ],
             "extra_config":{

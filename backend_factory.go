@@ -54,10 +54,10 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = bf.New
 	backendFactory = amqp.NewBackendFactory(ctx, logger, backendFactory)
-	backendFactory = lambda.BackendFactory(backendFactory)
+	backendFactory = lambda.BackendFactory(logger, backendFactory)
 	backendFactory = cel.BackendFactory(logger, backendFactory)
 	backendFactory = lua.BackendFactory(logger, backendFactory)
-	backendFactory = juju.BackendFactory(backendFactory)
+	backendFactory = juju.BackendFactory(logger, backendFactory)
 	backendFactory = cb.BackendFactory(backendFactory, logger)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
 	backendFactory = opencensus.BackendFactory(backendFactory)

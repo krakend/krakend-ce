@@ -96,7 +96,6 @@ require (
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
 	github.com/go-test/deep v1.0.7 // indirect
-	github.com/goccy/go-json v0.7.10 // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.2 // indirect
@@ -218,6 +217,4 @@ require (
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
 
-replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20220113221426-68fdb2beb712
-
-// replace github.com/luraproject/lura/v2 v2.0.0-dev => /home/kpacha/workspace/luraproject/lura
+replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20220115191106-e4d114731d91

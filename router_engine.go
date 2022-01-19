@@ -13,8 +13,8 @@ import (
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware
-func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gin.Engine {
-	engine := luragin.NewEngine(cfg, logger, w)
+func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer, formatter gin.LogFormatter) *gin.Engine {
+	engine := luragin.NewEngine(cfg, logger, w, formatter)
 	logPrefix := "[SERVICE: Gin]"
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil && err != httpsecure.ErrNoConfig {
 		logger.Warning(logPrefix+"[HTTPsecure]", err)
@@ -31,6 +31,6 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 
 type engineFactory struct{}
 
-func (e engineFactory) NewEngine(cfg config.ServiceConfig, l logging.Logger, w io.Writer) *gin.Engine {
-	return NewEngine(cfg, l, w)
+func (e engineFactory) NewEngine(cfg config.ServiceConfig, l logging.Logger, w io.Writer, formatter gin.LogFormatter) *gin.Engine {
+	return NewEngine(cfg, l, w, formatter)
 }

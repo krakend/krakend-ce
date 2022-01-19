@@ -74,7 +74,7 @@ type MetricsAndTracesRegister interface {
 
 // EngineFactory returns a gin engine, ready to be passed to the KrakenD RouterFactory
 type EngineFactory interface {
-	NewEngine(config.ServiceConfig, logging.Logger, io.Writer) *gin.Engine
+	NewEngine(config.ServiceConfig, logging.Logger, io.Writer, gin.LogFormatter) *gin.Engine
 }
 
 // ProxyFactory returns a KrakenD proxy factory, ready to be passed to the KrakenD RouterFactory
@@ -156,7 +156,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
-			Engine: e.EngineFactory.NewEngine(cfg, logger, gelfWriter),
+			Engine: e.EngineFactory.NewEngine(cfg, logger, gelfWriter, nil),
 			ProxyFactory: e.ProxyFactory.NewProxyFactory(
 				logger,
 				e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),

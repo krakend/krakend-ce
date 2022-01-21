@@ -4,8 +4,8 @@ go 1.12
 
 require (
 	github.com/Azure/go-autorest/autorest v0.11.12 // indirect
-	github.com/Unacademy/krakend-error-handler v1.1.0
-	github.com/Unacademy/krakend-gin-logger v1.4.1
+	github.com/Unacademy/krakend-error-handler v1.1.1
+	github.com/Unacademy/krakend-gin-logger v1.4.2
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
 	github.com/clbanning/mxj v1.8.4 // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
@@ -67,10 +67,10 @@ require (
 	github.com/tmthrgd/go-hex v0.0.0-20180828131331-d1fb3dbb16a1 // indirect
 	github.com/tmthrgd/go-memset v0.0.0-20180828131805-6f4e59bf1e1d // indirect
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97 // indirect
+	github.com/unacademy/krakend-auth v1.0.0
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7 // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
 	gocloud.dev v0.21.0 // indirect
-	github.com/unacademy/krakend-auth v0.0.0-20211209080855-d3fc02f4d11b
 	gocloud.dev/pubsub/kafkapubsub v0.21.0 // indirect
 	gocloud.dev/pubsub/natspubsub v0.21.0 // indirect
 	gocloud.dev/pubsub/rabbitpubsub v0.21.0 // indirect

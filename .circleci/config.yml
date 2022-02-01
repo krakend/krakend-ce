@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+  image:
+    docker:
+      - image: gcr.io/cloud-builders/docker
+        environment:
+          DOCKER_BUILDKIT: 1
+          DOCKER_CLI_EXPERIMENTAL: enabled
+    working_directory: ~/app
+    resource_class: large
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 18.09.3
+          docker_layer_caching: true
+      - run:
+          name: Build Image
+          no_output_timeout: 20m
+          command: |
+            if [ "$CIRCLE_BRANCH" = "master" ]; then
+              image="krakend-ce"
+            else
+              image="krakend-ce/branch"
+            fi
+            docker buildx build \
+            -t artifactory.infra.alto.com/alto-docker/${image}:${CIRCLE_SHA1} \
+            -t artifactory.infra.alto.com/alto-docker/${image}:latest \
+            --build-arg ALTO_ARTIFACTORY_USER="${KRAKEND_CE_ARTIFACTORY_USER}" \
+            --build-arg ALTO_ARTIFACTORY_APIKEY="${KRAKEND_CE_ARTIFACTORY_APIKEY}" \
+            --push --progress=plain .
+ 
+workflows:
+  version: 2
+  release:
+    jobs:
+      - image:
+          context:
+            - release

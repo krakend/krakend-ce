@@ -67,6 +67,7 @@ require (
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7 // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
+	go.uber.org/zap v1.20.0
 	gocloud.dev v0.21.0 // indirect
 	gocloud.dev/pubsub/kafkapubsub v0.21.0 // indirect
 	gocloud.dev/pubsub/natspubsub v0.21.0 // indirect

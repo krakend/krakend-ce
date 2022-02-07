@@ -1,6 +1,7 @@
 package krakend
 
 import (
+	newrelic "github.com/unacademy/krakend-newrelic"
 	"io"
 
 	"github.com/Unacademy/krakend-gin-logger"
@@ -20,6 +21,10 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 
 	engine := gin.New()
 	engine.Use(gin_logger.NewLogger(cfg.ExtraConfig, logger, gin.LoggerConfig{Output: w}), gin.Recovery())
+	ginNewRelicMW, err := newrelic.Middleware()
+	if err != nil {
+		engine.Use(ginNewRelicMW)
+	}
 
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true

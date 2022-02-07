@@ -11,6 +11,7 @@ import (
 	"github.com/luraproject/lura/logging"
 	router "github.com/luraproject/lura/router/gin"
 	"github.com/unacademy/krakend-auth"
+	newrelic "github.com/unacademy/krakend-newrelic"
 )
 
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
@@ -19,6 +20,7 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 	handlerFactory = lua.HandlerFactory(logger, handlerFactory)
 	handlerFactory = krakendauth.HandlerFactory(handlerFactory, logger)
 	handlerFactory = ginjose.HandlerFactory(handlerFactory, logger, rejecter)
+	handlerFactory = newrelic.HandlerFactory(handlerFactory)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)
 	handlerFactory = opencensus.New(handlerFactory)
 	handlerFactory = botdetector.New(handlerFactory, logger)

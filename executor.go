@@ -105,6 +105,10 @@ type RunServerFactory interface {
 	NewRunServer(logging.Logger, router.RunServerFunc) RunServer
 }
 
+type NewRelicMetricCollector interface {
+	Register(cfg config.ExtraConfig, logger logging.Logger)
+}
+
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
 type ExecutorBuilder struct {
 	LoggerFactory               LoggerFactory
@@ -112,13 +116,13 @@ type ExecutorBuilder struct {
 	SubscriberFactoriesRegister SubscriberFactoriesRegister
 	TokenRejecterFactory        TokenRejecterFactory
 	MetricsAndTracesRegister    MetricsAndTracesRegister
+	NewRelicMetricCollector     NewRelicMetricCollector
 	EngineFactory               EngineFactory
 	ProxyFactory                ProxyFactory
 	BackendFactory              BackendFactory
 	HandlerFactory              HandlerFactory
 	RunServerFactory            RunServerFactory
-
-	Middlewares []gin.HandlerFunc
+	Middlewares                 []gin.HandlerFunc
 }
 
 // NewCmdExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -153,6 +157,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		if err != nil {
 			logger.Warning("bloomFilter:", err.Error())
 		}
+		newrelicCollector := e.NewRelicMetricCollector.Register(cfg.ExtraConfig, logger)
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
@@ -274,6 +279,12 @@ func (t BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.Service
 			return jose.FixedRejecter(false)
 		}),
 	}), err
+}
+
+type Newrelic struct{}
+
+func (Newrelic) Register(cfg config.ExtraConfig, logger logging.Logger){
+	//TODO
 }
 
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.

@@ -38,6 +38,7 @@ import (
 	krakendrouter "github.com/luraproject/lura/router"
 	router "github.com/luraproject/lura/router/gin"
 	server "github.com/luraproject/lura/transport/http/server/plugin"
+	newrelic "github.com/unacademy/krakend-newrelic"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -157,7 +158,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		if err != nil {
 			logger.Warning("bloomFilter:", err.Error())
 		}
-		newrelicCollector := e.NewRelicMetricCollector.Register(cfg.ExtraConfig, logger)
+		e.NewRelicMetricCollector.Register(cfg.ExtraConfig, logger)
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
@@ -283,8 +284,9 @@ func (t BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.Service
 
 type Newrelic struct{}
 
-func (Newrelic) Register(cfg config.ExtraConfig, logger logging.Logger){
-	//TODO
+func (Newrelic) Register(cfg config.ExtraConfig, logger logging.Logger) {
+	newrelic.Register(cfg, logger)
+	return
 }
 
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.

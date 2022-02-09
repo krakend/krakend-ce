@@ -1515,8 +1515,8 @@ github.com/unacademy/krakend-auth v0.0.0-20211209080855-d3fc02f4d11b h1:vNKAcFdr
 github.com/unacademy/krakend-auth v0.0.0-20211209080855-d3fc02f4d11b/go.mod h1:DiES3ANy9ALC5jJQoGGBj+6stmFjvTgBZYan9tg9iRs=
 github.com/unacademy/krakend-auth v1.0.0 h1:HehgUIQ5mwUl6DvOFekqWBQwQSaN4UQQTVWjyUZq0Kg=
 github.com/unacademy/krakend-auth v1.0.0/go.mod h1:DiES3ANy9ALC5jJQoGGBj+6stmFjvTgBZYan9tg9iRs=
-github.com/unacademy/krakend-newrelic v1.0.0-dev.3 h1:S7Nm2jUXb3zlQ2hgDonbGarKIxujOhcRKQTOjRdfrEg=
-github.com/unacademy/krakend-newrelic v1.0.0-dev.3/go.mod h1:vuFVbMhbVKlxcvUfJ8PsxC7o+3wP5NbDcnftEifpZGQ=
+github.com/unacademy/krakend-newrelic v1.0.0-dev.4 h1:js5rEpqD5gpTKQgHge4qMcpANpVkpgZI7ynb0sK+QEw=
+github.com/unacademy/krakend-newrelic v1.0.0-dev.4/go.mod h1:vuFVbMhbVKlxcvUfJ8PsxC7o+3wP5NbDcnftEifpZGQ=
 github.com/unrolled/secure v0.0.0-20180918153822-f340ee86eb8b h1:BcYLITOE/4y1IAcNb0XsnDMskrWaBNLj/ckrG8sufOc=
 github.com/unrolled/secure v0.0.0-20180918153822-f340ee86eb8b/go.mod h1:mnPT77IAdsi/kV7+Es7y+pXALeV3h7G6dQF6mNYjcLA=
 github.com/urfave/cli v0.0.0-20171014202726-7bc6a0acffa5/go.mod h1:70zkFmudgCuE/ngEzBv17Jvp/497gISqfk5gWijbERA=

@@ -69,7 +69,7 @@ require (
 	github.com/tmthrgd/go-memset v0.0.0-20180828131805-6f4e59bf1e1d // indirect
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97 // indirect
 	github.com/unacademy/krakend-auth v1.0.0
-	github.com/unacademy/krakend-newrelic v1.0.0-dev.4
+	github.com/unacademy/krakend-newrelic v1.0.0-dev.5
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7 // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
 	gocloud.dev v0.21.0 // indirect

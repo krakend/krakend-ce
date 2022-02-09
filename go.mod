@@ -45,6 +45,7 @@ require (
 	github.com/devopsfaith/krakend-xml v1.4.0
 	github.com/gin-gonic/gin v1.7.2
 	github.com/go-contrib/uuid v1.2.0
+	github.com/gomodule/redigo v1.8.6 // indirect
 	github.com/google/btree v1.0.0 // indirect
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect
@@ -68,7 +69,7 @@ require (
 	github.com/tmthrgd/go-hex v0.0.0-20180828131331-d1fb3dbb16a1 // indirect
 	github.com/tmthrgd/go-memset v0.0.0-20180828131805-6f4e59bf1e1d // indirect
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97 // indirect
-	github.com/unacademy/krakend-auth v1.0.0
+	github.com/unacademy/krakend-auth v1.1.0-dev.1
 	github.com/unacademy/krakend-newrelic v1.0.0-dev.6
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7 // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect

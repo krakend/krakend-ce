@@ -66,7 +66,7 @@ https://www.krakend.io/docs/overview/introduction/
 
 ## Build
 ```
-    make build
+make build
 ```
 
 ## Building with docker

@@ -210,6 +210,9 @@ func (e *ExecutorBuilder) checkCollaborators() {
 	if e.RunServerFactory == nil {
 		e.RunServerFactory = new(DefaultRunServerFactory)
 	}
+	if e.NewRelicMetricCollector == nil {
+		e.NewRelicMetricCollector = new(Newrelic)
+	}
 }
 
 // DefaultRunServerFactory creates the default RunServer by wrapping the injected RunServer
@@ -286,7 +289,6 @@ type Newrelic struct{}
 
 func (Newrelic) Register(cfg config.ExtraConfig, logger logging.Logger) {
 	newrelic.Register(cfg, logger)
-	return
 }
 
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.

@@ -43,15 +43,17 @@ require (
 	github.com/influxdata/influxdb v1.7.4 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20181102202715-663e2683a27c // indirect
 	github.com/luraproject/lura v1.4.1
+	github.com/newrelic/go-agent v2.2.0+incompatible // indirect
 	github.com/pelletier/go-toml v1.7.0 // indirect
 	github.com/prometheus/common v0.11.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/unacademy/krakend-auth v1.0.0
-	github.com/unacademy/krakend-newrelic v1.0.0-dev
+	github.com/unacademy/krakend-newrelic v1.0.0-dev.1
 	gocloud.dev/pubsub/kafkapubsub v0.21.0 // indirect
 	gocloud.dev/pubsub/natspubsub v0.21.0 // indirect
 	gocloud.dev/pubsub/rabbitpubsub v0.21.0 // indirect
 	gocloud.dev/secrets/hashivault v0.21.0 // indirect
+	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
 )
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f

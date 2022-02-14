@@ -41,7 +41,7 @@ require (
 	github.com/devopsfaith/krakend-usage v1.4.0
 	github.com/devopsfaith/krakend-viper v1.4.0
 	github.com/devopsfaith/krakend-xml v1.4.0
-	github.com/gin-gonic/gin v1.7.2
+	github.com/gin-gonic/gin v1.7.7
 	github.com/go-contrib/uuid v1.2.0
 	github.com/google/btree v1.0.0 // indirect
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect

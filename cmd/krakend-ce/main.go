@@ -89,7 +89,7 @@ var aliases = map[string]string{
 	"github.com/devopsfaith/krakend-amqp/produce":                  "backend/amqp/producer",
 	"github.com/devopsfaith/krakend-lambda":                        "backend/lambda",
 	"github.com/devopsfaith/krakend-pubsub/publisher":              "backend/pubsub/publisher",
-	"github.com/devopsfaith/krakend-pubsub/subscriber":             "backend/pubsub/susbcriber",
+	"github.com/devopsfaith/krakend-pubsub/subscriber":             "backend/pubsub/subscriber",
 	"github.com/devopsfaith/krakend/transport/http/client/graphql": "backend/graphql",
 	"github.com/devopsfaith/krakend/http":                          "backend/http",
 

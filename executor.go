@@ -9,8 +9,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
+	"golang.org/x/sync/errgroup"
 
 	krakendbf "github.com/devopsfaith/bloomfilter/v2/krakend"
+	asyncamqp "github.com/devopsfaith/krakend-amqp/v2/async"
 	cel "github.com/devopsfaith/krakend-cel/v2"
 	cmd "github.com/devopsfaith/krakend-cobra/v2"
 	cors "github.com/devopsfaith/krakend-cors/v2/gin"
@@ -31,6 +33,7 @@ import (
 	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/zipkin"
 	pubsub "github.com/devopsfaith/krakend-pubsub/v2"
 	"github.com/devopsfaith/krakend-usage/client"
+	"github.com/luraproject/lura/v2/async"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/core"
 	"github.com/luraproject/lura/v2/logging"
@@ -74,7 +77,7 @@ type MetricsAndTracesRegister interface {
 
 // EngineFactory returns a gin engine, ready to be passed to the KrakenD RouterFactory
 type EngineFactory interface {
-	NewEngine(config.ServiceConfig, logging.Logger, io.Writer, gin.LogFormatter) *gin.Engine
+	NewEngine(config.ServiceConfig, router.EngineOptions) *gin.Engine
 }
 
 // ProxyFactory returns a KrakenD proxy factory, ready to be passed to the KrakenD RouterFactory
@@ -105,6 +108,17 @@ type RunServerFactory interface {
 	NewRunServer(logging.Logger, router.RunServerFunc) RunServer
 }
 
+// AgentStarter defines a type that starts a set of agents
+type AgentStarter interface {
+	Start(
+		context.Context,
+		[]*config.AsyncAgent,
+		logging.Logger,
+		chan<- string,
+		proxy.Factory,
+	) func() error
+}
+
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
 type ExecutorBuilder struct {
 	LoggerFactory               LoggerFactory
@@ -117,11 +131,12 @@ type ExecutorBuilder struct {
 	BackendFactory              BackendFactory
 	HandlerFactory              HandlerFactory
 	RunServerFactory            RunServerFactory
+	AgentStarterFactory         AgentStarter
 
 	Middlewares []gin.HandlerFunc
 }
 
-// NewCmdExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
+// NewCmdExecutor returns an executor for the cmd package. The executor initializes the entire gateway by
 // delegating most of the tasks to the injected collaborators. They register the components and
 // compose a RouterFactory wrapping all the middlewares.
 // Every nil collaborator is replaced by the default one offered by this package.
@@ -133,8 +148,6 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		if gelfErr != nil {
 			return
 		}
-
-		logger.Info("Listening on port:", cfg.Port)
 
 		startReporter(ctx, logger, cfg)
 
@@ -154,14 +167,22 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
 
+		pf := e.ProxyFactory.NewProxyFactory(
+			logger,
+			e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
+			metricCollector,
+		)
+
+		agentPing := make(chan string, len(cfg.AsyncAgents))
+
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
-			Engine: e.EngineFactory.NewEngine(cfg, logger, gelfWriter, nil),
-			ProxyFactory: e.ProxyFactory.NewProxyFactory(
-				logger,
-				e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
-				metricCollector,
-			),
+			Engine: e.EngineFactory.NewEngine(cfg, router.EngineOptions{
+				Logger: logger,
+				Writer: gelfWriter,
+				Health: (<-chan string)(agentPing),
+			}),
+			ProxyFactory:   pf,
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
 			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
@@ -169,7 +190,34 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		})
 
 		// start the engines
-		routerFactory.NewWithContext(ctx).Run(cfg)
+		logger.Info("Starting the KrakenD instance")
+
+		if len(cfg.AsyncAgents) == 0 {
+			routerFactory.NewWithContext(ctx).Run(cfg)
+			return
+		}
+
+		// start the async agents in the same error group as the router
+		g, gctx := errgroup.WithContext(ctx)
+		gctx, closeGroupCtx := context.WithCancel(gctx)
+
+		if cfg.SequentialStart {
+			waitAgents := e.AgentStarterFactory.Start(gctx, cfg.AsyncAgents, logger, (chan<- string)(agentPing), pf)
+			g.Go(waitAgents)
+		} else {
+			g.Go(func() error {
+				return e.AgentStarterFactory.Start(gctx, cfg.AsyncAgents, logger, (chan<- string)(agentPing), pf)()
+			})
+		}
+
+		g.Go(func() error {
+			logger.Info("[SERVICE: Gin] Building the router")
+			routerFactory.NewWithContext(ctx).Run(cfg)
+			closeGroupCtx()
+			return nil
+		})
+
+		g.Wait()
 	}
 }
 
@@ -203,6 +251,9 @@ func (e *ExecutorBuilder) checkCollaborators() {
 	}
 	if e.RunServerFactory == nil {
 		e.RunServerFactory = new(DefaultRunServerFactory)
+	}
+	if e.AgentStarterFactory == nil {
+		e.AgentStarterFactory = async.AgentStarter([]async.Factory{asyncamqp.StartAgent})
 	}
 }
 

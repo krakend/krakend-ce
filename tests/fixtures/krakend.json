@@ -29,7 +29,10 @@
             "(Pingdom.com_bot_version_).*",
             "(facebookexternalhit)/.*"
         ]
-      }
+      },
+        "-pepe-router":{
+            "return_error_msg":true
+        }
     },
     "endpoints": [
         {
@@ -556,14 +559,13 @@
                     "url_pattern": "/collection/",
                     "is_collection": true,
                     "extra_config": {
-                        "modifier/lua-proxy/backend": {
+                        "modifier/lua-backend": {
                             "sources": [
-                                "./fixtures/lua/json.lua",
-                                "./fixtures/lua/base64.lua",
-                                "./fixtures/lua/collection.lua"
+                                "fixtures/lua/json.lua",
+                                "fixtures/lua/base64.lua",
+                                "fixtures/lua/collection.lua"
                             ],
                             "pre": "pre_backend(request.load())",
-                            "live": true,
                             "allow_open_libs": true
                         }
                     }

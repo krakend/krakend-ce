@@ -2,6 +2,7 @@ package krakend
 
 import (
 	"context"
+	"fmt"
 
 	amqp "github.com/devopsfaith/krakend-amqp/v2"
 	cel "github.com/devopsfaith/krakend-cel/v2"
@@ -41,11 +42,11 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 // NewBackendFactory creates a BackendFactory by stacking all the available middlewares and injecting the received context
 func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
-		var clientFactory client.HTTPClientFactory
+		clientFactory := client.NewHTTPClient
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
 			clientFactory = oauth2client.NewHTTPClient(cfg)
 		} else {
-			clientFactory = httpcache.NewHTTPClient(cfg)
+			clientFactory = httpcache.NewHTTPClient(cfg, clientFactory)
 		}
 		return opencensus.HTTPRequestExecutorFromConfig(clientFactory, cfg)
 	}
@@ -61,7 +62,11 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	backendFactory = cb.BackendFactory(backendFactory, logger)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
 	backendFactory = opencensus.BackendFactory(backendFactory)
-	return backendFactory
+
+	return func(remote *config.Backend) proxy.Proxy {
+		logger.Debug(fmt.Sprintf("[BACKEND: %s] Building the backend pipe", remote.URLPattern))
+		return backendFactory(remote)
+	}
 }
 
 type backendFactory struct{}

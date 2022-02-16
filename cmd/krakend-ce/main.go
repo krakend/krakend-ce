@@ -85,6 +85,8 @@ var aliases = map[string]string{
 	"github.com/devopsfaith/krakend-cel":        "validation/cel",
 	"github.com/devopsfaith/krakend-jsonschema": "validation/json-schema",
 
+	"github.com/devopsfaith/krakend-amqp/agent": "async/amqp",
+
 	"github.com/devopsfaith/krakend-amqp/consume":                  "backend/amqp/consumer",
 	"github.com/devopsfaith/krakend-amqp/produce":                  "backend/amqp/producer",
 	"github.com/devopsfaith/krakend-lambda":                        "backend/lambda",

@@ -3,17 +3,17 @@ module github.com/devopsfaith/krakend-ce/v2
 go 1.17
 
 require (
-	github.com/devopsfaith/bloomfilter/v2 v2.0.0-20211022131028-0baca1203ef5
-	github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20211021214757-66814e3939a0
+	github.com/devopsfaith/bloomfilter/v2 v2.0.0-20220215152551-0c82e459348d
+	github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20220216163450-f3d9e41c9394
 	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289
-	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20211025161152-275555889b7b
+	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220126205609-c79c13a7f80e
 	github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211021210139-56f3b443bda7
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20211020152253-4af7b2b93c96
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4
 	github.com/devopsfaith/krakend-gologging/v2 v2.0.0-20211022150531-5fffc04546fd
-	github.com/devopsfaith/krakend-httpcache/v2 v2.0.0-20211021164159-6211da0fca04
+	github.com/devopsfaith/krakend-httpcache/v2 v2.0.0-20220125213247-4f7cdf9ba8f5
 	github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f
 	github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34
 	github.com/devopsfaith/krakend-jose/v2 v2.0.0-20211102130458-93c23f5972ed
@@ -24,7 +24,7 @@ require (
 	github.com/devopsfaith/krakend-martian/v2 v2.0.0-20211021173102-cae9b395f331
 	github.com/devopsfaith/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500
 	github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410
-	github.com/devopsfaith/krakend-opencensus/v2 v2.0.0-20211022133055-a008ff652e8b
+	github.com/devopsfaith/krakend-opencensus/v2 v2.0.0-20220125214339-6e66a728c7f6
 	github.com/devopsfaith/krakend-pubsub/v2 v2.0.0-20211021174017-85ef3982a465
 	github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0-20220114205036-e439f3a4820e
 	github.com/devopsfaith/krakend-rss/v2 v2.0.0-20211021151134-d7fc811ec546
@@ -34,6 +34,7 @@ require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-contrib/uuid v1.2.0
 	github.com/luraproject/lura/v2 v2.0.0-dev
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
 require (
@@ -122,8 +123,7 @@ require (
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
-	github.com/influxdata/influxdb v1.7.4 // indirect
-	github.com/influxdata/platform v0.0.0-20190117200541-d500d3cf5589 // indirect
+	github.com/influxdata/influxdb v1.8.10 // indirect
 	github.com/jcmturner/gofork v1.0.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -193,7 +193,6 @@ require (
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/net v0.0.0-20211020060615-d418f374d309 // indirect
 	golang.org/x/oauth2 v0.0.0-20201203001011-0b49973bad19 // indirect
-	golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9 // indirect
 	golang.org/x/sys v0.0.0-20211004093028-2c5d950f24ef // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e // indirect
@@ -217,4 +216,4 @@ require (
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
 
-replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20220115191106-e4d114731d91
+replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20220216163825-f3542378cc12

@@ -8,7 +8,7 @@ require (
 	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289
-	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220126205609-c79c13a7f80e
+	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220216192550-ea7c426522a3
 	github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211021210139-56f3b443bda7
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20211020152253-4af7b2b93c96
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4

@@ -144,6 +144,8 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 	e.checkCollaborators()
 
 	return func(cfg config.ServiceConfig) {
+		cfg.Normalize()
+
 		logger, gelfWriter, gelfErr := e.LoggerFactory.NewLogger(cfg)
 		if gelfErr != nil {
 			return

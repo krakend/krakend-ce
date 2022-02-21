@@ -3,7 +3,7 @@ name: Help and questions
 about: You are stuck trying to do something, get unexpected result or you simply have
   a question or suggestion
 title: ''
-labels: ''
+labels: 'question'
 assignees: ''
 
 ---

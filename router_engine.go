@@ -3,7 +3,9 @@ package krakend
 import (
 	"io"
 
-	"github.com/Unacademy/krakend-gin-logger"
+	gin_logger "github.com/Unacademy/krakend-gin-logger"
+	newrelic "github.com/unacademy/krakend-newrelic"
+
 	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
 	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
 	lua "github.com/devopsfaith/krakend-lua/router/gin"
@@ -19,7 +21,16 @@ func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gi
 	}
 
 	engine := gin.New()
-	engine.Use(gin_logger.NewLogger(cfg.ExtraConfig, logger, gin.LoggerConfig{Output: w}), gin.Recovery())
+
+	middlewares := make([]gin.HandlerFunc, 0, 3)
+	middlewares = append(middlewares, gin_logger.NewLogger(cfg.ExtraConfig, logger, gin.LoggerConfig{Output: w}), gin.Recovery())
+
+	ginNewRelicMW, err := newrelic.Middleware()
+	if err == nil {
+		middlewares = append(middlewares, ginNewRelicMW)
+	}
+
+	engine.Use(middlewares...)
 
 	engine.RedirectTrailingSlash = true
 	engine.RedirectFixedPath = true

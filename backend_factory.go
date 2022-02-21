@@ -2,6 +2,7 @@ package krakend
 
 import (
 	"context"
+	newrelic "github.com/unacademy/krakend-newrelic"
 
 	amqp "github.com/devopsfaith/krakend-amqp"
 	cel "github.com/devopsfaith/krakend-cel"
@@ -47,6 +48,7 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 		} else {
 			clientFactory = httpcache.NewHTTPClient(cfg)
 		}
+		clientFactory = newrelic.HTTPClientFactory(clientFactory)
 		return opencensus.HTTPRequestExecutorFromConfig(clientFactory, cfg)
 	}
 	requestExecutorFactory = httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
@@ -59,6 +61,7 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	backendFactory = lua.BackendFactory(logger, backendFactory)
 	backendFactory = juju.BackendFactory(backendFactory)
 	backendFactory = cb.BackendFactory(backendFactory, logger)
+	backendFactory = newrelic.BackendFactory("backend", backendFactory)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
 	backendFactory = opencensus.BackendFactory(backendFactory)
 	return backendFactory

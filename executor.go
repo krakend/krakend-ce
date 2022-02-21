@@ -108,6 +108,7 @@ type RunServerFactory interface {
 
 type NewRelicMetricCollector interface {
 	Register(cfg config.ExtraConfig, logger logging.Logger)
+	Shutdown()
 }
 
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
@@ -176,6 +177,9 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 
 		// start the engines
 		routerFactory.NewWithContext(ctx).Run(cfg)
+
+		// flush collected newrelic data
+		e.NewRelicMetricCollector.Shutdown()
 	}
 }
 
@@ -289,6 +293,10 @@ type Newrelic struct{}
 
 func (Newrelic) Register(cfg config.ExtraConfig, logger logging.Logger) {
 	newrelic.Register(cfg, logger)
+}
+
+func (Newrelic) Shutdown() {
+	newrelic.Shutdown()
 }
 
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.

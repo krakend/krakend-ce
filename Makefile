@@ -18,8 +18,9 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@devops.faith>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.17.3
-ALPINE_VERSION := 3.14
+GOLANG_VERSION := 1.17.7
+GLIBC_VERSION := GLIBC-2.28 # Debian Buster
+ALPINE_VERSION := 3.15
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -79,20 +80,26 @@ update_krakend_deps:
 	go get github.com/devopsfaith/krakend-xml/v2@v2.0-dev
 	make test
 
+
 build:
 	@echo "Building the binary..."
 	@go get .
-	@go build -ldflags="-X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
+	@go build -ldflags="-X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
+	-X github.com/luraproject/lura/v2/core.GoVersion=${GOLANG_VERSION} \
+	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION}" \
+	-o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"
 
 test: build
 	go test -v ./tests
 
+# Build KrakenD using docker (defaults to whatever the golang container uses)
 build_on_docker:
-	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make build
+	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make -e build
 
+# Build the container using the Dockerfile (alpine)
 docker:
-	docker build --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
 
 builder/skel/%/etc/init.d/krakend: builder/files/krakend.init
 	mkdir -p "$(dir $@)"

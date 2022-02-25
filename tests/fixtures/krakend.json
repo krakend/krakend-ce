@@ -201,8 +201,8 @@
             "endpoint": "/cel/jwt/{id}",
             "backend": [
                 {
-                    "host": [ "http://127.0.0.1:8080" ],
-                    "url_pattern": "/__debug/{id}"
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/{id}/{JWT.sub}/{JWT.http://example.com/custom}"
                 }
             ],
             "extra_config":{

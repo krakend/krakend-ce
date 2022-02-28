@@ -31,7 +31,7 @@
         {
             "endpoint": "/supu",
             "method": "GET",
-            "headers_to_pass": ["Authorization", "Content-Type"],
+            "input_headers": ["Authorization", "Content-Type"],
             "backend": [
                 {
                     "host": [

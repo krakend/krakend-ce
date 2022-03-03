@@ -262,6 +262,10 @@ github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34
 github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289/go.mod h1:rafMZmt3m9yKvc/zJbgubtzXs4Eb+TUwJG0KFPlzU3E=
 github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220216192550-ea7c426522a3 h1:lWhBDFzIk+2EKY+vSUfdygN9Y9GqeqBldPKKcgfg/9Q=
 github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220216192550-ea7c426522a3/go.mod h1:xAOFuoSca4D6RdXntPichWY+gzu+Xg05jOKkFcxM4DE=
+github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220303120626-46c7e8fde967 h1:50PQC9JFSSkwLJQzvveBHsIj28+ClN97CZMq6vkMr2g=
+github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220303120626-46c7e8fde967/go.mod h1:pYIxiXKNXt+dwqYGBIlmp8D0ns0STGNjgIiA1f8kysI=
+github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220303122710-0197f9721129 h1:wjsvcmmp9b8IQRqRxbBqVgYojd0GLXWVASssQZTk8po=
+github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220303122710-0197f9721129/go.mod h1:pYIxiXKNXt+dwqYGBIlmp8D0ns0STGNjgIiA1f8kysI=
 github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211021210139-56f3b443bda7 h1:6Ul5L0Sdei9YPy5nBywCTUAIcnpSeoQ25WKueBvbVWI=
 github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211021210139-56f3b443bda7/go.mod h1:NQQ0P2X1fsWir7HNuaR/MErUQUdoI62BHmo/3ItkPOk=
 github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20211020152253-4af7b2b93c96 h1:dU+etkWr0Lo52+dy1GDUnR/I2Q6GMIxz6pTCdxyguKw=
@@ -696,6 +700,8 @@ github.com/luraproject/lura/v2 v2.0.0-20220228183000-1a93375922da h1:EO7j+JeIXjK
 github.com/luraproject/lura/v2 v2.0.0-20220228183000-1a93375922da/go.mod h1:1FhL+5a9uH6o7zMNstXlcjznL5yt2lZ9Q8efanmvw9w=
 github.com/luraproject/lura/v2 v2.0.0-20220302162036-e2122e1f3ebe h1:9nDRNJTenifd5aCgGBaeoF71LmvV+N/z4RSKl4BQDx4=
 github.com/luraproject/lura/v2 v2.0.0-20220302162036-e2122e1f3ebe/go.mod h1:1FhL+5a9uH6o7zMNstXlcjznL5yt2lZ9Q8efanmvw9w=
+github.com/luraproject/lura/v2 v2.0.0-20220302222845-7d288feccf15 h1:AJ80D0Anx1QdIC5QBH91e+O2dx62a2DyZONUgDWVUaU=
+github.com/luraproject/lura/v2 v2.0.0-20220302222845-7d288feccf15/go.mod h1:1FhL+5a9uH6o7zMNstXlcjznL5yt2lZ9Q8efanmvw9w=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f h1:MBcrTbmCf7CZa9yAwcB7ArveQb9TPVy4zFnQGz/LiUU=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f/go.mod h1:UawoqorwkpZ58qWiL+nVJM0Po7FrzAdCxYVh9GgTTaA=
@@ -892,6 +898,8 @@ github.com/ryanuber/columnize v2.1.0+incompatible/go.mod h1:sm1tb6uqfes/u+d4ooFo
 github.com/ryanuber/go-glob v1.0.0 h1:iQh3xXAumdQ+4Ufa5b25cRpC5TYKlno6hsv6Cb3pkBk=
 github.com/ryanuber/go-glob v1.0.0/go.mod h1:807d1WSdnB0XRJzKNil9Om6lcp/3a0v4qIHxIXzX/Yc=
 github.com/samuel/go-zookeeper v0.0.0-20190923202752-2cc03de413da/go.mod h1:gi+0XIa01GRL2eRQVjQkKGqKF3SF9vZR/HnPullcV2E=
+github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 h1:TToq11gyfNlrMFZiYujSekIsPd9AmsA2Bj/iv+s4JHE=
+github.com/santhosh-tekuri/jsonschema/v5 v5.0.0/go.mod h1:FKdcjfQW6rpZSnxxUvEA5H/cDPdvJ/SZJQLWWXWGrZ0=
 github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529/go.mod h1:DxrIzT+xaE7yg65j358z/aeFdxmN0P9QXhEzd20vsDc=
 github.com/segmentio/kafka-go v0.1.0/go.mod h1:X6itGqS9L4jDletMsxZ7Dz+JFWxM6JHfPOCvTvk+EJo=
 github.com/segmentio/kafka-go v0.2.0/go.mod h1:X6itGqS9L4jDletMsxZ7Dz+JFWxM6JHfPOCvTvk+EJo=

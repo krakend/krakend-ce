@@ -8,7 +8,7 @@ require (
 	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289
-	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220216192550-ea7c426522a3
+	github.com/devopsfaith/krakend-cobra/v2 v2.0.0-20220303122710-0197f9721129
 	github.com/devopsfaith/krakend-cors/v2 v2.0.0-20211021210139-56f3b443bda7
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20211020152253-4af7b2b93c96
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4
@@ -160,6 +160,7 @@ require (
 	github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0 // indirect
 	github.com/rs/cors v1.6.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
+	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
 	github.com/sony/gobreaker v0.4.1 // indirect
 	github.com/spf13/afero v1.2.2 // indirect
 	github.com/spf13/cast v1.3.0 // indirect
@@ -216,4 +217,4 @@ require (
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
 
-replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20220302162036-e2122e1f3ebe
+replace github.com/luraproject/lura/v2 v2.0.0-dev => github.com/luraproject/lura/v2 v2.0.0-20220302222845-7d288feccf15

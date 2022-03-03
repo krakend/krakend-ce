@@ -63,8 +63,7 @@ func main() {
 var aliases = map[string]string{
 	"github_com/devopsfaith/krakend/transport/http/server/handler":  "plugin/http-server",
 	"github.com/devopsfaith/krakend/transport/http/client/executor": "plugin/http-client",
-	"github.com/devopsfaith/krakend/proxy/plugin/response":          "plugin/response-modifier",
-	"github.com/devopsfaith/krakend/proxy/plugin/request":           "plugin/request-modifier",
+	"github.com/devopsfaith/krakend/proxy/plugin":                   "plugin/req-resp-modifier",
 	"github.com/devopsfaith/krakend/proxy":                          "proxy",
 	"github_com/luraproject/lura/router/gin":                        "router",
 

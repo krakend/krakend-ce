@@ -48,7 +48,7 @@ RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 all: test
 
 update_krakend_deps:
-	go get github.com/luraproject/lura/v2@v2.0.0
+	go get github.com/luraproject/lura/v2@v2.0.1
 	go get github.com/devopsfaith/bloomfilter/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-amqp/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-botdetector/v2@v2.0.0

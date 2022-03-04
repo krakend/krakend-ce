@@ -6,6 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
+GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 VERSION := 2.0.0-alpha
 PKGNAME := krakend
 LICENSE := Apache 2.0
@@ -93,6 +94,15 @@ build_on_docker:
 
 docker:
 	docker build --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
+
+benchmark:
+	@mkdir -p bench_res
+	@touch bench_res/${GIT_COMMIT}.out
+	@docker run --rm -d --name krakend -v "${PWD}/tmp:/etc/krakend" -p 8080:8080 devopsfaith/krakend:${VERSION} run -dc /etc/krakend/bench.json
+	@sleep 2
+	@docker run --rm -it --link krakend peterevans/vegeta sh -c \
+		"echo 'GET http://krakend:8080/test' | vegeta attack -rate=0 -duration=30s -max-workers=100 | tee results.bin | vegeta report" > bench_res/${GIT_COMMIT}.out
+	@docker stop krakend
 
 builder/skel/%/etc/init.d/krakend: builder/files/krakend.init
 	mkdir -p "$(dir $@)"

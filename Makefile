@@ -98,11 +98,12 @@ docker:
 benchmark:
 	@mkdir -p bench_res
 	@touch bench_res/${GIT_COMMIT}.out
-	@docker run --rm -d --name krakend -v "${PWD}/tmp:/etc/krakend" -p 8080:8080 devopsfaith/krakend:${VERSION} run -dc /etc/krakend/bench.json
+	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 devopsfaith/krakend:${VERSION} run -dc /etc/krakend/bench.json
 	@sleep 2
 	@docker run --rm -it --link krakend peterevans/vegeta sh -c \
-		"echo 'GET http://krakend:8080/test' | vegeta attack -rate=0 -duration=30s -max-workers=100 | tee results.bin | vegeta report" > bench_res/${GIT_COMMIT}.out
+		"echo 'GET http://krakend:8080/test' | vegeta attack -rate=0 -duration=30s -max-workers=300 | tee results.bin | vegeta report" > bench_res/${GIT_COMMIT}.out
 	@docker stop krakend
+	@cat bench_res/${GIT_COMMIT}.out
 
 builder/skel/%/etc/init.d/krakend: builder/files/krakend.init
 	mkdir -p "$(dir $@)"

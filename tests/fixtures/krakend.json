@@ -159,7 +159,7 @@
         },
         {
             "endpoint": "/cel/req-resp/{id}",
-            "headers_to_pass": ["X-Header"],
+            "input_headers": ["X-Header"],
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8080" ],
@@ -201,8 +201,8 @@
             "endpoint": "/cel/jwt/{id}",
             "backend": [
                 {
-                    "host": [ "http://127.0.0.1:8080" ],
-                    "url_pattern": "/__debug/{id}"
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/param_forwarding/{id}/{JWT.sub}/{JWT.http://example.com/custom}"
                 }
             ],
             "extra_config":{
@@ -224,7 +224,7 @@
         },
         {
             "endpoint": "/param_forwarding/some/{foo}/{bar}",
-            "headers_to_pass": [
+            "input_headers": [
                 "Authorization",
                 "X-Y-Z"
             ],
@@ -238,7 +238,7 @@
         {
             "endpoint": "/param_forwarding/some/{foo}/{bar}",
             "method": "POST",
-            "headers_to_pass": [
+            "input_headers": [
                 "Authorization",
                 "X-Y-Z"
             ],
@@ -251,7 +251,7 @@
         },
         {
             "endpoint": "/param_forwarding/all/{foo}/{bar}",
-            "headers_to_pass": [ "*" ],
+            "input_headers": [ "*" ],
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8081" ],
@@ -261,7 +261,7 @@
         },
         {
             "endpoint": "/query_forwarding/all/{name}",
-            "querystring_params": [ "*" ],
+            "input_query_strings": [ "*" ],
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8081" ],
@@ -271,7 +271,7 @@
         },
         {
             "endpoint": "/query_forwarding/some/{name}",
-            "querystring_params": [ "a" ],
+            "input_query_strings": [ "a" ],
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8081" ],
@@ -552,7 +552,7 @@
         },
         {
             "endpoint": "/lua/collection",
-            "headers_to_pass": ["*"],
+            "input_headers": ["*"],
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8081" ],

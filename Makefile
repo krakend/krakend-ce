@@ -7,6 +7,7 @@
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 VERSION := 2.0.0
+GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
 LICENSE := Apache 2.0
 VENDOR=
@@ -49,35 +50,35 @@ RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 all: test
 
 update_krakend_deps:
-	go get github.com/luraproject/lura/v2@v2.0.0-dev
-	go get github.com/devopsfaith/bloomfilter/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-amqp/v2@v2.0.0-dev
-	go get github.com/devopsfaith/krakend-botdetector/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-cel/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-circuitbreaker/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-cobra/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-cors/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-flexibleconfig/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-gelf/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-gologging/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-httpcache/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-httpsecure/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-influx/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-jose/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-jsonschema/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-lambda/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-logstash/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-lua/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-martian/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-metrics/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-oauth2-clientcredentials/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-opencensus/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-pubsub/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-ratelimit/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-rss/v2@v2.0-dev
+	go get github.com/luraproject/lura/v2@v2.0.1
+	go get github.com/devopsfaith/bloomfilter/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-amqp/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-botdetector/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-cel/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-circuitbreaker/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-cobra/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-cors/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-flexibleconfig/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-gelf/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-gologging/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-httpcache/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-httpsecure/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-influx/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-jose/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-jsonschema/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-lambda/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-logstash/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-lua/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-martian/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-metrics/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-oauth2-clientcredentials/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-opencensus/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-pubsub/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-ratelimit/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-rss/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-usage@v1.4.0
-	go get github.com/devopsfaith/krakend-viper/v2@v2.0-dev
-	go get github.com/devopsfaith/krakend-xml/v2@v2.0-dev
+	go get github.com/devopsfaith/krakend-viper/v2@v2.0.0
+	go get github.com/devopsfaith/krakend-xml/v2@v2.0.0
 	make test
 
 
@@ -100,6 +101,16 @@ build_on_docker:
 # Build the container using the Dockerfile (alpine)
 docker:
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
+
+benchmark:
+	@mkdir -p bench_res
+	@touch bench_res/${GIT_COMMIT}.out
+	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 devopsfaith/krakend:${VERSION} run -dc /etc/krakend/bench.json
+	@sleep 2
+	@docker run --rm -it --link krakend peterevans/vegeta sh -c \
+		"echo 'GET http://krakend:8080/test' | vegeta attack -rate=0 -duration=30s -max-workers=300 | tee results.bin | vegeta report" > bench_res/${GIT_COMMIT}.out
+	@docker stop krakend
+	@cat bench_res/${GIT_COMMIT}.out
 
 builder/skel/%/etc/init.d/krakend: builder/files/krakend.init
 	mkdir -p "$(dir $@)"

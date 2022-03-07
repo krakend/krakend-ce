@@ -1,42 +1,46 @@
 package krakend
 
 import (
-	"io"
-
-	botdetector "github.com/devopsfaith/krakend-botdetector/gin"
-	httpsecure "github.com/devopsfaith/krakend-httpsecure/gin"
-	lua "github.com/devopsfaith/krakend-lua/router/gin"
 	"github.com/gin-gonic/gin"
-	"github.com/luraproject/lura/config"
-	"github.com/luraproject/lura/logging"
+
+	botdetector "github.com/devopsfaith/krakend-botdetector/v2/gin"
+	httpsecure "github.com/devopsfaith/krakend-httpsecure/v2/gin"
+	lua "github.com/devopsfaith/krakend-lua/v2/router/gin"
+	opencensus "github.com/devopsfaith/krakend-opencensus/v2/router/gin"
+	"github.com/luraproject/lura/v2/config"
+	"github.com/luraproject/lura/v2/core"
+	luragin "github.com/luraproject/lura/v2/router/gin"
+	"github.com/luraproject/lura/v2/transport/http/server"
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware
-func NewEngine(cfg config.ServiceConfig, logger logging.Logger, w io.Writer) *gin.Engine {
-	if !cfg.Debug {
-		gin.SetMode(gin.ReleaseMode)
+func NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine {
+	engine := luragin.NewEngine(cfg, opt)
+
+	engine.NoRoute(opencensus.HandlerFunc(&config.EndpointConfig{Endpoint: "NoRoute"}, defaultHandler, nil))
+	engine.NoMethod(opencensus.HandlerFunc(&config.EndpointConfig{Endpoint: "NoMethod"}, defaultHandler, nil))
+
+	logPrefix := "[SERVICE: Gin]"
+	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil && err != httpsecure.ErrNoConfig {
+		opt.Logger.Warning(logPrefix+"[HTTPsecure]", err)
+	} else if err == nil {
+		opt.Logger.Debug(logPrefix + "[HTTPsecure] Successfuly loaded module")
 	}
 
-	engine := gin.New()
-	engine.Use(gin.LoggerWithConfig(gin.LoggerConfig{Output: w}), gin.Recovery())
+	lua.Register(opt.Logger, cfg.ExtraConfig, engine)
 
-	engine.RedirectTrailingSlash = true
-	engine.RedirectFixedPath = true
-	engine.HandleMethodNotAllowed = true
-
-	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil {
-		logger.Warning(err)
-	}
-
-	lua.Register(logger, cfg.ExtraConfig, engine)
-
-	botdetector.Register(cfg, logger, engine)
+	botdetector.Register(cfg, opt.Logger, engine)
 
 	return engine
 }
 
+func defaultHandler(c *gin.Context) {
+	c.Header(core.KrakendHeaderName, core.KrakendHeaderValue)
+	c.Header(server.CompleteResponseHeaderName, server.HeaderIncompleteResponseValue)
+}
+
 type engineFactory struct{}
 
-func (e engineFactory) NewEngine(cfg config.ServiceConfig, l logging.Logger, w io.Writer) *gin.Engine {
-	return NewEngine(cfg, l, w)
+func (e engineFactory) NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine {
+	return NewEngine(cfg, opt)
 }

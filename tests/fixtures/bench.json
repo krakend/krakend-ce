@@ -1,0 +1,16 @@
+{
+    "version":3,
+    "host":["http://localhost:8080"],
+    "extra_config": {
+        "github_com/devopsfaith/krakend-gologging": {
+            "level": "CRITICAL",
+            "prefix": "[KRAKEND]"
+        }
+    },
+    "endpoints": [{
+        "endpoint": "/test",
+        "backend": [{
+            "url_pattern": "/__health"
+        }]
+    }]
+}

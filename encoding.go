@@ -1,10 +1,10 @@
 package krakend
 
 import (
-	"github.com/devopsfaith/krakend-rss"
-	"github.com/devopsfaith/krakend-xml"
-	ginxml "github.com/devopsfaith/krakend-xml/gin"
-	"github.com/luraproject/lura/router/gin"
+	rss "github.com/devopsfaith/krakend-rss/v2"
+	xml "github.com/devopsfaith/krakend-xml/v2"
+	ginxml "github.com/devopsfaith/krakend-xml/v2/gin"
+	"github.com/luraproject/lura/v2/router/gin"
 )
 
 // RegisterEncoders registers all the available encoders

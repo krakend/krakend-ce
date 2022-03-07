@@ -2,42 +2,45 @@ package krakend
 
 import (
 	"context"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
 	"time"
 
-	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
-	cel "github.com/devopsfaith/krakend-cel"
-	cmd "github.com/devopsfaith/krakend-cobra"
-	cors "github.com/devopsfaith/krakend-cors/gin"
-	gelf "github.com/devopsfaith/krakend-gelf"
-	gologging "github.com/devopsfaith/krakend-gologging"
-	influxdb "github.com/devopsfaith/krakend-influx"
-	jose "github.com/devopsfaith/krakend-jose"
-	logstash "github.com/devopsfaith/krakend-logstash"
-	metrics "github.com/devopsfaith/krakend-metrics/gin"
-	opencensus "github.com/devopsfaith/krakend-opencensus"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/datadog"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/ocagent"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/stackdriver"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/xray"
-	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
-	pubsub "github.com/devopsfaith/krakend-pubsub"
-	"github.com/devopsfaith/krakend-usage/client"
 	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
-	"github.com/luraproject/lura/config"
-	"github.com/luraproject/lura/core"
-	"github.com/luraproject/lura/logging"
-	"github.com/luraproject/lura/proxy"
-	krakendrouter "github.com/luraproject/lura/router"
-	router "github.com/luraproject/lura/router/gin"
-	server "github.com/luraproject/lura/transport/http/server/plugin"
+	"golang.org/x/sync/errgroup"
+
+	krakendbf "github.com/devopsfaith/bloomfilter/v2/krakend"
+	asyncamqp "github.com/devopsfaith/krakend-amqp/v2/async"
+	cel "github.com/devopsfaith/krakend-cel/v2"
+	cmd "github.com/devopsfaith/krakend-cobra/v2"
+	cors "github.com/devopsfaith/krakend-cors/v2/gin"
+	gelf "github.com/devopsfaith/krakend-gelf/v2"
+	gologging "github.com/devopsfaith/krakend-gologging/v2"
+	influxdb "github.com/devopsfaith/krakend-influx/v2"
+	jose "github.com/devopsfaith/krakend-jose/v2"
+	logstash "github.com/devopsfaith/krakend-logstash/v2"
+	metrics "github.com/devopsfaith/krakend-metrics/v2/gin"
+	opencensus "github.com/devopsfaith/krakend-opencensus/v2"
+	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/datadog"
+	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/influxdb"
+	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/jaeger"
+	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/ocagent"
+	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/prometheus"
+	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/stackdriver"
+	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/xray"
+	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/zipkin"
+	pubsub "github.com/devopsfaith/krakend-pubsub/v2"
+	"github.com/devopsfaith/krakend-usage/client"
+	"github.com/luraproject/lura/v2/async"
+	"github.com/luraproject/lura/v2/config"
+	"github.com/luraproject/lura/v2/core"
+	"github.com/luraproject/lura/v2/logging"
+	"github.com/luraproject/lura/v2/proxy"
+	router "github.com/luraproject/lura/v2/router/gin"
+	serverhttp "github.com/luraproject/lura/v2/transport/http/server"
+	server "github.com/luraproject/lura/v2/transport/http/server/plugin"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -74,7 +77,7 @@ type MetricsAndTracesRegister interface {
 
 // EngineFactory returns a gin engine, ready to be passed to the KrakenD RouterFactory
 type EngineFactory interface {
-	NewEngine(config.ServiceConfig, logging.Logger, io.Writer) *gin.Engine
+	NewEngine(config.ServiceConfig, router.EngineOptions) *gin.Engine
 }
 
 // ProxyFactory returns a KrakenD proxy factory, ready to be passed to the KrakenD RouterFactory
@@ -105,6 +108,17 @@ type RunServerFactory interface {
 	NewRunServer(logging.Logger, router.RunServerFunc) RunServer
 }
 
+// AgentStarter defines a type that starts a set of agents
+type AgentStarter interface {
+	Start(
+		context.Context,
+		[]*config.AsyncAgent,
+		logging.Logger,
+		chan<- string,
+		proxy.Factory,
+	) func() error
+}
+
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
 type ExecutorBuilder struct {
 	LoggerFactory               LoggerFactory
@@ -117,11 +131,12 @@ type ExecutorBuilder struct {
 	BackendFactory              BackendFactory
 	HandlerFactory              HandlerFactory
 	RunServerFactory            RunServerFactory
+	AgentStarterFactory         AgentStarter
 
 	Middlewares []gin.HandlerFunc
 }
 
-// NewCmdExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
+// NewCmdExecutor returns an executor for the cmd package. The executor initializes the entire gateway by
 // delegating most of the tasks to the injected collaborators. They register the components and
 // compose a RouterFactory wrapping all the middlewares.
 // Every nil collaborator is replaced by the default one offered by this package.
@@ -129,12 +144,12 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 	e.checkCollaborators()
 
 	return func(cfg config.ServiceConfig) {
+		cfg.Normalize()
+
 		logger, gelfWriter, gelfErr := e.LoggerFactory.NewLogger(cfg)
 		if gelfErr != nil {
 			return
 		}
-
-		logger.Info("Listening on port:", cfg.Port)
 
 		startReporter(ctx, logger, cfg)
 
@@ -150,26 +165,61 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger,
 			e.SubscriberFactoriesRegister.Register(ctx, cfg, logger),
 		)
-		if err != nil {
-			logger.Warning("bloomFilter:", err.Error())
+		if err != nil && err != krakendbf.ErrNoConfig {
+			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
+
+		pf := e.ProxyFactory.NewProxyFactory(
+			logger,
+			e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
+			metricCollector,
+		)
+
+		agentPing := make(chan string, len(cfg.AsyncAgents))
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
-			Engine: e.EngineFactory.NewEngine(cfg, logger, gelfWriter),
-			ProxyFactory: e.ProxyFactory.NewProxyFactory(
-				logger,
-				e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
-				metricCollector,
-			),
+			Engine: e.EngineFactory.NewEngine(cfg, router.EngineOptions{
+				Logger: logger,
+				Writer: gelfWriter,
+				Health: (<-chan string)(agentPing),
+			}),
+			ProxyFactory:   pf,
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
 			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
-			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, krakendrouter.RunServer)),
+			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServer)),
 		})
 
 		// start the engines
-		routerFactory.NewWithContext(ctx).Run(cfg)
+		logger.Info("Starting the KrakenD instance")
+
+		if len(cfg.AsyncAgents) == 0 {
+			routerFactory.NewWithContext(ctx).Run(cfg)
+			return
+		}
+
+		// start the async agents in the same error group as the router
+		g, gctx := errgroup.WithContext(ctx)
+		gctx, closeGroupCtx := context.WithCancel(gctx)
+
+		if cfg.SequentialStart {
+			waitAgents := e.AgentStarterFactory.Start(gctx, cfg.AsyncAgents, logger, (chan<- string)(agentPing), pf)
+			g.Go(waitAgents)
+		} else {
+			g.Go(func() error {
+				return e.AgentStarterFactory.Start(gctx, cfg.AsyncAgents, logger, (chan<- string)(agentPing), pf)()
+			})
+		}
+
+		g.Go(func() error {
+			logger.Info("[SERVICE: Gin] Building the router")
+			routerFactory.NewWithContext(ctx).Run(cfg)
+			closeGroupCtx()
+			return nil
+		})
+
+		g.Wait()
 	}
 }
 
@@ -203,6 +253,9 @@ func (e *ExecutorBuilder) checkCollaborators() {
 	}
 	if e.RunServerFactory == nil {
 		e.RunServerFactory = new(DefaultRunServerFactory)
+	}
+	if e.AgentStarterFactory == nil {
+		e.AgentStarterFactory = async.AgentStarter([]async.Factory{asyncamqp.StartAgent})
 	}
 }
 
@@ -242,15 +295,15 @@ func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Wri
 
 		if gologgingErr != nil {
 			var err error
-			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
+			logger, err = logging.NewLogger("DEBUG", os.Stdout, "KRAKEND")
 			if err != nil {
 				return logger, gelfWriter, err
 			}
-			logger.Error("unable to create the gologging logger:", gologgingErr.Error())
+			logger.Error("[SERVICE: Logging] Unable to create the logger:", gologgingErr.Error())
 		}
 	}
-	if gelfErr != nil {
-		logger.Error("unable to create the GELF writer:", gelfErr.Error())
+	if gelfErr != nil && gelfErr != gelf.ErrWrongConfig {
+		logger.Error("[SERVICE: Logging][GELF] Unable to create the writer:", gelfErr.Error())
 	}
 	return logger, gelfWriter, nil
 }
@@ -279,16 +332,24 @@ func (t BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.Service
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.
 type MetricsAndTraces struct{}
 
-// Register registers the metrcis, influx and opencensus packages as required by the given configuration.
+// Register registers the metrics, influx and opencensus packages as required by the given configuration.
 func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
 
 	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
-		l.Warning(err.Error())
+		if err != influxdb.ErrNoConfig {
+			l.Warning("[SERVICE: InfluxDB]", err.Error())
+		}
+	} else {
+		l.Debug("[SERVICE: InfluxDB] Service correctly registered")
 	}
 
 	if err := opencensus.Register(ctx, cfg, append(opencensus.DefaultViews, pubsub.OpenCensusViews...)...); err != nil {
-		l.Warning("opencensus:", err.Error())
+		if err != opencensus.ErrNoConfig {
+			l.Warning("[SERVICE: OpenCensus]", err.Error())
+		}
+	} else {
+		l.Debug("[SERVICE: OpenCensus] Service correctly registered")
 	}
 
 	return metricCollector
@@ -300,14 +361,14 @@ const (
 )
 
 func startReporter(ctx context.Context, logger logging.Logger, cfg config.ServiceConfig) {
+	logPrefix := "[SERVICE: Telemetry]"
 	if os.Getenv(usageDisable) == "1" {
-		logger.Info("usage report client disabled")
 		return
 	}
 
 	clusterID, err := cfg.Hash()
 	if err != nil {
-		logger.Warning("unable to hash the service configuration:", err.Error())
+		logger.Debug(logPrefix, "Unable to create the Cluster ID hash:", err.Error())
 		return
 	}
 
@@ -315,14 +376,14 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 		time.Sleep(usageDelay)
 
 		serverID := uuid.NewV4().String()
-		logger.Info(fmt.Sprintf("registering usage stats for cluster ID '%s'", clusterID))
+		logger.Debug(logPrefix, "Registering usage stats for Cluster ID", clusterID)
 
 		if err := client.StartReporter(ctx, client.Options{
 			ClusterID: clusterID,
 			ServerID:  serverID,
 			Version:   core.KrakendVersion,
 		}); err != nil {
-			logger.Warning("unable to create the usage report client:", err.Error())
+			logger.Debug(logPrefix, "Unable to create the usage report client:", err.Error())
 		}
 	}()
 }

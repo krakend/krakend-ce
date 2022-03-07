@@ -1,4 +1,5 @@
 /vendor
+bench_res
 krakend
 krakend-alpine
 cmd/krakend-integration/krakend-integration

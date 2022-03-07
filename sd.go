@@ -2,12 +2,10 @@ package krakend
 
 import (
 	"context"
-	"fmt"
 
-	consul "github.com/devopsfaith/krakend-consul"
-	"github.com/luraproject/lura/config"
-	"github.com/luraproject/lura/logging"
-	"github.com/luraproject/lura/sd/dnssrv"
+	"github.com/luraproject/lura/v2/config"
+	"github.com/luraproject/lura/v2/logging"
+	"github.com/luraproject/lura/v2/sd/dnssrv"
 )
 
 // RegisterSubscriberFactories registers all the available sd adaptors
@@ -15,11 +13,7 @@ func RegisterSubscriberFactories(ctx context.Context, cfg config.ServiceConfig, 
 	// register the dns service discovery
 	dnssrv.Register()
 
-	return func(name string, port int) {
-		if err := consul.Register(ctx, cfg.ExtraConfig, port, name, logger); err != nil {
-			logger.Error(fmt.Sprintf("Couldn't register %s:%d in consul: %s", name, port, err.Error()))
-		}
-	}
+	return func(name string, port int) {}
 }
 
 type registerSubscriberFactories struct{}

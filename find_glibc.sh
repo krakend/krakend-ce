@@ -8,7 +8,7 @@ Linux*)
     if ldd --version 2>&1 | grep -i musl > /dev/null; then
         GLIBC=MUSL-$(ldd --version 2>&1 | grep Version | cut -d" " -f2)
     else
-        GLIBC=GLIBC-$(ldd --version 2>&1  | grep ^ldd | rev | cut -d" " -f1 | rev)
+        GLIBC=GLIBC-$(ldd --version 2>&1  | grep ^ldd | awk '{print $(NF)}')
     fi
     ;;
 Darwin*)

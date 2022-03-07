@@ -7,8 +7,7 @@ RUN apk --no-cache add make gcc musl-dev binutils-gold
 COPY . /app
 WORKDIR /app
 
-RUN GLIBC_VERSION=MUSL-$(apk list musl | cut -d- -f2) \
-    make -e build
+RUN make build
 
 
 FROM alpine:${ALPINE_VERSION}

@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 2.0.0-alpha
+VERSION := 2.0.0
 PKGNAME := krakend
 LICENSE := Apache 2.0
 VENDOR=
@@ -15,11 +15,11 @@ RELEASE := 0
 USER := krakend
 ARCH := amd64
 DESC := High performance API gateway. Aggregate, filter, manipulate and add middlewares
-MAINTAINER := Daniel Ortiz <dortiz@devops.faith>
+MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.17.7
-GLIBC_VERSION := GLIBC-2.28 # Debian Buster
+GOLANG_VERSION := 1.17.8
+GLIBC_VERSION := $(shell sh find_glibc.sh)
 ALPINE_VERSION := 3.15
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \

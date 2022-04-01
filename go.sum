@@ -268,6 +268,8 @@ github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20220216163450-f3d9e41c9394 h1:XCd
 github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20220216163450-f3d9e41c9394/go.mod h1:WnQSh3V3dRxHCaeMDspKUdXc6vfBanAveZmb3WVxDJQ=
 github.com/devopsfaith/krakend-amqp/v2 v2.0.0 h1:mwrEV5es0eN6xPXU7kzegBhnOjyKkdBnOoGkbBte/88=
 github.com/devopsfaith/krakend-amqp/v2 v2.0.0/go.mod h1:5R/iA7DmDq/9/0svRlqcfEBuPfskS1szRLMYTvzxjn4=
+github.com/devopsfaith/krakend-amqp/v2 v2.0.1 h1:cCmPgb4M5cCL8Isyuab5NWe0TO0sNojH3p3Fb53u1yU=
+github.com/devopsfaith/krakend-amqp/v2 v2.0.1/go.mod h1:5R/iA7DmDq/9/0svRlqcfEBuPfskS1szRLMYTvzxjn4=
 github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702 h1:g26W/8+9bc5q7mW0oeR155W2rWCkxVkB/I7ZnmaY1Vw=
 github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702/go.mod h1:A6Z293GtJ7UAg6vQUOU4s5cSJQHFkgrH0R1OW5wUnoo=
 github.com/devopsfaith/krakend-botdetector/v2 v2.0.0 h1:eQhvmo27M4JAWgNQ1tniOOTHbh/8R1lcYeNhE4nvV2E=

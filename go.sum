@@ -366,6 +366,8 @@ github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0-20220114205036-e439f3a4820e h
 github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0-20220114205036-e439f3a4820e/go.mod h1:v58exSZCkTgD6WxNnJIdh3A7UHUQJHKkhS+BSRe3K4w=
 github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0 h1:QF7S76Z9Ns3MhlnApihU5fRd5rp56qG3B2UOPB7r6Ic=
 github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0/go.mod h1:K68Us2nut3UiPgPQb11dhOC8BiczWLGFry97ySA/1TI=
+github.com/devopsfaith/krakend-ratelimit/v2 v2.0.1 h1:awHep6NsvtPtPnW/8i/VojXuznR1QvuaprTTxhOMO24=
+github.com/devopsfaith/krakend-ratelimit/v2 v2.0.1/go.mod h1:K68Us2nut3UiPgPQb11dhOC8BiczWLGFry97ySA/1TI=
 github.com/devopsfaith/krakend-rss/v2 v2.0.0-20211021151134-d7fc811ec546 h1:W2F4IUYMvVXdqgaT+m1N84k+5syV5BAhkWcudsDKHqY=
 github.com/devopsfaith/krakend-rss/v2 v2.0.0-20211021151134-d7fc811ec546/go.mod h1:tOCWd+PTmf/vyk/03M3McuiC+rxWeOjWnLxAPftYbic=
 github.com/devopsfaith/krakend-rss/v2 v2.0.0-20220303153531-f49f7a541d29 h1:Eun9W6mwJ5PblbXzoOis7Z5m8gVQ6N+fShKmGJbWi/U=

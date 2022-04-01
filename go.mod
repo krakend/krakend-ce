@@ -26,7 +26,7 @@ require (
 	github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0
 	github.com/devopsfaith/krakend-opencensus/v2 v2.0.0
 	github.com/devopsfaith/krakend-pubsub/v2 v2.0.0
-	github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0
+	github.com/devopsfaith/krakend-ratelimit/v2 v2.0.1
 	github.com/devopsfaith/krakend-rss/v2 v2.0.0
 	github.com/devopsfaith/krakend-usage v1.4.0
 	github.com/devopsfaith/krakend-viper/v2 v2.0.0

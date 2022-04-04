@@ -9,7 +9,7 @@ import (
 )
 
 // RegisterSubscriberFactories registers all the available sd adaptors
-func RegisterSubscriberFactories(ctx context.Context, cfg config.ServiceConfig, logger logging.Logger) func(n string, p int) {
+func RegisterSubscriberFactories(_ context.Context, _ config.ServiceConfig, _ logging.Logger) func(n string, p int) {
 	// register the dns service discovery
 	dnssrv.Register()
 

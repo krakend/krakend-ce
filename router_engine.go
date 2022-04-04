@@ -41,6 +41,6 @@ func defaultHandler(c *gin.Context) {
 
 type engineFactory struct{}
 
-func (e engineFactory) NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine {
+func (engineFactory) NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine {
 	return NewEngine(cfg, opt)
 }

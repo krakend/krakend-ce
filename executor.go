@@ -263,7 +263,7 @@ func (e *ExecutorBuilder) checkCollaborators() {
 // with the plugin loader and the CORS module
 type DefaultRunServerFactory struct{}
 
-func (d *DefaultRunServerFactory) NewRunServer(l logging.Logger, next router.RunServerFunc) RunServer {
+func (*DefaultRunServerFactory) NewRunServer(l logging.Logger, next router.RunServerFunc) RunServer {
 	return RunServer(server.New(
 		l,
 		server.RunServer(cors.NewRunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l))),
@@ -313,7 +313,7 @@ type BloomFilterJWT struct{}
 
 // NewTokenRejecter registers the bloomfilter component and links it to a token rejecter. Then it returns a chained
 // rejecter factory with the created token rejecter and other based on the CEL component.
-func (t BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.ServiceConfig, l logging.Logger, reg func(n string, p int)) (jose.ChainedRejecterFactory, error) {
+func (BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.ServiceConfig, l logging.Logger, reg func(n string, p int)) (jose.ChainedRejecterFactory, error) {
 	rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, l, reg)
 
 	return jose.ChainedRejecterFactory([]jose.RejecterFactory{

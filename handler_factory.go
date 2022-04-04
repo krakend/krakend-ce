@@ -37,6 +37,6 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 
 type handlerFactory struct{}
 
-func (h handlerFactory) NewHandlerFactory(l logging.Logger, m *metrics.Metrics, r jose.RejecterFactory) router.HandlerFactory {
+func (handlerFactory) NewHandlerFactory(l logging.Logger, m *metrics.Metrics, r jose.RejecterFactory) router.HandlerFactory {
 	return NewHandlerFactory(l, m, r)
 }

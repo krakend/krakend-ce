@@ -55,7 +55,7 @@ func logPluginLoaderErrors(logger logging.Logger, tag string, n int, err error) 
 
 type pluginLoader struct{}
 
-func (d pluginLoader) Load(folder, pattern string, logger logging.Logger) {
+func (pluginLoader) Load(folder, pattern string, logger logging.Logger) {
 	LoadPlugins(folder, pattern, logger)
 }
 

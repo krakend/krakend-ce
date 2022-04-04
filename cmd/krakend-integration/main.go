@@ -17,7 +17,6 @@ func main() {
 		os.Exit(1)
 		return
 	}
-	defer runner.Close()
 
 	errors := 0
 
@@ -30,6 +29,7 @@ func main() {
 		fmt.Printf("%s: ok\n", tc.Name)
 	}
 	fmt.Printf("%d test completed\n", len(tcs))
+	runner.Close()
 
 	if errors == 0 {
 		return

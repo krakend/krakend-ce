@@ -505,7 +505,7 @@ func redirectEndpoint(rw http.ResponseWriter, r *http.Request) {
 	http.Redirect(rw, r, u.String(), code)
 }
 
-func symmetricJWKEndpoint(rw http.ResponseWriter, req *http.Request) {
+func symmetricJWKEndpoint(rw http.ResponseWriter, _ *http.Request) {
 	rw.Header().Add("Content-Type", "application/json")
 	rw.Write([]byte(`{
   "keys": [

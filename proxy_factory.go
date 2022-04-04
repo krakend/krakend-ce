@@ -31,6 +31,6 @@ func NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory,
 
 type proxyFactory struct{}
 
-func (p proxyFactory) NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory, metricCollector *metrics.Metrics) proxy.Factory {
+func (proxyFactory) NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory, metricCollector *metrics.Metrics) proxy.Factory {
 	return NewProxyFactory(logger, backendFactory, metricCollector)
 }

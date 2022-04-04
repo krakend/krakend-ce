@@ -196,9 +196,7 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 		}
 	}()
 
-	select {
-	case <-time.After(1500 * time.Millisecond):
-	}
+	<-time.After(1500 * time.Millisecond)
 
 	return &Runner{
 		closeFuncs: closeFuncs,

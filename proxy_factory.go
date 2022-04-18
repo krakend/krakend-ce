@@ -9,7 +9,6 @@ import (
 	opencensus "github.com/devopsfaith/krakend-opencensus"
 	"github.com/luraproject/lura/logging"
 	"github.com/luraproject/lura/proxy"
-	newrelic "github.com/unacademy/krakend-newrelic"
 )
 
 // NewProxyFactory returns a new ProxyFactory wrapping the injected BackendFactory with the default proxy stack and a metrics collector
@@ -20,7 +19,6 @@ func NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory,
 	proxyFactory = jsonschema.ProxyFactory(proxyFactory)
 	proxyFactory = cel.ProxyFactory(logger, proxyFactory)
 	proxyFactory = lua.ProxyFactory(logger, proxyFactory)
-	proxyFactory = newrelic.ProxyFactory("pipe", proxyFactory)
 	proxyFactory = metricCollector.ProxyFactory("pipe", proxyFactory)
 	proxyFactory = opencensus.ProxyFactory(proxyFactory)
 	return proxyFactory

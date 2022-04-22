@@ -34,6 +34,15 @@
     },
     "endpoints": [
         {
+          "endpoint": "/",
+          "backend": [
+            {
+              "url_pattern": "/__debug/",
+              "host": [ "http://127.0.0.1:8080" ]
+            }
+          ]
+        },
+        {
             "endpoint": "/crash",
             "backend": [
                 {

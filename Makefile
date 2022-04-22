@@ -112,7 +112,7 @@ benchmark:
 	@docker stop krakend
 	@cat bench_res/${GIT_COMMIT}.out
 
-sec_scan:
+security_scan:
 	@mkdir -p sec_scan
 	@touch sec_scan/${GIT_COMMIT}.out
 	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 devopsfaith/krakend:${VERSION} run -dc /etc/krakend/bench.json

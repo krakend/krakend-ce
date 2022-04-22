@@ -24,5 +24,5 @@ function post_proxy( resp )
 		table.insert(paths, t)
 	end
 	responseData:set("paths", paths)
-	responseData:set("collection", {})
+	responseData:del("collection")
 end

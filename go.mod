@@ -8,7 +8,7 @@ require (
 	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0
-	github.com/devopsfaith/krakend-cobra/v2 v2.0.0
+	github.com/devopsfaith/krakend-cobra/v2 v2.0.1
 	github.com/devopsfaith/krakend-cors/v2 v2.0.0
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0
@@ -16,7 +16,7 @@ require (
 	github.com/devopsfaith/krakend-httpcache/v2 v2.0.0
 	github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0
 	github.com/devopsfaith/krakend-influx/v2 v2.0.0
-	github.com/devopsfaith/krakend-jose/v2 v2.0.0
+	github.com/devopsfaith/krakend-jose/v2 v2.0.1
 	github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0
 	github.com/devopsfaith/krakend-lambda/v2 v2.0.0
 	github.com/devopsfaith/krakend-logstash/v2 v2.0.0
@@ -33,7 +33,7 @@ require (
 	github.com/devopsfaith/krakend-xml/v2 v2.0.0
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-contrib/uuid v1.2.0
-	github.com/luraproject/lura/v2 v2.0.1
+	github.com/luraproject/lura/v2 v2.0.2
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
@@ -82,7 +82,7 @@ require (
 	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/devigned/tab v0.1.1 // indirect
-	github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc // indirect
+	github.com/devopsfaith/flatmap v1.1.0 // indirect
 	github.com/devopsfaith/krakend-ratelimit v1.4.0 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/dlclark/regexp2 v1.1.6 // indirect
@@ -217,3 +217,4 @@ require (
 )
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
+replace github.com/auth0-community/go-auth0 v1.0.0 => github.com/devopsfaith/go-auth0 v0.0.0-20220422124632-a1358a81b559

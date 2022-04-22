@@ -1,6 +1,7 @@
 {
     "version":3,
     "host":["http://localhost:8080"],
+    "read_header_timeout":"200ms",
     "extra_config": {
         "github_com/devopsfaith/krakend-gologging": {
             "level": "CRITICAL",

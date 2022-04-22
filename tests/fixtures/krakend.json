@@ -4,6 +4,7 @@
     "port": 8080,
     "cache_ttl": "3600s",
     "timeout": "3s",
+    "read_header_timeout":"200ms",
     "extra_config": {
       "telemetry/logging": {
         "level":  "DEBUG",
@@ -29,10 +30,7 @@
             "(Pingdom.com_bot_version_).*",
             "(facebookexternalhit)/.*"
         ]
-      },
-        "-pepe-router":{
-            "return_error_msg":true
-        }
+      }
     },
     "endpoints": [
         {

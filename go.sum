@@ -266,6 +266,8 @@ github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc h1:WM1VdC8LW8G
 github.com/devopsfaith/flatmap v0.0.0-20200601181759-8521186182fc/go.mod h1:J9Y/58s7wx7HbHT3i4UKNwLGuBB9qCf0/JUdEFGDPmA=
 github.com/devopsfaith/flatmap v1.1.0 h1:3m7MKZZ2NDwBBCY8seZ6YaeV/vJROIIGkIUuohJlDhs=
 github.com/devopsfaith/flatmap v1.1.0/go.mod h1:vVpbomuvclRh7ZAmtFDYfpTGnTZiqco65D0XfZXD1Ak=
+github.com/devopsfaith/go-auth0 v0.0.0-20220422124632-a1358a81b559 h1:0t0Ed+1bGAyuEJM1wd8YEReYPMfc783QQmbtut3HBsw=
+github.com/devopsfaith/go-auth0 v0.0.0-20220422124632-a1358a81b559/go.mod h1:cZi/9yvenqQHYLu2FOqOp/8OmP0PYyWJmD3ojOmQGYQ=
 github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20220216163450-f3d9e41c9394 h1:XCdN5Ac7BA94xiPUGvE+JY0bH+5/RcJ8q5t/tnb7R14=
 github.com/devopsfaith/krakend-amqp/v2 v2.0.0-20220216163450-f3d9e41c9394/go.mod h1:WnQSh3V3dRxHCaeMDspKUdXc6vfBanAveZmb3WVxDJQ=
 github.com/devopsfaith/krakend-amqp/v2 v2.0.0 h1:mwrEV5es0eN6xPXU7kzegBhnOjyKkdBnOoGkbBte/88=

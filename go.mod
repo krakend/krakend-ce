@@ -8,7 +8,7 @@ require (
 	github.com/devopsfaith/krakend-botdetector/v2 v2.0.0
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0
-	github.com/devopsfaith/krakend-cobra/v2 v2.0.1
+	github.com/devopsfaith/krakend-cobra/v2 v2.0.2
 	github.com/devopsfaith/krakend-cors/v2 v2.0.0
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0
@@ -33,7 +33,7 @@ require (
 	github.com/devopsfaith/krakend-xml/v2 v2.0.0
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-contrib/uuid v1.2.0
-	github.com/luraproject/lura/v2 v2.0.2
+	github.com/luraproject/lura/v2 v2.0.3
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
@@ -217,4 +217,5 @@ require (
 )
 
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
+
 replace github.com/auth0-community/go-auth0 v1.0.0 => github.com/devopsfaith/go-auth0 v0.0.0-20220422124632-a1358a81b559

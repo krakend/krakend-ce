@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 2.0.3
+VERSION := 2.0.4
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
 LICENSE := Apache 2.0
@@ -50,7 +50,7 @@ RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 all: test
 
 update_krakend_deps:
-	go get github.com/luraproject/lura/v2@v2.0.2
+	go get github.com/luraproject/lura/v2@v2.0.4
 	go get github.com/devopsfaith/bloomfilter/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-amqp/v2@v2.0.1
 	go get github.com/devopsfaith/krakend-botdetector/v2@v2.0.0

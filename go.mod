@@ -16,7 +16,7 @@ require (
 	github.com/devopsfaith/krakend-httpcache/v2 v2.0.0
 	github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0
 	github.com/devopsfaith/krakend-influx/v2 v2.0.0
-	github.com/devopsfaith/krakend-jose/v2 v2.0.1
+	github.com/devopsfaith/krakend-jose/v2 v2.0.2
 	github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0
 	github.com/devopsfaith/krakend-lambda/v2 v2.0.0
 	github.com/devopsfaith/krakend-logstash/v2 v2.0.0

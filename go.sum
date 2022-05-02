@@ -821,6 +821,8 @@ github.com/luraproject/lura/v2 v2.0.2 h1:CA6ITvGa6xirW3Kj5XTZ8+dgUumKaEy9R/h/IGl
 github.com/luraproject/lura/v2 v2.0.2/go.mod h1:1FhL+5a9uH6o7zMNstXlcjznL5yt2lZ9Q8efanmvw9w=
 github.com/luraproject/lura/v2 v2.0.3 h1:gZUqHO/FnWP2G500v/tvl43LIDf6H+ab4MVB6oILVhU=
 github.com/luraproject/lura/v2 v2.0.3/go.mod h1:1FhL+5a9uH6o7zMNstXlcjznL5yt2lZ9Q8efanmvw9w=
+github.com/luraproject/lura/v2 v2.0.4 h1:Syf7TjWj7pjTvt4BvHHXDHLBxEVuGT2G3PZ4Kzxf5R4=
+github.com/luraproject/lura/v2 v2.0.4/go.mod h1:1FhL+5a9uH6o7zMNstXlcjznL5yt2lZ9Q8efanmvw9w=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f h1:MBcrTbmCf7CZa9yAwcB7ArveQb9TPVy4zFnQGz/LiUU=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f/go.mod h1:UawoqorwkpZ58qWiL+nVJM0Po7FrzAdCxYVh9GgTTaA=

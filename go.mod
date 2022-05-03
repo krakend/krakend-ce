@@ -16,7 +16,7 @@ require (
 	github.com/devopsfaith/krakend-httpcache/v2 v2.0.0
 	github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0
 	github.com/devopsfaith/krakend-influx/v2 v2.0.0
-	github.com/devopsfaith/krakend-jose/v2 v2.0.1
+	github.com/devopsfaith/krakend-jose/v2 v2.0.2
 	github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0
 	github.com/devopsfaith/krakend-lambda/v2 v2.0.0
 	github.com/devopsfaith/krakend-logstash/v2 v2.0.0
@@ -33,7 +33,7 @@ require (
 	github.com/devopsfaith/krakend-xml/v2 v2.0.0
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-contrib/uuid v1.2.0
-	github.com/luraproject/lura/v2 v2.0.3
+	github.com/luraproject/lura/v2 v2.0.4
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 

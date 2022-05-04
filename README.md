@@ -51,5 +51,5 @@ make build
 Or, if you don't have or don't want to install `go`, you can build it using the golang docker container:
 
 ```
-make docker_build
+make build_on_docker
 ```

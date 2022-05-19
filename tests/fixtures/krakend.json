@@ -75,7 +75,7 @@
           ]
         },
         {
-            "endpoint": "/no-op",
+            "endpoint": "/no-op/ok",
             "method": "POST",
             "output_encoding": "no-op",
             "backend": [
@@ -83,6 +83,18 @@
                     "encoding": "no-op",
                     "host": [ "http://127.0.0.1:8081" ],
                     "url_pattern": "/param_forwarding/"
+                }
+            ]
+        },
+        {
+            "endpoint": "/no-op/ko",
+            "method": "POST",
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "encoding": "no-op",
+                    "host": [ "http://127.0.0.1:8080" ],
+                    "url_pattern": "/unknown"
                 }
             ]
         },

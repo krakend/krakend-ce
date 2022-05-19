@@ -1,7 +1,7 @@
 {
 	"in": {
 		"method": "POST",
-		"url": "http://localhost:8080/no-op"
+		"url": "http://localhost:8080/no-op/ok"
 	},
 	"out": {
 		"status_code": 200,

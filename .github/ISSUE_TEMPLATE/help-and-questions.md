@@ -1,6 +1,6 @@
 ---
 name: Help and questions
-about: You are stuck trying to do something, get unexpected result or you simply have
+about: You are stuck trying to do something, you get unexpected results or you simply have
   a question or suggestion
 title: ''
 labels: 'question'
@@ -9,16 +9,25 @@ assignees: ''
 ---
 
 **Describe what are you trying to do**
-A clear and concise description of what you want to do and how is your setup.
+A clear and concise description of what you want to do and how is the setup with KrakenD.
 
 **Your configuration file**
 The content of your `krakend.json`. When using the flexible configuration option, the computed file can be generated using `FC_OUT=out.json`
+
 ```
 {
-  "version": 2,
+  "version": 3,
   ...
 }
 ```
+
+**Configuration check output**
+Ater running `krakend check -dtc krakend.json --lint` I got this output:
+
+```
+Output of the linter here.
+```
+
 **Commands used**
 How did you start the software?
 ```
@@ -36,4 +45,4 @@ docker run --rm -it -v $PWD:/etc/krakend \
 ```
 
 **Logs**
-If applicable, any logs you saw in the console and debugging information
+Logs you saw in the console and debugging information

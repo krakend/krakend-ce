@@ -6,6 +6,8 @@ labels: ''
 assignees: ''
 
 ---
+**Version of KrakenD you are using**
+Get it with: `krakend help | grep Version`
 
 **Describe the bug**
 A clear and concise description of what the bug is.

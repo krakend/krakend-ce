@@ -7,6 +7,8 @@ labels: 'question'
 assignees: ''
 
 ---
+**Version of KrakenD you are using**
+Get it with: `krakend help | grep Version`
 
 **Describe what are you trying to do**
 A clear and concise description of what you want to do and how is the setup with KrakenD.

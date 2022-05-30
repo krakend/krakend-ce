@@ -21,7 +21,7 @@ require (
 	github.com/devopsfaith/krakend-lambda/v2 v2.0.0
 	github.com/devopsfaith/krakend-logstash/v2 v2.0.0
 	github.com/krakendio/krakend-lua/v2 v2.0.0
-	github.com/devopsfaith/krakend-martian/v2 v2.0.0
+	github.com/krakendio/krakend-martian/v2 v2.0.0
 	github.com/devopsfaith/krakend-metrics/v2 v2.0.0
 	github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0
 	github.com/krakendio/krakend-opencensus/v2 v2.0.0
@@ -82,7 +82,7 @@ require (
 	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/devigned/tab v0.1.1 // indirect
-	github.com/devopsfaith/flatmap v1.1.0 // indirect
+	github.com/krakendio/flatmap v1.1.0 // indirect
 	github.com/devopsfaith/krakend-ratelimit v1.4.0 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/dlclark/regexp2 v1.1.6 // indirect

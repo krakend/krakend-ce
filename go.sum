@@ -274,10 +274,10 @@ github.com/devopsfaith/krakend-amqp/v2 v2.0.0 h1:mwrEV5es0eN6xPXU7kzegBhnOjyKkdB
 github.com/devopsfaith/krakend-amqp/v2 v2.0.0/go.mod h1:5R/iA7DmDq/9/0svRlqcfEBuPfskS1szRLMYTvzxjn4=
 github.com/devopsfaith/krakend-amqp/v2 v2.0.1 h1:cCmPgb4M5cCL8Isyuab5NWe0TO0sNojH3p3Fb53u1yU=
 github.com/devopsfaith/krakend-amqp/v2 v2.0.1/go.mod h1:5R/iA7DmDq/9/0svRlqcfEBuPfskS1szRLMYTvzxjn4=
-github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702 h1:g26W/8+9bc5q7mW0oeR155W2rWCkxVkB/I7ZnmaY1Vw=
-github.com/devopsfaith/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702/go.mod h1:A6Z293GtJ7UAg6vQUOU4s5cSJQHFkgrH0R1OW5wUnoo=
-github.com/devopsfaith/krakend-botdetector/v2 v2.0.0 h1:eQhvmo27M4JAWgNQ1tniOOTHbh/8R1lcYeNhE4nvV2E=
-github.com/devopsfaith/krakend-botdetector/v2 v2.0.0/go.mod h1:okFHRBA/2LbUo/Hc9wdNU52HlBa03ZbXzXZK2qBd8Jo=
+github.com/krakendio/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702 h1:g26W/8+9bc5q7mW0oeR155W2rWCkxVkB/I7ZnmaY1Vw=
+github.com/krakendio/krakend-botdetector/v2 v2.0.0-20211026130023-7708e1e97702/go.mod h1:A6Z293GtJ7UAg6vQUOU4s5cSJQHFkgrH0R1OW5wUnoo=
+github.com/krakendio/krakend-botdetector/v2 v2.0.0 h1:eQhvmo27M4JAWgNQ1tniOOTHbh/8R1lcYeNhE4nvV2E=
+github.com/krakendio/krakend-botdetector/v2 v2.0.0/go.mod h1:okFHRBA/2LbUo/Hc9wdNU52HlBa03ZbXzXZK2qBd8Jo=
 github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b h1:BdTEsvU5sQY66uZPEdZr/56Y0yK2vTlZ/qfGibAUCFU=
 github.com/devopsfaith/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b/go.mod h1:pYo+qjlnUmZjoPbrQDDNRUdF79la3xFNRgC1QWhJGW0=
 github.com/devopsfaith/krakend-cel/v2 v2.0.0 h1:qT1n6nCN+3h8WJB152FH8pLfOfNyC2aI08LgFKON/Y8=

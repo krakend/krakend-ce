@@ -388,8 +388,8 @@ github.com/devopsfaith/krakend-rss/v2 v2.0.0-20220303153531-f49f7a541d29 h1:Eun9
 github.com/devopsfaith/krakend-rss/v2 v2.0.0-20220303153531-f49f7a541d29/go.mod h1:3TRchoqP4pX/7hKrKGVeJw4DIlGr4/6Yl+ENYdnCycE=
 github.com/devopsfaith/krakend-rss/v2 v2.0.0 h1:8DX73CwuyBsTx2i4Rv3OXRsYshZNCE1XevSGx3hcD/8=
 github.com/devopsfaith/krakend-rss/v2 v2.0.0/go.mod h1:3TRchoqP4pX/7hKrKGVeJw4DIlGr4/6Yl+ENYdnCycE=
-github.com/devopsfaith/krakend-usage v1.4.0 h1:CyGhoVNLRJSmyd/Q+EPDEeH13VLpP/+xBPWSYx4SpsI=
-github.com/devopsfaith/krakend-usage v1.4.0/go.mod h1:hcF2U1YSSaPWbmMVRGgjIt4iC6HPkGD6cGVQRdgoiI8=
+github.com/krakendio/krakend-usage v1.4.0 h1:CyGhoVNLRJSmyd/Q+EPDEeH13VLpP/+xBPWSYx4SpsI=
+github.com/krakendio/krakend-usage v1.4.0/go.mod h1:hcF2U1YSSaPWbmMVRGgjIt4iC6HPkGD6cGVQRdgoiI8=
 github.com/devopsfaith/krakend-viper/v2 v2.0.0-20211020152843-fef58b415f68 h1:IjWucnPa9ODL2k+iJV96dCgUD5KJbS4Q/uY3591kPpo=
 github.com/devopsfaith/krakend-viper/v2 v2.0.0-20211020152843-fef58b415f68/go.mod h1:9ng5WbNPGzQkKuBfm9gceddqg9Drdm9jWz7UwykoSv4=
 github.com/devopsfaith/krakend-viper/v2 v2.0.0 h1:DA5H28lKrCsLqDlQ0q6O8eHWWIJ8CcLRPygegkCSIFo=

@@ -9,7 +9,7 @@ require (
 	github.com/devopsfaith/krakend-cel/v2 v2.0.0
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0
 	github.com/krakendio/krakend-cobra/v2 v2.0.2
-	github.com/devopsfaith/krakend-cors/v2 v2.0.0
+	github.com/krakendio/krakend-cors/v2 v2.0.0
 	github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0
 	github.com/devopsfaith/krakend-gelf/v2 v2.0.0
 	github.com/krakendio/krakend-gologging/v2 v2.0.0

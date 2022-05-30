@@ -6,12 +6,12 @@ import (
 
 	amqp "github.com/devopsfaith/krakend-amqp/v2"
 	cb "github.com/devopsfaith/krakend-circuitbreaker/v2/gobreaker/proxy"
-	httpcache "github.com/devopsfaith/krakend-httpcache/v2"
 	lambda "github.com/devopsfaith/krakend-lambda/v2"
 	metrics "github.com/devopsfaith/krakend-metrics/v2/gin"
 	oauth2client "github.com/devopsfaith/krakend-oauth2-clientcredentials/v2"
 	juju "github.com/devopsfaith/krakend-ratelimit/v2/juju/proxy"
 	cel "github.com/krakendio/krakend-cel/v2"
+	httpcache "github.com/krakendio/krakend-httpcache/v2"
 	lua "github.com/krakendio/krakend-lua/v2/proxy"
 	martian "github.com/krakendio/krakend-martian/v2"
 	opencensus "github.com/krakendio/krakend-opencensus/v2"

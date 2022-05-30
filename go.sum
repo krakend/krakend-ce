@@ -258,10 +258,10 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/denisenkom/go-mssqldb v0.9.0/go.mod h1:xbL0rPBG9cCiLr28tMa8zpbdarY27NDyej4t/EjAShU=
 github.com/devigned/tab v0.1.1 h1:3mD6Kb1mUOYeLpJvTVSDwSg5ZsfSxfvxGRTxRsJsITA=
 github.com/devigned/tab v0.1.1/go.mod h1:XG9mPq0dFghrYvoBF3xdRrJzSTX1b7IQrvaL9mzjeJY=
-github.com/devopsfaith/bloomfilter/v2 v2.0.0-20220215152551-0c82e459348d h1:SPW21OJsdrs6i67WK2L2mrzIdpDEcMHd5TqQyfeACz8=
-github.com/devopsfaith/bloomfilter/v2 v2.0.0-20220215152551-0c82e459348d/go.mod h1:lPzmU1vAgX4NomYMRSzIbDjK5hSvsshv/EJmB7i4aIg=
-github.com/devopsfaith/bloomfilter/v2 v2.0.0 h1:rDmsv5Gvq1meW9WbTRYbeHU3ruMRJz3Ng61DE+3E2Hc=
-github.com/devopsfaith/bloomfilter/v2 v2.0.0/go.mod h1:SmqK+5bNYqPVVquRa+nE6sHg9CpSXmub8M6qTIAylRk=
+github.com/krakendio/bloomfilter/v2 v2.0.0-20220215152551-0c82e459348d h1:SPW21OJsdrs6i67WK2L2mrzIdpDEcMHd5TqQyfeACz8=
+github.com/krakendio/bloomfilter/v2 v2.0.0-20220215152551-0c82e459348d/go.mod h1:lPzmU1vAgX4NomYMRSzIbDjK5hSvsshv/EJmB7i4aIg=
+github.com/krakendio/bloomfilter/v2 v2.0.0 h1:rDmsv5Gvq1meW9WbTRYbeHU3ruMRJz3Ng61DE+3E2Hc=
+github.com/krakendio/bloomfilter/v2 v2.0.0/go.mod h1:SmqK+5bNYqPVVquRa+nE6sHg9CpSXmub8M6qTIAylRk=
 github.com/krakendio/flatmap v0.0.0-20200601181759-8521186182fc h1:WM1VdC8LW8GIZUJuvXgQWm6LcZ8niL0D0WVuC3lKkQU=
 github.com/krakendio/flatmap v0.0.0-20200601181759-8521186182fc/go.mod h1:J9Y/58s7wx7HbHT3i4UKNwLGuBB9qCf0/JUdEFGDPmA=
 github.com/krakendio/flatmap v1.1.0 h1:3m7MKZZ2NDwBBCY8seZ6YaeV/vJROIIGkIUuohJlDhs=

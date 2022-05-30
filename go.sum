@@ -320,10 +320,10 @@ github.com/krakendio/krakend-httpcache/v2 v2.0.0-20220125213247-4f7cdf9ba8f5 h1:
 github.com/krakendio/krakend-httpcache/v2 v2.0.0-20220125213247-4f7cdf9ba8f5/go.mod h1:KyvosPR0XShDmvbdnzsI+W+ttCp0TEO0mWvrJF7Crvw=
 github.com/krakendio/krakend-httpcache/v2 v2.0.0 h1:99DB6pbVsA9BbfTKWX1PfDeffN63lT9jQRj9rmTsSjk=
 github.com/krakendio/krakend-httpcache/v2 v2.0.0/go.mod h1:yCnGYmMCcBkDm/6Bh9xbDXH0lgLcc2n9XJ7dvWyy+zE=
-github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f h1:8lSGUGjbQjCsIGXGE1mJM/PeFLl3s4gRH2nuxY4lDGc=
-github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f/go.mod h1:MjalUaejQFsNYZ+tBVWVeIJpZCTcBF3KT3GTwpw24gQ=
-github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0 h1:k4cY3RQtU68L11ALfzQ5mElxKTaegXfo7TGttWZQjZs=
-github.com/devopsfaith/krakend-httpsecure/v2 v2.0.0/go.mod h1:vHTlAHphHGq/tQEewAA8AKZ7O/JoAbOuVSkmx6U8e1k=
+github.com/krakendio/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f h1:8lSGUGjbQjCsIGXGE1mJM/PeFLl3s4gRH2nuxY4lDGc=
+github.com/krakendio/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f/go.mod h1:MjalUaejQFsNYZ+tBVWVeIJpZCTcBF3KT3GTwpw24gQ=
+github.com/krakendio/krakend-httpsecure/v2 v2.0.0 h1:k4cY3RQtU68L11ALfzQ5mElxKTaegXfo7TGttWZQjZs=
+github.com/krakendio/krakend-httpsecure/v2 v2.0.0/go.mod h1:vHTlAHphHGq/tQEewAA8AKZ7O/JoAbOuVSkmx6U8e1k=
 github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34 h1:+QnpIu75zl+xEV0EVvM0o+RS47a19pif6QFjKmarLqI=
 github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34/go.mod h1:98ydUCA8SEFPmsaZZJE9ONLIiBGOdLyF/eQRmuB6QUY=
 github.com/devopsfaith/krakend-influx/v2 v2.0.0 h1:fwR8nJpp5GjnZ6S5ui+Gm6qSa1tAUq2INUUD2gIqsvQ=

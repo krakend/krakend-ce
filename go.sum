@@ -324,10 +324,10 @@ github.com/krakendio/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f h1
 github.com/krakendio/krakend-httpsecure/v2 v2.0.0-20211021153953-41e755a4711f/go.mod h1:MjalUaejQFsNYZ+tBVWVeIJpZCTcBF3KT3GTwpw24gQ=
 github.com/krakendio/krakend-httpsecure/v2 v2.0.0 h1:k4cY3RQtU68L11ALfzQ5mElxKTaegXfo7TGttWZQjZs=
 github.com/krakendio/krakend-httpsecure/v2 v2.0.0/go.mod h1:vHTlAHphHGq/tQEewAA8AKZ7O/JoAbOuVSkmx6U8e1k=
-github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34 h1:+QnpIu75zl+xEV0EVvM0o+RS47a19pif6QFjKmarLqI=
-github.com/devopsfaith/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34/go.mod h1:98ydUCA8SEFPmsaZZJE9ONLIiBGOdLyF/eQRmuB6QUY=
-github.com/devopsfaith/krakend-influx/v2 v2.0.0 h1:fwR8nJpp5GjnZ6S5ui+Gm6qSa1tAUq2INUUD2gIqsvQ=
-github.com/devopsfaith/krakend-influx/v2 v2.0.0/go.mod h1:/Xbuzqn8D44SC2bYl3ujXzeawhkV1VFyfTRmE3445fA=
+github.com/krakendio/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34 h1:+QnpIu75zl+xEV0EVvM0o+RS47a19pif6QFjKmarLqI=
+github.com/krakendio/krakend-influx/v2 v2.0.0-20211022133117-f6581b238a34/go.mod h1:98ydUCA8SEFPmsaZZJE9ONLIiBGOdLyF/eQRmuB6QUY=
+github.com/krakendio/krakend-influx/v2 v2.0.0 h1:fwR8nJpp5GjnZ6S5ui+Gm6qSa1tAUq2INUUD2gIqsvQ=
+github.com/krakendio/krakend-influx/v2 v2.0.0/go.mod h1:/Xbuzqn8D44SC2bYl3ujXzeawhkV1VFyfTRmE3445fA=
 github.com/krakendio/krakend-jose/v2 v2.0.0-20211102130458-93c23f5972ed h1:/xVqtlwPPCdzKIoHFwb4Lp7JZtoy0VMSxHh9aWk+H5E=
 github.com/krakendio/krakend-jose/v2 v2.0.0-20211102130458-93c23f5972ed/go.mod h1:xqe3A7RSVRLp10/xfd5Fg0t72qQGC0XcqAfjU7GQM3Q=
 github.com/krakendio/krakend-jose/v2 v2.0.0 h1:dj4U4URp6h9/s7kuUrCYqqhw4ZgzPGPslvnnAxrz1uo=

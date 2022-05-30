@@ -68,7 +68,7 @@ update_krakend_deps:
 	go get github.com/devopsfaith/krakend-jsonschema/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-lambda/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-logstash/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-lua/v2@v2.0.0
+	go get github.com/krakendio/krakend-lua/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-martian/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-metrics/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-oauth2-clientcredentials/v2@v2.0.0

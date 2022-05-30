@@ -370,10 +370,10 @@ github.com/krakendio/krakend-opencensus/v2 v2.0.0-20220303175408-b5745049e022 h1
 github.com/krakendio/krakend-opencensus/v2 v2.0.0-20220303175408-b5745049e022/go.mod h1:FkYTFSo6ngeWVwMI+fFnL/5l1kBEKJgApNDlNdgTTKA=
 github.com/krakendio/krakend-opencensus/v2 v2.0.0 h1:aKsisUGdPGWQjpCKhiC0C/+pK8txP8qcqKZ8RUnVvzM=
 github.com/krakendio/krakend-opencensus/v2 v2.0.0/go.mod h1:FkYTFSo6ngeWVwMI+fFnL/5l1kBEKJgApNDlNdgTTKA=
-github.com/devopsfaith/krakend-pubsub/v2 v2.0.0-20211021174017-85ef3982a465 h1:htFQcL0ihp6uKPa1YfTGPSB/fxIDqEhPt18wH5sEQ9Y=
-github.com/devopsfaith/krakend-pubsub/v2 v2.0.0-20211021174017-85ef3982a465/go.mod h1:ea8iOPU575T6bpqRYif3e7DZU4e6C3OP7sahB4fx72Q=
-github.com/devopsfaith/krakend-pubsub/v2 v2.0.0 h1:n42DTmoiEeFD1sdcOmNAK9cMYbeJ3at3uWz49jVVNAo=
-github.com/devopsfaith/krakend-pubsub/v2 v2.0.0/go.mod h1:+Fd6As5kJylnpMCPNoHML8xX1bbacpIVG0ZZM5ms8OE=
+github.com/krakendio/krakend-pubsub/v2 v2.0.0-20211021174017-85ef3982a465 h1:htFQcL0ihp6uKPa1YfTGPSB/fxIDqEhPt18wH5sEQ9Y=
+github.com/krakendio/krakend-pubsub/v2 v2.0.0-20211021174017-85ef3982a465/go.mod h1:ea8iOPU575T6bpqRYif3e7DZU4e6C3OP7sahB4fx72Q=
+github.com/krakendio/krakend-pubsub/v2 v2.0.0 h1:n42DTmoiEeFD1sdcOmNAK9cMYbeJ3at3uWz49jVVNAo=
+github.com/krakendio/krakend-pubsub/v2 v2.0.0/go.mod h1:+Fd6As5kJylnpMCPNoHML8xX1bbacpIVG0ZZM5ms8OE=
 github.com/devopsfaith/krakend-ratelimit v1.4.0 h1:wfFXSdBc5pkkEAd1zeOdpb0mXOBZxxNZJfF29KD8+uw=
 github.com/devopsfaith/krakend-ratelimit v1.4.0/go.mod h1:D22E/sHMFSHvVBhdtVxxy3SScplmJ2oGs9L9ty1xA2I=
 github.com/devopsfaith/krakend-ratelimit/v2 v2.0.0-20220114205036-e439f3a4820e h1:fLllsMTCXcv9MDt/QOy0OowMmEOAoENwdAYjIih1AZM=

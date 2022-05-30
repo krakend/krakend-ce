@@ -336,10 +336,10 @@ github.com/krakendio/krakend-jose/v2 v2.0.1 h1:xcwGiIN1DxNwRTIp9z9+QbObX4VbeT5vO
 github.com/krakendio/krakend-jose/v2 v2.0.1/go.mod h1:NODRORNtx76LAbw0jHskJYFfctoHvLR2vMbuKouvvQM=
 github.com/krakendio/krakend-jose/v2 v2.0.2 h1:eeKzo6E4p6fLPG3ql6roVHYOi+t5oyLiupBZNpVhb7s=
 github.com/krakendio/krakend-jose/v2 v2.0.2/go.mod h1:4EITHZ5q22UkTnDtRt46WRdtFPojdKTBxsrLeO8KlYc=
-github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211102170836-0cb59fd10016 h1:Ie9s6gavPBsZ9fDkbcN1lVBU93pelN9iqIfB005MzFY=
-github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0-20211102170836-0cb59fd10016/go.mod h1:tJzMn6aT7Ab2UzBSggSdV3szYEiqX7GYTscoOHyE9CQ=
-github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0 h1:mVWkeYDK1CUr1zBaH17Vb3DIJWSkhtsB/SmdrcYs4yg=
-github.com/devopsfaith/krakend-jsonschema/v2 v2.0.0/go.mod h1:KegsDEM6tkHhrKMs8/glvvD0PQW7EWqRurWCxIixXcI=
+github.com/krakendio/krakend-jsonschema/v2 v2.0.0-20211102170836-0cb59fd10016 h1:Ie9s6gavPBsZ9fDkbcN1lVBU93pelN9iqIfB005MzFY=
+github.com/krakendio/krakend-jsonschema/v2 v2.0.0-20211102170836-0cb59fd10016/go.mod h1:tJzMn6aT7Ab2UzBSggSdV3szYEiqX7GYTscoOHyE9CQ=
+github.com/krakendio/krakend-jsonschema/v2 v2.0.0 h1:mVWkeYDK1CUr1zBaH17Vb3DIJWSkhtsB/SmdrcYs4yg=
+github.com/krakendio/krakend-jsonschema/v2 v2.0.0/go.mod h1:KegsDEM6tkHhrKMs8/glvvD0PQW7EWqRurWCxIixXcI=
 github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211102183949-0021084c2154 h1:H6/Embnd1rT0fssmkTdDnqG6tevaNKdB6TfRB+5/v2I=
 github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211102183949-0021084c2154/go.mod h1:4mDDL7pmeM2PS+WCDIBcyF4xppHiGSRJWtpvliJnH18=
 github.com/devopsfaith/krakend-lambda/v2 v2.0.0 h1:jBIGHkmg/OlfpSGq1GIK+vDngI0OZBeCb08MqVfDlVs=

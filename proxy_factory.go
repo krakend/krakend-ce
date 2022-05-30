@@ -3,9 +3,9 @@ package krakend
 import (
 	"fmt"
 
-	jsonschema "github.com/devopsfaith/krakend-jsonschema/v2"
 	metrics "github.com/devopsfaith/krakend-metrics/v2/gin"
 	cel "github.com/krakendio/krakend-cel/v2"
+	jsonschema "github.com/krakendio/krakend-jsonschema/v2"
 	lua "github.com/krakendio/krakend-lua/v2/proxy"
 	opencensus "github.com/krakendio/krakend-opencensus/v2"
 	"github.com/luraproject/lura/v2/config"

@@ -13,11 +13,11 @@ import (
 
 	krakendbf "github.com/devopsfaith/bloomfilter/v2/krakend"
 	asyncamqp "github.com/devopsfaith/krakend-amqp/v2/async"
-	cel "github.com/devopsfaith/krakend-cel/v2"
 	gelf "github.com/devopsfaith/krakend-gelf/v2"
 	influxdb "github.com/devopsfaith/krakend-influx/v2"
 	metrics "github.com/devopsfaith/krakend-metrics/v2/gin"
 	"github.com/devopsfaith/krakend-usage/client"
+	cel "github.com/krakendio/krakend-cel/v2"
 	cmd "github.com/krakendio/krakend-cobra/v2"
 	cors "github.com/krakendio/krakend-cors/v2/gin"
 	gologging "github.com/krakendio/krakend-gologging/v2"

@@ -344,10 +344,10 @@ github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211102183949-0021084c2154 h1:H
 github.com/devopsfaith/krakend-lambda/v2 v2.0.0-20211102183949-0021084c2154/go.mod h1:4mDDL7pmeM2PS+WCDIBcyF4xppHiGSRJWtpvliJnH18=
 github.com/devopsfaith/krakend-lambda/v2 v2.0.0 h1:jBIGHkmg/OlfpSGq1GIK+vDngI0OZBeCb08MqVfDlVs=
 github.com/devopsfaith/krakend-lambda/v2 v2.0.0/go.mod h1:AmdAkE5L87RBa2TDPclQkcp75EJBH7zNtYjLVSUgcIc=
-github.com/devopsfaith/krakend-logstash/v2 v2.0.0-20211021152228-04b1b39c185d h1:f7xh7hmQcW5apE7ppt/jVgn/mMYY2idWvQO78VTC/C4=
-github.com/devopsfaith/krakend-logstash/v2 v2.0.0-20211021152228-04b1b39c185d/go.mod h1:9py8iR7HnmbB38Ocfh3pUxtTAGTNIYOgh1XRLM8+5uQ=
-github.com/devopsfaith/krakend-logstash/v2 v2.0.0 h1:SgFNebHAnrtEdUold5TJMwezFAKUw2XUuDJ5o0CZA5c=
-github.com/devopsfaith/krakend-logstash/v2 v2.0.0/go.mod h1:ifPaCHQqLNpPGkrZ4MkgD+SQ5hBYYTv6SPgZ+jxkd4A=
+github.com/krakendio/krakend-logstash/v2 v2.0.0-20211021152228-04b1b39c185d h1:f7xh7hmQcW5apE7ppt/jVgn/mMYY2idWvQO78VTC/C4=
+github.com/krakendio/krakend-logstash/v2 v2.0.0-20211021152228-04b1b39c185d/go.mod h1:9py8iR7HnmbB38Ocfh3pUxtTAGTNIYOgh1XRLM8+5uQ=
+github.com/krakendio/krakend-logstash/v2 v2.0.0 h1:SgFNebHAnrtEdUold5TJMwezFAKUw2XUuDJ5o0CZA5c=
+github.com/krakendio/krakend-logstash/v2 v2.0.0/go.mod h1:ifPaCHQqLNpPGkrZ4MkgD+SQ5hBYYTv6SPgZ+jxkd4A=
 github.com/krakendio/krakend-lua/v2 v2.0.0-20211105183158-728855f9797d h1:4jrDYCT8xs+uVEgVjuUdHSUP4cjkiOuzhSwGoXxKaPU=
 github.com/krakendio/krakend-lua/v2 v2.0.0-20211105183158-728855f9797d/go.mod h1:2aGFHsZh9vIr9upp1TOiThgfSn2qQLwE2AsG21By8Zg=
 github.com/krakendio/krakend-lua/v2 v2.0.0 h1:hej5KpgJrtuF9v2JmIjRKNyQFSPIXOKTybMg/wZ7W14=

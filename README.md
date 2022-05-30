@@ -22,7 +22,7 @@ KrakenD is an extensible, ultra-high performance API Gateway that helps you effo
 
 - **Content aggregation**, composition, and filtering: Create views and mashups of aggregated content from your APIs.
 - **Content Manipulation and format transformation**: Change responses, convert transparently from XML to JSON, and vice-versa.
-- **Security:**: Zero-trust policy, CORS, OAuth, JWT, HSTS, clickjacking protection, HPKP, MIME-Sniffing prevention, XSS protection...
+- **Security**: Zero-trust policy, CORS, OAuth, JWT, HSTS, clickjacking protection, HPKP, MIME-Sniffing prevention, XSS protection...
 - **Concurrent calls**: Serve content faster than consuming backends directly.
 - **SSL** and  **HTTP2** ready
 - **Throttling**: Limits of usage in the router and proxy layers

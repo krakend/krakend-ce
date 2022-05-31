@@ -308,10 +308,10 @@ github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20220303152019-20a9c1545
 github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0-20220303152019-20a9c15450cf/go.mod h1:M1GN46fkvzVGh66r6Biv9Jg4TRYXIG/OWawh5+wDC3c=
 github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0 h1:YUlfhD8Ez7+WIzJZ7uIuXYmQPs8yi8679TVRyVPvW5A=
 github.com/devopsfaith/krakend-flexibleconfig/v2 v2.0.0/go.mod h1:M1GN46fkvzVGh66r6Biv9Jg4TRYXIG/OWawh5+wDC3c=
-github.com/devopsfaith/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4 h1:3VIFPfb+yNkl9vynmNL7Q4r4h4fhgKoMK+Q3htZbvvw=
-github.com/devopsfaith/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4/go.mod h1:gJY0640lLgABaLpH2VWCEmCi1+e7F3bR2xfUH+EfoNI=
-github.com/devopsfaith/krakend-gelf/v2 v2.0.0 h1:MSTwR1y9YNszPGCswGk+y1yIEkle3vn1HHAZRg4a4JA=
-github.com/devopsfaith/krakend-gelf/v2 v2.0.0/go.mod h1:pbuYQwOwVJ765ITPJVm1Dh+0tUG2iJt0QdYLEVBv66k=
+github.com/krakendio/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4 h1:3VIFPfb+yNkl9vynmNL7Q4r4h4fhgKoMK+Q3htZbvvw=
+github.com/krakendio/krakend-gelf/v2 v2.0.0-20211021163831-892851e013b4/go.mod h1:gJY0640lLgABaLpH2VWCEmCi1+e7F3bR2xfUH+EfoNI=
+github.com/krakendio/krakend-gelf/v2 v2.0.0 h1:MSTwR1y9YNszPGCswGk+y1yIEkle3vn1HHAZRg4a4JA=
+github.com/krakendio/krakend-gelf/v2 v2.0.0/go.mod h1:pbuYQwOwVJ765ITPJVm1Dh+0tUG2iJt0QdYLEVBv66k=
 github.com/krakendio/krakend-gologging/v2 v2.0.0-20211022150531-5fffc04546fd h1:8bB+BTj3iyT9Q+pdFlldryu5TqqMbT3vwTUdrsU+WE4=
 github.com/krakendio/krakend-gologging/v2 v2.0.0-20211022150531-5fffc04546fd/go.mod h1:v8Mlie1z2Pco262YdVXF6g+C0UqTAsgHrw4S+Sa+QBU=
 github.com/krakendio/krakend-gologging/v2 v2.0.0 h1:Exnsls6rXmUWpO7KyAxgBexu25zHv9u1EAeDC6U2hAI=

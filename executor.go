@@ -12,11 +12,11 @@ import (
 	"golang.org/x/sync/errgroup"
 
 	asyncamqp "github.com/devopsfaith/krakend-amqp/v2/async"
-	gelf "github.com/devopsfaith/krakend-gelf/v2"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
 	cel "github.com/krakendio/krakend-cel/v2"
 	cmd "github.com/krakendio/krakend-cobra/v2"
 	cors "github.com/krakendio/krakend-cors/v2/gin"
+	gelf "github.com/krakendio/krakend-gelf/v2"
 	gologging "github.com/krakendio/krakend-gologging/v2"
 	influxdb "github.com/krakendio/krakend-influx/v2"
 	jose "github.com/krakendio/krakend-jose/v2"

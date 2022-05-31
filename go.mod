@@ -23,7 +23,7 @@ require (
 	github.com/krakendio/krakend-lua/v2 v2.0.0
 	github.com/krakendio/krakend-martian/v2 v2.0.0
 	github.com/krakendio/krakend-metrics/v2 v2.0.0
-	github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0
+	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.0
 	github.com/krakendio/krakend-opencensus/v2 v2.0.0
 	github.com/krakendio/krakend-pubsub/v2 v2.0.0
 	github.com/krakendio/krakend-ratelimit/v2 v2.0.1

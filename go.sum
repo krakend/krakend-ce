@@ -360,10 +360,10 @@ github.com/krakendio/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500 h1:09
 github.com/krakendio/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500/go.mod h1:cZS0Raa8rXPb9JqMMWHbmUAB7tac5I5zcz9U6Es2TeU=
 github.com/krakendio/krakend-metrics/v2 v2.0.0 h1:AEDq6ei3OOQUhPbDICPKgIN1j7voSbgDpvjTDvp25vg=
 github.com/krakendio/krakend-metrics/v2 v2.0.0/go.mod h1:frb+WWMKCyKCtYYkXlgYUVyUbieMy6FVSFD31f/7dyY=
-github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410 h1:aHbykiglRwyXHCROTQtYBdaIlqLN9sF2gUPbL0RjkW4=
-github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410/go.mod h1:WNGQmk+vROQUUtPXjEfpuZepPkfWpMZFp+7Igz6o7ho=
-github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0 h1:ksH6j8fAmhkTfO6DhCiqL4SoDQYWO6qbHA2yNV+IUmU=
-github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0/go.mod h1:LanJv+VOx7ahL/GmPNJPnzU8hz5Dl6tFJmejNMsvoq8=
+github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410 h1:aHbykiglRwyXHCROTQtYBdaIlqLN9sF2gUPbL0RjkW4=
+github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410/go.mod h1:WNGQmk+vROQUUtPXjEfpuZepPkfWpMZFp+7Igz6o7ho=
+github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.0 h1:ksH6j8fAmhkTfO6DhCiqL4SoDQYWO6qbHA2yNV+IUmU=
+github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.0/go.mod h1:LanJv+VOx7ahL/GmPNJPnzU8hz5Dl6tFJmejNMsvoq8=
 github.com/krakendio/krakend-opencensus/v2 v2.0.0-20220125214339-6e66a728c7f6 h1:XMWY4HiDWusDA0ftzVKLnwu5VS/oZ31O49ltL38uAVM=
 github.com/krakendio/krakend-opencensus/v2 v2.0.0-20220125214339-6e66a728c7f6/go.mod h1:spudtDNK2qrQg8iZDuqwjeoMwEV5olWOBNvTk2oMXqk=
 github.com/krakendio/krakend-opencensus/v2 v2.0.0-20220303175408-b5745049e022 h1:hpjavSnlkTW1eu79JHqwAib2ULbkc3FbHFc5rOvYeLQ=

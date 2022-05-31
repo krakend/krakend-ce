@@ -282,10 +282,10 @@ github.com/krakendio/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b h1:BdTEsv
 github.com/krakendio/krakend-cel/v2 v2.0.0-20211028141816-cdad0d24c61b/go.mod h1:pYo+qjlnUmZjoPbrQDDNRUdF79la3xFNRgC1QWhJGW0=
 github.com/krakendio/krakend-cel/v2 v2.0.0 h1:qT1n6nCN+3h8WJB152FH8pLfOfNyC2aI08LgFKON/Y8=
 github.com/krakendio/krakend-cel/v2 v2.0.0/go.mod h1:/X2nik+Vceq9Ze3IM9GM0I5kiynNyrDFh3cEPh0FV1A=
-github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289 h1:znMcZctvNp05LXB8TanhG0Qcx2HNlWkTujuddZVuqkQ=
-github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289/go.mod h1:rafMZmt3m9yKvc/zJbgubtzXs4Eb+TUwJG0KFPlzU3E=
-github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0 h1:/MktrHe6uOCbwg8Lz82of+wiVe3PMhZRhM9yFsKQ1Tc=
-github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0/go.mod h1:conUfh+bXcV2WcA+8js9Jx7ETWWSETw1HetBzSnAcEM=
+github.com/krakendio/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289 h1:znMcZctvNp05LXB8TanhG0Qcx2HNlWkTujuddZVuqkQ=
+github.com/krakendio/krakend-circuitbreaker/v2 v2.0.0-20211021130731-67e92df34289/go.mod h1:rafMZmt3m9yKvc/zJbgubtzXs4Eb+TUwJG0KFPlzU3E=
+github.com/krakendio/krakend-circuitbreaker/v2 v2.0.0 h1:/MktrHe6uOCbwg8Lz82of+wiVe3PMhZRhM9yFsKQ1Tc=
+github.com/krakendio/krakend-circuitbreaker/v2 v2.0.0/go.mod h1:conUfh+bXcV2WcA+8js9Jx7ETWWSETw1HetBzSnAcEM=
 github.com/krakendio/krakend-cobra/v2 v2.0.0-20220216192550-ea7c426522a3 h1:lWhBDFzIk+2EKY+vSUfdygN9Y9GqeqBldPKKcgfg/9Q=
 github.com/krakendio/krakend-cobra/v2 v2.0.0-20220216192550-ea7c426522a3/go.mod h1:xAOFuoSca4D6RdXntPichWY+gzu+Xg05jOKkFcxM4DE=
 github.com/krakendio/krakend-cobra/v2 v2.0.0-20220303120626-46c7e8fde967 h1:50PQC9JFSSkwLJQzvveBHsIj28+ClN97CZMq6vkMr2g=

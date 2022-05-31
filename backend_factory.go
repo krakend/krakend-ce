@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	cb "github.com/devopsfaith/krakend-circuitbreaker/v2/gobreaker/proxy"
 	amqp "github.com/krakendio/krakend-amqp/v2"
 	cel "github.com/krakendio/krakend-cel/v2"
+	cb "github.com/krakendio/krakend-circuitbreaker/v2/gobreaker/proxy"
 	httpcache "github.com/krakendio/krakend-httpcache/v2"
 	lambda "github.com/krakendio/krakend-lambda/v2"
 	lua "github.com/krakendio/krakend-lua/v2/proxy"

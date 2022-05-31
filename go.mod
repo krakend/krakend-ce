@@ -18,7 +18,7 @@ require (
 	github.com/krakendio/krakend-influx/v2 v2.0.0
 	github.com/krakendio/krakend-jose/v2 v2.0.2
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.0
-	github.com/devopsfaith/krakend-lambda/v2 v2.0.0
+	github.com/krakendio/krakend-lambda/v2 v2.0.0
 	github.com/krakendio/krakend-logstash/v2 v2.0.0
 	github.com/krakendio/krakend-lua/v2 v2.0.0
 	github.com/krakendio/krakend-martian/v2 v2.0.0

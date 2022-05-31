@@ -6,10 +6,10 @@ import (
 
 	amqp "github.com/devopsfaith/krakend-amqp/v2"
 	cb "github.com/devopsfaith/krakend-circuitbreaker/v2/gobreaker/proxy"
-	lambda "github.com/devopsfaith/krakend-lambda/v2"
 	oauth2client "github.com/devopsfaith/krakend-oauth2-clientcredentials/v2"
 	cel "github.com/krakendio/krakend-cel/v2"
 	httpcache "github.com/krakendio/krakend-httpcache/v2"
+	lambda "github.com/krakendio/krakend-lambda/v2"
 	lua "github.com/krakendio/krakend-lua/v2/proxy"
 	martian "github.com/krakendio/krakend-martian/v2"
 	metrics "github.com/krakendio/krakend-metrics/v2/gin"

@@ -26,7 +26,7 @@ require (
 	github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0
 	github.com/krakendio/krakend-opencensus/v2 v2.0.0
 	github.com/krakendio/krakend-pubsub/v2 v2.0.0
-	github.com/devopsfaith/krakend-ratelimit/v2 v2.0.1
+	github.com/krakendio/krakend-ratelimit/v2 v2.0.1
 	github.com/devopsfaith/krakend-rss/v2 v2.0.0
 	github.com/krakendio/krakend-usage v1.4.0
 	github.com/devopsfaith/krakend-viper/v2 v2.0.0
@@ -83,7 +83,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/devigned/tab v0.1.1 // indirect
 	github.com/krakendio/flatmap v1.1.0 // indirect
-	github.com/devopsfaith/krakend-ratelimit v1.4.0 // indirect
+	github.com/krakendio/krakend-ratelimit v1.4.0 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/dlclark/regexp2 v1.1.6 // indirect
 	github.com/eapache/go-resiliency v1.2.0 // indirect

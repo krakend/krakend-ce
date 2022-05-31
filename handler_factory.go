@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	metrics "github.com/devopsfaith/krakend-metrics/v2/gin"
-	juju "github.com/devopsfaith/krakend-ratelimit/v2/juju/router/gin"
 	botdetector "github.com/krakendio/krakend-botdetector/v2/gin"
 	jose "github.com/krakendio/krakend-jose/v2"
 	ginjose "github.com/krakendio/krakend-jose/v2/gin"
 	lua "github.com/krakendio/krakend-lua/v2/router/gin"
 	opencensus "github.com/krakendio/krakend-opencensus/v2/router/gin"
+	juju "github.com/krakendio/krakend-ratelimit/v2/juju/router/gin"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/logging"
 	"github.com/luraproject/lura/v2/proxy"

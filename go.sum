@@ -356,10 +356,10 @@ github.com/krakendio/krakend-martian/v2 v2.0.0-20211021173102-cae9b395f331 h1:LR
 github.com/krakendio/krakend-martian/v2 v2.0.0-20211021173102-cae9b395f331/go.mod h1:W7/8CW++Hjt0a46hJqYsgS/pWvxQq0YcveJjxx3xrDA=
 github.com/krakendio/krakend-martian/v2 v2.0.0 h1:R0YxnSn23b/011Ctxea82G2aBWYKbyU2npviWWPI6fg=
 github.com/krakendio/krakend-martian/v2 v2.0.0/go.mod h1:z9sEd0L6/znw8JVTNhsrrvcHcR2AdnTsTMs3R2kD9EY=
-github.com/devopsfaith/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500 h1:09S7UVTDXXhZ9kzO7JF6rZ4Rta6j7GmoeVKg2+q+iBQ=
-github.com/devopsfaith/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500/go.mod h1:cZS0Raa8rXPb9JqMMWHbmUAB7tac5I5zcz9U6Es2TeU=
-github.com/devopsfaith/krakend-metrics/v2 v2.0.0 h1:AEDq6ei3OOQUhPbDICPKgIN1j7voSbgDpvjTDvp25vg=
-github.com/devopsfaith/krakend-metrics/v2 v2.0.0/go.mod h1:frb+WWMKCyKCtYYkXlgYUVyUbieMy6FVSFD31f/7dyY=
+github.com/krakendio/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500 h1:09S7UVTDXXhZ9kzO7JF6rZ4Rta6j7GmoeVKg2+q+iBQ=
+github.com/krakendio/krakend-metrics/v2 v2.0.0-20211021115637-300fc4242500/go.mod h1:cZS0Raa8rXPb9JqMMWHbmUAB7tac5I5zcz9U6Es2TeU=
+github.com/krakendio/krakend-metrics/v2 v2.0.0 h1:AEDq6ei3OOQUhPbDICPKgIN1j7voSbgDpvjTDvp25vg=
+github.com/krakendio/krakend-metrics/v2 v2.0.0/go.mod h1:frb+WWMKCyKCtYYkXlgYUVyUbieMy6FVSFD31f/7dyY=
 github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410 h1:aHbykiglRwyXHCROTQtYBdaIlqLN9sF2gUPbL0RjkW4=
 github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0-20211021123837-bfb81a423410/go.mod h1:WNGQmk+vROQUUtPXjEfpuZepPkfWpMZFp+7Igz6o7ho=
 github.com/devopsfaith/krakend-oauth2-clientcredentials/v2 v2.0.0 h1:ksH6j8fAmhkTfO6DhCiqL4SoDQYWO6qbHA2yNV+IUmU=

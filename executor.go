@@ -13,7 +13,6 @@ import (
 
 	asyncamqp "github.com/devopsfaith/krakend-amqp/v2/async"
 	gelf "github.com/devopsfaith/krakend-gelf/v2"
-	metrics "github.com/devopsfaith/krakend-metrics/v2/gin"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
 	cel "github.com/krakendio/krakend-cel/v2"
 	cmd "github.com/krakendio/krakend-cobra/v2"
@@ -22,6 +21,7 @@ import (
 	influxdb "github.com/krakendio/krakend-influx/v2"
 	jose "github.com/krakendio/krakend-jose/v2"
 	logstash "github.com/krakendio/krakend-logstash/v2"
+	metrics "github.com/krakendio/krakend-metrics/v2/gin"
 	opencensus "github.com/krakendio/krakend-opencensus/v2"
 	_ "github.com/krakendio/krakend-opencensus/v2/exporter/datadog"
 	_ "github.com/krakendio/krakend-opencensus/v2/exporter/influxdb"

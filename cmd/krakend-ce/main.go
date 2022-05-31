@@ -10,8 +10,8 @@ import (
 	"syscall"
 
 	krakend "github.com/devopsfaith/krakend-ce/v2"
-	flexibleconfig "github.com/devopsfaith/krakend-flexibleconfig/v2"
 	cmd "github.com/krakendio/krakend-cobra/v2"
+	flexibleconfig "github.com/krakendio/krakend-flexibleconfig/v2"
 	viper "github.com/krakendio/krakend-viper/v2"
 	"github.com/luraproject/lura/v2/config"
 )

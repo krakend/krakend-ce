@@ -27,7 +27,7 @@ require (
 	github.com/krakendio/krakend-opencensus/v2 v2.0.0
 	github.com/krakendio/krakend-pubsub/v2 v2.0.0
 	github.com/krakendio/krakend-ratelimit/v2 v2.0.1
-	github.com/devopsfaith/krakend-rss/v2 v2.0.0
+	github.com/krakendio/krakend-rss/v2 v2.0.0
 	github.com/krakendio/krakend-usage v1.4.0
 	github.com/devopsfaith/krakend-viper/v2 v2.0.0
 	github.com/krakendio/krakend-xml/v2 v2.0.0

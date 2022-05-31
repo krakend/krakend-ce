@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/krakendio/bloomfilter/v2 v2.0.0
-	github.com/devopsfaith/krakend-amqp/v2 v2.0.1
+	github.com/krakendio/krakend-amqp/v2 v2.0.1
 	github.com/krakendio/krakend-botdetector/v2 v2.0.0
 	github.com/krakendio/krakend-cel/v2 v2.0.0
 	github.com/devopsfaith/krakend-circuitbreaker/v2 v2.0.0

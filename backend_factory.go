@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	amqp "github.com/devopsfaith/krakend-amqp/v2"
 	cb "github.com/devopsfaith/krakend-circuitbreaker/v2/gobreaker/proxy"
+	amqp "github.com/krakendio/krakend-amqp/v2"
 	cel "github.com/krakendio/krakend-cel/v2"
 	httpcache "github.com/krakendio/krakend-httpcache/v2"
 	lambda "github.com/krakendio/krakend-lambda/v2"

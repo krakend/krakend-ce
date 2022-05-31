@@ -11,8 +11,8 @@ import (
 	"github.com/go-contrib/uuid"
 	"golang.org/x/sync/errgroup"
 
-	asyncamqp "github.com/devopsfaith/krakend-amqp/v2/async"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
+	asyncamqp "github.com/krakendio/krakend-amqp/v2/async"
 	cel "github.com/krakendio/krakend-cel/v2"
 	cmd "github.com/krakendio/krakend-cobra/v2"
 	cors "github.com/krakendio/krakend-cors/v2/gin"

@@ -52,7 +52,7 @@ all: test
 update_krakend_deps:
 	go get github.com/luraproject/lura/v2@v2.0.4
 	go get github.com/krakendio/bloomfilter/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-amqp/v2@v2.0.1
+	go get github.com/krakendio/krakend-amqp/v2@v2.0.1
 	go get github.com/krakendio/krakend-botdetector/v2@v2.0.0
 	go get github.com/krakendio/krakend-cel/v2@v2.0.0
 	go get github.com/devopsfaith/krakend-circuitbreaker/v2@v2.0.0

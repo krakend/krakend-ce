@@ -78,7 +78,7 @@ update_krakend_deps:
 	go get github.com/devopsfaith/krakend-rss/v2@v2.0.0
 	go get github.com/krakendio/krakend-usage@v1.4.0
 	go get github.com/devopsfaith/krakend-viper/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-xml/v2@v2.0.0
+	go get github.com/krakendio/krakend-xml/v2@v2.0.0
 	make test
 
 

@@ -30,7 +30,7 @@ require (
 	github.com/devopsfaith/krakend-rss/v2 v2.0.0
 	github.com/krakendio/krakend-usage v1.4.0
 	github.com/devopsfaith/krakend-viper/v2 v2.0.0
-	github.com/devopsfaith/krakend-xml/v2 v2.0.0
+	github.com/krakendio/krakend-xml/v2 v2.0.0
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-contrib/uuid v1.2.0
 	github.com/luraproject/lura/v2 v2.0.4

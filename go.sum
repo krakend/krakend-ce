@@ -394,10 +394,10 @@ github.com/devopsfaith/krakend-viper/v2 v2.0.0-20211020152843-fef58b415f68 h1:Ij
 github.com/devopsfaith/krakend-viper/v2 v2.0.0-20211020152843-fef58b415f68/go.mod h1:9ng5WbNPGzQkKuBfm9gceddqg9Drdm9jWz7UwykoSv4=
 github.com/devopsfaith/krakend-viper/v2 v2.0.0 h1:DA5H28lKrCsLqDlQ0q6O8eHWWIJ8CcLRPygegkCSIFo=
 github.com/devopsfaith/krakend-viper/v2 v2.0.0/go.mod h1:SEbfC8rxArMBdDeGB+aMvlSvM6wa7Kt2JQOqVbUmr7s=
-github.com/devopsfaith/krakend-xml/v2 v2.0.0-20211021150603-d68b920c7542 h1:wmnAE2/CvLrBmnlvLpy4GbimuzEw2R8RKabwtSqxoBQ=
-github.com/devopsfaith/krakend-xml/v2 v2.0.0-20211021150603-d68b920c7542/go.mod h1:kwkDa+lc2HknFfquNZfW+N2EPsYeV8IcrfJ3lNapmaY=
-github.com/devopsfaith/krakend-xml/v2 v2.0.0 h1:ceNJwyNl2Fh3gyj5bb/40j85YXioaxIsaObvMllh9DI=
-github.com/devopsfaith/krakend-xml/v2 v2.0.0/go.mod h1:G2xDEWU+BnY3Vv+dkeKm32/CLHinpyiByZoByfAuBeI=
+github.com/krakendio/krakend-xml/v2 v2.0.0-20211021150603-d68b920c7542 h1:wmnAE2/CvLrBmnlvLpy4GbimuzEw2R8RKabwtSqxoBQ=
+github.com/krakendio/krakend-xml/v2 v2.0.0-20211021150603-d68b920c7542/go.mod h1:kwkDa+lc2HknFfquNZfW+N2EPsYeV8IcrfJ3lNapmaY=
+github.com/krakendio/krakend-xml/v2 v2.0.0 h1:ceNJwyNl2Fh3gyj5bb/40j85YXioaxIsaObvMllh9DI=
+github.com/krakendio/krakend-xml/v2 v2.0.0/go.mod h1:G2xDEWU+BnY3Vv+dkeKm32/CLHinpyiByZoByfAuBeI=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
 github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1/go.mod h1:+hnT3ywWDTAFrW5aE+u2Sa/wT555ZqwoCS+pk3p6ry4=
 github.com/dgryski/go-bitstream v0.0.0-20180413035011-3522498ce2c8/go.mod h1:VMaSuZ+SZcx/wljOQKvp5srsbCiKDEb6K2wC4+PiBmQ=

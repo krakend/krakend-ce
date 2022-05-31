@@ -2,8 +2,8 @@ package krakend
 
 import (
 	rss "github.com/devopsfaith/krakend-rss/v2"
-	xml "github.com/devopsfaith/krakend-xml/v2"
-	ginxml "github.com/devopsfaith/krakend-xml/v2/gin"
+	xml "github.com/krakendio/krakend-xml/v2"
+	ginxml "github.com/krakendio/krakend-xml/v2/gin"
 	"github.com/luraproject/lura/v2/router/gin"
 )
 

@@ -5,35 +5,35 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-contrib/uuid v1.2.0
-	github.com/krakendio/bloomfilter/v2 v2.0.0-20220601182837-f3c989648840
-	github.com/krakendio/krakend-amqp/v2 v2.0.0-20220602211544-65dbd68a1fc4
-	github.com/krakendio/krakend-botdetector/v2 v2.0.0-20220601185759-0879230e9950
-	github.com/krakendio/krakend-cel/v2 v2.0.0-20220606201553-066c85c3bfa3
-	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.0-20220602183441-e763941b6850
-	github.com/krakendio/krakend-cobra/v2 v2.0.0-20220602181348-7e4213edcf29
-	github.com/krakendio/krakend-cors/v2 v2.0.0-20220607153328-4a9d441e026b
-	github.com/krakendio/krakend-flexibleconfig/v2 v2.0.0-20220603205027-dddd2ddcf0af
-	github.com/krakendio/krakend-gelf/v2 v2.0.0-20220602210054-e1a65e8d5fdc
-	github.com/krakendio/krakend-gologging/v2 v2.0.0-20220601173040-76719e203514
-	github.com/krakendio/krakend-httpcache/v2 v2.0.0-20220601192831-5a921368c3ca
-	github.com/krakendio/krakend-httpsecure/v2 v2.0.0-20220602192324-c0bbadce84cf
-	github.com/krakendio/krakend-influx/v2 v2.0.0-20220607154653-7bc261a8e4a6
-	github.com/krakendio/krakend-jose/v2 v2.0.0-20220607155451-c58acecb0291
-	github.com/krakendio/krakend-jsonschema/v2 v2.0.0-20220601194359-61a6b94de17c
-	github.com/krakendio/krakend-lambda/v2 v2.0.0-20220602202441-6fd5a8f78c8c
-	github.com/krakendio/krakend-logstash/v2 v2.0.0-20220602200320-b32230932896
-	github.com/krakendio/krakend-lua/v2 v2.0.0-20220602185530-6cdf673e5778
-	github.com/krakendio/krakend-martian/v2 v2.0.0-20220602204203-9b3b2cca4991
-	github.com/krakendio/krakend-metrics/v2 v2.0.0-20220603221748-5a72f8d18496
-	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.0-20220603221347-3bc8c11a4f16
-	github.com/krakendio/krakend-opencensus/v2 v2.0.0-20220601184220-8843a80adc20
-	github.com/krakendio/krakend-pubsub/v2 v2.0.0-20220601171033-3d00dbe48d64
-	github.com/krakendio/krakend-ratelimit/v2 v2.0.0-20220602182410-39fb7bcaeb5b
-	github.com/krakendio/krakend-rss/v2 v2.0.0-20220602211704-fcf40cc2072b
+	github.com/krakendio/bloomfilter/v2 v2.0.1
+	github.com/krakendio/krakend-amqp/v2 v2.0.2
+	github.com/krakendio/krakend-botdetector/v2 v2.0.1
+	github.com/krakendio/krakend-cel/v2 v2.0.1
+	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
+	github.com/krakendio/krakend-cobra/v2 v2.0.3
+	github.com/krakendio/krakend-cors/v2 v2.0.1
+	github.com/krakendio/krakend-flexibleconfig/v2 v2.0.1
+	github.com/krakendio/krakend-gelf/v2 v2.0.1
+	github.com/krakendio/krakend-gologging/v2 v2.0.1
+	github.com/krakendio/krakend-httpcache/v2 v2.0.1
+	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
+	github.com/krakendio/krakend-influx/v2 v2.0.1
+	github.com/krakendio/krakend-jose/v2 v2.0.3
+	github.com/krakendio/krakend-jsonschema/v2 v2.0.1
+	github.com/krakendio/krakend-lambda/v2 v2.0.1
+	github.com/krakendio/krakend-logstash/v2 v2.0.1
+	github.com/krakendio/krakend-lua/v2 v2.0.1
+	github.com/krakendio/krakend-martian/v2 v2.0.1
+	github.com/krakendio/krakend-metrics/v2 v2.0.1
+	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.1
+	github.com/krakendio/krakend-opencensus/v2 v2.0.1
+	github.com/krakendio/krakend-pubsub/v2 v2.0.1
+	github.com/krakendio/krakend-ratelimit/v2 v2.0.2
+	github.com/krakendio/krakend-rss/v2 v2.0.1
 	github.com/krakendio/krakend-usage v0.0.0-20220607160923-9d7b69c9bf97
-	github.com/krakendio/krakend-viper/v2 v2.0.0-20220602174943-1b0451efbd02
-	github.com/krakendio/krakend-xml/v2 v2.0.0-20220601194420-84e742885d63
-	github.com/luraproject/lura/v2 v2.0.0-20220601150625-abb94fb9730d
+	github.com/krakendio/krakend-viper/v2 v2.0.1
+	github.com/krakendio/krakend-xml/v2 v2.0.1
+	github.com/luraproject/lura/v2 v2.0.5
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
@@ -71,12 +71,14 @@ require (
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/sprig v2.22.0+incompatible // indirect
 	github.com/PuerkitoBio/goquery v1.5.1 // indirect
-	github.com/Shopify/sarama v1.34.0 // indirect
+	github.com/Shopify/sarama v1.34.1 // indirect
 	github.com/alecthomas/chroma v0.6.3 // indirect
 	github.com/alexeyco/binder v0.0.0-20180729220023-2a21303f588a // indirect
 	github.com/andybalholm/cascadia v1.1.0 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20220418222510-f25a4f6275ed // indirect
 	github.com/apache/thrift v0.12.0 // indirect
+	github.com/armon/go-metrics v0.3.10 // indirect
+	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/auth0-community/go-auth0 v1.0.0 // indirect
 	github.com/aws/aws-sdk-go v1.43.31 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.16.2 // indirect
@@ -95,8 +97,9 @@ require (
 	github.com/aws/smithy-go v1.11.2 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
+	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.3.0 // indirect
-	github.com/cespare/xxhash/v2 v2.1.1 // indirect
+	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/clbanning/mxj v1.8.4 // indirect
 	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -106,7 +109,7 @@ require (
 	github.com/eapache/go-resiliency v1.2.0 // indirect
 	github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21 // indirect
 	github.com/eapache/queue v1.1.0 // indirect
-	github.com/fatih/color v1.7.0 // indirect
+	github.com/fatih/color v1.13.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
@@ -124,17 +127,25 @@ require (
 	github.com/googleapis/gax-go/v2 v2.2.0 // indirect
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
-	github.com/hashicorp/errwrap v1.0.0 // indirect
-	github.com/hashicorp/go-cleanhttp v0.5.1 // indirect
+	github.com/hashicorp/errwrap v1.1.0 // indirect
+	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
+	github.com/hashicorp/go-hclog v1.2.0 // indirect
+	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
-	github.com/hashicorp/go-retryablehttp v0.5.3 // indirect
-	github.com/hashicorp/go-rootcerts v1.0.0 // indirect
+	github.com/hashicorp/go-plugin v1.4.3 // indirect
+	github.com/hashicorp/go-retryablehttp v0.7.0 // indirect
+	github.com/hashicorp/go-rootcerts v1.0.2 // indirect
+	github.com/hashicorp/go-secure-stdlib/mlock v0.1.2 // indirect
+	github.com/hashicorp/go-secure-stdlib/parseutil v0.1.4 // indirect
+	github.com/hashicorp/go-secure-stdlib/strutil v0.1.2 // indirect
 	github.com/hashicorp/go-sockaddr v1.0.2 // indirect
 	github.com/hashicorp/go-uuid v1.0.2 // indirect
-	github.com/hashicorp/golang-lru v0.5.1 // indirect
+	github.com/hashicorp/go-version v1.4.0 // indirect
+	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/hashicorp/vault/api v1.0.2 // indirect
-	github.com/hashicorp/vault/sdk v0.1.8 // indirect
+	github.com/hashicorp/vault/api v1.5.0 // indirect
+	github.com/hashicorp/vault/sdk v0.4.1 // indirect
+	github.com/hashicorp/yamux v0.0.0-20211028200310-0bc27b27de87 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
@@ -147,18 +158,19 @@ require (
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/juju/ratelimit v1.0.1 // indirect
-	github.com/klauspost/compress v1.15.1 // indirect
+	github.com/klauspost/compress v1.15.6 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
-	github.com/krakendio/flatmap v0.0.0-20220531185225-4cb0ad6fbedd // indirect
+	github.com/krakendio/flatmap v1.1.1 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.1 // indirect
-	github.com/mattn/go-colorable v0.1.8 // indirect
+	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
-	github.com/mitchellh/copystructure v1.1.1 // indirect
+	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
+	github.com/mitchellh/go-testing-interface v1.14.1 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
-	github.com/mitchellh/reflectwalk v1.0.1 // indirect
+	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/mmcdole/gofeed v1.1.3 // indirect
 	github.com/mmcdole/goxpp v0.0.0-20181012175147-0068e33feabf // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -166,16 +178,17 @@ require (
 	github.com/nats-io/nats.go v1.13.1-0.20220121202836-972a071d373d // indirect
 	github.com/nats-io/nkeys v0.3.0 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
+	github.com/oklog/run v1.1.0 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/openzipkin/zipkin-go v0.1.6 // indirect
 	github.com/pelletier/go-toml v1.2.0 // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	github.com/pierrec/lz4/v4 v4.1.14 // indirect
-	github.com/prometheus/client_golang v1.5.1 // indirect
+	github.com/prometheus/client_golang v1.12.1 // indirect
 	github.com/prometheus/client_model v0.2.0 // indirect
-	github.com/prometheus/common v0.9.1 // indirect
-	github.com/prometheus/procfs v0.0.11 // indirect
+	github.com/prometheus/common v0.32.1 // indirect
+	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
 	github.com/rs/cors v1.6.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
@@ -206,11 +219,12 @@ require (
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7 // indirect
 	github.com/yuin/gopher-lua v0.0.0-20190206043414-8bfc7677f583 // indirect
 	go.opencensus.io v0.23.0 // indirect
+	go.uber.org/atomic v1.9.0 // indirect
 	gocloud.dev v0.25.0 // indirect
 	gocloud.dev/pubsub/kafkapubsub v0.25.0 // indirect
 	gocloud.dev/pubsub/natspubsub v0.25.0 // indirect
 	gocloud.dev/pubsub/rabbitpubsub v0.25.0 // indirect
-	gocloud.dev/secrets/hashivault v0.20.0 // indirect
+	gocloud.dev/secrets/hashivault v0.25.0 // indirect
 	golang.org/x/crypto v0.0.0-20220331220935-ae2d96664a29 // indirect
 	golang.org/x/net v0.0.0-20220520000938-2e3eb7b945c2 // indirect
 	golang.org/x/oauth2 v0.0.0-20220309155454-6242fa91716a // indirect
@@ -226,7 +240,7 @@ require (
 	gopkg.in/DataDog/dd-trace-go.v1 v1.22.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20191017102106-1550ee647df0 // indirect
 	gopkg.in/ini.v1 v1.51.0 // indirect
-	gopkg.in/square/go-jose.v2 v2.5.1 // indirect
+	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	nhooyr.io/websocket v1.8.7 // indirect
 )

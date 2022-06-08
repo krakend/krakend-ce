@@ -49,39 +49,6 @@ RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 
 all: test
 
-update_krakend_deps:
-	go get github.com/luraproject/lura/v2@v2.0.4
-	go get github.com/krakendio/bloomfilter/v2@v2.0.0
-	go get github.com/krakendio/krakend-amqp/v2@v2.0.1
-	go get github.com/krakendio/krakend-botdetector/v2@v2.0.0
-	go get github.com/krakendio/krakend-cel/v2@v2.0.0
-	go get github.com/krakendio/krakend-circuitbreaker/v2@v2.0.0
-	go get github.com/krakendio/krakend-cobra/v2@v2.0.1
-	go get github.com/krakendio/krakend-cors/v2@v2.0.0
-	go get github.com/krakendio/krakend-flexibleconfig/v2@v2.0.0
-	go get github.com/krakendio/krakend-gelf/v2@v2.0.0
-	go get github.com/krakendio/krakend-gologging/v2@v2.0.0
-	go get github.com/krakendio/krakend-httpcache/v2@v2.0.0
-	go get github.com/krakendio/krakend-httpsecure/v2@v2.0.0
-	go get github.com/krakendio/krakend-influx/v2@v2.0.0
-	go get github.com/krakendio/krakend-jose/v2@v2.0.1
-	go get github.com/krakendio/krakend-jsonschema/v2@v2.0.0
-	go get github.com/krakendio/krakend-lambda/v2@v2.0.0
-	go get github.com/krakendio/krakend-logstash/v2@v2.0.0
-	go get github.com/krakendio/krakend-lua/v2@v2.0.0
-	go get github.com/krakendio/krakend-martian/v2@v2.0.0
-	go get github.com/krakendio/krakend-metrics/v2@v2.0.0
-	go get github.com/krakendio/krakend-oauth2-clientcredentials/v2@v2.0.0
-	go get github.com/krakendio/krakend-opencensus/v2@v2.0.0
-	go get github.com/krakendio/krakend-pubsub/v2@v2.0.0
-	go get github.com/krakendio/krakend-ratelimit/v2@v2.0.1
-	go get github.com/krakendio/krakend-rss/v2@v2.0.0
-	go get github.com/krakendio/krakend-usage@v1.4.0
-	go get github.com/krakendio/krakend-viper/v2@v2.0.0
-	go get github.com/krakendio/krakend-xml/v2@v2.0.0
-	make test
-
-
 build:
 	@echo "Building the binary..."
 	@go get .

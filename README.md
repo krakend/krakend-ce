@@ -5,7 +5,7 @@ KrakenD is an extensible, ultra-high performance API Gateway that helps you effo
 
 **KrakenD Community Edition** (or *KrakenD-CE*) is the open-source distribution of [KrakenD](https://www.krakend.io).
 
-[KrakenD Site](https://www.krakend.io/) | [Documentation](https://www.krakend.io/docs/overview/introduction/) | [Blog](https://www.krakend.io/blog/) | [Twitter](https://twitter.com/krakend_io) | [Downloads](https://www.krakend.io/download/)
+[KrakenD Site](https://www.krakend.io/) | [Documentation](https://www.krakend.io/docs/overview/) | [Blog](https://www.krakend.io/blog/) | [Twitter](https://twitter.com/krakend_io) | [Downloads](https://www.krakend.io/download/)
 
 ## Benefits
 

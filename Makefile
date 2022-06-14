@@ -49,39 +49,6 @@ RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 
 all: test
 
-update_krakend_deps:
-	go get github.com/luraproject/lura/v2@v2.0.4
-	go get github.com/devopsfaith/bloomfilter/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-amqp/v2@v2.0.1
-	go get github.com/devopsfaith/krakend-botdetector/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-cel/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-circuitbreaker/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-cobra/v2@v2.0.1
-	go get github.com/devopsfaith/krakend-cors/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-flexibleconfig/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-gelf/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-gologging/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-httpcache/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-httpsecure/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-influx/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-jose/v2@v2.0.1
-	go get github.com/devopsfaith/krakend-jsonschema/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-lambda/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-logstash/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-lua/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-martian/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-metrics/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-oauth2-clientcredentials/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-opencensus/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-pubsub/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-ratelimit/v2@v2.0.1
-	go get github.com/devopsfaith/krakend-rss/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-usage@v1.4.0
-	go get github.com/devopsfaith/krakend-viper/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-xml/v2@v2.0.0
-	make test
-
-
 build:
 	@echo "Building the binary..."
 	@go get .

@@ -11,6 +11,7 @@ import (
 	"github.com/go-contrib/uuid"
 	"golang.org/x/sync/errgroup"
 
+	influxdb2 "github.com/Jozefiel/krakend-influx2/v2"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
 	asyncamqp "github.com/krakendio/krakend-amqp/v2/async"
 	cel "github.com/krakendio/krakend-cel/v2"
@@ -342,6 +343,14 @@ func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, 
 		}
 	} else {
 		l.Debug("[SERVICE: InfluxDB] Service correctly registered")
+	}
+
+	if err := influxdb2.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
+		if err != influxdb2.ErrNoConfig {
+			l.Warning("[SERVICE: InfluxDB2]", err.Error())
+		}
+	} else {
+		l.Debug("[SERVICE: InfluxDB2] Service correctly registered")
 	}
 
 	if err := opencensus.Register(ctx, cfg, append(opencensus.DefaultViews, pubsub.OpenCensusViews...)...); err != nil {

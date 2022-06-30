@@ -43,6 +43,10 @@ import (
 	server "github.com/luraproject/lura/v2/transport/http/server/plugin"
 )
 
+import (
+	"github.com/openrm/krakend-bloomd"
+)
+
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
 // registering the components and composing a RouterFactory wrapping all the middlewares.
 func NewExecutor(ctx context.Context) cmd.Executor {
@@ -315,10 +319,14 @@ type BloomFilterJWT struct{}
 // rejecter factory with the created token rejecter and other based on the CEL component.
 func (BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.ServiceConfig, l logging.Logger, reg func(n string, p int)) (jose.ChainedRejecterFactory, error) {
 	rejecter, err := krakendbf.Register(ctx, "krakend-bf", cfg, l, reg)
+	bloomdReject, err := bloomd.Register(cfg, l)
 
 	return jose.ChainedRejecterFactory([]jose.RejecterFactory{
 		jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
 			return jose.RejecterFunc(rejecter.RejectToken)
+		}),
+		jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
+			return bloomdReject
 		}),
 		jose.RejecterFactoryFunc(func(l logging.Logger, cfg *config.EndpointConfig) jose.Rejecter {
 			if r := cel.NewRejecter(l, cfg); r != nil {

@@ -19,10 +19,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+import (
+	sentry "github.com/openrm/krakend-sentry/v2/gin"
+)
+
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
 func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory) router.HandlerFactory {
 	handlerFactory := router.CustomErrorEndpointHandler(logger, server.DefaultToHTTPError)
 	handlerFactory = juju.NewRateLimiterMw(logger, handlerFactory)
+	handlerFactory = sentry.HandlerFactory(logger, handlerFactory)
 	handlerFactory = lua.HandlerFactory(logger, handlerFactory)
 	handlerFactory = ginjose.HandlerFactory(handlerFactory, logger, rejecter)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)

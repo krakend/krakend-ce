@@ -10,7 +10,7 @@ require (
 	github.com/krakendio/krakend-botdetector/v2 v2.0.1
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.0.3
+	github.com/krakendio/krakend-cobra/v2 v2.0.4
 	github.com/krakendio/krakend-cors/v2 v2.0.1
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.0.1
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
@@ -226,6 +226,7 @@ require (
 	gocloud.dev/pubsub/rabbitpubsub v0.25.0 // indirect
 	gocloud.dev/secrets/hashivault v0.25.0 // indirect
 	golang.org/x/crypto v0.0.0-20220331220935-ae2d96664a29 // indirect
+	golang.org/x/mod v0.6.0-dev.0.20211013180041-c96bc1413d57 // indirect
 	golang.org/x/net v0.0.0-20220520000938-2e3eb7b945c2 // indirect
 	golang.org/x/oauth2 v0.0.0-20220309155454-6242fa91716a // indirect
 	golang.org/x/sys v0.0.0-20220330033206-e17cdc41300f // indirect

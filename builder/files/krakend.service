@@ -6,7 +6,7 @@ After=network.target
 [Service]
 User=krakend
 ExecStart=/usr/bin/krakend run -c /etc/krakend/krakend.json
-ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
 # Having non-zero Limit*s causes performance problems due to accounting overhead
 # in the kernel. We recommend using cgroups to do container-local accounting.
 LimitNOFILE=infinity

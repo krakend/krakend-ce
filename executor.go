@@ -2,6 +2,7 @@ package krakend
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -151,6 +152,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			return
 		}
 
+		logger.Info(fmt.Sprintf("Starting KrakenD v%s", core.KrakendVersion))
 		startReporter(ctx, logger, cfg)
 
 		if cfg.Plugin != nil {
@@ -299,12 +301,17 @@ func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Wri
 			if err != nil {
 				return logger, gelfWriter, err
 			}
-			logger.Error("[SERVICE: Logging] Unable to create the logger:", gologgingErr.Error())
+			if gologgingErr != gologging.ErrWrongConfig {
+				logger.Error("[SERVICE: Logging] Unable to create the logger:", gologgingErr.Error())
+			}
 		}
 	}
+
 	if gelfErr != nil && gelfErr != gelf.ErrWrongConfig {
 		logger.Error("[SERVICE: Logging][GELF] Unable to create the writer:", gelfErr.Error())
 	}
+
+	logger.Debug("[SERVICE: telemetry/logging] Improved logging started.")
 	return logger, gelfWriter, nil
 }
 

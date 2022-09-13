@@ -287,7 +287,10 @@ func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Wri
 				return gologging.DefaultPattern
 			}
 		})
+	} else {
+		gelfWriter = nil
 	}
+
 	logger, gologgingErr := logstash.NewLogger(cfg.ExtraConfig)
 
 	if gologgingErr != nil {

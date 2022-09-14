@@ -311,7 +311,10 @@ func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Wri
 		logger.Error("[SERVICE: Logging][GELF] Unable to create the writer:", gelfErr.Error())
 	}
 
-	logger.Debug("[SERVICE: telemetry/logging] Improved logging started.")
+	if gologgingErr == nil {
+		logger.Debug("[SERVICE: telemetry/logging] Improved logging started.")
+	}
+
 	return logger, gelfWriter, nil
 }
 

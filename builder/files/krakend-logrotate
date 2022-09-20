@@ -1,0 +1,11 @@
+/var/log/krakend.log
+{
+	rotate 7
+	daily
+	missingok
+	delaycompress
+	compress
+	postrotate
+		/usr/lib/rsyslog/rsyslog-rotate
+	endscript
+}

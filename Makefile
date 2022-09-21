@@ -67,7 +67,7 @@ build_on_docker:
 
 # Build the container using the Dockerfile (alpine)
 docker:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} -t solamarpreet/krakend:${VERSION} .
 
 benchmark:
 	@mkdir -p bench_res

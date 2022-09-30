@@ -21,7 +21,7 @@ DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
 GOLANG_VERSION := 1.19.1
 GLIBC_VERSION := $(shell sh find_glibc.sh)
-ALPINE_VERSION := 3.15
+ALPINE_VERSION := 3.16
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \

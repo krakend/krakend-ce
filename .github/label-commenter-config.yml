@@ -43,14 +43,11 @@ labels:
           Hi, thank you for bringing this issue to our attention.
 
           Many factors influence our product roadmaps and determine the features, fixes, and suggestions we implement.
-          When deciding what to prioritize and work on, we combine your feedback and suggestions with insights from our development team,
-          product analytics, research findings, and more.
+          When deciding what to prioritize and work on, we combine your feedback and suggestions with insights from our development team, product analytics, research findings, and more.
 
-          This information, combined with our product vision, determines what we implement and its priority order.
+          This information, combined with our product vision, determines what we implement and its priority order. Unfortunately, we don't foresee this issue progressing any further in the short-medium term, and we are closing it.
 
-          Unfortunately, we don't foresee this issue progressing any further in the short-medium term, and we are closing it.
-
-          While this issue is now closed, we continue monitoring requests for our future roadmap, including this one.
+          While this issue is now closed, we continue monitoring requests for our future roadmap, **including this one**.
 
           If you have additional information you would like to provide, please share.
         action: close

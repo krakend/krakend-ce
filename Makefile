@@ -55,6 +55,7 @@ all: test
 
 build:
 	@echo "Building the binary..."
+	@rm ${BIN_NAME}
 	@go get .
 	@go build -ldflags="-X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
 	-X github.com/luraproject/lura/v2/core.GoVersion=${GOLANG_VERSION} \

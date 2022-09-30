@@ -6,6 +6,9 @@
     "timeout": "3s",
     "read_header_timeout":"200ms",
     "extra_config": {
+      "router":{
+        "return_error_msg":true
+      },
       "telemetry/logging": {
         "level":  "DEBUG",
         "prefix": "[KRAKEND]",

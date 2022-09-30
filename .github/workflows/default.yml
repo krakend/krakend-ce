@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '30 0 * * *'
+    - cron: '0 10 * * *'
 name: Issue and PR hygiene
 jobs:
   stale:

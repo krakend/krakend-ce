@@ -570,6 +570,24 @@
             }
         },
         {
+            "endpoint": "/lua/custom_error",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/collection/",
+                    "is_collection": true,
+                    "extra_config": {
+                        "modifier/lua-backend": {
+                            "sources": [
+                                "fixtures/lua/collection.lua"
+                            ],
+                            "pre": "json_error()"
+                        }
+                    }
+                }
+            ]
+        },
+        {
             "endpoint": "/lua/collection",
             "input_headers": ["*"],
             "backend": [

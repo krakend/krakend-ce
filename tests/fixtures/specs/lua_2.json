@@ -1,0 +1,10 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/lua/custom_error"
+	},
+	"out": {
+		"status_code": 418,
+		"body": {"msg":"I refuse to make any coffee, I am a teapot!"}
+	}
+}

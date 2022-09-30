@@ -677,6 +677,8 @@ github.com/klauspost/compress v1.15.6/go.mod h1:PhcZ0MbTNciWF3rruxRgKxI5NkcHHrHU
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
 github.com/konsorten/go-windows-terminal-sequences v1.0.2/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
 github.com/konsorten/go-windows-terminal-sequences v1.0.3/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
+github.com/kpacha/binder v0.0.0-20220707194437-6013d1173c4d h1:oItRdKLkFNuQvc9M3PkMYW9+sPvfrj7jqcs6IQ5zptc=
+github.com/kpacha/binder v0.0.0-20220707194437-6013d1173c4d/go.mod h1:NXKMtJUiS0DhPY7BQ6GzFEfgQ1OG8QhgtA9P0qbWCj4=
 github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c h1:7bl3ZmmMxoiHchDiU2bSccdbp3KXqPxg/urwI93zN/k=
 github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c/go.mod h1:ESXZSm2iaF+1P5o6VFEWpeARTQpcil4e1DwumnTopdg=
 github.com/kr/logfmt v0.0.0-20140226030751-b84e30acd515/go.mod h1:+0opPa2QZZtGFBFZlji/RkVcI2GknAs/DXo4wKdlNEc=

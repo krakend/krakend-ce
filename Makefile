@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 2.0.6
+VERSION := 2.1.0
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
 LICENSE := Apache 2.0
@@ -19,9 +19,9 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.17.13
+GOLANG_VERSION := 1.19.1
 GLIBC_VERSION := $(shell sh find_glibc.sh)
-ALPINE_VERSION := 3.15
+ALPINE_VERSION := 3.16
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -35,11 +35,15 @@ FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
 
 DEB_OPTS= -t deb --deb-user $(USER) \
 	--depends ca-certificates \
+	--depends rsyslog \
+	--depends logrotate \
 	--before-remove builder/scripts/prerm.deb \
   --after-remove builder/scripts/postrm.deb \
 	--before-install builder/scripts/preinst.deb
 
 RPM_OPTS =--rpm-user $(USER) \
+	--depends rsyslog \
+	--depends logrotate \
 	--before-install builder/scripts/preinst.rpm \
 	--before-remove builder/scripts/prerm.rpm \
   --after-remove builder/scripts/postrm.rpm
@@ -107,6 +111,14 @@ builder/skel/%/usr/lib/systemd/system/krakend.service: builder/files/krakend.ser
 	mkdir -p "$(dir $@)"
 	cp builder/files/krakend.service "$@"
 
+builder/skel/%/etc/rsyslog.d/krakend.conf: builder/files/krakend.conf-rsyslog
+	mkdir -p "$(dir $@)"
+	cp builder/files/krakend.conf-rsyslog "$@"
+
+builder/skel/%/etc/logrotate.d/krakend: builder/files/krakend-logrotate
+	mkdir -p "$(dir $@)"
+	cp builder/files/krakend-logrotate "$@"
+
 .PHONE: tgz
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json
@@ -116,6 +128,8 @@ tgz: builder/skel/tgz/etc/init.d/krakend
 .PHONY: deb
 deb: builder/skel/deb/usr/bin/krakend
 deb: builder/skel/deb/etc/krakend/krakend.json
+deb: builder/skel/deb/etc/rsyslog.d/krakend.conf
+deb: builder/skel/deb/etc/logrotate.d/krakend
 	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:deb -t deb ${DEB_OPTS} \
 		--iteration ${RELEASE} \
 		--deb-systemd builder/files/krakend.service \
@@ -126,6 +140,8 @@ deb: builder/skel/deb/etc/krakend/krakend.json
 rpm: builder/skel/rpm/usr/lib/systemd/system/krakend.service
 rpm: builder/skel/rpm/usr/bin/krakend
 rpm: builder/skel/rpm/etc/krakend/krakend.json
+rpm: builder/skel/rpm/etc/rsyslog.d/krakend.conf
+rpm: builder/skel/rpm/etc/logrotate.d/krakend
 	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:rpm -t rpm ${RPM_OPTS} \
 		--iteration ${RELEASE} \
 		-C builder/skel/rpm \

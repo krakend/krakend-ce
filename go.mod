@@ -3,18 +3,18 @@ module github.com/krakendio/krakend-ce/v2
 go 1.17
 
 require (
-	github.com/gin-gonic/gin v1.7.7
+	github.com/gin-gonic/gin v1.8.1
 	github.com/go-contrib/uuid v1.2.0
 	github.com/krakendio/bloomfilter/v2 v2.0.1
 	github.com/krakendio/krakend-amqp/v2 v2.0.2
-	github.com/krakendio/krakend-botdetector/v2 v2.0.1
+	github.com/krakendio/krakend-botdetector/v2 v2.0.2
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.0.4
+	github.com/krakendio/krakend-cobra/v2 v2.0.6
 	github.com/krakendio/krakend-cors/v2 v2.0.1
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.0.1
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
-	github.com/krakendio/krakend-gologging/v2 v2.0.1
+	github.com/krakendio/krakend-gologging/v2 v2.0.2
 	github.com/krakendio/krakend-httpcache/v2 v2.0.1
 	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
 	github.com/krakendio/krakend-influx/v2 v2.0.1
@@ -28,12 +28,12 @@ require (
 	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.1
 	github.com/krakendio/krakend-opencensus/v2 v2.0.1
 	github.com/krakendio/krakend-pubsub/v2 v2.0.1
-	github.com/krakendio/krakend-ratelimit/v2 v2.0.2
+	github.com/krakendio/krakend-ratelimit/v2 v2.0.3
 	github.com/krakendio/krakend-rss/v2 v2.0.1
 	github.com/krakendio/krakend-usage v0.0.0-20220607160923-9d7b69c9bf97
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
-	github.com/luraproject/lura/v2 v2.0.5
+	github.com/luraproject/lura/v2 v2.1.0
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
@@ -114,7 +114,8 @@ require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
-	github.com/go-playground/validator/v10 v10.9.0 // indirect
+	github.com/go-playground/validator/v10 v10.10.0 // indirect
+	github.com/goccy/go-json v0.9.7 // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.1 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
@@ -182,6 +183,7 @@ require (
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/openzipkin/zipkin-go v0.1.6 // indirect
 	github.com/pelletier/go-toml v1.2.0 // indirect
+	github.com/pelletier/go-toml/v2 v2.0.1 // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	github.com/pierrec/lz4/v4 v4.1.14 // indirect
@@ -211,7 +213,7 @@ require (
 	github.com/tmthrgd/go-hex v0.0.0-20180828131331-d1fb3dbb16a1 // indirect
 	github.com/tmthrgd/go-memset v0.0.0-20180828131805-6f4e59bf1e1d // indirect
 	github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97 // indirect
-	github.com/ugorji/go/codec v1.2.6 // indirect
+	github.com/ugorji/go/codec v1.2.7 // indirect
 	github.com/unrolled/secure v0.0.0-20180918153822-f340ee86eb8b // indirect
 	github.com/valyala/fastrand v1.1.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
@@ -249,3 +251,5 @@ require (
 replace github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 => github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f
 
 replace github.com/auth0-community/go-auth0 v1.0.0 => github.com/devopsfaith/go-auth0 v0.0.0-20220422124632-a1358a81b559
+
+replace github.com/alexeyco/binder v0.0.0-20180729220023-2a21303f588a => github.com/kpacha/binder v0.0.0-20220707194437-6013d1173c4d

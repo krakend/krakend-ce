@@ -26,3 +26,7 @@ function post_proxy( resp )
 	responseData:set("paths", paths)
 	responseData:del("collection")
 end
+
+function json_error()
+	custom_error('{"msg":"I refuse to make any coffee, I am a teapot!"}', 418)
+end

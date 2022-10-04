@@ -268,7 +268,7 @@ type DefaultRunServerFactory struct{}
 func (*DefaultRunServerFactory) NewRunServer(l logging.Logger, next router.RunServerFunc) RunServer {
 	return RunServer(server.New(
 		l,
-		server.RunServer(cors.NewRunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l))),
+		server.RunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l)),
 	))
 }
 

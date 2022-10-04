@@ -15,7 +15,7 @@
 			"Cache-Control": ["public, max-age=3600"],
 			"X-Krakend-Completed": ["true"],
 			"X-Krakend": ["Version 2.1.0"],
-			"Vary": ["Origin","Origin"],
+			"Vary": ["Origin"],
 			"Access-Control-Allow-Origin": ["*"],
 			"Access-Control-Expose-Headers": ["Content-Length"]
 		}

@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-contrib/uuid v1.2.0
-	github.com/krakendio/bloomfilter/v2 v2.0.1
+	github.com/krakendio/bloomfilter/v2 v2.0.2
 	github.com/krakendio/krakend-amqp/v2 v2.0.2
 	github.com/krakendio/krakend-botdetector/v2 v2.0.2
 	github.com/krakendio/krakend-cel/v2 v2.0.1

@@ -7,23 +7,23 @@ require (
 	github.com/go-contrib/uuid v1.2.0
 	github.com/krakendio/bloomfilter/v2 v2.0.2
 	github.com/krakendio/krakend-amqp/v2 v2.0.2
-	github.com/krakendio/krakend-botdetector/v2 v2.0.2
+	github.com/krakendio/krakend-botdetector/v2 v2.0.3
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.0.6
+	github.com/krakendio/krakend-cobra/v2 v2.0.7
 	github.com/krakendio/krakend-cors/v2 v2.0.1
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.0.1
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
 	github.com/krakendio/krakend-gologging/v2 v2.0.2
 	github.com/krakendio/krakend-httpcache/v2 v2.0.1
 	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
-	github.com/krakendio/krakend-influx/v2 v2.0.1
-	github.com/krakendio/krakend-jose/v2 v2.0.4
-	github.com/krakendio/krakend-jsonschema/v2 v2.0.1
-	github.com/krakendio/krakend-lambda/v2 v2.0.1
+	github.com/krakendio/krakend-influx/v2 v2.0.2
+	github.com/krakendio/krakend-jose/v2 v2.0.5
+	github.com/krakendio/krakend-jsonschema/v2 v2.0.2
+	github.com/krakendio/krakend-lambda/v2 v2.0.2
 	github.com/krakendio/krakend-logstash/v2 v2.0.1
 	github.com/krakendio/krakend-lua/v2 v2.0.1
-	github.com/krakendio/krakend-martian/v2 v2.0.1
+	github.com/krakendio/krakend-martian/v2 v2.0.2
 	github.com/krakendio/krakend-metrics/v2 v2.0.1
 	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.1
 	github.com/krakendio/krakend-opencensus/v2 v2.0.1
@@ -80,7 +80,7 @@ require (
 	github.com/armon/go-metrics v0.3.10 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/auth0-community/go-auth0 v1.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.43.31 // indirect
+	github.com/aws/aws-sdk-go v1.44.24 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.16.2 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.15.3 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.11.2 // indirect

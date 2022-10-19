@@ -33,7 +33,7 @@ require (
 	github.com/krakendio/krakend-usage v0.0.0-20220607160923-9d7b69c9bf97
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
-	github.com/luraproject/lura/v2 v2.1.0
+	github.com/luraproject/lura/v2 v2.2.0
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 

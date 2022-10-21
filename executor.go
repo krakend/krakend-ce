@@ -190,7 +190,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
 			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
-			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServer)),
+			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger))),
 		})
 
 		// start the engines

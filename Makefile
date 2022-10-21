@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 2.1.0
+VERSION := 2.1.1
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
 LICENSE := Apache 2.0
@@ -19,8 +19,8 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.19.1
-GLIBC_VERSION := $(shell sh find_glibc.sh)
+GOLANG_VERSION := 1.19.2
+GLIBC_VERSION := $(shell bash find_glibc.sh)
 ALPINE_VERSION := 3.16
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
@@ -72,6 +72,9 @@ build_on_docker:
 # Build the container using the Dockerfile (alpine)
 docker:
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
+
+docker-plugin-builder:
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend-plugin-builder:${VERSION} -f Dockerfile-plugin-builder .
 
 benchmark:
 	@mkdir -p bench_res

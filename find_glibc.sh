@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
 OS=$(uname)
 GLIBC=UNKNOWN-0.0.0
 
-function get_os_version {
-    source /etc/os-release
-    os_release="${NAME}-${VERSION_ID}"
+get_os_version() {
+    . /etc/os-release
+    os_release="${ID}-${VERSION_ID}"
 }
 
 case $OS in

@@ -267,7 +267,7 @@
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8081" ],
-                    "url_pattern": "/param_forwarding/{bar}?foo={foo}"
+                    "url_pattern": "/param_forwarding/{bar}?foo={foo}&dump_body=1"
                 }
             ]
         },

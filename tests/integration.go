@@ -349,6 +349,11 @@ func newRequest(in Input) (*http.Request, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	if host, ok := in.Header["Host"]; ok {
+		req.Host = host
+	}
+
 	for k, v := range in.Header {
 		req.Header.Add(k, v)
 	}

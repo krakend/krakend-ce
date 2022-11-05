@@ -349,6 +349,11 @@ func newRequest(in Input) (*http.Request, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	if host, ok := in.Header["Host"]; ok {
+		req.Host = host
+	}
+
 	for k, v := range in.Header {
 		req.Header.Add(k, v)
 	}
@@ -478,12 +483,20 @@ func echoEndpoint(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Add("Set-Cookie", "test1=test1")
 	rw.Header().Add("Set-Cookie", "test2=test2")
 	r.Header.Del("X-Forwarded-For")
-	json.NewEncoder(rw).Encode(map[string]interface{}{
+	resp := map[string]interface{}{
 		"path":    r.URL.Path,
 		"query":   r.URL.Query(),
 		"headers": r.Header,
 		"foo":     42,
-	})
+	}
+
+	if r.URL.Query().Get("dump_body") == "1" {
+		b, _ := io.ReadAll(r.Body)
+		r.Body.Close()
+		resp["body"] = string(b)
+	}
+
+	json.NewEncoder(rw).Encode(resp)
 }
 
 func redirectEndpoint(rw http.ResponseWriter, r *http.Request) {

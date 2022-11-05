@@ -2,6 +2,7 @@ package krakend
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -11,28 +12,28 @@ import (
 	"github.com/go-contrib/uuid"
 	"golang.org/x/sync/errgroup"
 
-	krakendbf "github.com/devopsfaith/bloomfilter/v2/krakend"
-	asyncamqp "github.com/devopsfaith/krakend-amqp/v2/async"
-	cel "github.com/devopsfaith/krakend-cel/v2"
-	cmd "github.com/devopsfaith/krakend-cobra/v2"
-	cors "github.com/devopsfaith/krakend-cors/v2/gin"
-	gelf "github.com/devopsfaith/krakend-gelf/v2"
-	gologging "github.com/devopsfaith/krakend-gologging/v2"
-	influxdb "github.com/devopsfaith/krakend-influx/v2"
-	jose "github.com/devopsfaith/krakend-jose/v2"
-	logstash "github.com/devopsfaith/krakend-logstash/v2"
-	metrics "github.com/devopsfaith/krakend-metrics/v2/gin"
-	opencensus "github.com/devopsfaith/krakend-opencensus/v2"
-	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/datadog"
-	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/influxdb"
-	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/jaeger"
-	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/ocagent"
-	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/prometheus"
-	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/stackdriver"
-	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/xray"
-	_ "github.com/devopsfaith/krakend-opencensus/v2/exporter/zipkin"
-	pubsub "github.com/devopsfaith/krakend-pubsub/v2"
-	"github.com/devopsfaith/krakend-usage/client"
+	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
+	asyncamqp "github.com/krakendio/krakend-amqp/v2/async"
+	cel "github.com/krakendio/krakend-cel/v2"
+	cmd "github.com/krakendio/krakend-cobra/v2"
+	cors "github.com/krakendio/krakend-cors/v2/gin"
+	gelf "github.com/krakendio/krakend-gelf/v2"
+	gologging "github.com/krakendio/krakend-gologging/v2"
+	influxdb "github.com/krakendio/krakend-influx/v2"
+	jose "github.com/krakendio/krakend-jose/v2"
+	logstash "github.com/krakendio/krakend-logstash/v2"
+	metrics "github.com/krakendio/krakend-metrics/v2/gin"
+	opencensus "github.com/krakendio/krakend-opencensus/v2"
+	_ "github.com/krakendio/krakend-opencensus/v2/exporter/datadog"
+	_ "github.com/krakendio/krakend-opencensus/v2/exporter/influxdb"
+	_ "github.com/krakendio/krakend-opencensus/v2/exporter/jaeger"
+	_ "github.com/krakendio/krakend-opencensus/v2/exporter/ocagent"
+	_ "github.com/krakendio/krakend-opencensus/v2/exporter/prometheus"
+	_ "github.com/krakendio/krakend-opencensus/v2/exporter/stackdriver"
+	_ "github.com/krakendio/krakend-opencensus/v2/exporter/xray"
+	_ "github.com/krakendio/krakend-opencensus/v2/exporter/zipkin"
+	pubsub "github.com/krakendio/krakend-pubsub/v2"
+	"github.com/krakendio/krakend-usage/client"
 	"github.com/luraproject/lura/v2/async"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/core"
@@ -151,6 +152,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			return
 		}
 
+		logger.Info(fmt.Sprintf("Starting KrakenD v%s", core.KrakendVersion))
 		startReporter(ctx, logger, cfg)
 
 		if cfg.Plugin != nil {
@@ -188,7 +190,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
 			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
-			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServer)),
+			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger))),
 		})
 
 		// start the engines
@@ -266,7 +268,7 @@ type DefaultRunServerFactory struct{}
 func (*DefaultRunServerFactory) NewRunServer(l logging.Logger, next router.RunServerFunc) RunServer {
 	return RunServer(server.New(
 		l,
-		server.RunServer(cors.NewRunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l))),
+		server.RunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l)),
 	))
 }
 
@@ -287,7 +289,10 @@ func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Wri
 				return gologging.DefaultPattern
 			}
 		})
+	} else {
+		gelfWriter = nil
 	}
+
 	logger, gologgingErr := logstash.NewLogger(cfg.ExtraConfig)
 
 	if gologgingErr != nil {
@@ -299,12 +304,20 @@ func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Wri
 			if err != nil {
 				return logger, gelfWriter, err
 			}
-			logger.Error("[SERVICE: Logging] Unable to create the logger:", gologgingErr.Error())
+			if gologgingErr != gologging.ErrWrongConfig {
+				logger.Error("[SERVICE: Logging] Unable to create the logger:", gologgingErr.Error())
+			}
 		}
 	}
+
 	if gelfErr != nil && gelfErr != gelf.ErrWrongConfig {
 		logger.Error("[SERVICE: Logging][GELF] Unable to create the writer:", gelfErr.Error())
 	}
+
+	if gologgingErr == nil {
+		logger.Debug("[SERVICE: telemetry/logging] Improved logging started.")
+	}
+
 	return logger, gelfWriter, nil
 }
 

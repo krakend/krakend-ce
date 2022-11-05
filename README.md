@@ -5,7 +5,7 @@ KrakenD is an extensible, ultra-high performance API Gateway that helps you effo
 
 **KrakenD Community Edition** (or *KrakenD-CE*) is the open-source distribution of [KrakenD](https://www.krakend.io).
 
-[KrakenD Site](https://www.krakend.io/) | [Documentation](https://www.krakend.io/docs/overview/introduction/) | [Blog](https://www.krakend.io/blog/) | [Twitter](https://twitter.com/krakend_io) | [Downloads](https://www.krakend.io/download/)
+[KrakenD Site](https://www.krakend.io/) | [Documentation](https://www.krakend.io/docs/overview/) | [Blog](https://www.krakend.io/blog/) | [Twitter](https://twitter.com/krakend_io) | [Downloads](https://www.krakend.io/download/)
 
 ## Benefits
 
@@ -22,7 +22,7 @@ KrakenD is an extensible, ultra-high performance API Gateway that helps you effo
 
 - **Content aggregation**, composition, and filtering: Create views and mashups of aggregated content from your APIs.
 - **Content Manipulation and format transformation**: Change responses, convert transparently from XML to JSON, and vice-versa.
-- **Security:**: Zero-trust policy, CORS, OAuth, JWT, HSTS, clickjacking protection, HPKP, MIME-Sniffing prevention, XSS protection...
+- **Security**: Zero-trust policy, CORS, OAuth, JWT, HSTS, clickjacking protection, HPKP, MIME-Sniffing prevention, XSS protection...
 - **Concurrent calls**: Serve content faster than consuming backends directly.
 - **SSL** and  **HTTP2** ready
 - **Throttling**: Limits of usage in the router and proxy layers
@@ -51,5 +51,5 @@ make build
 Or, if you don't have or don't want to install `go`, you can build it using the golang docker container:
 
 ```
-make docker_build
+make build_on_docker
 ```

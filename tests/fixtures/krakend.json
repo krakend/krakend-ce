@@ -4,7 +4,11 @@
     "port": 8080,
     "cache_ttl": "3600s",
     "timeout": "3s",
+    "read_header_timeout":"200ms",
     "extra_config": {
+      "router":{
+        "return_error_msg":true
+      },
       "telemetry/logging": {
         "level":  "DEBUG",
         "prefix": "[KRAKEND]",
@@ -29,12 +33,18 @@
             "(Pingdom.com_bot_version_).*",
             "(facebookexternalhit)/.*"
         ]
-      },
-        "-pepe-router":{
-            "return_error_msg":true
-        }
+      }
     },
     "endpoints": [
+        {
+          "endpoint": "/",
+          "backend": [
+            {
+              "url_pattern": "/__debug/",
+              "host": [ "http://127.0.0.1:8080" ]
+            }
+          ]
+        },
         {
             "endpoint": "/crash",
             "backend": [
@@ -68,7 +78,7 @@
           ]
         },
         {
-            "endpoint": "/no-op",
+            "endpoint": "/no-op/ok",
             "method": "POST",
             "output_encoding": "no-op",
             "backend": [
@@ -76,6 +86,18 @@
                     "encoding": "no-op",
                     "host": [ "http://127.0.0.1:8081" ],
                     "url_pattern": "/param_forwarding/"
+                }
+            ]
+        },
+        {
+            "endpoint": "/no-op/ko",
+            "method": "POST",
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "encoding": "no-op",
+                    "host": [ "http://127.0.0.1:8080" ],
+                    "url_pattern": "/unknown"
                 }
             ]
         },
@@ -245,7 +267,7 @@
             "backend": [
                 {
                     "host": [ "http://127.0.0.1:8081" ],
-                    "url_pattern": "/param_forwarding/{bar}?foo={foo}"
+                    "url_pattern": "/param_forwarding/{bar}?foo={foo}&dump_body=1"
                 }
             ]
         },
@@ -549,6 +571,24 @@
                     "disable_jwk_security": true
                 }
             }
+        },
+        {
+            "endpoint": "/lua/custom_error",
+            "backend": [
+                {
+                    "host": [ "http://127.0.0.1:8081" ],
+                    "url_pattern": "/collection/",
+                    "is_collection": true,
+                    "extra_config": {
+                        "modifier/lua-backend": {
+                            "sources": [
+                                "fixtures/lua/collection.lua"
+                            ],
+                            "pre": "json_error()"
+                        }
+                    }
+                }
+            ]
         },
         {
             "endpoint": "/lua/collection",

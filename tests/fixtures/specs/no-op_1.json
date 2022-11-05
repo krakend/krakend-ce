@@ -1,0 +1,16 @@
+{
+	"in": {
+		"method": "POST",
+		"url": "http://localhost:8080/no-op/ok"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"Content-Length\":[\"0\"],\"User-Agent\":[\"KrakenD Version 2.1.2\"],\"X-Forwarded-Host\":[\"localhost:8080\"]},\"path\":\"/param_forwarding/\",\"query\":{}}\n",
+		"header": {
+			"content-type": ["application/json"],
+			"Cache-Control": [""],
+			"Set-Cookie": ["test1=test1","test2=test2"],
+			"X-Krakend-Completed": ["false"]
+		}
+	}
+}

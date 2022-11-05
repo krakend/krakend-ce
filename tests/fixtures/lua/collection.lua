@@ -24,5 +24,9 @@ function post_proxy( resp )
 		table.insert(paths, t)
 	end
 	responseData:set("paths", paths)
-	responseData:set("collection", {})
+	responseData:del("collection")
+end
+
+function json_error()
+	custom_error('{"msg":"I refuse to make any coffee, I am a teapot!"}', 418)
 end

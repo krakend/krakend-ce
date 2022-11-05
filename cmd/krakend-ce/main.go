@@ -9,10 +9,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	krakend "github.com/devopsfaith/krakend-ce/v2"
-	cmd "github.com/devopsfaith/krakend-cobra/v2"
-	flexibleconfig "github.com/devopsfaith/krakend-flexibleconfig/v2"
-	viper "github.com/devopsfaith/krakend-viper/v2"
+	krakend "github.com/krakendio/krakend-ce/v2"
+	cmd "github.com/krakendio/krakend-cobra/v2"
+	flexibleconfig "github.com/krakendio/krakend-flexibleconfig/v2"
+	viper "github.com/krakendio/krakend-viper/v2"
 	"github.com/luraproject/lura/v2/config"
 )
 
@@ -99,7 +99,6 @@ var aliases = map[string]string{
 	"github_com/devopsfaith/krakend-logstash":   "telemetry/logstash",
 	"github_com/devopsfaith/krakend-metrics":    "telemetry/metrics",
 	"github_com/letgoapp/krakend-influx":        "telemetry/influx",
-	"github_com/devopsfaith/krakend-influx":     "telemetry/influx",
 	"github_com/devopsfaith/krakend-opencensus": "telemetry/opencensus",
 
 	"github.com/devopsfaith/krakend-lua/router":        "modifier/lua-endpoint",

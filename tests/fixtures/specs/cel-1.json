@@ -8,9 +8,9 @@
 	},
 	"out": {
 		"status_code": 500,
-		"body": "",
+		"body": "request aborted by evaluator #1",
 		"header": {
-			"content-type": [""],
+			"content-type": ["text/plain; charset=utf-8"],
 			"Cache-Control": [""],
 			"X-Krakend-Completed": ["false"]
 		}

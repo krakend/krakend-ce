@@ -5,9 +5,9 @@
 	},
 	"out": {
 		"status_code": 500,
-		"body": "",
+		"body": "invalid status code",
 		"header": {
-			"content-type": [""],
+			"content-type": ["text/plain; charset=utf-8"],
 			"Cache-Control": [""],
 			"X-Krakend-Completed": ["false"]
 		}

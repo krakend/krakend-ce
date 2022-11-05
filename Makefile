@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 2.0.0
+VERSION := 2.1.2
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
 LICENSE := Apache 2.0
@@ -19,9 +19,9 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.17.8
+GOLANG_VERSION := 1.19.2
 GLIBC_VERSION := $(shell sh find_glibc.sh)
-ALPINE_VERSION := 3.15
+ALPINE_VERSION := 3.16
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -35,11 +35,15 @@ FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
 
 DEB_OPTS= -t deb --deb-user $(USER) \
 	--depends ca-certificates \
+	--depends rsyslog \
+	--depends logrotate \
 	--before-remove builder/scripts/prerm.deb \
   --after-remove builder/scripts/postrm.deb \
 	--before-install builder/scripts/preinst.deb
 
 RPM_OPTS =--rpm-user $(USER) \
+	--depends rsyslog \
+	--depends logrotate \
 	--before-install builder/scripts/preinst.rpm \
 	--before-remove builder/scripts/prerm.rpm \
   --after-remove builder/scripts/postrm.rpm
@@ -48,39 +52,6 @@ DEBNAME=${PKGNAME}_${VERSION}-${RELEASE}_${ARCH}.deb
 RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
 
 all: test
-
-update_krakend_deps:
-	go get github.com/luraproject/lura/v2@v2.0.1
-	go get github.com/devopsfaith/bloomfilter/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-amqp/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-botdetector/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-cel/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-circuitbreaker/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-cobra/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-cors/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-flexibleconfig/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-gelf/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-gologging/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-httpcache/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-httpsecure/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-influx/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-jose/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-jsonschema/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-lambda/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-logstash/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-lua/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-martian/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-metrics/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-oauth2-clientcredentials/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-opencensus/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-pubsub/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-ratelimit/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-rss/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-usage@v1.4.0
-	go get github.com/devopsfaith/krakend-viper/v2@v2.0.0
-	go get github.com/devopsfaith/krakend-xml/v2@v2.0.0
-	make test
-
 
 build:
 	@echo "Building the binary..."
@@ -102,6 +73,9 @@ build_on_docker:
 docker:
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
 
+docker-plugin-builder:
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend-plugin-builder:${VERSION} -f Dockerfile-plugin-builder .
+
 benchmark:
 	@mkdir -p bench_res
 	@touch bench_res/${GIT_COMMIT}.out
@@ -111,6 +85,14 @@ benchmark:
 		"echo 'GET http://krakend:8080/test' | vegeta attack -rate=0 -duration=30s -max-workers=300 | tee results.bin | vegeta report" > bench_res/${GIT_COMMIT}.out
 	@docker stop krakend
 	@cat bench_res/${GIT_COMMIT}.out
+
+security_scan:
+	@mkdir -p sec_scan
+	@touch sec_scan/${GIT_COMMIT}.out
+	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 devopsfaith/krakend:${VERSION} run -dc /etc/krakend/bench.json
+	@docker run --rm -it --link krakend instrumentisto/nmap --script vuln krakend > sec_scan/${GIT_COMMIT}.out
+	@docker stop krakend
+	@cat sec_scan/${GIT_COMMIT}.out
 
 builder/skel/%/etc/init.d/krakend: builder/files/krakend.init
 	mkdir -p "$(dir $@)"
@@ -132,6 +114,14 @@ builder/skel/%/usr/lib/systemd/system/krakend.service: builder/files/krakend.ser
 	mkdir -p "$(dir $@)"
 	cp builder/files/krakend.service "$@"
 
+builder/skel/%/etc/rsyslog.d/krakend.conf: builder/files/krakend.conf-rsyslog
+	mkdir -p "$(dir $@)"
+	cp builder/files/krakend.conf-rsyslog "$@"
+
+builder/skel/%/etc/logrotate.d/krakend: builder/files/krakend-logrotate
+	mkdir -p "$(dir $@)"
+	cp builder/files/krakend-logrotate "$@"
+
 .PHONE: tgz
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json
@@ -141,6 +131,8 @@ tgz: builder/skel/tgz/etc/init.d/krakend
 .PHONY: deb
 deb: builder/skel/deb/usr/bin/krakend
 deb: builder/skel/deb/etc/krakend/krakend.json
+deb: builder/skel/deb/etc/rsyslog.d/krakend.conf
+deb: builder/skel/deb/etc/logrotate.d/krakend
 	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:deb -t deb ${DEB_OPTS} \
 		--iteration ${RELEASE} \
 		--deb-systemd builder/files/krakend.service \
@@ -151,6 +143,8 @@ deb: builder/skel/deb/etc/krakend/krakend.json
 rpm: builder/skel/rpm/usr/lib/systemd/system/krakend.service
 rpm: builder/skel/rpm/usr/bin/krakend
 rpm: builder/skel/rpm/etc/krakend/krakend.json
+rpm: builder/skel/rpm/etc/rsyslog.d/krakend.conf
+rpm: builder/skel/rpm/etc/logrotate.d/krakend
 	docker run --rm -it -v "${PWD}:${DOCKER_WDIR}" -w ${DOCKER_WDIR} ${DOCKER_FPM}:rpm -t rpm ${RPM_OPTS} \
 		--iteration ${RELEASE} \
 		-C builder/skel/rpm \

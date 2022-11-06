@@ -39,19 +39,19 @@ func InitializePrometheus(ctx context.Context) (*prometheus.Exporter, starter) {
 	if err != nil {
 		log.Fatal("Error while initializing prometheus exporter", err)
 	}
-	return exporter, func() {
-		go serveMetrics()
+	return exporter, func(cfg *Config) {
+		go serveMetrics(cfg)
 	}
 }
 
-type starter func()
+type starter func(*Config)
 
 func getProvider(ctx context.Context, cfg *Config) *metric.MeterProvider {
 	var exporter *prometheus.Exporter
 	var start starter
 	if cfg.Exporters.Prometheus != nil {
 		exporter, start = InitializePrometheus(ctx)
-		start()
+		start(cfg)
 	}
 	if exporter == nil {
 		log.Fatal("No exporter found")
@@ -159,8 +159,8 @@ type Exporters struct {
 }
 
 type PrometheusConfig struct {
-	port     int    `json:"port`
-	endpoint string `json:"endpoint"`
+	Port     int    `json:"port`
+	Endpoint string `json:"endpoint"`
 }
 
 func parseCfg[T any](cfg *T, extraConfig interface{}) (*T, error) {
@@ -172,10 +172,11 @@ func parseCfg[T any](cfg *T, extraConfig interface{}) (*T, error) {
 	return cfg, nil
 }
 
-func serveMetrics() {
-	log.Printf("serving metrics at localhost:9092/metrics")
-	http.Handle("/metrics", promhttp.Handler())
-	err := http.ListenAndServe(":9092", nil)
+func serveMetrics(cfg *Config) {
+	url := fmt.Sprintf("http://localhost:%d%s", cfg.Exporters.Prometheus.Port, cfg.Exporters.Prometheus.Endpoint)
+	log.Printf("Serving metrics at %s", url)
+	http.Handle(cfg.Exporters.Prometheus.Endpoint, promhttp.Handler())
+	err := http.ListenAndServe(fmt.Sprintf(":%d", cfg.Exporters.Prometheus.Port), nil)
 	if err != nil {
 		fmt.Printf("error serving http: %v", err)
 		return

@@ -11,6 +11,14 @@
         "syslog": false,
         "stdout": true
       },
+      "telemetry/otel": {
+       "exporters": {
+        "prometheus": {
+            "port": 9092,
+            "endpoint": "/metrics"
+        }
+       }
+      },
       "telemetry/metrics": {
         "collection_time": "60s",
         "proxy_disabled": false,
@@ -154,6 +162,11 @@
                 }
             ],
             "extra_config": {
+                "telemetry/otel": {
+                    "tags": {
+                        "app": ""
+                    }
+                },
                 "auth/validator": {
                     "alg": "RS256",
                     "audience": ["http://api.example.com"],
@@ -214,6 +227,24 @@
                     "strategy": "ip"
                 }
             }
+        },
+        {
+            "endpoint": "/fail/{id}",
+            "extra_config": {
+                "telemetry/otel": {
+                    "tags": {
+                        "sp_app": "abc" 
+                    }
+                }
+            },
+            "backend": [
+                {
+                    "host": [
+                        "http://google.info/"
+                    ],
+                    "url_pattern": "/user/schedule/{id}.rss"
+                }
+            ]
         }
     ]
 }

@@ -93,7 +93,7 @@ type BackendFactory interface {
 
 // HandlerFactory returns a KrakenD router handler factory, ready to be passed to the KrakenD RouterFactory
 type HandlerFactory interface {
-	NewHandlerFactory(logging.Logger, *metrics.Metrics, jose.RejecterFactory) router.HandlerFactory
+	NewHandlerFactory(logging.Logger, *metrics.Metrics, jose.RejecterFactory, *OpenTelemetryMetrics) router.HandlerFactory
 }
 
 // LoggerFactory returns a KrakenD Logger factory, ready to be passed to the KrakenD RouterFactory
@@ -171,6 +171,8 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
 
+		otelMetrics := InitializeOpenTelemetryMetricsCollector(ctx, cfg)
+
 		pf := e.ProxyFactory.NewProxyFactory(
 			logger,
 			e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
@@ -189,7 +191,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			ProxyFactory:   pf,
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
-			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
+			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory, otelMetrics),
 			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger))),
 		})
 

@@ -20,13 +20,14 @@ import (
 )
 
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
-func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory) router.HandlerFactory {
+func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory, otelMetrics *OpenTelemetryMetrics) router.HandlerFactory {
 	handlerFactory := router.CustomErrorEndpointHandler(logger, server.DefaultToHTTPError)
 	handlerFactory = juju.NewRateLimiterMw(logger, handlerFactory)
 	handlerFactory = lua.HandlerFactory(logger, handlerFactory)
 	handlerFactory = ginjose.HandlerFactory(handlerFactory, logger, rejecter)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)
 	handlerFactory = opencensus.New(handlerFactory)
+	handlerFactory = otelMetrics.HandlerFactory(handlerFactory)
 	handlerFactory = botdetector.New(handlerFactory, logger)
 
 	return func(cfg *config.EndpointConfig, p proxy.Proxy) gin.HandlerFunc {
@@ -37,6 +38,6 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 
 type handlerFactory struct{}
 
-func (handlerFactory) NewHandlerFactory(l logging.Logger, m *metrics.Metrics, r jose.RejecterFactory) router.HandlerFactory {
-	return NewHandlerFactory(l, m, r)
+func (handlerFactory) NewHandlerFactory(l logging.Logger, m *metrics.Metrics, r jose.RejecterFactory, otelMetrics *OpenTelemetryMetrics) router.HandlerFactory {
+	return NewHandlerFactory(l, m, r, otelMetrics)
 }

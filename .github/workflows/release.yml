@@ -3,8 +3,8 @@ on:
     types: [created]
 name: Handle Release
 jobs:
-  plugin-builder:
-    name: Generate plugin-builder containers
+  builder:
+    name: Generate builder containers
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout the repository
@@ -23,7 +23,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            krakend/plugin-builder
+            krakend/builder
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -33,7 +33,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            krakend/plugin-builder
+            krakend/builder
           flavor: |
             suffix=-linux-generic,onlatest=true
           tags: |
@@ -44,7 +44,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: Dockerfile-plugin-builder
+          file: Dockerfile-builder
           build-args: |
             GOLANG_VERSION=${{ env.GOLANG_VERSION }}
             ALPINE_VERSION=${{ env.ALPINE_VERSION }}
@@ -55,7 +55,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: Dockerfile-plugin-builder-linux
+          file: Dockerfile-builder-linux
           build-args: |
             GOLANG_VERSION=${{ env.GOLANG_VERSION }}
           push: true
@@ -64,7 +64,7 @@ jobs:
   generate:
     name: Create release-artifacts
     runs-on: ubuntu-20.04
-    needs: plugin-builder
+    needs: builder
     steps:
       - name: Checkout the repository
         uses: actions/checkout@master
@@ -77,7 +77,7 @@ jobs:
       - name: List keys
         run: gpg -K
       - name: Generate the artifacts for Debian/Ubuntu/Redhat/Centos (AMD64/ARM64)
-        uses: docker://krakend/plugin-builder:latest-linux-generic
+        uses: docker://krakend/builder:latest-linux-generic
         with:
           args: sh -c "export ARCH=arm64 OS_TAG=_generic-linux GOARCH=arm64 GOHOSTARCH=amd64 EXTRA_LDFLAGS='-extld=aarch64-linux-gnu-gcc';
            make -e build && make -e tgz;
@@ -99,7 +99,7 @@ jobs:
            make -e rpm-release &&
            rpmsign --addsign *rpm"
       - name: Generate the artifacts for Alpine (AMD64/ARM64)
-        uses: docker://krakend/plugin-builder:latest
+        uses: docker://krakend/builder:latest
         with:
           args: sh -c "export GOARCH=amd64 ARCH=amd64 OS_TAG=_alpine;
            make -e build && make -e tgz;

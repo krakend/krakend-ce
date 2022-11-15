@@ -65,8 +65,8 @@ test: build
 	go test -v ./tests
 
 # Build KrakenD using docker (defaults to whatever the golang container uses)
-build_on_docker:
-	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make -e build
+build_on_docker: docker-builder-linux
+	docker run --rm -it -v "${PWD}:/app" -w /app krakend/builder:${VERSION} make -e build
 
 # Build the container using the Dockerfile (alpine)
 docker:

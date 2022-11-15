@@ -4,7 +4,7 @@ FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION}
 
 RUN apk --no-cache --virtual .build-deps add tar make gcc musl-dev binutils-gold
 
-RUN wget http://musl.cc/aarch64-linux-musl-cross.tgz && \
+RUN cd / && wget http://musl.cc/aarch64-linux-musl-cross.tgz && \
     tar zxf aarch64-linux-musl-cross.tgz && rm -f aarch64-linux-musl-cross.tgz
 
 ENV PATH="$PATH:/aarch64-linux-musl-cross/bin"

@@ -10,6 +10,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-contrib/uuid"
+	gologging "github.com/krakendio/krakend-gologging/v2"
+	logstash "github.com/krakendio/krakend-logstash/v2"
 	"golang.org/x/sync/errgroup"
 
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
@@ -18,10 +20,8 @@ import (
 	cmd "github.com/krakendio/krakend-cobra/v2"
 	cors "github.com/krakendio/krakend-cors/v2/gin"
 	gelf "github.com/krakendio/krakend-gelf/v2"
-	gologging "github.com/krakendio/krakend-gologging/v2"
 	influxdb "github.com/krakendio/krakend-influx/v2"
 	jose "github.com/krakendio/krakend-jose/v2"
-	logstash "github.com/krakendio/krakend-logstash/v2"
 	metrics "github.com/krakendio/krakend-metrics/v2/gin"
 	opencensus "github.com/krakendio/krakend-opencensus/v2"
 	_ "github.com/krakendio/krakend-opencensus/v2/exporter/datadog"
@@ -42,6 +42,7 @@ import (
 	router "github.com/luraproject/lura/v2/router/gin"
 	serverhttp "github.com/luraproject/lura/v2/transport/http/server"
 	server "github.com/luraproject/lura/v2/transport/http/server/plugin"
+	optiva_telemetry "github.com/optivainc/optiva-product-shared-krakend-telemetry"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -278,6 +279,14 @@ type LoggerBuilder struct{}
 // NewLogger sets up the logging components as defined at the configuration.
 func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Writer, error) {
 	var writers []io.Writer
+
+	telemetryConfig, _ := optiva_telemetry.ConfigGetter(cfg.ExtraConfig)
+	if telemetryConfig != nil {
+		logger, _ := optiva_telemetry.NewApplicationLogger(cfg.ExtraConfig)
+
+		return logger, nil, nil
+	}
+
 	gelfWriter, gelfErr := gelf.NewWriter(cfg.ExtraConfig)
 	if gelfErr == nil {
 		writers = append(writers, gelfWriterWrapper{gelfWriter})
@@ -363,6 +372,14 @@ func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, 
 		}
 	} else {
 		l.Debug("[SERVICE: OpenCensus] Service correctly registered")
+	}
+
+	if err := optiva_telemetry.RegisterOpenTelemetry(ctx, cfg, l); err != nil {
+		if err != optiva_telemetry.ErrNoConfig {
+			l.Warning("[SERVICE: OpenTelemetry]", err.Error())
+		}
+	} else {
+		l.Debug("[SERVICE: OpenTelemetry] Service correctly registered")
 	}
 
 	return metricCollector

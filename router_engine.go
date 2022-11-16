@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/gin-gonic/gin"
+	"go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin"
 
 	botdetector "github.com/krakendio/krakend-botdetector/v2/gin"
 	httpsecure "github.com/krakendio/krakend-httpsecure/v2/gin"
@@ -13,11 +14,20 @@ import (
 	"github.com/luraproject/lura/v2/core"
 	luragin "github.com/luraproject/lura/v2/router/gin"
 	"github.com/luraproject/lura/v2/transport/http/server"
+
+	optiva_telemetry "github.com/optivainc/optiva-product-shared-krakend-telemetry"
 )
 
 // NewEngine creates a new gin engine with some default values and a secure middleware
 func NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine {
 	engine := luragin.NewEngine(cfg, opt)
+
+	engine.Use(otelgin.Middleware("krakend"))
+
+	engine.Use(optiva_telemetry.NewGinLogger(cfg.ExtraConfig, gin.LoggerConfig{}))
+
+	// register the render at the router level
+	luragin.RegisterRender("JsonWithStatusCodeRender", optiva_telemetry.JsonWithResponseStatusCodeRender())
 
 	engine.NoRoute(opencensus.HandlerFunc(&config.EndpointConfig{Endpoint: "NoRoute"}, defaultHandler, nil))
 	engine.NoMethod(opencensus.HandlerFunc(&config.EndpointConfig{Endpoint: "NoMethod"}, defaultHandler, nil))

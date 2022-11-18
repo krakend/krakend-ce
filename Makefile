@@ -22,7 +22,7 @@ DOCKER_FPM := devopsfaith/fpm
 GOLANG_VERSION := 1.19.3
 GLIBC_VERSION := $(shell bash find_glibc.sh)
 ALPINE_VERSION := 3.16
-GITHUB_TOKEN := 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
+GITHUB_TOKEN := ${GITHUB_TOKEN}
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \

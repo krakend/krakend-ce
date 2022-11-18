@@ -19,8 +19,8 @@ require (
 	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
 	github.com/krakendio/krakend-influx/v2 v2.0.2
 	github.com/krakendio/krakend-jose/v2 v2.0.5
-	github.com/krakendio/krakend-jsonschema/v2 v2.0.2
-	github.com/krakendio/krakend-lambda/v2 v2.0.2
+	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
+	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.1
 	github.com/krakendio/krakend-lua/v2 v2.0.3
 	github.com/krakendio/krakend-martian/v2 v2.0.2
@@ -33,7 +33,7 @@ require (
 	github.com/krakendio/krakend-usage v0.0.0-20220607160923-9d7b69c9bf97
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
-	github.com/luraproject/lura/v2 v2.2.1
+	github.com/luraproject/lura/v2 v2.2.2
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 

@@ -723,8 +723,12 @@ github.com/krakendio/krakend-jose/v2 v2.0.5 h1:K6LPJbIK0lTQjXBSaoEqJ/AE+XdzJ+xv2
 github.com/krakendio/krakend-jose/v2 v2.0.5/go.mod h1:PGAbTUHFcciVAfArcTipfbZEuyLWuYTs94sG6+Q08LQ=
 github.com/krakendio/krakend-jsonschema/v2 v2.0.2 h1:d98Q1xV9rouajcvP88hYji0asYfVTfso9iKhiTzNbIs=
 github.com/krakendio/krakend-jsonschema/v2 v2.0.2/go.mod h1:kBkeFba9IzwHCljcKAnlpoRD9kFQzTB/UxNe4PNa13A=
+github.com/krakendio/krakend-jsonschema/v2 v2.0.3 h1:5S2vZHRIYLN5Ii+af07nUkbrXPNp8g1tO20MIUJjWrY=
+github.com/krakendio/krakend-jsonschema/v2 v2.0.3/go.mod h1:kBkeFba9IzwHCljcKAnlpoRD9kFQzTB/UxNe4PNa13A=
 github.com/krakendio/krakend-lambda/v2 v2.0.2 h1:BBKflEzAfQw3pHNAVaBopPpGX0b2wt2ZSQjcNZlm4eM=
 github.com/krakendio/krakend-lambda/v2 v2.0.2/go.mod h1:LH9pjG19stIeLLmaE5YKgjvbGJ7Da1pHw9g7cPTTGSg=
+github.com/krakendio/krakend-lambda/v2 v2.0.3 h1:r4MoR5+5BFACmQ1iYjdhJjlJBev889q/CZkCmRL/sFA=
+github.com/krakendio/krakend-lambda/v2 v2.0.3/go.mod h1:LH9pjG19stIeLLmaE5YKgjvbGJ7Da1pHw9g7cPTTGSg=
 github.com/krakendio/krakend-logstash/v2 v2.0.1 h1:5IkbjFwILsZ0bRCcqtFgorGMJzyAMYTyyJywSdxbStk=
 github.com/krakendio/krakend-logstash/v2 v2.0.1/go.mod h1:buiQqKl5Dqv8qjzn4UT2G+bc6iFNYMrMRLK2AGGSaeU=
 github.com/krakendio/krakend-lua/v2 v2.0.2 h1:hRQWUcLhJf/O9isupXe5J/f4u369N7T8CufBXwOFUmM=
@@ -766,6 +770,8 @@ github.com/luraproject/lura/v2 v2.2.0 h1:/r6zrjoyptjpCBxJOba6jL+uXBamRkKU+z2aaRJ
 github.com/luraproject/lura/v2 v2.2.0/go.mod h1:lkKDcV0O3jEK7fX/gGI7/fbkrDUOMKRqe442Xa3KRPQ=
 github.com/luraproject/lura/v2 v2.2.1 h1:l1RJRtefgMJi4JLRjAccbMlQ5F4bxvD37U4QlI0t2CA=
 github.com/luraproject/lura/v2 v2.2.1/go.mod h1:lkKDcV0O3jEK7fX/gGI7/fbkrDUOMKRqe442Xa3KRPQ=
+github.com/luraproject/lura/v2 v2.2.2 h1:gcM6Km6tlR16XyXiLtD9CTYL/vRQoDo8uFgtIgg2fyA=
+github.com/luraproject/lura/v2 v2.2.2/go.mod h1:lkKDcV0O3jEK7fX/gGI7/fbkrDUOMKRqe442Xa3KRPQ=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f h1:MBcrTbmCf7CZa9yAwcB7ArveQb9TPVy4zFnQGz/LiUU=
 github.com/m4ns0ur/httpcache v0.0.0-20200426190423-1040e2e8823f/go.mod h1:UawoqorwkpZ58qWiL+nVJM0Po7FrzAdCxYVh9GgTTaA=
 github.com/magiconair/properties v1.8.0/go.mod h1:PppfXfuXeibc/6YijjN8zIbojt8czPbwD3XqdrwzmxQ=

@@ -22,6 +22,8 @@ DOCKER_FPM := devopsfaith/fpm
 GOLANG_VERSION := 1.19.2
 GLIBC_VERSION := $(shell sh find_glibc.sh)
 ALPINE_VERSION := 3.16
+OS_TAG :=
+EXTRA_LDFLAGS :=
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -48,9 +50,6 @@ RPM_OPTS =--rpm-user $(USER) \
 	--before-remove builder/scripts/prerm.rpm \
   --after-remove builder/scripts/postrm.rpm
 
-DEBNAME=${PKGNAME}_${VERSION}-${RELEASE}_${ARCH}.deb
-RPMNAME=${PKGNAME}-${VERSION}-${RELEASE}.x86_64.rpm
-
 all: test
 
 build:
@@ -58,7 +57,7 @@ build:
 	@go get .
 	@go build -ldflags="-X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
 	-X github.com/luraproject/lura/v2/core.GoVersion=${GOLANG_VERSION} \
-	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION}" \
+	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION} ${EXTRA_LDFLAGS}" \
 	-o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"
 
@@ -66,15 +65,18 @@ test: build
 	go test -v ./tests
 
 # Build KrakenD using docker (defaults to whatever the golang container uses)
-build_on_docker:
-	docker run --rm -it -v "${PWD}:/app" -w /app golang:${GOLANG_VERSION} make -e build
+build_on_docker: docker-builder-linux
+	docker run --rm -it -v "${PWD}:/app" -w /app krakend/builder:${VERSION}-linux-generic make -e build
 
 # Build the container using the Dockerfile (alpine)
 docker:
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
 
-docker-plugin-builder:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend-plugin-builder:${VERSION} -f Dockerfile-plugin-builder .
+docker-builder:
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t krakend/builder:${VERSION} -f Dockerfile-builder .
+
+docker-builder-linux:
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} -t krakend/builder:${VERSION}-linux-generic -f Dockerfile-builder-linux .
 
 benchmark:
 	@mkdir -p bench_res
@@ -126,7 +128,7 @@ builder/skel/%/etc/logrotate.d/krakend: builder/files/krakend-logrotate
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json
 tgz: builder/skel/tgz/etc/init.d/krakend
-	tar zcvf krakend_${VERSION}_${ARCH}.tar.gz -C builder/skel/tgz/ .
+	tar zcvf krakend_${VERSION}_${ARCH}${OS_TAG}.tar.gz -C builder/skel/tgz/ .
 
 .PHONY: deb
 deb: builder/skel/deb/usr/bin/krakend
@@ -150,12 +152,26 @@ rpm: builder/skel/rpm/etc/logrotate.d/krakend
 		-C builder/skel/rpm \
 		${FPM_OPTS}
 
+.PHONY: deb-release
+deb-release: builder/skel/deb-release/usr/bin/krakend
+deb-release: builder/skel/deb-release/etc/krakend/krakend.json
+	/usr/local/bin/fpm -t deb ${DEB_OPTS} \
+		--iteration ${RELEASE} \
+		--deb-systemd builder/files/krakend.service \
+		-C builder/skel/deb-release \
+		${FPM_OPTS}
+
+.PHONY: rpm-release
+rpm-release: builder/skel/rpm-release/usr/lib/systemd/system/krakend.service
+rpm-release: builder/skel/rpm-release/usr/bin/krakend
+rpm-release: builder/skel/rpm-release/etc/krakend/krakend.json
+	/usr/local/bin/fpm -t rpm ${RPM_OPTS} \
+		--iteration ${RELEASE} \
+		-C builder/skel/rpm-release \
+		${FPM_OPTS}
 
 .PHONY: clean
 clean:
 	rm -rf builder/skel/*
-	rm -f *.deb
-	rm -f *.rpm
-	rm -f *.tar.gz
 	rm -f krakend
 	rm -rf vendor/

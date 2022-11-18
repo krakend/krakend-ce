@@ -19,9 +19,10 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.19.2
-GLIBC_VERSION := $(shell sh find_glibc.sh)
+GOLANG_VERSION := 1.19.3
+GLIBC_VERSION := $(shell bash find_glibc.sh)
 ALPINE_VERSION := 3.16
+GITHUB_TOKEN := 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
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -71,7 +72,7 @@ build_on_docker:
 
 # Build the container using the Dockerfile (alpine)
 docker:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
+	docker build --no-cache --pull --build-arg GITHUB_TOKEN=${GITHUB_TOKEN} --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t oce/krakend:${VERSION} .
 
 docker-plugin-builder:
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend-plugin-builder:${VERSION} -f Dockerfile-plugin-builder .

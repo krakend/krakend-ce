@@ -34,7 +34,6 @@ require (
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
 	github.com/luraproject/lura/v2 v2.2.1
-	github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.0
 	go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin v0.36.4
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
@@ -188,6 +187,7 @@ require (
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/openzipkin/zipkin-go v0.1.6 // indirect
+	github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.0 // indirect
 	github.com/pelletier/go-toml v1.2.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.1 // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect
@@ -250,8 +250,8 @@ require (
 	google.golang.org/api v0.74.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20220502173005-c8bf987b8c21 // indirect
-	google.golang.org/grpc v1.46.0 // indirect
-	google.golang.org/protobuf v1.28.0 // indirect
+	google.golang.org/grpc v1.50.1 // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/DataDog/dd-trace-go.v1 v1.22.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20191017102106-1550ee647df0 // indirect
 	gopkg.in/ini.v1 v1.51.0 // indirect
@@ -266,4 +266,4 @@ replace github.com/auth0-community/go-auth0 v1.0.0 => github.com/devopsfaith/go-
 
 replace github.com/alexeyco/binder v0.0.0-20180729220023-2a21303f588a => github.com/kpacha/binder v0.0.0-20220707194437-6013d1173c4d
 
-// replace github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.0 => ../github.com/optivainc/Optiva-Product-Shared-KrakenD-Telemetry
+//Sreplace github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.0 => ../Optiva-Product-Shared-KrakenD-Telemetry

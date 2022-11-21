@@ -23,6 +23,7 @@ func NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine 
 	engine := luragin.NewEngine(cfg, opt)
 
 	engine.Use(otelgin.Middleware("krakend"))
+	engine.Use(optiva_telemetry.ProgegateTraceParentHeaderMiddleware(cfg))
 
 	engine.Use(optiva_telemetry.NewGinLogger(cfg.ExtraConfig, gin.LoggerConfig{}))
 

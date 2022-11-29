@@ -53,5 +53,3 @@ Or, if you don't have or don't want to install `go`, you can build it using the 
 ```
 make build_on_docker
 ```
-
-DELETEME

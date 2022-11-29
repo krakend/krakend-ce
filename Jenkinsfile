@@ -8,6 +8,9 @@ import java.util.*
 
 optiva.addJobParam(stringParam(name: 'VERSION', defaultValue: '1.0.0',
                             description: 'Semantic version for the produced artifacts'))
+                            
+optiva.addJobParam(stringParam(name: 'GOLANG_VERSION', defaultValue: '1.19.3'))
+optiva.addJobParam(stringParam(name: 'ALPINE_VERSION', defaultValue: '3.16'))
 
 // Closure makeKrakenD() {
 //     return {
@@ -62,8 +65,8 @@ Closure pushImagesToHarborClosure() {
                     sh("export DOCKER_USERNAME=${DOCKER_USERNAME}")
                     sh("export DOCKER_PASSWORD=${DOCKER_PASSWORD}")
 
-                    sh('export GOLANG_VERSION=1.19.3')
-                    sh('export ALPINE_VERSION=1.19.3')
+                    // sh('export GOLANG_VERSION=1.19.3')
+                    // sh('export ALPINE_VERSION=1.19.3')
 
 
                     docker.withRegistry('https://harbor.optiva.com', 'harbor-credentials') {

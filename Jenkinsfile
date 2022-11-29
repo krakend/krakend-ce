@@ -1,5 +1,5 @@
 #!groovy
 
-otf(['default'])
-        .withTestrail()
-        .execute()
+@Library("ucglobal") _
+
+optiva.customPipeline()

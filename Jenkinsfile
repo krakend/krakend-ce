@@ -65,12 +65,9 @@ Closure pushImagesToHarborClosure() {
                     sh("export DOCKER_USERNAME=${DOCKER_USERNAME}")
                     sh("export DOCKER_PASSWORD=${DOCKER_PASSWORD}")
 
-                    // sh('export GOLANG_VERSION=1.19.3')
-                    // sh('export ALPINE_VERSION=1.19.3')
-
 
                     docker.withRegistry('https://harbor.optiva.com', 'harbor-credentials') {
-                        def krakenImage = docker.build("oce/krakend:${tag}", "--no-cache --build-arg GITHUB_TOKEN=${GITHUB_APP}:${GITHUB_ACCESS_TOKEN} --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} .")
+                        def krakenImage = docker.build("oce/krakend:${tag}", "--no-cache --build-arg GITHUB_TOKEN=${GITHUB_APP}:${GITHUB_ACCESS_TOKEN} --build-arg GOLANG_VERSION=${params.GOLANG_VERSION} --build-arg ALPINE_VERSION=${params.ALPINE_VERSION} .")
                         krakenImage.push()
                         krakenImage.push('latest')
 

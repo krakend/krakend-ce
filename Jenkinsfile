@@ -82,7 +82,14 @@ def krakendDockerStage() {
 }
 
 
-krakendDockerStage()
+
+
+def stages() {
+    setTag()
+    krakendDockerStage()
+}
+
+stages()
 
 optiva.addJobFinalStage(optiva.PRIORITY_AUTO, 'post') {
 

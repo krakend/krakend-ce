@@ -1,12 +1,16 @@
 ARG GOLANG_VERSION
 ARG ALPINE_VERSION
 FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION} as builder
+ARG GITHUB_TOKEN
 
-RUN apk --no-cache --virtual .build-deps add make gcc musl-dev binutils-gold
+RUN apk --no-cache --virtual .build-deps add make gcc musl-dev binutils-gold git
 
 COPY . /app
 WORKDIR /app
 
+ENV GITHUB_TOKEN=${GITHUB_TOKEN}
+ENV GOPRIVATE=github.com/optivainc/* 
+RUN git config --global url."https://${GITHUB_TOKEN}@github.com/optivainc".insteadOf "https://github.com/optivainc"
 RUN make build
 
 

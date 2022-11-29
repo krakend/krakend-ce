@@ -78,7 +78,7 @@ Closure pushImagesToHarborClosure() {
 }
 
 def krakendDockerStage() {
-    optiva.addJobStage(optiva.PRIORITY_AUTO, 'Build KrakenD', makeKrakenD())
+    optiva.addJobStage(optiva.PRIORITY_AUTO, 'Build and Push KrakenD', pushImagesToHarborClosure())
 }
 
 

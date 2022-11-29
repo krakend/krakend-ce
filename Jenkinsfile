@@ -40,7 +40,7 @@ boolean isOnPullRequest() {
 def setTag() {
     def version = params.VERSION
     if (isOnPullRequest()) {
-        def buildNumber = String.format( "*%03d*" , currentBuild.number );
+        def buildNumber = String.format( "%03d" , currentBuild.number );
         tag = "$version-SNAPSHOT-${LocalDateTime.now().format(DateTimeFormatter.ofPattern('yyyyMMdd'))}${buildNumber}"
     }else {
         if (env.GIT_BRANCH != 'main') {

@@ -18,7 +18,7 @@ FROM alpine:${ALPINE_VERSION}
 
 LABEL maintainer="community@krakend.io"
 
-RUN apk add --no-cache ca-certificates && \
+RUN apk add --no-cache ca-certificates tzdata && \
     adduser -u 1000 -S -D -H krakend && \
     mkdir /etc/krakend && \
     echo '{ "version": 3 }' > /etc/krakend/krakend.json

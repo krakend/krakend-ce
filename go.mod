@@ -19,8 +19,8 @@ require (
 	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
 	github.com/krakendio/krakend-influx/v2 v2.0.2
 	github.com/krakendio/krakend-jose/v2 v2.0.5
-	github.com/krakendio/krakend-jsonschema/v2 v2.0.2
-	github.com/krakendio/krakend-lambda/v2 v2.0.2
+	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
+	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.1
 	github.com/krakendio/krakend-lua/v2 v2.0.3
 	github.com/krakendio/krakend-martian/v2 v2.0.2
@@ -33,8 +33,8 @@ require (
 	github.com/krakendio/krakend-usage v0.0.0-20220607160923-9d7b69c9bf97
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
-	github.com/luraproject/lura/v2 v2.2.1
-	github.com/optivainc/optiva-product-shared-krakend-telemetry v0.0.3
+	github.com/luraproject/lura/v2 v2.2.2
+	github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.0
 	go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin v0.36.4
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
@@ -273,4 +273,4 @@ replace github.com/auth0-community/go-auth0 v1.0.0 => github.com/devopsfaith/go-
 
 replace github.com/alexeyco/binder v0.0.0-20180729220023-2a21303f588a => github.com/kpacha/binder v0.0.0-20220707194437-6013d1173c4d
 
-// replace github.com/optivainc/optiva-product-shared-krakend-telemetry v0.0.1 => ../Optiva-Product-Shared-KrakenD-Telemetry
+//replace github.com/optivainc/optiva-product-shared-krakend-telemetry v0.0.4 => ../Optiva-Product-Shared-KrakenD-Telemetry

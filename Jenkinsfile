@@ -43,7 +43,7 @@ def setTag() {
     echo "'version=$version'"
     echo "'buildNumber=${currentBuild.number}'"
     echo "'branch=${scm.branches[0].name}'"
-    def branch = ${scm.branches[0].name}
+    def branch = scm.branches[0].name
     if (isOnPullRequest()) {
         def buildNumber = String.format( "%03d" , currentBuild.number );
         tag = "$version-SNAPSHOT-${LocalDateTime.now().format(DateTimeFormatter.ofPattern('yyyyMMdd'))}${buildNumber}"

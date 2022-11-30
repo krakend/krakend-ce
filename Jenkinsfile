@@ -56,10 +56,10 @@ def setTag() {
         } else  if (branch.startsWith('hotfix')) {
             tag = "$version-hotfix.${currentBuild.number}"
         } else  if (branch == 'main') {
-            tag = "${version}"
+            tag = "$version"
         }
 
-        echo "'tag=$tag'"
+        echo "'tag=${tag}'"
     }
 }
 

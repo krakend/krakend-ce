@@ -34,7 +34,7 @@ require (
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
 	github.com/luraproject/lura/v2 v2.2.2
-	github.com/optivainc/optiva-product-shared-krakend-telemetry v0.0.4
+	github.com/optivainc/optiva-product-shared-krakend-telemetry v0.0.5
 	go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin v0.36.4
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
@@ -235,6 +235,7 @@ require (
 	go.opentelemetry.io/otel v1.11.1 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/internal/retry v1.11.1 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.11.1 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.11.1 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.11.1 // indirect
 	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.11.1 // indirect
 	go.opentelemetry.io/otel/sdk v1.11.1 // indirect
@@ -273,4 +274,4 @@ replace github.com/auth0-community/go-auth0 v1.0.0 => github.com/devopsfaith/go-
 
 replace github.com/alexeyco/binder v0.0.0-20180729220023-2a21303f588a => github.com/kpacha/binder v0.0.0-20220707194437-6013d1173c4d
 
-// replace github.com/optivainc/optiva-product-shared-krakend-telemetry v0.0.1 => ../Optiva-Product-Shared-KrakenD-Telemetry
+//replace github.com/optivainc/optiva-product-shared-krakend-telemetry v0.0.4 => ../Optiva-Product-Shared-KrakenD-Telemetry

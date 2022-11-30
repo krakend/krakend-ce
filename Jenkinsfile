@@ -38,18 +38,16 @@ boolean isOnPullRequest() {
 
 // TODO : THIS WILL NEED TO BE UPDATED APPROPRIATELY
 def setTag() {
-    script {
-        sh "echo 'version=$version'"
-        sh "echo 'buildNumber=${currentBuild.number}'"
-        sh "echo 'branch=${env.GIT_BRANCH}'"
-    }
     
+    script.echo "'version=$version'"
+    script.echo "'buildNumber=${currentBuild.number}'"
+    script.echo "'branch=${env.GIT_BRANCH}'"
     def version = params.VERSION
     if (isOnPullRequest()) {
         def buildNumber = String.format( "%03d" , currentBuild.number );
         tag = "$version-SNAPSHOT-${LocalDateTime.now().format(DateTimeFormatter.ofPattern('yyyyMMdd'))}${buildNumber}"
     }else {
-
+        
         if (env.GIT_BRANCH == 'develop') {
             tag = "$version-wip.${currentBuild.number}"
         } else  if (env.GIT_BRANCH.startsWith('release')) {

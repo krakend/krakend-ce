@@ -43,21 +43,23 @@ def setTag() {
     echo "'version=$version'"
     echo "'buildNumber=${currentBuild.number}'"
     echo "'branch=${scm.branches[0].name}'"
-    
+    def branch = ${scm.branches[0].name}
     if (isOnPullRequest()) {
         def buildNumber = String.format( "%03d" , currentBuild.number );
         tag = "$version-SNAPSHOT-${LocalDateTime.now().format(DateTimeFormatter.ofPattern('yyyyMMdd'))}${buildNumber}"
     }else {
         
-        if (env.GIT_BRANCH == 'develop') {
+        if (branch == 'develop') {
             tag = "$version-wip.${currentBuild.number}"
-        } else  if (env.GIT_BRANCH.startsWith('release')) {
+        } else  if (branch.startsWith('release')) {
             tag = "$version-rc.${currentBuild.number}"
-        } else  if (env.GIT_BRANCH.startsWith('hotfix')) {
+        } else  if (branch.startsWith('hotfix')) {
             tag = "$version-hotfix.${currentBuild.number}"
-        } else  if (env.GIT_BRANCH == 'main') {
+        } else  if (branch == 'main') {
             tag = "$version"
         }
+
+        echo "'tag=$tag'"
     }
 }
 

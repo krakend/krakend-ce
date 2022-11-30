@@ -42,7 +42,7 @@ def setTag() {
 
     echo "'version=$version'"
     echo "'buildNumber=${currentBuild.number}'"
-    echo "'branch=${GIT_BRANCH}'"
+    echo "'branch=${scm.branches[0].name}'"
     
     if (isOnPullRequest()) {
         def buildNumber = String.format( "%03d" , currentBuild.number );

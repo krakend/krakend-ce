@@ -38,11 +38,12 @@ boolean isOnPullRequest() {
 
 // TODO : THIS WILL NEED TO BE UPDATED APPROPRIATELY
 def setTag() {
+    def version = params.VERSION
     
     script.echo "'version=$version'"
     script.echo "'buildNumber=${currentBuild.number}'"
     script.echo "'branch=${env.GIT_BRANCH}'"
-    def version = params.VERSION
+    
     if (isOnPullRequest()) {
         def buildNumber = String.format( "%03d" , currentBuild.number );
         tag = "$version-SNAPSHOT-${LocalDateTime.now().format(DateTimeFormatter.ofPattern('yyyyMMdd'))}${buildNumber}"

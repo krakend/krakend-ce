@@ -39,10 +39,10 @@ boolean isOnPullRequest() {
 // TODO : THIS WILL NEED TO BE UPDATED APPROPRIATELY
 def setTag() {
     def version = params.VERSION
-    
-    script.echo "'version=$version'"
-    script.echo "'buildNumber=${currentBuild.number}'"
-    script.echo "'branch=${env.GIT_BRANCH}'"
+
+    echo "'version=$version'"
+    echo "'buildNumber=${currentBuild.number}'"
+    echo "'branch=${env.GIT_BRANCH}'"
     
     if (isOnPullRequest()) {
         def buildNumber = String.format( "%03d" , currentBuild.number );

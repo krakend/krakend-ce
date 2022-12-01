@@ -12,20 +12,6 @@ optiva.addJobParam(stringParam(name: 'VERSION', defaultValue: '2.1.3',
 optiva.addJobParam(stringParam(name: 'GOLANG_VERSION', defaultValue: '1.19.3'))
 optiva.addJobParam(stringParam(name: 'ALPINE_VERSION', defaultValue: '3.16'))
 
-// Closure makeKrakenD() {
-//     return {
-//         withCredentials([usernamePassword(credentialsId: 'github-app-main',
-//                                   usernameVariable: 'GITHUB_APP',
-//                                   passwordVariable: 'GITHUB_ACCESS_TOKEN')]) {
-//             sh("make docker GITHUB_TOKEN=${GITHUB_APP}:${GITHUB_ACCESS_TOKEN} VERSION=${VERSION}")
-//         }
-//     }
-// }
-
-// def krakendStage() {
-//     optiva.addJobStage(optiva.PRIORITY_AUTO, 'Build KrakenD', makeKrakenD())
-// }
-
 
 def tag
 

@@ -6,7 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 2.1.3
+VERSION := 2.1.4
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
 LICENSE := Apache 2.0
@@ -19,9 +19,9 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.19.3
+GOLANG_VERSION := 1.19.4
 GLIBC_VERSION := $(shell sh find_glibc.sh)
-ALPINE_VERSION := 3.16
+ALPINE_VERSION := 3.17
 OS_TAG :=
 EXTRA_LDFLAGS :=
 

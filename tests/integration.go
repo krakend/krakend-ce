@@ -7,7 +7,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
@@ -277,7 +276,7 @@ func assertResponse(actual *http.Response, expected Output) error {
 	var body interface{}
 
 	if actual.Body != nil {
-		b, err := ioutil.ReadAll(actual.Body)
+		b, err := io.ReadAll(actual.Body)
 		if err != nil {
 			return err
 		}
@@ -362,7 +361,7 @@ func newRequest(in Input) (*http.Request, error) {
 
 func readSpecs(dirPath string) (map[string][]byte, error) {
 	data := map[string][]byte{}
-	files, err := ioutil.ReadDir(dirPath)
+	files, err := os.ReadDir(dirPath)
 	if err != nil {
 		return data, err
 	}
@@ -371,7 +370,7 @@ func readSpecs(dirPath string) (map[string][]byte, error) {
 		if !strings.HasSuffix(file.Name(), ".json") {
 			continue
 		}
-		content, err := ioutil.ReadFile(path.Join(dirPath, file.Name()))
+		content, err := os.ReadFile(path.Join(dirPath, file.Name()))
 		if err != nil {
 			return data, err
 		}

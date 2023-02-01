@@ -31,7 +31,7 @@ require (
 	github.com/krakendio/krakend-pubsub/v2 v2.0.1
 	github.com/krakendio/krakend-ratelimit/v2 v2.0.4
 	github.com/krakendio/krakend-rss/v2 v2.0.1
-	github.com/krakendio/krakend-usage/v2 v2.0.0-20230126150017-6cc0585cd9e7
+	github.com/krakendio/krakend-usage/v2 v2.0.0
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
 	github.com/luraproject/lura/v2 v2.2.3

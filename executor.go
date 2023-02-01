@@ -14,6 +14,7 @@ import (
 
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
 	asyncamqp "github.com/krakendio/krakend-amqp/v2/async"
+	audit "github.com/krakendio/krakend-audit"
 	cel "github.com/krakendio/krakend-cel/v2"
 	cmd "github.com/krakendio/krakend-cobra/v2"
 	cors "github.com/krakendio/krakend-cors/v2/gin"
@@ -33,7 +34,7 @@ import (
 	_ "github.com/krakendio/krakend-opencensus/v2/exporter/xray"
 	_ "github.com/krakendio/krakend-opencensus/v2/exporter/zipkin"
 	pubsub "github.com/krakendio/krakend-pubsub/v2"
-	"github.com/krakendio/krakend-usage/client"
+	usage "github.com/krakendio/krakend-usage/v2"
 	"github.com/luraproject/lura/v2/async"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/core"
@@ -391,11 +392,19 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 		serverID := uuid.NewV4().String()
 		logger.Debug(logPrefix, "Registering usage stats for Cluster ID", clusterID)
 
-		if err := client.StartReporter(ctx, client.Options{
-			ClusterID: clusterID,
-			ServerID:  serverID,
-			Version:   core.KrakendVersion,
-		}); err != nil {
+		s := audit.Parse(&cfg)
+		a, _ := audit.Marshal(&s)
+		if err := usage.Report(
+			ctx,
+			usage.Options{
+				ClusterID:    clusterID,
+				ServerID:     serverID,
+				Version:      core.KrakendVersion,
+				UserAgent:    core.KrakendUserAgent,
+				ExtraPayload: a,
+			},
+			nil,
+		); err != nil {
 			logger.Debug(logPrefix, "Unable to create the usage report client:", err.Error())
 		}
 	}()

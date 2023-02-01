@@ -5,16 +5,17 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.8.2
 	github.com/go-contrib/uuid v1.2.0
-	github.com/krakendio/bloomfilter/v2 v2.0.2
+	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.0.2
+	github.com/krakendio/krakend-audit v0.0.1
 	github.com/krakendio/krakend-botdetector/v2 v2.0.3
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.0.7
+	github.com/krakendio/krakend-cobra/v2 v2.1.0
 	github.com/krakendio/krakend-cors/v2 v2.0.1
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.0.1
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
-	github.com/krakendio/krakend-gologging/v2 v2.0.2
+	github.com/krakendio/krakend-gologging/v2 v2.0.3
 	github.com/krakendio/krakend-httpcache/v2 v2.0.3
 	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
 	github.com/krakendio/krakend-influx/v2 v2.0.2
@@ -30,7 +31,7 @@ require (
 	github.com/krakendio/krakend-pubsub/v2 v2.0.1
 	github.com/krakendio/krakend-ratelimit/v2 v2.0.4
 	github.com/krakendio/krakend-rss/v2 v2.0.1
-	github.com/krakendio/krakend-usage v0.0.0-20220607160923-9d7b69c9bf97
+	github.com/krakendio/krakend-usage/v2 v2.0.0
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
 	github.com/luraproject/lura/v2 v2.2.3
@@ -164,8 +165,8 @@ require (
 	github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.1 // indirect
-	github.com/mattn/go-colorable v0.1.12 // indirect
-	github.com/mattn/go-isatty v0.0.16 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect

@@ -401,8 +401,8 @@ cloud.google.com/go/workflows v1.9.0/go.mod h1:ZGkj1aFIOd9c8Gerkjjq7OW7I5+l6cSvT
 code.cloudfoundry.org/clock v0.0.0-20180518195852-02e53af36e6c/go.mod h1:QD9Lzhd/ux6eNQVUDVRJX/RKTigpewimNYBi7ivZKY8=
 contrib.go.opencensus.io/exporter/aws v0.0.0-20200617204711-c478e41e60e9 h1:yxE46rQA0QaqPGqN2UnwXvgCrRqtjR1CsGSWVTRjvv4=
 contrib.go.opencensus.io/exporter/aws v0.0.0-20200617204711-c478e41e60e9/go.mod h1:uu1P0UCM/6RbsMrgPa98ll8ZcHM858i/AD06a9aLRCA=
-contrib.go.opencensus.io/exporter/jaeger v0.0.0-20190424224017-5b8293c22f36 h1:Oe0S44ULRSQshp5486jLINuIpcgFve2jIn7uVuNkX/w=
-contrib.go.opencensus.io/exporter/jaeger v0.0.0-20190424224017-5b8293c22f36/go.mod h1:ZS6j9oj1eig078QOz7P/OZ8w32G8VdNFBhTFU4+grNA=
+contrib.go.opencensus.io/exporter/jaeger v0.2.1 h1:yGBYzYMewVL0yO9qqJv3Z5+IRhPdU7e9o/2oKpX4YvI=
+contrib.go.opencensus.io/exporter/jaeger v0.2.1/go.mod h1:Y8IsLgdxqh1QxYxPC5IgXVmBaeLUeQFfBeBi9PbeZd0=
 contrib.go.opencensus.io/exporter/ocagent v0.6.0 h1:Z1n6UAyr0QwM284yUuh5Zd8JlvxUGAhFZcgMJkMPrGM=
 contrib.go.opencensus.io/exporter/ocagent v0.6.0/go.mod h1:zmKjrJcdo0aYcVS7bmEeSEBLPA9YJp5bjrofdU3pIXs=
 contrib.go.opencensus.io/exporter/prometheus v0.0.0-20190424224027-f02a6e68f94d h1:3bVURVVF4o9aVQ/9+fnMQjEAKh/73tKTjwpaXGcLrjQ=
@@ -576,7 +576,6 @@ github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kd
 github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20220418222510-f25a4f6275ed h1:ue9pVfIcP+QMEjfgo/Ez4ZjNZfonGgR6NgjMaJMu1Cg=
 github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20220418222510-f25a4f6275ed/go.mod h1:F7bn7fEU90QkQ3tnmaTx3LTKLEDqnwWODIYppRQ5hnY=
 github.com/apache/thrift v0.12.0/go.mod h1:cp2SuWMxlEZw2r+iP2GNCdIi4C1qmUzdZFSVb+bacwQ=
-github.com/apache/thrift v0.13.0 h1:5hryIiq9gtn+MiLVn0wP37kb/uTeRZgN08WoCsAhIhI=
 github.com/apache/thrift v0.13.0/go.mod h1:cp2SuWMxlEZw2r+iP2GNCdIi4C1qmUzdZFSVb+bacwQ=
 github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod h1:3U/XgcO3hCbHZ8TKRvWD2dDTCfh9M9ya+I9JpbB7O8o=
 github.com/armon/consul-api v0.0.0-20180202201655-eb2c6b5be1b6/go.mod h1:grANhF5doyWs3UAsr3K4I6qtAmlQcZDesFNEHPZAzj8=
@@ -1592,8 +1591,8 @@ github.com/krakendio/krakend-metrics/v2 v2.0.1 h1:BFGsbw/Qghfw0OD2+fFRcyavuHWwp7
 github.com/krakendio/krakend-metrics/v2 v2.0.1/go.mod h1:FI79Wv/v1Eq/5jHqOav8dL5jGwNxoG7pTxfJ8GfRUL0=
 github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.1 h1:eC5Nj5KWfI0iO9l8PQ2TYln0MbkmTdvaHqWCz80LUzM=
 github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.1/go.mod h1:E8/TdBssEIiOB0eEUc+vl9JUfPdumkOYMdpFBPDZ6V8=
-github.com/krakendio/krakend-opencensus/v2 v2.0.1 h1:DOu12tJ8Rlo/fpamhxmXUL+Ju5UWgl2s2U3bHFIAj0g=
-github.com/krakendio/krakend-opencensus/v2 v2.0.1/go.mod h1:0rMXvhioPX1HFiwacKQMTfBkPRXaW1xqJM3lZc5B6NM=
+github.com/krakendio/krakend-opencensus/v2 v2.1.0 h1:jvHmWy/f3GpGcZDIr1PJslUBN/V9nn1n8ohiCof7EFI=
+github.com/krakendio/krakend-opencensus/v2 v2.1.0/go.mod h1:FjqE9ThbmLxA5r81ZarA/AduwTDFdEQeDVvE57F2f+I=
 github.com/krakendio/krakend-pubsub/v2 v2.0.1 h1:vuk2oUzgEBUz1aSO+n8C/GagkUvwI/ZAT7aQwn2zUN8=
 github.com/krakendio/krakend-pubsub/v2 v2.0.1/go.mod h1:gf6xDIfnS1OBA7ckD+2ybrTSRP2c6/OOA0bJrRSotnE=
 github.com/krakendio/krakend-ratelimit/v2 v2.0.5 h1:qYP+kiuopYtDlskwMoU/r7goVY/iVOl9VDqYyk2ad1Q=
@@ -2089,6 +2088,9 @@ github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97 h1:dOZJr7CPLi1
 github.com/tmthrgd/go-popcount v0.0.0-20180111143836-3918361d3e97/go.mod h1:FcUQfrsAsSSqM3n9xf4EtPzB8tWzt58/y0AV+wNNM8Q=
 github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926/go.mod h1:9ESjWnEqriFuLhtthL60Sar/7RFoluCcXsuvEwTV5KM=
 github.com/tv42/httpunix v0.0.0-20191220191345-2ba4b9c3382c/go.mod h1:hzIxponao9Kjc7aWznkXaL4U4TWaDSs8zcsY4Ka08nM=
+github.com/uber/jaeger-client-go v2.25.0+incompatible/go.mod h1:WVhlPFC8FDjOFMMWRy2pZqQJSXxYSwNYOkTr/Z6d3Kk=
+github.com/uber/jaeger-client-go v2.28.0+incompatible h1:G4QSBfvPKvg5ZM2j9MrJFdfI5iSljY/WnJqOGFao6HI=
+github.com/uber/jaeger-client-go v2.28.0+incompatible/go.mod h1:WVhlPFC8FDjOFMMWRy2pZqQJSXxYSwNYOkTr/Z6d3Kk=
 github.com/ugorji/go v1.1.4/go.mod h1:uQMGLiO92mf5W77hV/PUCpI3pbzQx3CRekS0kk+RGrc=
 github.com/ugorji/go v1.1.7/go.mod h1:kZn38zHttfInRq0xu/PH0az30d+z6vm202qpg1oXVMw=
 github.com/ugorji/go v1.2.7/go.mod h1:nF9osbDWLy6bDVv/Rtoh6QgnvNDpmCalQV5urGCCS6M=
@@ -2791,7 +2793,6 @@ google.golang.org/api v0.0.0-20160322025152-9bf6e6e569ff/go.mod h1:4mhQ8q/RsB7i+
 google.golang.org/api v0.0.0-20181220000619-583d854617af/go.mod h1:4mhQ8q/RsB7i+udVvVy5NUi08OU8ZlA0gRVgrF7VFY0=
 google.golang.org/api v0.2.0/go.mod h1:IfRCZScioGtypHNTlz3gFk67J8uePVW7uDTBzXuIkhU=
 google.golang.org/api v0.3.1/go.mod h1:6wY9I6uQWHQ8EM57III9mq/AjF+i8G65rmVagqKMtkk=
-google.golang.org/api v0.3.2/go.mod h1:6wY9I6uQWHQ8EM57III9mq/AjF+i8G65rmVagqKMtkk=
 google.golang.org/api v0.4.0/go.mod h1:8k5glujaEP+g9n7WNsDg8QP6cUVNI86fCNMcbazEtwE=
 google.golang.org/api v0.7.0/go.mod h1:WtwebWUNSVBH/HAw79HIFXZNqEvBhG+Ra+ax0hx3E3M=
 google.golang.org/api v0.8.0/go.mod h1:o4eAsZoiT+ibD93RtjEohWalFOjRDx6CVaqeizhEnKg=

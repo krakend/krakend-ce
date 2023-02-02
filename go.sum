@@ -505,11 +505,11 @@ github.com/GoogleCloudPlatform/cloudsql-proxy v1.33.1/go.mod h1:n3KDPrdaY2p9Nr0B
 github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible/go.mod h1:r7JcOSlj0wfOMncg0iLm8Leh48TZaKVeNIfJntJ2wa0=
 github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
 github.com/Masterminds/goutils v1.1.1/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
-github.com/Masterminds/semver v1.5.0 h1:H65muMkzWKEuNDnfl9d70GUjFniHKHRbFPGBuZ3QEww=
-github.com/Masterminds/semver v1.5.0/go.mod h1:MB6lktGJrhw8PrUyiEoblNEGEQ+RzHPF078ddwwvV3Y=
 github.com/Masterminds/semver/v3 v3.1.1/go.mod h1:VPu/7SZ7ePZ3QOrcuXROw5FAcLl4a0cBrbBpGY/8hQs=
-github.com/Masterminds/sprig v2.22.0+incompatible h1:z4yfnGrZ7netVz+0EDJ0Wi+5VZCSYp4Z0m2dk6cEM60=
-github.com/Masterminds/sprig v2.22.0+incompatible/go.mod h1:y6hNFY5UBTIWBxnzTeuNhlNS5hqE0NB0E6fgfo2Br3o=
+github.com/Masterminds/semver/v3 v3.2.0 h1:3MEsd0SM6jqZojhjLWWeBY+Kcjy9i6MQAeY7YgDP83g=
+github.com/Masterminds/semver/v3 v3.2.0/go.mod h1:qvl/7zhW3nngYb5+80sSMF+FG2BjYrf8m9wsX0PNOMQ=
+github.com/Masterminds/sprig/v3 v3.2.3 h1:eL2fZNezLomi0uOLqjQoN6BfsDD+fyLtgbJMAj9n6YA=
+github.com/Masterminds/sprig/v3 v3.2.3/go.mod h1:rXcFaZ2zZbLRJv/xSysmlgIM1u11eBaRMhvYXJNkGuM=
 github.com/Microsoft/go-winio v0.4.11/go.mod h1:VhR8bwka0BXejwEJY73c50VrPtXAaKcyvVC4A4RozmA=
 github.com/Microsoft/go-winio v0.4.14/go.mod h1:qXqCSQ3Xa7+6tgxaGTIe4Kpcdsi+P8jBhyzoq1bpyYA=
 github.com/Microsoft/go-winio v0.4.15-0.20190919025122-fc70bd9a86b5/go.mod h1:tTuCMEN+UleMWgg9dVx4Hu52b1bJo+59jBh3ajtinzw=
@@ -1393,8 +1393,8 @@ github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbg
 github.com/hetznercloud/hcloud-go v1.33.1/go.mod h1:XX/TQub3ge0yWR2yHWmnDVIrB+MQbda1pHxkUmDlUME=
 github.com/hetznercloud/hcloud-go v1.35.3/go.mod h1:mepQwR6va27S3UQthaEPGS86jtzSY9xWL1e9dyxXpgA=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
-github.com/huandu/xstrings v1.3.2 h1:L18LIDzqlW6xN2rEkpdV8+oL/IXWJ1APd+vsdYy4Wdw=
-github.com/huandu/xstrings v1.3.2/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
+github.com/huandu/xstrings v1.3.3 h1:/Gcsuc1x8JVbJ9/rlye4xZnVAbEkGauT8lbebqcQws4=
+github.com/huandu/xstrings v1.3.3/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
 github.com/hudl/fargo v1.3.0/go.mod h1:y3CKSmjA+wD2gak7sUSXTAoopbhU08POFhmITJgmKTg=
 github.com/iancoleman/strcase v0.2.0/go.mod h1:iwCmte+B7n89clKwxIoIXy/HfoL7AsD47ZCWhYzw7ho=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
@@ -1563,8 +1563,8 @@ github.com/krakendio/krakend-cobra/v2 v2.1.0 h1:xBPVafORVxC1U7Hmk/I2NYbDlNHfQ9AJ
 github.com/krakendio/krakend-cobra/v2 v2.1.0/go.mod h1:2uZUMOJFFIgmCBVNva0i5BWL2ShlsTMQhmCWfOS5K+I=
 github.com/krakendio/krakend-cors/v2 v2.0.1 h1:asHWMDW94Bp9SIP1zV9nhOhqAMXyOSxTftpvfBTlhms=
 github.com/krakendio/krakend-cors/v2 v2.0.1/go.mod h1:aqvOcxK4JuhB9rLfcsENz4EeX3QQqsPhc+imeeG5H2E=
-github.com/krakendio/krakend-flexibleconfig/v2 v2.0.1 h1:Z8O8ndVWQa3MnufSLZaA3Cl+Hm1AIW/j4ZAkxjD7cVQ=
-github.com/krakendio/krakend-flexibleconfig/v2 v2.0.1/go.mod h1:SAP3JlqtcGNbEllo5Sd4Q+VnDh3kAtDEAR4DB+i+5TA=
+github.com/krakendio/krakend-flexibleconfig/v2 v2.1.0 h1:nP4SrkIId9OOZHmvlnbJkGGDSlLmxIrBwq2aWifoe7c=
+github.com/krakendio/krakend-flexibleconfig/v2 v2.1.0/go.mod h1:gpI+BkIIhKGRPEzDSYG34DIY+6Gr5+6OCU61SCzJpIU=
 github.com/krakendio/krakend-gelf/v2 v2.0.1 h1:OdcgKUOKvtLwFzoeCm5gAq0Vph6c7Kt6uL4OrxSw/P8=
 github.com/krakendio/krakend-gelf/v2 v2.0.1/go.mod h1:IQBqeIGX8uBZChIdv2gW/sGY1dDv6zpPOr5SOR6kB5M=
 github.com/krakendio/krakend-gologging/v2 v2.0.3 h1:pzmfHkVPhEQ8njFReQ+NCPjSjd4ml6IykIBgqk1+8oQ=
@@ -1985,6 +1985,7 @@ github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAm
 github.com/sergi/go-diff v1.1.0 h1:we8PVUC3FE2uYfodKH/nBHMSetSfHDR6scGdBi+erh0=
 github.com/shoenig/test v0.4.3/go.mod h1:xYtyGBC5Q3kzCNyJg/SjgNpfAa2kvmgA0i5+lQso8x0=
 github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24/go.mod h1:M+9NzErvs504Cn4c5DxATwIqPbtswREoFCre64PpcG4=
+github.com/shopspring/decimal v1.2.0 h1:abSATXmQEYyShuxI4/vyW3tV1MrKAJzCZ/0zLUXYbsQ=
 github.com/shopspring/decimal v1.2.0/go.mod h1:DKyhrW/HYNuLGql+MJL6WCR6knT2jwCFRcu2hWCYk4o=
 github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749/go.mod h1:ZY1cvUeJuFPAdZ/B6v7RHavJWZn2YPVFQ1OSXhCGOkg=
 github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=

@@ -13,7 +13,7 @@ require (
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
 	github.com/krakendio/krakend-cobra/v2 v2.1.0
 	github.com/krakendio/krakend-cors/v2 v2.0.1
-	github.com/krakendio/krakend-flexibleconfig/v2 v2.0.1
+	github.com/krakendio/krakend-flexibleconfig/v2 v2.1.0
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
 	github.com/krakendio/krakend-gologging/v2 v2.0.3
 	github.com/krakendio/krakend-httpcache/v2 v2.0.3
@@ -64,8 +64,8 @@ require (
 	github.com/DataDog/datadog-go v3.4.1+incompatible // indirect
 	github.com/DataDog/opencensus-go-exporter-datadog v0.0.0-20191210083620-6965a1cfed68 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
-	github.com/Masterminds/semver v1.5.0 // indirect
-	github.com/Masterminds/sprig v2.22.0+incompatible // indirect
+	github.com/Masterminds/semver/v3 v3.2.0 // indirect
+	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/PuerkitoBio/goquery v1.5.1 // indirect
 	github.com/Shopify/sarama v1.34.1 // indirect
 	github.com/alecthomas/chroma v0.6.3 // indirect
@@ -141,7 +141,7 @@ require (
 	github.com/hashicorp/vault/api v1.8.2 // indirect
 	github.com/hashicorp/vault/sdk v0.6.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/huandu/xstrings v1.3.2 // indirect
+	github.com/huandu/xstrings v1.3.3 // indirect
 	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/influxdata/influxdb v1.9.7 // indirect
@@ -195,6 +195,7 @@ require (
 	github.com/rs/cors/wrapper/gin v0.0.0-20221003140808-fcebdb403f4d // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
+	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/sony/gobreaker v0.4.1 // indirect
 	github.com/spf13/afero v1.9.2 // indirect
 	github.com/spf13/cast v1.3.1 // indirect

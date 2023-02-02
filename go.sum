@@ -1553,8 +1553,8 @@ github.com/krakendio/krakend-amqp/v2 v2.0.2 h1:+HhAOkjYTL/6cLGooO4ZDwN0VI7L6MQcv
 github.com/krakendio/krakend-amqp/v2 v2.0.2/go.mod h1:p2iHCBKFOPjjzBkBtfiOzmGiZiXfMOeeo9bMa+6/hno=
 github.com/krakendio/krakend-audit v0.0.1 h1:8e6FlPKQY4t3r1ULV8AOr0k5+I8JNR+rV7buwsGRdGY=
 github.com/krakendio/krakend-audit v0.0.1/go.mod h1:ZmcT3eHnkJhusWwhle7hXqRRS+j02xJ/Fbq5zK/W8Qw=
-github.com/krakendio/krakend-botdetector/v2 v2.0.3 h1:Tn3nijjrahuw6K/rX8XE9jeL3GdXZ909iT5hBum2uB8=
-github.com/krakendio/krakend-botdetector/v2 v2.0.3/go.mod h1:5ss3VT0Tt61n362+vzPEggSWRJJ5FuOCzSJBFMbHTgI=
+github.com/krakendio/krakend-botdetector/v2 v2.1.0 h1:MSYQWUbSNq/rhp6wP2ABsVBnXVvfEONSrc46F2rUTGI=
+github.com/krakendio/krakend-botdetector/v2 v2.1.0/go.mod h1:5ss3VT0Tt61n362+vzPEggSWRJJ5FuOCzSJBFMbHTgI=
 github.com/krakendio/krakend-cel/v2 v2.0.1 h1:7qRPelchTia94O7cY3fHSH8CUWxm9Z1KIztiFJGhC+I=
 github.com/krakendio/krakend-cel/v2 v2.0.1/go.mod h1:TuOf89sSyRkpQWjSoEOTDjWpWDJlUccSF2i58QBmfSA=
 github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1 h1:rX5TAbdQa+mISIULDxYdviR7/7yOYCjSimuaXJHFrUA=

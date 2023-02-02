@@ -8,7 +8,7 @@ require (
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.0.2
 	github.com/krakendio/krakend-audit v0.0.1
-	github.com/krakendio/krakend-botdetector/v2 v2.0.3
+	github.com/krakendio/krakend-botdetector/v2 v2.1.0
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
 	github.com/krakendio/krakend-cobra/v2 v2.1.0

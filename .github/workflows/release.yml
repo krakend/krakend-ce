@@ -79,7 +79,8 @@ jobs:
       - name: Generate the artifacts for Debian/Ubuntu/Redhat/Centos (AMD64/ARM64)
         uses: docker://krakend/builder:latest-linux-generic
         with:
-          args: sh -c "export CC=aarch64-linux-gnu-gcc ARCH=arm64 OS_TAG=_generic-linux GOARCH=arm64 GOHOSTARCH=amd64 EXTRA_LDFLAGS='-extld=aarch64-linux-gnu-gcc';
+          args: sh -c "git config --global --add safe.directory /github/workspace;
+           export CC=aarch64-linux-gnu-gcc ARCH=arm64 OS_TAG=_generic-linux GOARCH=arm64 GOHOSTARCH=amd64 EXTRA_LDFLAGS='-extld=aarch64-linux-gnu-gcc';
            make -e build && make -e tgz;
            make clean;
            export CC= GOARCH=amd64 ARCH=amd64 OS_TAG=_generic-linux EXTRA_LDFLAGS=;

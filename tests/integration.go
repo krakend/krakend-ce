@@ -298,19 +298,19 @@ func assertResponse(actual *http.Response, expected Output) error {
 		s, err := json.Marshal(expected.Schema)
 		if err != nil {
 			return responseError{
-				errMessage: append(errMsgs, fmt.Sprintf("problem marshaling the json schema: %s", err)),
+				errMessage: append(errMsgs, fmt.Sprintf("problem marshaling the user provided json-schema: %s", err)),
 			}
 		}
 		schema, err := gojsonschema.NewSchema(gojsonschema.NewBytesLoader(s))
 		if err != nil {
 			return responseError{
-				errMessage: append(errMsgs, fmt.Sprintf("problem generation json schema validator: %s", err)),
+				errMessage: append(errMsgs, fmt.Sprintf("problem generating json-schema schema: %s", err)),
 			}
 		}
 		result, err := schema.Validate(gojsonschema.NewBytesLoader(bodyBytes))
 		if err != nil {
 			return responseError{
-				errMessage: append(errMsgs, fmt.Sprintf("problem marshaling the json schema: %s", err)),
+				errMessage: append(errMsgs, fmt.Sprintf("problem creating the json-schema validator: %s", err)),
 			}
 		}
 		if !result.Valid() {

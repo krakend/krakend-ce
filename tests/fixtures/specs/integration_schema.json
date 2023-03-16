@@ -1,0 +1,38 @@
+{
+    "in": {
+        "method": "GET",
+        "url": "http://localhost:8080/static"
+    },
+    "out": {
+        "status_code": 200,
+        "@comment": "schema is used over the body",
+        "body": "{\"foo\":42,\"bar\":\"foobar\"}",
+        "schema": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "type": "object",
+            "properties": {
+                "foo": {
+                    "type": "integer"
+                },
+                "bar": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "foo",
+                "bar"
+            ]
+        },
+        "header": {
+            "content-type": [
+                "application/json; charset=utf-8"
+            ],
+            "Cache-Control": [
+                "public, max-age=3600"
+            ],
+            "X-Krakend-Completed": [
+                "true"
+            ]
+        }
+    }
+}

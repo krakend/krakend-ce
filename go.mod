@@ -6,7 +6,7 @@ require (
 	github.com/gin-gonic/gin v1.8.2
 	github.com/go-contrib/uuid v1.2.0
 	github.com/krakendio/bloomfilter/v2 v2.0.4
-	github.com/krakendio/krakend-amqp/v2 v2.0.2
+	github.com/krakendio/krakend-amqp/v2 v2.0.0-20230322130405-efe28779b805
 	github.com/krakendio/krakend-audit v0.0.1
 	github.com/krakendio/krakend-botdetector/v2 v2.1.0
 	github.com/krakendio/krakend-cel/v2 v2.0.1
@@ -35,6 +35,7 @@ require (
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
 	github.com/luraproject/lura/v2 v2.2.4
+	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
 	golang.org/x/sync v0.1.0
 )
 
@@ -220,7 +221,6 @@ require (
 	github.com/valyala/fastrand v1.1.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
-	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7 // indirect
 	github.com/yuin/gopher-lua v0.0.0-20190206043414-8bfc7677f583 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.uber.org/atomic v1.10.0 // indirect

@@ -1805,8 +1805,8 @@ github.com/krakendio/flatmap v1.1.1 h1:rGBNVpBY0pMk6cLOwerVzoKY4HELnpu0xvqB231lO
 github.com/krakendio/flatmap v1.1.1/go.mod h1:KBuVkiH5BcBFRa5A1HdSHDn8a8LzsyRTKZArX0vqTbo=
 github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 h1:gB5divkol6FZK6OVGjh7odTsOY3FAESpeq9qyAVCZkc=
 github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5/go.mod h1:VWTP3MZHr/W9OauBMrOQ2bD1rIjDetAQo5JbXCezYKE=
-github.com/krakendio/krakend-amqp/v2 v2.0.2 h1:+HhAOkjYTL/6cLGooO4ZDwN0VI7L6MQcvJeSguGWZcY=
-github.com/krakendio/krakend-amqp/v2 v2.0.2/go.mod h1:p2iHCBKFOPjjzBkBtfiOzmGiZiXfMOeeo9bMa+6/hno=
+github.com/krakendio/krakend-amqp/v2 v2.0.0-20230322130405-efe28779b805 h1:uSfYcioWssAjxl1wJxWwbIMCzN9xG1dnus95YZKw+PM=
+github.com/krakendio/krakend-amqp/v2 v2.0.0-20230322130405-efe28779b805/go.mod h1:p2iHCBKFOPjjzBkBtfiOzmGiZiXfMOeeo9bMa+6/hno=
 github.com/krakendio/krakend-audit v0.0.1 h1:8e6FlPKQY4t3r1ULV8AOr0k5+I8JNR+rV7buwsGRdGY=
 github.com/krakendio/krakend-audit v0.0.1/go.mod h1:ZmcT3eHnkJhusWwhle7hXqRRS+j02xJ/Fbq5zK/W8Qw=
 github.com/krakendio/krakend-botdetector/v2 v2.0.3/go.mod h1:5ss3VT0Tt61n362+vzPEggSWRJJ5FuOCzSJBFMbHTgI=

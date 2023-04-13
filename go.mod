@@ -23,7 +23,7 @@ require (
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.1
-	github.com/krakendio/krakend-lua/v2 v2.0.3
+	github.com/krakendio/krakend-lua/v2 v2.0.4
 	github.com/krakendio/krakend-martian/v2 v2.0.2
 	github.com/krakendio/krakend-metrics/v2 v2.0.1
 	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.1
@@ -70,7 +70,6 @@ require (
 	github.com/PuerkitoBio/goquery v1.5.1 // indirect
 	github.com/Shopify/sarama v1.34.1 // indirect
 	github.com/alecthomas/chroma v0.6.3 // indirect
-	github.com/alexeyco/binder v0.0.0-20180729220023-2a21303f588a // indirect
 	github.com/andybalholm/cascadia v1.1.0 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20220418222510-f25a4f6275ed // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
@@ -156,6 +155,7 @@ require (
 	github.com/juju/ratelimit v1.0.1 // indirect
 	github.com/klauspost/compress v1.15.6 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
+	github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 // indirect
 	github.com/krakendio/flatmap v1.1.1 // indirect
 	github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
@@ -250,5 +250,3 @@ require (
 )
 
 replace github.com/auth0-community/go-auth0 v1.0.0 => github.com/devopsfaith/go-auth0 v0.0.0-20220422124632-a1358a81b559
-
-replace github.com/alexeyco/binder v0.0.0-20180729220023-2a21303f588a => github.com/kpacha/binder v0.0.0-20220707194437-6013d1173c4d

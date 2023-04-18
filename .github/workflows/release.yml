@@ -41,6 +41,7 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
       - name: Build and push KrakenD plugin builder (Alpine)
+        id: container-build
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -52,6 +53,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
       - name: Build and push KrakenD plugin builder (Linux generic)
+        id: container-build-linux-generic
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -61,6 +63,14 @@ jobs:
           push: true
           tags: ${{ steps.meta-linux-generic.outputs.tags }}
           labels: ${{ steps.meta-linux-generic.outputs.labels }}
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3.0.1
+      - name:  Sign image (Alpine)
+        run: |
+          cosign sign -y "docker.io/krakend/builder@${{ steps.container-build.outputs.digest }}"
+      - name:  Sign image (Linux generic)
+        run: |
+          cosign sign -y "docker.io/krakend/builder@${{ steps.container-build-linux-generic.outputs.digest }}"
   generate:
     name: Create release-artifacts
     runs-on: ubuntu-20.04

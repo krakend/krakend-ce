@@ -457,7 +457,7 @@ func (mockBackendBuilder) New(cfg *Config) http.Server {
 	mux.HandleFunc("/redirect/", checkXForwardedFor(http.HandlerFunc(redirectEndpoint)))
 	mux.HandleFunc("/jwk/symmetric", http.HandlerFunc(symmetricJWKEndpoint))
 
-	return http.Server{
+	return http.Server{ // skipcq: GO-S2112
 		Addr:    fmt.Sprintf(":%v", cfg.getBackendPort()),
 		Handler: mux,
 	}

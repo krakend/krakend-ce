@@ -13,7 +13,7 @@
           "foo": 42,
           "headers": {
             "Accept-Encoding": ["gzip"],
-            "User-Agent": ["KrakenD Version 2.2.1"],
+            "User-Agent": ["KrakenD Version 2.3.0"],
             "X-Forwarded-Host": ["localhost:8080"]
           },
           "path": "/param_forwarding/",

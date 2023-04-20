@@ -25,4 +25,4 @@ Darwin*)
   ;;
 esac
 
-echo $GLIBC
+echo "$GLIBC"

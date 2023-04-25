@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE=/tmp/krakend_deps.txt
+FILE=/tmp/krakend_ce_deps.txt
 
 go list -m -u all > "$FILE"
 

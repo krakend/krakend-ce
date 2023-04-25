@@ -1847,8 +1847,8 @@ github.com/krakendio/krakend-httpcache/v2 v2.0.3 h1:VkcxqOOtxIb7ztYqy+4tsfirrLFh
 github.com/krakendio/krakend-httpcache/v2 v2.0.3/go.mod h1:rjZolWXM4TJvntQWzNMJ+2D0cw8RFqQ4h+kwZUKtXuQ=
 github.com/krakendio/krakend-httpsecure/v2 v2.0.1 h1:f7ABi96wOHrtMwaIOeC2TZGK1Tkod3Ptvk6yFEFs+dM=
 github.com/krakendio/krakend-httpsecure/v2 v2.0.1/go.mod h1:skh2WjGLgU0pAFLZx66om5Uzea9UGm7HHzUukevOZFo=
-github.com/krakendio/krakend-influx/v2 v2.0.2 h1:eKexINBvJv5R2FbBVxjKiAgza3lPzmWO0te5CatxiGg=
-github.com/krakendio/krakend-influx/v2 v2.0.2/go.mod h1:XhnMPw7p0UPVK3Y/oB9q8k0kLWkmHX80NjMMMZwsbBs=
+github.com/krakendio/krakend-influx/v2 v2.0.3 h1:Fri9CRZTM/P5iRmThhDgK+FpEkjDbAR6Rp6/QmCY6V4=
+github.com/krakendio/krakend-influx/v2 v2.0.3/go.mod h1:XhnMPw7p0UPVK3Y/oB9q8k0kLWkmHX80NjMMMZwsbBs=
 github.com/krakendio/krakend-jose/v2 v2.0.5/go.mod h1:PGAbTUHFcciVAfArcTipfbZEuyLWuYTs94sG6+Q08LQ=
 github.com/krakendio/krakend-jose/v2 v2.2.0 h1:qqExvQXTds/+PGiU01TxSlldTcNh4IVI7pqrK4kIelI=
 github.com/krakendio/krakend-jose/v2 v2.2.0/go.mod h1:0seZm5tNaiuj2BYd8bACFB/IsYvQqvVBYM8fkQ/8JyY=

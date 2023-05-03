@@ -7,4 +7,4 @@ RUN apk --no-cache --virtual .build-deps add tar make gcc musl-dev binutils-gold
 RUN cd / && wget http://musl.cc/aarch64-linux-musl-cross.tgz && \
     tar zxf aarch64-linux-musl-cross.tgz && rm -f aarch64-linux-musl-cross.tgz
 
-ENV PATH="$PATH:/aarch64-linux-musl-cross/bin"
+ENV PATH="$PATH:/aarch64-linux-musl-cross/bin:/aarch64-linux-musl-cross/aarch64-linux-musl/bin"

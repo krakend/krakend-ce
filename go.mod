@@ -19,7 +19,7 @@ require (
 	github.com/krakendio/krakend-httpcache/v2 v2.0.3
 	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
 	github.com/krakendio/krakend-influx/v2 v2.0.3
-	github.com/krakendio/krakend-jose/v2 v2.2.0
+	github.com/krakendio/krakend-jose/v2 v2.2.1
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.1

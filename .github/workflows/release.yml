@@ -90,7 +90,7 @@ jobs:
         uses: docker://krakend/builder:latest-linux-generic
         with:
           args: sh -c "git config --global --add safe.directory /github/workspace;
-           export CC=aarch64-linux-gnu-gcc ARCH=arm64 OS_TAG=_generic-linux GOARCH=arm64 GOHOSTARCH=amd64 EXTRA_LDFLAGS='-extld=aarch64-linux-gnu-gcc';
+           export CGO_ENABLED=1 CC=aarch64-linux-gnu-gcc ARCH=arm64 OS_TAG=_generic-linux GOARCH=arm64 GOHOSTARCH=amd64 EXTRA_LDFLAGS='-extld=aarch64-linux-gnu-gcc';
            make -e build && make -e tgz;
            make clean;
            export CC= GOARCH=amd64 ARCH=amd64 OS_TAG=_generic-linux EXTRA_LDFLAGS=;
@@ -115,8 +115,8 @@ jobs:
           args: sh -c "export GOARCH=amd64 ARCH=amd64 OS_TAG=_alpine;
            make -e build && make -e tgz;
            make clean;
-           export ARCH=arm64 OS_TAG=_alpine GOARCH=arm64 GOHOSTARCH=amd64;
-           export CC=aarch64-linux-musl-gcc EXTRA_LDFLAGS='-extld=aarch64-linux-musl-gcc';
+           export CGO_ENABLED=1 ARCH=arm64 OS_TAG=_alpine GOARCH=arm64 GOHOSTARCH=amd64;
+           export CC=aarch64-linux-musl-gcc EXTRA_LDFLAGS='-extldflags=-fuse-ld=bfd  -extld=aarch64-linux-musl-gcc';
            make -e build && make -e tgz"
       - name: ASC files
         run: for i in $(ls *.tar.gz *.deb *.rpm);

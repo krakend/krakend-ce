@@ -186,7 +186,7 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 	}
 
 	if bb == nil {
-		bb = defaultBackendBuilder
+		bb = DefaultBackendBuilder
 	}
 
 	backend := bb.New(cfg)
@@ -443,7 +443,7 @@ func (krakendCmdBuilder) getEnviron(cfg *Config) []string {
 	return environ
 }
 
-var defaultBackendBuilder mockBackendBuilder
+var DefaultBackendBuilder mockBackendBuilder
 
 type mockBackendBuilder struct{}
 

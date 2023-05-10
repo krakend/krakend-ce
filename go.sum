@@ -1880,8 +1880,9 @@ github.com/krakendio/krakend-usage/v2 v2.0.0 h1:VRurDgCzA5hAwhbi+rGDLLSZrIhv+ziL
 github.com/krakendio/krakend-usage/v2 v2.0.0/go.mod h1:27cscXxuKHOD7MPxaCq6sJBK00yfNKzVhc0yLGhm/hc=
 github.com/krakendio/krakend-viper/v2 v2.0.1 h1:OqLcyDt2vIeOJCvnCx0JRtZtqLTbp/2wQ1t41qXBh0g=
 github.com/krakendio/krakend-viper/v2 v2.0.1/go.mod h1:Oi+MiMnIzTAtF0Z2QkDJ9WWPQ3NuKAeSQWiJYmYdkGU=
-github.com/krakendio/krakend-xml/v2 v2.0.1 h1:JmBr47iKJzUIZgiMBqJOZdMH6DMoz+wY/RzfcBq8U7w=
 github.com/krakendio/krakend-xml/v2 v2.0.1/go.mod h1:jXbb2bLORTb8DY1iF1l629lHR+/AKlIWsNfZ62ll3kw=
+github.com/krakendio/krakend-xml/v2 v2.1.0 h1:LXxaP2didbRiE4NV0mETEbb5aHaFwYDPsDoWPN554yU=
+github.com/krakendio/krakend-xml/v2 v2.1.0/go.mod h1:jXbb2bLORTb8DY1iF1l629lHR+/AKlIWsNfZ62ll3kw=
 github.com/kylelemons/godebug v0.0.0-20160406211939-eadb3ce320cb/go.mod h1:B69LEHPfb2qLo0BaaOLcbitczOKLWTsrBG9LczfCD4k=
 github.com/kylelemons/godebug v0.0.0-20170820004349-d65d576e9348/go.mod h1:B69LEHPfb2qLo0BaaOLcbitczOKLWTsrBG9LczfCD4k=
 github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0SNc=

@@ -80,6 +80,20 @@ type BackendBuilder interface {
 	New(*Config) http.Server
 }
 
+// GenericServer defines an interface to launch a server that
+// could be an http.Server, a different type, or a wrapper
+// around multiple servers.
+type GenericServer interface {
+	Close() error
+	ListenAndServe() error
+}
+
+// ComposableBackendBuilder allows us to return
+// a more generic interface for any kind of server.
+type ComposableBackendBuilder interface {
+	NewGenericServer(*Config) GenericServer
+}
+
 // Config contains options for running a test.
 type Config struct {
 	BinPath         string
@@ -189,7 +203,15 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 		bb = DefaultBackendBuilder
 	}
 
-	backend := bb.New(cfg)
+	var backend GenericServer
+	cbb, ok := bb.(ComposableBackendBuilder)
+	if ok {
+		backend = cbb.NewGenericServer(cfg)
+	} else {
+		httpServer := bb.New(cfg)
+		backend = &httpServer
+	}
+
 	closeFuncs = append(closeFuncs, func() { backend.Close() })
 
 	go func() {

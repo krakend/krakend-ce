@@ -19,7 +19,7 @@ Linux*)
     fi
     ;;
 Darwin*)
-    GLIBC=DARWIN-$(sw_vers | grep ProductVersion | cut -d$'\t' -f2)
+    GLIBC=DARWIN-$(sw_vers | grep ProductVersion: | tr -s '\t' | cut -d$'\t' -f2)
     ;;
 *)
   ;;

@@ -1872,8 +1872,8 @@ github.com/krakendio/krakend-opencensus/v2 v2.1.0/go.mod h1:FjqE9ThbmLxA5r81ZarA
 github.com/krakendio/krakend-pubsub/v2 v2.0.1 h1:vuk2oUzgEBUz1aSO+n8C/GagkUvwI/ZAT7aQwn2zUN8=
 github.com/krakendio/krakend-pubsub/v2 v2.0.1/go.mod h1:gf6xDIfnS1OBA7ckD+2ybrTSRP2c6/OOA0bJrRSotnE=
 github.com/krakendio/krakend-ratelimit/v2 v2.0.4/go.mod h1:fm4qNMlZ/FEVGRmP4FGZ8FE3I13J/rwSPwNtGMM4BZs=
-github.com/krakendio/krakend-ratelimit/v2 v2.0.5 h1:qYP+kiuopYtDlskwMoU/r7goVY/iVOl9VDqYyk2ad1Q=
-github.com/krakendio/krakend-ratelimit/v2 v2.0.5/go.mod h1:fm4qNMlZ/FEVGRmP4FGZ8FE3I13J/rwSPwNtGMM4BZs=
+github.com/krakendio/krakend-ratelimit/v2 v2.0.6 h1:mspb8F6Kzb9ZeO4d+M0PDelXQXh4ymVwFuJvoPwE804=
+github.com/krakendio/krakend-ratelimit/v2 v2.0.6/go.mod h1:fm4qNMlZ/FEVGRmP4FGZ8FE3I13J/rwSPwNtGMM4BZs=
 github.com/krakendio/krakend-rss/v2 v2.0.1 h1:PMmgqUMhMNAyGS6xiTLpUJ/IeWGQ5QOCo8GJ6l9tvSo=
 github.com/krakendio/krakend-rss/v2 v2.0.1/go.mod h1:qDWMJMgZJ0b94uPboqeJY/XlG4sKRsxGyfjGuu8FPPY=
 github.com/krakendio/krakend-usage/v2 v2.0.0 h1:VRurDgCzA5hAwhbi+rGDLLSZrIhv+ziLqF6LFGaNII4=
@@ -1909,8 +1909,8 @@ github.com/luraproject/lura/v2 v2.0.5/go.mod h1:r2N4j89Snm1j+Y9CCa9cYR1T2ETRL0E4
 github.com/luraproject/lura/v2 v2.1.0/go.mod h1:lkKDcV0O3jEK7fX/gGI7/fbkrDUOMKRqe442Xa3KRPQ=
 github.com/luraproject/lura/v2 v2.2.3/go.mod h1:Outo/8O5zqa2itP1wD/mdD5nskjo09R74EbMVgr1L98=
 github.com/luraproject/lura/v2 v2.2.6/go.mod h1:VFj2EuOq4W/AqQY96Si3/D9vUrNups+s/XoXOHhjSvs=
-github.com/luraproject/lura/v2 v2.2.7 h1:z4N9Snfefj9UIWGKZCxyD1ThAq/bHfrm9jk9VSBPtSY=
-github.com/luraproject/lura/v2 v2.2.7/go.mod h1:VFj2EuOq4W/AqQY96Si3/D9vUrNups+s/XoXOHhjSvs=
+github.com/luraproject/lura/v2 v2.2.8 h1:1obuLhPvFkh+8M/ggMtHe/B0FlaY5+Ix+LzTsqSD030=
+github.com/luraproject/lura/v2 v2.2.8/go.mod h1:VFj2EuOq4W/AqQY96Si3/D9vUrNups+s/XoXOHhjSvs=
 github.com/lyft/protoc-gen-star v0.6.0/go.mod h1:TGAoBVkt8w7MPG72TrKIu85MIdXwDuzJYeZuUPFPNwA=
 github.com/lyft/protoc-gen-star v0.6.1/go.mod h1:TGAoBVkt8w7MPG72TrKIu85MIdXwDuzJYeZuUPFPNwA=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=

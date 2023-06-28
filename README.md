@@ -2,6 +2,7 @@
 
 # KrakenD
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkrakendio%2Fkrakend-ce.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkrakendio%2Fkrakend-ce?ref=badge_shield)
+
 KrakenD is an extensible, ultra-high performance API Gateway that helps you effortlessly adopt microservices and secure communications. KrakenD is easy to operate and run and scales out without a single point of failure.
 
 **KrakenD Community Edition** (or *KrakenD-CE*) is the open-source distribution of [KrakenD](https://www.krakend.io).

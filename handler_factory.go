@@ -9,7 +9,7 @@ import (
 	lua "github.com/krakendio/krakend-lua/v2/router/gin"
 	metrics "github.com/krakendio/krakend-metrics/v2/gin"
 	opencensus "github.com/krakendio/krakend-opencensus/v2/router/gin"
-	juju "github.com/krakendio/krakend-ratelimit/v2/juju/router/gin"
+	ratelimit "github.com/krakendio/krakend-ratelimit/v3/router/gin"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/logging"
 	"github.com/luraproject/lura/v2/proxy"
@@ -22,7 +22,7 @@ import (
 // NewHandlerFactory returns a HandlerFactory with a rate-limit and a metrics collector middleware injected
 func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, rejecter jose.RejecterFactory) router.HandlerFactory {
 	handlerFactory := router.CustomErrorEndpointHandler(logger, server.DefaultToHTTPError)
-	handlerFactory = juju.NewRateLimiterMw(logger, handlerFactory)
+	handlerFactory = ratelimit.NewRateLimiterMw(logger, handlerFactory)
 	handlerFactory = lua.HandlerFactory(logger, handlerFactory)
 	handlerFactory = ginjose.HandlerFactory(handlerFactory, logger, rejecter)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)

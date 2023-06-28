@@ -15,7 +15,7 @@ import (
 	oauth2client "github.com/krakendio/krakend-oauth2-clientcredentials/v2"
 	opencensus "github.com/krakendio/krakend-opencensus/v2"
 	pubsub "github.com/krakendio/krakend-pubsub/v2"
-	juju "github.com/krakendio/krakend-ratelimit/v2/juju/proxy"
+	ratelimit "github.com/krakendio/krakend-ratelimit/v3/proxy"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/logging"
 	"github.com/luraproject/lura/v2/proxy"
@@ -58,7 +58,7 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	backendFactory = lambda.BackendFactory(logger, backendFactory)
 	backendFactory = cel.BackendFactory(logger, backendFactory)
 	backendFactory = lua.BackendFactory(logger, backendFactory)
-	backendFactory = juju.BackendFactory(logger, backendFactory)
+	backendFactory = ratelimit.BackendFactory(logger, backendFactory)
 	backendFactory = cb.BackendFactory(backendFactory, logger)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
 	backendFactory = opencensus.BackendFactory(backendFactory)

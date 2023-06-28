@@ -7,6 +7,7 @@
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 VERSION := 2.4.0
+SCHEMA_VERSION := $(shell echo "${VERSION}" | cut -d '.' -f 1,2)
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
 LICENSE := Apache 2.0
@@ -57,7 +58,8 @@ build:
 	@go get .
 	@go build -ldflags="-X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
 	-X github.com/luraproject/lura/v2/core.GoVersion=${GOLANG_VERSION} \
-	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION} ${EXTRA_LDFLAGS}" \
+	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION} ${EXTRA_LDFLAGS} \
+	-X github.com/krakendio/krakend-cobra/v2.SchemaURL=https://www.krakend.io/schema/v${SCHEMA_VERSION}/krakend.json" \
 	-o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"
 

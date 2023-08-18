@@ -317,6 +317,11 @@ func assertResponse(actual *http.Response, expected Output) error {
 	}
 
 	if len(expected.Schema) != 0 {
+		if len(bodyBytes) == 0 {
+			return responseError{
+				errMessage: append(errMsgs, "cannot validate empty body"),
+			}
+		}
 		s, err := json.Marshal(expected.Schema)
 		if err != nil {
 			return responseError{
@@ -332,7 +337,7 @@ func assertResponse(actual *http.Response, expected Output) error {
 		result, err := schema.Validate(gojsonschema.NewBytesLoader(bodyBytes))
 		if err != nil {
 			return responseError{
-				errMessage: append(errMsgs, fmt.Sprintf("problem creating the json-schema validator: %s", err)),
+				errMessage: append(errMsgs, fmt.Sprintf("problem validating the body: %s", err)),
 			}
 		}
 		if !result.Valid() {

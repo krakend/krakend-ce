@@ -48,10 +48,11 @@ var (
 
 // TestCase defines a single case to be tested
 type TestCase struct {
-	Name string `json:"name"`
-	Err  string `json:"error"`
-	In   Input  `json:"in"`
-	Out  Output `json:"out"`
+	Name string     `json:"name"`
+	Err  string     `json:"error"`
+	In   Input      `json:"in"`
+	Out  Output     `json:"out"`
+	Next []TestCase `json:"next"`
 }
 
 // Input is the definition of the request to send in a given TestCase

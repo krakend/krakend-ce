@@ -36,7 +36,6 @@ require (
 	github.com/krakendio/krakend-xml/v2 v2.1.0
 	github.com/luraproject/lura/v2 v2.3.0
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
-	go.opencensus.io v0.24.0
 	golang.org/x/sync v0.1.0
 )
 
@@ -157,7 +156,7 @@ require (
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/juju/ratelimit v1.0.1 // indirect
-	github.com/klauspost/compress v1.15.6 // indirect
+	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
 	github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 // indirect
@@ -178,9 +177,9 @@ require (
 	github.com/mmcdole/goxpp v0.0.0-20181012175147-0068e33feabf // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/nats-io/nats-server/v2 v2.7.4 // indirect
-	github.com/nats-io/nats.go v1.13.1-0.20220308171302-2f2f6968e98d // indirect
-	github.com/nats-io/nkeys v0.3.0 // indirect
+	github.com/nats-io/nats-server/v2 v2.9.23 // indirect
+	github.com/nats-io/nats.go v1.28.0 // indirect
+	github.com/nats-io/nkeys v0.4.4 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
@@ -228,6 +227,7 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/yuin/gopher-lua v0.0.0-20190206043414-8bfc7677f583 // indirect
+	go.opencensus.io v0.24.0 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
 	gocloud.dev v0.28.0 // indirect
 	gocloud.dev/pubsub/kafkapubsub v0.25.0 // indirect
@@ -241,7 +241,7 @@ require (
 	golang.org/x/oauth2 v0.4.0 // indirect
 	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
-	golang.org/x/time v0.2.0 // indirect
+	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/api v0.103.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect

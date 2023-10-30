@@ -2095,10 +2095,14 @@ github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1 h1:rX5TAbdQa+mISIULDxYdviR
 github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1/go.mod h1:PCbRQGfUOToK2Uw48gm9rZ8Mzb4qLGZnX4876Fu9CpQ=
 github.com/krakendio/krakend-cobra/v2 v2.2.0 h1:ohxFewuBZdXMgoQgXZJqWNADuX4UVNTGXiQUB05WXfc=
 github.com/krakendio/krakend-cobra/v2 v2.2.0/go.mod h1:2uZUMOJFFIgmCBVNva0i5BWL2ShlsTMQhmCWfOS5K+I=
+github.com/krakendio/krakend-cobra/v2 v2.2.1-0.20231027153113-089c1cf7d5a4 h1:tBddjNeIdGIn+gTblG+FeqAt/q1Qr3yJW2o8ikc7tQk=
+github.com/krakendio/krakend-cobra/v2 v2.2.1-0.20231027153113-089c1cf7d5a4/go.mod h1:2uZUMOJFFIgmCBVNva0i5BWL2ShlsTMQhmCWfOS5K+I=
 github.com/krakendio/krakend-cors/v2 v2.0.1 h1:asHWMDW94Bp9SIP1zV9nhOhqAMXyOSxTftpvfBTlhms=
 github.com/krakendio/krakend-cors/v2 v2.0.1/go.mod h1:aqvOcxK4JuhB9rLfcsENz4EeX3QQqsPhc+imeeG5H2E=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.1.0 h1:nP4SrkIId9OOZHmvlnbJkGGDSlLmxIrBwq2aWifoe7c=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.1.0/go.mod h1:gpI+BkIIhKGRPEzDSYG34DIY+6Gr5+6OCU61SCzJpIU=
+github.com/krakendio/krakend-flexibleconfig/v2 v2.1.1-0.20231030112704-b41b99a1808e h1:PsDD9VgNhGf2IBWBnlW+fxWsMbQ0xg4M6lQeuXycvfo=
+github.com/krakendio/krakend-flexibleconfig/v2 v2.1.1-0.20231030112704-b41b99a1808e/go.mod h1:DkssM+w1DFI+zXAcWBFtOPGxNgWWO4iUwrnWvjJvTQo=
 github.com/krakendio/krakend-gelf/v2 v2.0.1 h1:OdcgKUOKvtLwFzoeCm5gAq0Vph6c7Kt6uL4OrxSw/P8=
 github.com/krakendio/krakend-gelf/v2 v2.0.1/go.mod h1:IQBqeIGX8uBZChIdv2gW/sGY1dDv6zpPOr5SOR6kB5M=
 github.com/krakendio/krakend-gologging/v2 v2.0.1/go.mod h1:ar6rViGYhsxtiCfxGeh7b7Djbh5wMIBXsyBKudADLJs=

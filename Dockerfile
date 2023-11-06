@@ -19,6 +19,8 @@ RUN apk add --no-cache ca-certificates tzdata && \
     mkdir /etc/krakend && \
     echo '{ "version": 3 }' > /etc/krakend/krakend.json
 
+RUN apk update && apk upgrade --no-cache libcrypto3 libssl3
+
 COPY --from=builder /app/krakend /usr/bin/krakend
 
 USER 1000

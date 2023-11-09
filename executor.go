@@ -156,6 +156,10 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		logger.Info(fmt.Sprintf("Starting KrakenD v%s", core.KrakendVersion))
 		startReporter(ctx, logger, cfg)
 
+		if wd, err := os.Getwd(); err == nil {
+			logger.Info("Working directory is", wd)
+		}
+
 		if cfg.Plugin != nil {
 			e.PluginLoader.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
 		}

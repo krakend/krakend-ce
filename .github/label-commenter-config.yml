@@ -19,7 +19,7 @@ labels:
           - It does not use the issue template
           - It's unrelated to the project (e.g., related to one of its libraries)
           - It does not follow the technical philosophy of the project
-          - Violates our [Code of Conduct](https://github.com/krakendio/.github/blob/main/CODE_OF_CONDUCT.md)
+          - Violates our [Code of Conduct](https://github.com/krakend/.github/blob/main/CODE_OF_CONDUCT.md)
           - It's about KrakenD Enterprise functionalities (contact [Enterprise support](https://www.krakend.io/support/) instead)
 
           You can still make an edit or leave additional comments that lead to reopening this issue.
@@ -34,7 +34,7 @@ labels:
           - Contains insufficient details, it's unclear for the reviewer, or it's impossible to move forward without a lot of interaction
           - It's unrelated to the project (e.g., related to one of its libraries)
           - It does not follow the philosophy of the project
-          - Violates our [Code of Conduct](https://github.com/krakendio/.github/blob/main/CODE_OF_CONDUCT.md)
+          - Violates our [Code of Conduct](https://github.com/krakend/.github/blob/main/CODE_OF_CONDUCT.md)
 
           You can still make an edit or leave additional comments that lead to reopening this issue.
         action: close

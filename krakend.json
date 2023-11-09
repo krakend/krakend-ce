@@ -1,4 +1,5 @@
 {
+    "$schema": "https://www.krakend.io/schema/v2.5/krakend.json",
     "version": 3,
     "name": "My lovely gateway",
     "port": 8080,

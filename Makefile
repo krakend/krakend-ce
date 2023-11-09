@@ -59,7 +59,6 @@ build:
 	@go build -ldflags="-X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
 	-X github.com/luraproject/lura/v2/core.GoVersion=${GOLANG_VERSION} \
 	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION} ${EXTRA_LDFLAGS} \
-	-X github.com/krakendio/krakend-cobra/v2.SchemaURL=https://www.krakend.io/schema/v${SCHEMA_VERSION}/krakend.json" \
 	-o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"
 

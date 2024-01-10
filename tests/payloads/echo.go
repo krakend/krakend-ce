@@ -6,23 +6,34 @@ import (
 	"net/http"
 )
 
-func EchoEndpoint(rw http.ResponseWriter, r *http.Request) {
-	rw.Header().Add("Content-Type", "application/json")
-	rw.Header().Add("Set-Cookie", "test1=test1")
-	rw.Header().Add("Set-Cookie", "test2=test2")
-	r.Header.Del("X-Forwarded-For")
-	resp := map[string]interface{}{
-		"path":    r.URL.Path,
-		"query":   r.URL.Query(),
-		"headers": r.Header,
-		"foo":     42,
-	}
+func EchoBuilder() http.HandlerFunc {
 
-	if r.URL.Query().Get("dump_body") == "1" {
-		b, _ := io.ReadAll(r.Body)
-		r.Body.Close()
-		resp["body"] = string(b)
-	}
+	return func(rw http.ResponseWriter, r *http.Request) {
+		resp := map[string]interface{}{
+			"path":    r.URL.Path,
+			"query":   r.URL.Query(),
+			"headers": r.Header,
+			"foo":     42,
+		}
 
-	json.NewEncoder(rw).Encode(resp)
+		if r.URL.Query().Get("dump_body") == "1" {
+			b, _ := io.ReadAll(r.Body)
+			r.Body.Close()
+			resp["body"] = string(b)
+		}
+
+		json.NewEncoder(rw).Encode(resp)
+	}
+}
+
+func DefaultEchoEndpoint() http.HandlerFunc {
+	return AddResponseHeaders(
+		RemoveRequestHeader(
+			EchoBuilder(), []string{"X-Forwarded-For"}),
+		http.Header{
+			"Content-Type": []string{"application/json"},
+			"Set-Cookie": []string{
+				"test1=test1",
+				"test2=test2",
+			}})
 }

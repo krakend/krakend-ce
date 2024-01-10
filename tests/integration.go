@@ -8,7 +8,6 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"net"
 	"net/http"
 	"net/textproto"
 	"os"
@@ -16,7 +15,6 @@ import (
 	"path"
 	"reflect"
 	"regexp"
-	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -469,126 +467,4 @@ func (krakendCmdBuilder) getEnviron(cfg *Config) []string {
 	}
 
 	return environ
-}
-
-var DefaultBackendBuilder mockBackendBuilder
-
-type mockBackendBuilder struct{}
-
-func (mockBackendBuilder) New(cfg *Config) http.Server {
-	mux := http.NewServeMux()
-
-	mux.HandleFunc("/param_forwarding/", checkXForwardedFor(http.HandlerFunc(echoEndpoint)))
-	mux.HandleFunc("/xml", checkXForwardedFor(http.HandlerFunc(xmlEndpoint)))
-	mux.HandleFunc("/collection/", checkXForwardedFor(http.HandlerFunc(collectionEndpoint)))
-	mux.HandleFunc("/delayed/", checkXForwardedFor(delayedEndpoint(cfg.getDelay(), http.HandlerFunc(echoEndpoint))))
-	mux.HandleFunc("/redirect/", checkXForwardedFor(http.HandlerFunc(redirectEndpoint)))
-	mux.HandleFunc("/jwk/symmetric", http.HandlerFunc(symmetricJWKEndpoint))
-
-	return http.Server{ // skipcq: GO-S2112
-		Addr:    fmt.Sprintf(":%v", cfg.getBackendPort()),
-		Handler: mux,
-	}
-}
-
-func collectionEndpoint(rw http.ResponseWriter, r *http.Request) {
-	rw.Header().Add("Content-Type", "application/json")
-	var res []interface{}
-
-	for i := 0; i < 10; i++ {
-		res = append(res, map[string]interface{}{
-			"path": r.URL.Path,
-			"i":    i,
-		})
-	}
-
-	json.NewEncoder(rw).Encode(res)
-}
-
-func checkXForwardedFor(h http.Handler) http.HandlerFunc {
-	return func(rw http.ResponseWriter, r *http.Request) {
-		if ip := net.ParseIP(r.Header.Get("X-Forwarded-For")); ip == nil || !ip.IsLoopback() {
-			http.Error(rw, "invalid X-Forwarded-For", 400)
-			return
-		}
-		h.ServeHTTP(rw, r)
-	}
-}
-
-func delayedEndpoint(d time.Duration, h http.Handler) http.HandlerFunc {
-	return func(rw http.ResponseWriter, req *http.Request) {
-		<-time.After(d)
-		h.ServeHTTP(rw, req)
-	}
-}
-
-func xmlEndpoint(rw http.ResponseWriter, _ *http.Request) {
-	rw.Header().Add("Content-Type", "application/xml; charset=utf-8")
-	rw.Write([]byte(`<?xml version="1.0" encoding="UTF-8"?>
-<user type="admin">
-  <name>Elliot</name>
-  <social>
-    <facebook>https://facebook.com</facebook>
-    <twitter>https://twitter.com</twitter>
-    <youtube>https://youtube.com</youtube>
-  </social>
-</user>`))
-}
-
-func echoEndpoint(rw http.ResponseWriter, r *http.Request) {
-	rw.Header().Add("Content-Type", "application/json")
-	rw.Header().Add("Set-Cookie", "test1=test1")
-	rw.Header().Add("Set-Cookie", "test2=test2")
-	r.Header.Del("X-Forwarded-For")
-	resp := map[string]interface{}{
-		"path":    r.URL.Path,
-		"query":   r.URL.Query(),
-		"headers": r.Header,
-		"foo":     42,
-	}
-
-	if r.URL.Query().Get("dump_body") == "1" {
-		b, _ := io.ReadAll(r.Body)
-		r.Body.Close()
-		resp["body"] = string(b)
-	}
-
-	json.NewEncoder(rw).Encode(resp)
-}
-
-func redirectEndpoint(rw http.ResponseWriter, r *http.Request) {
-	u := r.URL
-	u.Path = "/param_forwarding/"
-
-	status, ok2 := r.URL.Query()["status"]
-	code := 301
-	if !ok2 || status[0] != "301" {
-		var err error
-		code, err = strconv.Atoi(status[0])
-		if err != nil {
-			http.Error(rw, err.Error(), http.StatusBadRequest)
-			return
-		}
-	}
-	http.Redirect(rw, r, u.String(), code)
-}
-
-func symmetricJWKEndpoint(rw http.ResponseWriter, _ *http.Request) {
-	rw.Header().Add("Content-Type", "application/json")
-	rw.Write([]byte(`{
-  "keys": [
-    {
-      "kty": "oct",
-      "alg": "A128KW",
-      "k": "GawgguFyGrWKav7AX4VKUg",
-      "kid": "sim1"
-    },
-    {
-      "kty": "oct",
-      "k": "AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow",
-      "kid": "sim2",
-      "alg": "HS256"
-    }
-  ]
-}`))
 }

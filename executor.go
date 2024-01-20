@@ -87,8 +87,8 @@ type ProxyFactory interface {
 	NewProxyFactory(logging.Logger, proxy.BackendFactory, *metrics.Metrics) proxy.Factory
 }
 
-type ProxyFactoryWithOTEL interface {
-	NewProxyFactoryWithOTEL(logging.Logger, proxy.BackendFactory) proxy.Factory
+type ProxyFactoryWithConfig interface {
+	NewProxyFactoryWithConfig(logging.Logger, proxy.BackendFactory, *metrics.Metrics, *config.ServiceConfig) proxy.Factory
 }
 
 // BackendFactory returns a KrakenD backend factory, ready to be passed to the KrakenD proxy factory
@@ -189,11 +189,19 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
 
-		pf := e.ProxyFactory.NewProxyFactory(
-			logger,
-			e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
-			metricCollector,
-		)
+		var bpf proxy.BackendFactory
+		if bfwc, ok := e.BackendFactory.(BackendFactoryWithConfig); ok {
+			bpf = bfwc.NewBackendFactoryWithConfig(ctx, logger, metricCollector, &cfg)
+		} else {
+			bpf = e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector)
+		}
+
+		var pf proxy.Factory
+		if pfwc, ok := e.ProxyFactory.(ProxyFactoryWithConfig); ok {
+			pf = pfwc.NewProxyFactoryWithConfig(logger, bpf, metricCollector, &cfg)
+		} else {
+			pf = e.ProxyFactory.NewProxyFactory(logger, bpf, metricCollector)
+		}
 
 		agentPing := make(chan string, len(cfg.AsyncAgents))
 

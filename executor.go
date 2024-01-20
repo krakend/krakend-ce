@@ -12,6 +12,10 @@ import (
 	"github.com/go-contrib/uuid"
 	"golang.org/x/sync/errgroup"
 
+	kotel "github.com/krakend/krakend-otel"
+	otelconfig "github.com/krakend/krakend-otel/config"
+	otelgin "github.com/krakend/krakend-otel/router/gin"
+	otelstate "github.com/krakend/krakend-otel/state"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
 	asyncamqp "github.com/krakendio/krakend-amqp/v2/async"
 	audit "github.com/krakendio/krakend-audit"
@@ -162,6 +166,11 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			return
 		}
 
+		if err := kotel.Register(ctx, cfg); err != nil {
+			logger.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
+			// TODO: check if we should return, or we continue running
+		}
+
 		logger.Info(fmt.Sprintf("Starting KrakenD v%s", core.KrakendVersion))
 		startReporter(ctx, logger, cfg)
 
@@ -205,6 +214,11 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 
 		agentPing := make(chan string, len(cfg.AsyncAgents))
 
+		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
+		if otelCfg, err := otelconfig.FromLura(cfg); err != nil {
+			handlerF = otelgin.New(handlerF, otelstate.GlobalState, otelCfg.Layers.Router, otelCfg.SkipPaths)
+		}
+
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
 			Engine: e.EngineFactory.NewEngine(cfg, router.EngineOptions{
@@ -215,7 +229,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			ProxyFactory:   pf,
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
-			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
+			HandlerFactory: handlerF,
 			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger))),
 		})
 

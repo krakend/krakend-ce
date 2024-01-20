@@ -87,9 +87,18 @@ type ProxyFactory interface {
 	NewProxyFactory(logging.Logger, proxy.BackendFactory, *metrics.Metrics) proxy.Factory
 }
 
+type ProxyFactoryWithOTEL interface {
+	NewProxyFactoryWithOTEL(logging.Logger, proxy.BackendFactory) proxy.Factory
+}
+
 // BackendFactory returns a KrakenD backend factory, ready to be passed to the KrakenD proxy factory
 type BackendFactory interface {
 	NewBackendFactory(context.Context, logging.Logger, *metrics.Metrics) proxy.BackendFactory
+}
+
+type BackendFactoryWithConfig interface {
+	NewBackendFactoryWithConfig(context.Context, logging.Logger,
+		*metrics.Metrics, *config.ServiceConfig) proxy.BackendFactory
 }
 
 // HandlerFactory returns a KrakenD router handler factory, ready to be passed to the KrakenD RouterFactory

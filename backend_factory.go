@@ -2,8 +2,12 @@ package krakend
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
+	otelconfig "github.com/krakend/krakend-otel/config"
+	otellura "github.com/krakend/krakend-otel/lura"
+	otelstate "github.com/krakend/krakend-otel/state"
 	amqp "github.com/krakendio/krakend-amqp/v2"
 	cel "github.com/krakendio/krakend-cel/v2"
 	cb "github.com/krakendio/krakend-circuitbreaker/v2/gobreaker/proxy"
@@ -39,8 +43,7 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 	return NewBackendFactoryWithContext(context.Background(), logger, metricCollector)
 }
 
-// NewBackendFactoryWithContext creates a BackendFactory by stacking all the available middlewares and injecting the received context
-func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+func newRequestExecutorFactory(logger logging.Logger, serviceCfg *config.ServiceConfig) func(*config.Backend) client.HTTPRequestExecutor {
 	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
 		clientFactory := client.NewHTTPClient
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
@@ -48,9 +51,24 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 		} else {
 			clientFactory = httpcache.NewHTTPClient(cfg, clientFactory)
 		}
+
+		if serviceCfg != nil {
+			otelCfg, _ := otelconfig.FromLura(*serviceCfg)
+			if otelCfg != nil {
+				clientFactory = otellura.InstrumentedHTTPClientFactory(clientFactory,
+					cfg, otelCfg.Layers.Backend, otelCfg.SkipPaths, otelstate.GlobalState)
+			}
+		}
+
+		// TODO: check what happens if we have both, opencensus and otel enabled ?
 		return opencensus.HTTPRequestExecutorFromConfig(clientFactory, cfg)
 	}
-	requestExecutorFactory = httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
+	return httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
+}
+
+func newBackendFactory(ctx context.Context, requestExecutorFactory func(*config.Backend) client.HTTPRequestExecutor,
+	logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
 	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = bf.New
@@ -69,8 +87,38 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	}
 }
 
+// NewBackendFactoryWithContext creates a BackendFactory by stacking all the available middlewares and injecting the received context
+func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+	requestExecutorFactory := newRequestExecutorFactory(logger, nil)
+	return newBackendFactory(ctx, requestExecutorFactory, logger, metricCollector)
+}
+
+func NewBackendFactoryWithServiceConfig(ctx context.Context, logger logging.Logger,
+	metricCollector *metrics.Metrics, serviceConfig *config.ServiceConfig) proxy.BackendFactory {
+
+	if serviceConfig == nil {
+		return NewBackendFactoryWithContext(ctx, logger, metricCollector)
+	}
+
+	_, err := otelconfig.FromLura(*serviceConfig)
+	if err != nil {
+		if !errors.Is(err, otelconfig.ErrNoConfig) {
+			logger.Error(fmt.Sprintf("cannot load OpenTelemetry config: %s", err.Error()))
+		}
+		return NewBackendFactoryWithContext(ctx, logger, metricCollector)
+	}
+	requestExecutorFactory := newRequestExecutorFactory(logger, serviceConfig)
+	return newBackendFactory(ctx, requestExecutorFactory, logger, metricCollector)
+}
+
 type backendFactory struct{}
 
 func (backendFactory) NewBackendFactory(ctx context.Context, l logging.Logger, m *metrics.Metrics) proxy.BackendFactory {
 	return NewBackendFactoryWithContext(ctx, l, m)
+}
+
+func (backendFactory) NewBackendFactoryWithConfig(ctx context.Context, l logging.Logger,
+	metrics *metrics.Metrics, cfg *config.ServiceConfig) proxy.BackendFactory {
+	return nil
+	// return NewBackendFactoryWithServiceConfig(
 }

@@ -118,7 +118,7 @@ func (backendFactory) NewBackendFactoryWithConfig(ctx context.Context, l logging
 	if serviceCfg != nil {
 		var err error
 		otelCfg, err = otelconfig.FromLura(*serviceCfg)
-		if !errors.Is(err, otelconfig.ErrNoConfig) {
+		if err != nil && !errors.Is(err, otelconfig.ErrNoConfig) {
 			l.Error(fmt.Sprintf("cannot load OpenTelemetry config: %s", err.Error()))
 		}
 	}

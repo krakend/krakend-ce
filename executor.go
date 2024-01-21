@@ -215,7 +215,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		agentPing := make(chan string, len(cfg.AsyncAgents))
 
 		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
-		if otelCfg, err := otelconfig.FromLura(cfg); err != nil {
+		if otelCfg, err := otelconfig.FromLura(cfg); err == nil {
 			handlerF = otelgin.New(handlerF, otelstate.GlobalState, otelCfg.Layers.Router, otelCfg.SkipPaths)
 		}
 

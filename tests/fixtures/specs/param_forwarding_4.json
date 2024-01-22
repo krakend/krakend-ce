@@ -17,7 +17,7 @@
 			"headers":{
 				"Accept-Encoding":["gzip"],
 				"Authorization":["bearer 123456"],
-				"User-Agent":["KrakenD Version 2.5.0"],
+				"User-Agent":["KrakenD Version 2.5.1"],
 				"X-Forwarded-Host":["localhost:8080"],
 				"X-Y-Z":["true"]
 			},

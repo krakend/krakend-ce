@@ -14,6 +14,7 @@ import (
 
 	kotel "github.com/krakend/krakend-otel"
 	otelconfig "github.com/krakend/krakend-otel/config"
+	otellura "github.com/krakend/krakend-otel/lura"
 	otelgin "github.com/krakend/krakend-otel/router/gin"
 	otelstate "github.com/krakend/krakend-otel/state"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
@@ -215,10 +216,15 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		agentPing := make(chan string, len(cfg.AsyncAgents))
 
 		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
-		if otelCfg, err := otelconfig.FromLura(cfg); err == nil {
-			handlerF = otelgin.New(handlerF, otelstate.GlobalState, otelCfg.Layers.Router, otelCfg.SkipPaths)
+		otelCfg, err := otelconfig.FromLura(cfg)
+		if err == nil {
+			handlerF = otelgin.New(handlerF, otelstate.GlobalState, otelCfg.Layers.Global, otelCfg.SkipPaths)
 		}
 
+		runServerChain := router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger)))
+		if otelCfg != nil {
+			runServerChain = otellura.GlobalRunServer(logger, otelCfg, otelstate.GlobalState, runServerChain)
+		}
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
 			Engine: e.EngineFactory.NewEngine(cfg, router.EngineOptions{
@@ -230,7 +236,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
 			HandlerFactory: handlerF,
-			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger))),
+			RunServer:      runServerChain,
 		})
 
 		// start the engines

@@ -167,10 +167,11 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			return
 		}
 
-		if err := kotel.Register(ctx, cfg); err != nil {
+		shutdownFn, err := kotel.Register(ctx, cfg)
+		if err != nil {
 			logger.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
-			// TODO: check if we should return, or we continue running
 		}
+		defer shutdownFn()
 
 		logger.Info(fmt.Sprintf("Starting KrakenD v%s", core.KrakendVersion))
 		startReporter(ctx, logger, cfg)
@@ -218,7 +219,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
 		otelCfg, err := otelconfig.FromLura(cfg)
 		if err == nil {
-			handlerF = otelgin.New(handlerF, otelstate.GlobalState, otelCfg.Layers.Global, otelCfg.SkipPaths)
+			handlerF = otelgin.New(handlerF, otelstate.GlobalState, otelCfg.SkipPaths)
 		}
 
 		runServerChain := router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger)))

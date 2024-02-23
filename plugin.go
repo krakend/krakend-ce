@@ -1,6 +1,8 @@
 package krakend
 
 import (
+	"context"
+
 	"github.com/luraproject/lura/v2/logging"
 	proxy "github.com/luraproject/lura/v2/proxy/plugin"
 	client "github.com/luraproject/lura/v2/transport/http/client/plugin"
@@ -9,6 +11,10 @@ import (
 
 // LoadPlugins loads and registers the plugins so they can be used if enabled at the configuration
 func LoadPlugins(folder, pattern string, logger logging.Logger) {
+	LoadPluginsWithContext(context.Background(), folder, pattern, logger)
+}
+
+func LoadPluginsWithContext(ctx context.Context, folder, pattern string, logger logging.Logger) {
 	logger.Debug("[SERVICE: Plugin Loader] Starting loading process")
 
 	n, err := client.LoadWithLogger(
@@ -27,7 +33,8 @@ func LoadPlugins(folder, pattern string, logger logging.Logger) {
 	)
 	logPluginLoaderErrors(logger, "[SERVICE: Handler Plugin]", n, err)
 
-	n, err = proxy.LoadWithLogger(
+	n, err = proxy.LoadWithLoggerAndContext(
+		ctx,
 		folder,
 		pattern,
 		proxy.RegisterModifier,
@@ -57,6 +64,10 @@ type pluginLoader struct{}
 
 func (pluginLoader) Load(folder, pattern string, logger logging.Logger) {
 	LoadPlugins(folder, pattern, logger)
+}
+
+func (pluginLoader) LoadWithContext(ctx context.Context, folder, pattern string, logger logging.Logger) {
+	LoadPluginsWithContext(ctx, folder, pattern, logger)
 }
 
 type pluginLoaderErr interface {

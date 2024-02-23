@@ -68,27 +68,28 @@ require (
 	github.com/Masterminds/semver/v3 v3.2.1 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/PuerkitoBio/goquery v1.8.1 // indirect
-	github.com/Shopify/sarama v1.34.1 // indirect
+	github.com/Shopify/sarama v1.38.0 // indirect
+	github.com/Shopify/toxiproxy/v2 v2.7.0 // indirect
 	github.com/alecthomas/chroma v0.6.3 // indirect
 	github.com/andybalholm/cascadia v1.3.2 // indirect
 	github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20220418222510-f25a4f6275ed // indirect
-	github.com/aws/aws-sdk-go v1.47.13 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.23.0 // indirect
-	github.com/aws/aws-sdk-go-v2/config v1.25.2 // indirect
-	github.com/aws/aws-sdk-go-v2/credentials v1.16.1 // indirect
-	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.14.4 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/configsources v1.2.3 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.5.3 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/ini v1.7.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.10.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.10.3 // indirect
-	github.com/aws/aws-sdk-go-v2/service/kms v1.26.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sns v1.21.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sqs v1.24.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sso v1.17.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.19.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sts v1.25.2 // indirect
-	github.com/aws/smithy-go v1.17.0 // indirect
+	github.com/aws/aws-sdk-go v1.50.24 // indirect
+	github.com/aws/aws-sdk-go-v2 v1.25.1 // indirect
+	github.com/aws/aws-sdk-go-v2/config v1.27.3 // indirect
+	github.com/aws/aws-sdk-go-v2/credentials v1.17.3 // indirect
+	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.15.1 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.1 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.1 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/ini v1.8.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.11.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.11.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/kms v1.29.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sns v1.29.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sqs v1.31.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sso v1.20.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.23.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sts v1.28.0 // indirect
+	github.com/aws/smithy-go v1.20.1 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bytedance/sonic v1.10.2 // indirect
 	github.com/catalinc/hashcash v0.0.0-20161205220751-e6bc29ff4de9 // indirect
@@ -101,7 +102,7 @@ require (
 	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/dlclark/regexp2 v1.1.6 // indirect
-	github.com/eapache/go-resiliency v1.2.0 // indirect
+	github.com/eapache/go-resiliency v1.3.0 // indirect
 	github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21 // indirect
 	github.com/eapache/queue v1.1.0 // indirect
 	github.com/fatih/color v1.16.0 // indirect
@@ -148,8 +149,8 @@ require (
 	github.com/influxdata/influxdb v1.9.7 // indirect
 	github.com/jcmturner/aescts/v2 v2.0.0 // indirect
 	github.com/jcmturner/dnsutils/v2 v2.0.0 // indirect
-	github.com/jcmturner/gofork v1.0.0 // indirect
-	github.com/jcmturner/gokrb5/v8 v8.4.2 // indirect
+	github.com/jcmturner/gofork v1.7.6 // indirect
+	github.com/jcmturner/gokrb5/v8 v8.4.3 // indirect
 	github.com/jcmturner/rpc/v2 v2.0.3 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -185,10 +186,10 @@ require (
 	github.com/philhofer/fwd v1.0.0 // indirect
 	github.com/pierrec/lz4/v4 v4.1.18 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
-	github.com/prometheus/client_golang v1.16.0 // indirect
-	github.com/prometheus/client_model v0.4.0 // indirect
+	github.com/prometheus/client_golang v1.17.0 // indirect
+	github.com/prometheus/client_model v0.4.1-0.20230718164431-9a2bf3000d16 // indirect
 	github.com/prometheus/common v0.44.0 // indirect
-	github.com/prometheus/procfs v0.11.0 // indirect
+	github.com/prometheus/procfs v0.11.1 // indirect
 	github.com/prometheus/prometheus v0.46.0 // indirect
 	github.com/prometheus/statsd_exporter v0.22.7 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect

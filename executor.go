@@ -219,7 +219,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
 		otelCfg, err := otelconfig.FromLura(cfg)
 		if err == nil {
-			handlerF = otelgin.New(handlerF, otelstate.GlobalState, otelCfg.SkipPaths)
+			handlerF = otelgin.New(handlerF, otelCfg.SkipPaths)
 		}
 
 		runServerChain := router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger)))

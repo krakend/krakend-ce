@@ -1620,6 +1620,10 @@ github.com/krakend/krakend-otel v0.0.0-20240129183430-9537b9a4adc3 h1:QFjXRpDZOP
 github.com/krakend/krakend-otel v0.0.0-20240129183430-9537b9a4adc3/go.mod h1:6gt2TN3Zos59wewX/I1kjvbRFe01ge8bNh8M72U3brk=
 github.com/krakend/krakend-otel v0.0.0-20240212120929-eb8a41d628f3 h1:KV4PyluScUI3x0mfrYou8AON+k33HdNcJjJfieuAfZ0=
 github.com/krakend/krakend-otel v0.0.0-20240212120929-eb8a41d628f3/go.mod h1:zHDsctx9ez9Y9XJO5NcNEdVfbOwTWJL9XAjneH0QWEM=
+github.com/krakend/krakend-otel v0.0.0-20240216215535-bfe4a9270953 h1:1cplAKmpdTb7W/roJMhybIDPwUKxAtkY7mcB6me4zVY=
+github.com/krakend/krakend-otel v0.0.0-20240216215535-bfe4a9270953/go.mod h1:zHDsctx9ez9Y9XJO5NcNEdVfbOwTWJL9XAjneH0QWEM=
+github.com/krakend/krakend-otel v0.0.0-20240223155131-5288d4d7a592 h1:9XTvMrKoCFuMPOB/rMNRsLjfQO1wAuiJpf0OeTbf3NY=
+github.com/krakend/krakend-otel v0.0.0-20240223155131-5288d4d7a592/go.mod h1:ACpL7a9Dndem6wQgy/9IaNBbMqFmJJQhAcG+jygtOQY=
 github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 h1:5UbGH+Sa62LMtbBn6m3EEcaA4JFxaDd91X/X0SsZuO8=
 github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45/go.mod h1:VgJK/LM9NwyIxzYETGXQeRxdDg0IgBw4Fol58JVx2+4=
 github.com/krakendio/bloomfilter/v2 v2.0.4 h1:+FCe52Izx4mZgFevvifOMF+3WbbhmZT0xZnrnUE4C0U=
@@ -1705,6 +1709,8 @@ github.com/luraproject/lura/v2 v2.4.0 h1:GjdLTAHAuI3NGLKSUBBnTCavlqh6xKjc4wDj84x
 github.com/luraproject/lura/v2 v2.4.0/go.mod h1:GaJ74BcWX1iqAm2+byZ2tjI710XOEjeSRGEDtvbboUw=
 github.com/luraproject/lura/v2 v2.4.3-0.20240111145738-b6784e5701d8 h1:4pF3U9I7/umw9hbfbFywtNoYfNgyNB5Uc2JYf5LEX5Y=
 github.com/luraproject/lura/v2 v2.4.3-0.20240111145738-b6784e5701d8/go.mod h1:TtCVCrb7VHJEnrV3y3CyZlnRpMr562oR11NYcemS5sQ=
+github.com/luraproject/lura/v2 v2.5.1-0.20240216134027-7bca41332dd6 h1:l6x9g2vFnuINCbhFESvAlUOQHJXeEH0ho+8fWf+0zuQ=
+github.com/luraproject/lura/v2 v2.5.1-0.20240216134027-7bca41332dd6/go.mod h1:TtCVCrb7VHJEnrV3y3CyZlnRpMr562oR11NYcemS5sQ=
 github.com/lyft/protoc-gen-star v0.6.0/go.mod h1:TGAoBVkt8w7MPG72TrKIu85MIdXwDuzJYeZuUPFPNwA=
 github.com/lyft/protoc-gen-star v0.6.1/go.mod h1:TGAoBVkt8w7MPG72TrKIu85MIdXwDuzJYeZuUPFPNwA=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=

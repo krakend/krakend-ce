@@ -53,8 +53,14 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 }
 
 // PluginLoader defines the interface for the collaborator responsible of starting the plugin loaders
+// Deprecated: Use PluginLoaderWithContext
 type PluginLoader interface {
 	Load(folder, pattern string, logger logging.Logger)
+}
+
+// PluginLoaderWithContext defines the interface for the collaborator responsible of starting the plugin loaders
+type PluginLoaderWithContext interface {
+	LoadWithContext(ctx context.Context, folder, pattern string, logger logging.Logger)
 }
 
 // SubscriberFactoriesRegister registers all the required subscriber factories from the available service
@@ -123,8 +129,10 @@ type AgentStarter interface {
 
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
 type ExecutorBuilder struct {
-	LoggerFactory               LoggerFactory
+	// PluginLoader is deprecated: Use PluginLoaderWithContext
 	PluginLoader                PluginLoader
+	PluginLoaderWithContext     PluginLoaderWithContext
+	LoggerFactory               LoggerFactory
 	SubscriberFactoriesRegister SubscriberFactoriesRegister
 	TokenRejecterFactory        TokenRejecterFactory
 	MetricsAndTracesRegister    MetricsAndTracesRegister
@@ -161,7 +169,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		}
 
 		if cfg.Plugin != nil {
-			e.PluginLoader.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
+			e.PluginLoaderWithContext.LoadWithContext(ctx, cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
 		}
 
 		metricCollector := e.MetricsAndTracesRegister.Register(ctx, cfg, logger)
@@ -237,6 +245,9 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 func (e *ExecutorBuilder) checkCollaborators() {
 	if e.PluginLoader == nil {
 		e.PluginLoader = new(pluginLoader)
+	}
+	if e.PluginLoaderWithContext == nil {
+		e.PluginLoaderWithContext = new(pluginLoader)
 	}
 	if e.SubscriberFactoriesRegister == nil {
 		e.SubscriberFactoriesRegister = new(registerSubscriberFactories)

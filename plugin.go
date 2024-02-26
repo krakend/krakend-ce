@@ -94,7 +94,6 @@ var (
 		Example: "krakend test-plugin -scm ./plugins/my_plugin.so ./plugins/my_other_plugin.so",
 	}
 
-	pluginPathFlag       cmd.FlagBuilder
 	serverExpectedFlag   cmd.FlagBuilder
 	clientExpectedFlag   cmd.FlagBuilder
 	modifierExpectedFlag cmd.FlagBuilder
@@ -131,8 +130,8 @@ func testPluginFunc(ccmd *cobra.Command, args []string) {
 	for _, pluginPath := range args {
 		name := filepath.Base(pluginPath)
 		folder := filepath.Dir(pluginPath)
-
 		ok := true
+
 		if serverExpected {
 			ok = checkHandlerPlugin(ccmd, folder, name) && ok
 		}
@@ -154,15 +153,12 @@ func testPluginFunc(ccmd *cobra.Command, args []string) {
 
 	cancel()
 
-	if globalOK {
-		ccmd.Println(fmt.Sprintf("[OK] %d tested plugin(s) in %s", len(args), time.Since(start)))
-	} else {
-		ccmd.Println(fmt.Sprintf("[KO] %d tested plugin(s) in %s.\n%d plugin(s) failed.", len(args), time.Since(start), failed))
-	}
-
 	if !globalOK {
+		ccmd.Println(fmt.Sprintf("[KO] %d tested plugin(s) in %s.\n%d plugin(s) failed.", len(args), time.Since(start), failed))
 		os.Exit(1)
 	}
+
+	ccmd.Println(fmt.Sprintf("[OK] %d tested plugin(s) in %s", len(args), time.Since(start)))
 }
 
 func checkClientPlugin(ccmd *cobra.Command, folder, name string) bool {

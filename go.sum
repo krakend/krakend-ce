@@ -1626,6 +1626,8 @@ github.com/krakend/krakend-otel v0.0.0-20240223155131-5288d4d7a592 h1:9XTvMrKoCF
 github.com/krakend/krakend-otel v0.0.0-20240223155131-5288d4d7a592/go.mod h1:ACpL7a9Dndem6wQgy/9IaNBbMqFmJJQhAcG+jygtOQY=
 github.com/krakend/krakend-otel v0.0.0-20240227072839-9c1c2e4d3e1b h1:hHN5msN2qxKCisZpwSJpIJCMlxCPTujo+E8tUSGWGcc=
 github.com/krakend/krakend-otel v0.0.0-20240227072839-9c1c2e4d3e1b/go.mod h1:ACpL7a9Dndem6wQgy/9IaNBbMqFmJJQhAcG+jygtOQY=
+github.com/krakend/krakend-otel v0.0.0-20240227211527-07f342ac0376 h1:EqMIJnywp2H1hkDYsfL5YW2hS/mgHmiB8ce3bKIlaOo=
+github.com/krakend/krakend-otel v0.0.0-20240227211527-07f342ac0376/go.mod h1:ACpL7a9Dndem6wQgy/9IaNBbMqFmJJQhAcG+jygtOQY=
 github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 h1:5UbGH+Sa62LMtbBn6m3EEcaA4JFxaDd91X/X0SsZuO8=
 github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45/go.mod h1:VgJK/LM9NwyIxzYETGXQeRxdDg0IgBw4Fol58JVx2+4=
 github.com/krakendio/bloomfilter/v2 v2.0.4 h1:+FCe52Izx4mZgFevvifOMF+3WbbhmZT0xZnrnUE4C0U=

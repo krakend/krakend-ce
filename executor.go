@@ -167,7 +167,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			return
 		}
 
-		shutdownFn, err := kotel.Register(ctx, cfg)
+		shutdownFn, err := kotel.Register(ctx, logger, cfg)
 		if err != nil {
 			logger.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
 		}

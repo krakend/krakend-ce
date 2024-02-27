@@ -222,10 +222,12 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			handlerF = otelgin.New(handlerF, otelCfg.SkipPaths)
 		}
 
-		runServerChain := router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger)))
+		runServerChain := serverhttp.RunServerWithLoggerFactory(logger)
 		if otelCfg != nil {
 			runServerChain = otellura.GlobalRunServer(logger, otelCfg, otelstate.GlobalState, runServerChain)
 		}
+		runServerChain = router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, runServerChain))
+
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
 			Engine: e.EngineFactory.NewEngine(cfg, router.EngineOptions{

@@ -57,6 +57,18 @@ func main() {
 		})
 	}
 
+	commandsToLoad := []cmd.Command{
+		cmd.RunCommand,
+		cmd.CheckCommand,
+		cmd.PluginCommand,
+		cmd.VersionCommand,
+		cmd.AuditCommand,
+		krakend.NewTestPluginCmd(),
+	}
+
+	cmd.DefaultRoot = cmd.NewRoot(cmd.RootCommand, commandsToLoad...)
+	cmd.DefaultRoot.Cmd.CompletionOptions.DisableDefaultCmd = true
+
 	cmd.Execute(cfg, krakend.NewExecutor(ctx))
 }
 

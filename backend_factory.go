@@ -62,7 +62,7 @@ func newRequestExecutorFactory(logger logging.Logger, otelCfg *otelconfig.Config
 	return httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
 }
 
-func newBackendFactory(ctx context.Context, requestExecutorFactory func(*config.Backend) client.HTTPRequestExecutor,
+func internalNewBackendFactory(ctx context.Context, requestExecutorFactory func(*config.Backend) client.HTTPRequestExecutor,
 	logger logging.Logger, metricCollector *metrics.Metrics, otelCfg *otelconfig.Config) proxy.BackendFactory {
 
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
@@ -91,7 +91,7 @@ func newBackendFactory(ctx context.Context, requestExecutorFactory func(*config.
 // NewBackendFactoryWithContext creates a BackendFactory by stacking all the available middlewares and injecting the received context
 func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
 	requestExecutorFactory := newRequestExecutorFactory(logger, nil)
-	return newBackendFactory(ctx, requestExecutorFactory, logger, metricCollector, nil)
+	return internalNewBackendFactory(ctx, requestExecutorFactory, logger, metricCollector, nil)
 }
 
 func newBackendFactoryWithOTELConfig(ctx context.Context, logger logging.Logger,
@@ -102,7 +102,7 @@ func newBackendFactoryWithOTELConfig(ctx context.Context, logger logging.Logger,
 	}
 
 	requestExecutorFactory := newRequestExecutorFactory(logger, otelCfg)
-	return newBackendFactory(ctx, requestExecutorFactory, logger, metricCollector, otelCfg)
+	return internalNewBackendFactory(ctx, requestExecutorFactory, logger, metricCollector, otelCfg)
 }
 
 type backendFactory struct{}

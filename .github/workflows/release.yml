@@ -123,6 +123,33 @@ jobs:
          do gpg --armor --detach $i;
          sha512sum $i >> checksums.txt;
          done
+      - name: Cache artifacts
+        id: cache
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            *.tar.gz
+            *.asc
+            *.deb
+            *.rpm
+            checksums.txt
+          key: ${{github.ref}}-artifacts
+  upload:
+     name: Upload release-artifacts
+     runs-on: ubuntu-20.04
+     needs: generate
+     steps:
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            *.tar.gz
+            *.asc
+            *.deb
+            *.rpm
+            checksums.txt
+          key: ${{github.ref}}-artifacts
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
         env:

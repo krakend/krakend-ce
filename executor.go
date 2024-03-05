@@ -180,13 +180,6 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			return
 		}
 
-		otelCfgFn := otelconfig.MemoizedConfigParser(otelconfig.FromLura)
-		shutdownFn, err := kotel.Register(ctx, logger, cfg)
-		if err != nil {
-			logger.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
-		}
-		defer shutdownFn()
-
 		logger.Info(fmt.Sprintf("Starting KrakenD v%s", core.KrakendVersion))
 		startReporter(ctx, logger, cfg)
 
@@ -199,6 +192,9 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		}
 
 		metricCollector := e.MetricsAndTracesRegister.Register(ctx, cfg, logger)
+		if metricsAndTracesCloser, ok := e.MetricsAndTracesRegister.(io.Closer); ok {
+			defer metricsAndTracesCloser.Close()
+		}
 
 		// Initializes the global cache for the JWK clients if enabled in the config
 		if err := jose.SetGlobalCacher(logger, cfg.ExtraConfig); err != nil && err != jose.ErrNoValidatorCfg {
@@ -218,6 +214,8 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		pf := e.ProxyFactoryWithConfig.NewProxyFactoryWithConfig(logger, bpf, metricCollector, &cfg)
 
 		agentPing := make(chan string, len(cfg.AsyncAgents))
+
+		otelCfgFn := otelconfig.MemoizedConfigParser(otelconfig.FromLura)
 
 		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
 		handlerF = otelgin.New(handlerF, &cfg, otelCfgFn)
@@ -400,10 +398,12 @@ func (BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.ServiceCo
 }
 
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.
-type MetricsAndTraces struct{}
+type MetricsAndTraces struct {
+	shutdownFn func()
+}
 
 // Register registers the metrics, influx and opencensus packages as required by the given configuration.
-func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
+func (m MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
 
 	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
@@ -422,7 +422,19 @@ func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, 
 		l.Debug("[SERVICE: OpenCensus] Service correctly registered")
 	}
 
+	if shutdownFn, err := kotel.Register(ctx, l, cfg); err == nil {
+		m.shutdownFn = shutdownFn
+	} else {
+		l.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
+	}
+
 	return metricCollector
+}
+
+func (m MetricsAndTraces) Close() {
+	if m.shutdownFn != nil {
+		m.shutdownFn()
+	}
 }
 
 const (

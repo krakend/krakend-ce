@@ -151,11 +151,16 @@ type ExecutorBuilder struct {
 	TokenRejecterFactory        TokenRejecterFactory
 	MetricsAndTracesRegister    MetricsAndTracesRegister
 	EngineFactory               EngineFactory
-	ProxyFactory                ProxyFactory
-	BackendFactory              BackendFactory
-	HandlerFactory              HandlerFactory
-	RunServerFactory            RunServerFactory
-	AgentStarterFactory         AgentStarter
+
+	// ProxyFactory is deprecated: Use ProxyFactoryWithConfig
+	ProxyFactory           ProxyFactory
+	ProxyFactoryWithConfig ProxyFactoryWithConfig
+	// BackendFactory is deprecated: Use BackendFactoryWithConfig
+	BackendFactory           BackendFactory
+	BackendFactoryWithConfig BackendFactoryWithConfig
+	HandlerFactory           HandlerFactory
+	RunServerFactory         RunServerFactory
+	AgentStarterFactory      AgentStarter
 
 	Middlewares []gin.HandlerFunc
 }
@@ -175,6 +180,7 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			return
 		}
 
+		otelCfgFn := otelconfig.MemoizedConfigParser(otelconfig.FromLura)
 		shutdownFn, err := kotel.Register(ctx, logger, cfg)
 		if err != nil {
 			logger.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
@@ -208,32 +214,17 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
 
-		var bpf proxy.BackendFactory
-		if bfwc, ok := e.BackendFactory.(BackendFactoryWithConfig); ok {
-			bpf = bfwc.NewBackendFactoryWithConfig(ctx, logger, metricCollector, &cfg)
-		} else {
-			bpf = e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector)
-		}
-
-		var pf proxy.Factory
-		if pfwc, ok := e.ProxyFactory.(ProxyFactoryWithConfig); ok {
-			pf = pfwc.NewProxyFactoryWithConfig(logger, bpf, metricCollector, &cfg)
-		} else {
-			pf = e.ProxyFactory.NewProxyFactory(logger, bpf, metricCollector)
-		}
+		bpf := e.BackendFactoryWithConfig.NewBackendFactoryWithConfig(ctx, logger, metricCollector, &cfg)
+		pf := e.ProxyFactoryWithConfig.NewProxyFactoryWithConfig(logger, bpf, metricCollector, &cfg)
 
 		agentPing := make(chan string, len(cfg.AsyncAgents))
 
 		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
-		otelCfg, err := otelconfig.FromLura(cfg)
-		if err == nil {
-			handlerF = otelgin.New(handlerF, otelCfg.SkipPaths)
-		}
+		handlerF = otelgin.New(handlerF, &cfg, otelCfgFn)
 
 		runServerChain := serverhttp.RunServerWithLoggerFactory(logger)
-		if otelCfg != nil {
-			runServerChain = otellura.GlobalRunServer(logger, otelCfg, otelstate.GlobalState, runServerChain)
-		}
+		runServerChain = otellura.GlobalRunServer(logger, &cfg, otelstate.GlobalState,
+			otelCfgFn, runServerChain)
 		runServerChain = router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, runServerChain))
 
 		// setup the krakend router
@@ -304,8 +295,14 @@ func (e *ExecutorBuilder) checkCollaborators() {
 	if e.ProxyFactory == nil {
 		e.ProxyFactory = new(proxyFactory)
 	}
+	if e.ProxyFactoryWithConfig == nil {
+		e.ProxyFactoryWithConfig = new(proxyFactory)
+	}
 	if e.BackendFactory == nil {
 		e.BackendFactory = new(backendFactory)
+	}
+	if e.BackendFactoryWithConfig == nil {
+		e.BackendFactoryWithConfig = new(backendFactory)
 	}
 	if e.HandlerFactory == nil {
 		e.HandlerFactory = new(handlerFactory)

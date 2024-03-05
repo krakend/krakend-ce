@@ -461,6 +461,8 @@ github.com/krakend/go-auth0 v1.0.0 h1:dewhsVnquDStTXaRY5OOCL+i4oe+qKbDpaNz9D6Kzu
 github.com/krakend/go-auth0 v1.0.0/go.mod h1:lJtS6u8y1mai4lFcE3JC2oSDQaNo2aXexTS0cqTblZU=
 github.com/krakend/krakend-otel v0.1.0 h1:tABQ90JQQ+FJ6hL3ZpfDf1zgfkKU+xDCAExM7wAeB3E=
 github.com/krakend/krakend-otel v0.1.0/go.mod h1:BHe8HiYJ7d45Rk/wGN0XtBtJBsyeNxUIZF+YMlgorbA=
+github.com/krakend/krakend-otel v0.1.1-0.20240305190110-01ffdc62b627 h1:eShXVys6OmHYtxQa+o69jJ12kYllEjlJCRbMw2OaApA=
+github.com/krakend/krakend-otel v0.1.1-0.20240305190110-01ffdc62b627/go.mod h1:BHe8HiYJ7d45Rk/wGN0XtBtJBsyeNxUIZF+YMlgorbA=
 github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 h1:5UbGH+Sa62LMtbBn6m3EEcaA4JFxaDd91X/X0SsZuO8=
 github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45/go.mod h1:VgJK/LM9NwyIxzYETGXQeRxdDg0IgBw4Fol58JVx2+4=
 github.com/krakendio/bloomfilter/v2 v2.0.4 h1:+FCe52Izx4mZgFevvifOMF+3WbbhmZT0xZnrnUE4C0U=

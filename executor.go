@@ -13,10 +13,8 @@ import (
 	"golang.org/x/sync/errgroup"
 
 	kotel "github.com/krakend/krakend-otel"
-	otelconfig "github.com/krakend/krakend-otel/config"
 	otellura "github.com/krakend/krakend-otel/lura"
 	otelgin "github.com/krakend/krakend-otel/router/gin"
-	otelstate "github.com/krakend/krakend-otel/state"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
 	asyncamqp "github.com/krakendio/krakend-amqp/v2/async"
 	audit "github.com/krakendio/krakend-audit"
@@ -152,15 +150,11 @@ type ExecutorBuilder struct {
 	MetricsAndTracesRegister    MetricsAndTracesRegister
 	EngineFactory               EngineFactory
 
-	// ProxyFactory is deprecated: Use ProxyFactoryWithConfig
-	ProxyFactory           ProxyFactory
-	ProxyFactoryWithConfig ProxyFactoryWithConfig
-	// BackendFactory is deprecated: Use BackendFactoryWithConfig
-	BackendFactory           BackendFactory
-	BackendFactoryWithConfig BackendFactoryWithConfig
-	HandlerFactory           HandlerFactory
-	RunServerFactory         RunServerFactory
-	AgentStarterFactory      AgentStarter
+	ProxyFactory        ProxyFactory
+	BackendFactory      BackendFactory
+	HandlerFactory      HandlerFactory
+	RunServerFactory    RunServerFactory
+	AgentStarterFactory AgentStarter
 
 	Middlewares []gin.HandlerFunc
 }
@@ -210,19 +204,16 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
 
-		bpf := e.BackendFactoryWithConfig.NewBackendFactoryWithConfig(ctx, logger, metricCollector, &cfg)
-		pf := e.ProxyFactoryWithConfig.NewProxyFactoryWithConfig(logger, bpf, metricCollector, &cfg)
+		bpf := e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector)
+		pf := e.ProxyFactory.NewProxyFactory(logger, bpf, metricCollector)
 
 		agentPing := make(chan string, len(cfg.AsyncAgents))
 
-		otelCfgFn := otelconfig.MemoizedConfigParser(otelconfig.FromLura)
-
 		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
-		handlerF = otelgin.New(handlerF, &cfg, otelCfgFn)
+		handlerF = otelgin.New(handlerF)
 
 		runServerChain := serverhttp.RunServerWithLoggerFactory(logger)
-		runServerChain = otellura.GlobalRunServer(logger, &cfg, otelstate.GlobalState,
-			otelCfgFn, runServerChain)
+		runServerChain = otellura.GlobalRunServer(logger, runServerChain)
 		runServerChain = router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, runServerChain))
 
 		// setup the krakend router
@@ -293,14 +284,8 @@ func (e *ExecutorBuilder) checkCollaborators() {
 	if e.ProxyFactory == nil {
 		e.ProxyFactory = new(proxyFactory)
 	}
-	if e.ProxyFactoryWithConfig == nil {
-		e.ProxyFactoryWithConfig = new(proxyFactory)
-	}
 	if e.BackendFactory == nil {
 		e.BackendFactory = new(backendFactory)
-	}
-	if e.BackendFactoryWithConfig == nil {
-		e.BackendFactoryWithConfig = new(backendFactory)
 	}
 	if e.HandlerFactory == nil {
 		e.HandlerFactory = new(handlerFactory)

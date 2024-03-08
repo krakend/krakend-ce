@@ -388,7 +388,7 @@ type MetricsAndTraces struct {
 }
 
 // Register registers the metrics, influx and opencensus packages as required by the given configuration.
-func (m MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
+func (m *MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
 
 	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
@@ -416,7 +416,7 @@ func (m MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig
 	return metricCollector
 }
 
-func (m MetricsAndTraces) Close() {
+func (m *MetricsAndTraces) Close() {
 	if m.shutdownFn != nil {
 		m.shutdownFn()
 	}

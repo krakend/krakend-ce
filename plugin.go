@@ -128,6 +128,15 @@ func testPluginFunc(ccmd *cobra.Command, args []string) {
 	var failed int
 	globalOK := true
 	for _, pluginPath := range args {
+		f, err := os.Open(pluginPath)
+		if os.IsNotExist(err) {
+			ccmd.Println(fmt.Sprintf("[KO] Unable to open the plugin %s.", pluginPath))
+			failed++
+			globalOK = false
+			continue
+		}
+		f.Close()
+
 		name := filepath.Base(pluginPath)
 		folder := filepath.Dir(pluginPath)
 		ok := true

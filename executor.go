@@ -12,6 +12,9 @@ import (
 	"github.com/go-contrib/uuid"
 	"golang.org/x/sync/errgroup"
 
+	kotel "github.com/krakend/krakend-otel"
+	otellura "github.com/krakend/krakend-otel/lura"
+	otelgin "github.com/krakend/krakend-otel/router/gin"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
 	asyncamqp "github.com/krakendio/krakend-amqp/v2/async"
 	audit "github.com/krakendio/krakend-audit"
@@ -53,8 +56,14 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 }
 
 // PluginLoader defines the interface for the collaborator responsible of starting the plugin loaders
+// Deprecated: Use PluginLoaderWithContext
 type PluginLoader interface {
 	Load(folder, pattern string, logger logging.Logger)
+}
+
+// PluginLoaderWithContext defines the interface for the collaborator responsible of starting the plugin loaders
+type PluginLoaderWithContext interface {
+	LoadWithContext(ctx context.Context, folder, pattern string, logger logging.Logger)
 }
 
 // SubscriberFactoriesRegister registers all the required subscriber factories from the available service
@@ -123,17 +132,20 @@ type AgentStarter interface {
 
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
 type ExecutorBuilder struct {
-	LoggerFactory               LoggerFactory
+	// PluginLoader is deprecated: Use PluginLoaderWithContext
 	PluginLoader                PluginLoader
+	PluginLoaderWithContext     PluginLoaderWithContext
+	LoggerFactory               LoggerFactory
 	SubscriberFactoriesRegister SubscriberFactoriesRegister
 	TokenRejecterFactory        TokenRejecterFactory
 	MetricsAndTracesRegister    MetricsAndTracesRegister
 	EngineFactory               EngineFactory
-	ProxyFactory                ProxyFactory
-	BackendFactory              BackendFactory
-	HandlerFactory              HandlerFactory
-	RunServerFactory            RunServerFactory
-	AgentStarterFactory         AgentStarter
+
+	ProxyFactory        ProxyFactory
+	BackendFactory      BackendFactory
+	HandlerFactory      HandlerFactory
+	RunServerFactory    RunServerFactory
+	AgentStarterFactory AgentStarter
 
 	Middlewares []gin.HandlerFunc
 }
@@ -161,10 +173,13 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		}
 
 		if cfg.Plugin != nil {
-			e.PluginLoader.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
+			e.PluginLoaderWithContext.LoadWithContext(ctx, cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
 		}
 
 		metricCollector := e.MetricsAndTracesRegister.Register(ctx, cfg, logger)
+		if metricsAndTracesCloser, ok := e.MetricsAndTracesRegister.(io.Closer); ok {
+			defer metricsAndTracesCloser.Close()
+		}
 
 		// Initializes the global cache for the JWK clients if enabled in the config
 		if err := jose.SetGlobalCacher(logger, cfg.ExtraConfig); err != nil && err != jose.ErrNoValidatorCfg {
@@ -180,13 +195,17 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
 
-		pf := e.ProxyFactory.NewProxyFactory(
-			logger,
-			e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
-			metricCollector,
-		)
+		bpf := e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector)
+		pf := e.ProxyFactory.NewProxyFactory(logger, bpf, metricCollector)
 
 		agentPing := make(chan string, len(cfg.AsyncAgents))
+
+		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
+		handlerF = otelgin.New(handlerF)
+
+		runServerChain := serverhttp.RunServerWithLoggerFactory(logger)
+		runServerChain = otellura.GlobalRunServer(logger, runServerChain)
+		runServerChain = router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, runServerChain))
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
@@ -198,8 +217,8 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			ProxyFactory:   pf,
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
-			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
-			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger))),
+			HandlerFactory: handlerF,
+			RunServer:      runServerChain,
 		})
 
 		// start the engines
@@ -237,6 +256,9 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 func (e *ExecutorBuilder) checkCollaborators() {
 	if e.PluginLoader == nil {
 		e.PluginLoader = new(pluginLoader)
+	}
+	if e.PluginLoaderWithContext == nil {
+		e.PluginLoaderWithContext = new(pluginLoader)
 	}
 	if e.SubscriberFactoriesRegister == nil {
 		e.SubscriberFactoriesRegister = new(registerSubscriberFactories)
@@ -352,10 +374,12 @@ func (BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.ServiceCo
 }
 
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.
-type MetricsAndTraces struct{}
+type MetricsAndTraces struct {
+	shutdownFn func()
+}
 
 // Register registers the metrics, influx and opencensus packages as required by the given configuration.
-func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
+func (m *MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
 
 	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
@@ -374,7 +398,19 @@ func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, 
 		l.Debug("[SERVICE: OpenCensus] Service correctly registered")
 	}
 
+	if shutdownFn, err := kotel.Register(ctx, l, cfg); err == nil {
+		m.shutdownFn = shutdownFn
+	} else {
+		l.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
+	}
+
 	return metricCollector
+}
+
+func (m *MetricsAndTraces) Close() {
+	if m.shutdownFn != nil {
+		m.shutdownFn()
+	}
 }
 
 const (

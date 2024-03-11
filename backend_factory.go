@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	otellura "github.com/krakend/krakend-otel/lura"
 	amqp "github.com/krakendio/krakend-amqp/v2"
 	cel "github.com/krakendio/krakend-cel/v2"
 	cb "github.com/krakendio/krakend-circuitbreaker/v2/gobreaker/proxy"
@@ -39,8 +40,7 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 	return NewBackendFactoryWithContext(context.Background(), logger, metricCollector)
 }
 
-// NewBackendFactoryWithContext creates a BackendFactory by stacking all the available middlewares and injecting the received context
-func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+func newRequestExecutorFactory(logger logging.Logger) func(*config.Backend) client.HTTPRequestExecutor {
 	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
 		clientFactory := client.NewHTTPClient
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
@@ -48,9 +48,17 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 		} else {
 			clientFactory = httpcache.NewHTTPClient(cfg, clientFactory)
 		}
+
+		clientFactory = otellura.InstrumentedHTTPClientFactory(clientFactory, cfg)
+		// TODO: check what happens if we have both, opencensus and otel enabled ?
 		return opencensus.HTTPRequestExecutorFromConfig(clientFactory, cfg)
 	}
-	requestExecutorFactory = httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
+	return httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
+}
+
+func internalNewBackendFactory(ctx context.Context, requestExecutorFactory func(*config.Backend) client.HTTPRequestExecutor,
+	logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
 	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = bf.New
@@ -62,11 +70,17 @@ func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, me
 	backendFactory = cb.BackendFactory(backendFactory, logger)
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
 	backendFactory = opencensus.BackendFactory(backendFactory)
-
+	backendFactory = otellura.BackendFactory(backendFactory)
 	return func(remote *config.Backend) proxy.Proxy {
 		logger.Debug(fmt.Sprintf("[BACKEND: %s] Building the backend pipe", remote.URLPattern))
 		return backendFactory(remote)
 	}
+}
+
+// NewBackendFactoryWithContext creates a BackendFactory by stacking all the available middlewares and injecting the received context
+func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
+	requestExecutorFactory := newRequestExecutorFactory(logger)
+	return internalNewBackendFactory(ctx, requestExecutorFactory, logger, metricCollector)
 }
 
 type backendFactory struct{}

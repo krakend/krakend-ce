@@ -125,7 +125,7 @@ builder/skel/%/etc/logrotate.d/krakend: builder/files/krakend-logrotate
 	mkdir -p "$(dir $@)"
 	cp builder/files/krakend-logrotate "$@"
 
-.PHONE: tgz
+.PHONY: tgz
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json
 tgz: builder/skel/tgz/etc/init.d/krakend

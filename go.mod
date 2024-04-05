@@ -20,7 +20,7 @@ require (
 	github.com/krakendio/krakend-httpcache/v2 v2.0.3
 	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
 	github.com/krakendio/krakend-influx/v2 v2.0.3
-	github.com/krakendio/krakend-jose/v2 v2.4.0
+	github.com/krakendio/krakend-jose/v2 v2.5.0
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.2
@@ -160,7 +160,7 @@ require (
 	github.com/klauspost/compress v1.17.6 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.6 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
-	github.com/krakend/go-auth0 v1.0.0 // indirect
+	github.com/krakend/go-auth0 v1.1.0 // indirect
 	github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 // indirect
 	github.com/krakendio/flatmap v1.1.1 // indirect
 	github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 // indirect

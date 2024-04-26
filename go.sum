@@ -868,6 +868,8 @@ github.com/openzipkin/zipkin-go v0.1.6 h1:yXiysv1CSK7Q5yjGy1710zZGnsbMUIjluWBxtL
 github.com/openzipkin/zipkin-go v0.1.6/go.mod h1:QgAqvLzwWbR/WpD4A3cGpPtJrZXNIiJc5AZX7/PBEpw=
 github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.0 h1:9UZVu682wb/3PqyRHsrXv2dUNEgaxmhm/nFjLlU/0GY=
 github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.0/go.mod h1:cQ5jUFproWSxcUzk1Bg4hNGuka8e5B/xEdVxqyuAXWw=
+github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.1 h1:KO38EB7WUiHENCBtj35rzUbSXiZOAU0FYCoBhyZqkFU=
+github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.1/go.mod h1:cQ5jUFproWSxcUzk1Bg4hNGuka8e5B/xEdVxqyuAXWw=
 github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=
 github.com/pascaldekloe/goe v0.1.0 h1:cBOtyMzM9HTpWjXfbbunk26uA6nG3a8n06Wieeh0MwY=
 github.com/pascaldekloe/goe v0.1.0/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=

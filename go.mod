@@ -34,7 +34,7 @@ require (
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.0.1
 	github.com/luraproject/lura/v2 v2.2.2
-	github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.0
+	github.com/optivainc/optiva-product-shared-krakend-telemetry v1.0.1
 	go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin v0.36.4
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )

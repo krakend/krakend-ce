@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-optiva.addJobParam(stringParam(name: 'VERSION', defaultValue: '2.1.4',
+optiva.addJobParam(stringParam(name: 'VERSION', defaultValue: '2.1.5',
                             description: 'Semantic version for the produced artifacts'))
                             
 optiva.addJobParam(stringParam(name: 'GOLANG_VERSION', defaultValue: '1.19.3'))

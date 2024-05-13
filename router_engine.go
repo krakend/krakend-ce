@@ -38,7 +38,7 @@ func NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine 
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil && err != httpsecure.ErrNoConfig {
 		opt.Logger.Warning(logPrefix+"[HTTPsecure]", err)
 	} else if err == nil {
-		opt.Logger.Debug(logPrefix + "[HTTPsecure] Successfuly loaded module")
+		opt.Logger.Debug(logPrefix + "[HTTPsecure] Successfully loaded module")
 	}
 
 	lua.Register(opt.Logger, cfg.ExtraConfig, engine)

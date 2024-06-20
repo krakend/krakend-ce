@@ -45,10 +45,9 @@ func newRequestExecutorFactory(logger logging.Logger) func(*config.Backend) clie
 		clientFactory := client.NewHTTPClient
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
 			clientFactory = oauth2client.NewHTTPClient(cfg)
-		} else {
-			clientFactory = httpcache.NewHTTPClient(cfg, clientFactory)
 		}
 
+		clientFactory = httpcache.NewHTTPClient(cfg, clientFactory)
 		clientFactory = otellura.InstrumentedHTTPClientFactory(clientFactory, cfg)
 		// TODO: check what happens if we have both, opencensus and otel enabled ?
 		return opencensus.HTTPRequestExecutorFromConfig(clientFactory, cfg)

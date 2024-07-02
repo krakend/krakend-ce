@@ -6,4 +6,7 @@ on:
     types: [labeled, unlabeled]
 jobs:
   stale:
-    uses: krakendio/.github/.github/workflows/label-commenter.yml@main
+    uses: krakend/.github/.github/workflows/label-commenter.yml@main
+    permissions:
+      issues: write
+      pull-requests: write

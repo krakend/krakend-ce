@@ -508,8 +508,8 @@ github.com/krakendio/krakend-httpsecure/v2 v2.0.1 h1:f7ABi96wOHrtMwaIOeC2TZGK1Tk
 github.com/krakendio/krakend-httpsecure/v2 v2.0.1/go.mod h1:skh2WjGLgU0pAFLZx66om5Uzea9UGm7HHzUukevOZFo=
 github.com/krakendio/krakend-influx/v2 v2.0.3 h1:Fri9CRZTM/P5iRmThhDgK+FpEkjDbAR6Rp6/QmCY6V4=
 github.com/krakendio/krakend-influx/v2 v2.0.3/go.mod h1:XhnMPw7p0UPVK3Y/oB9q8k0kLWkmHX80NjMMMZwsbBs=
-github.com/krakendio/krakend-jose/v2 v2.5.0 h1:wsrpDDHlwY/fQ1sQX5QFtC03nBw+PgvLUAYpc7pKSYQ=
-github.com/krakendio/krakend-jose/v2 v2.5.0/go.mod h1:XNaffidpeGRus6J4ljH1hNqfwjQSI1WVTYOvy4JhjkI=
+github.com/krakendio/krakend-jose/v2 v2.6.0 h1:ylIaDzEAG2oSosDp6LZbqE3bUKuHBvkyUCUJKuusQNc=
+github.com/krakendio/krakend-jose/v2 v2.6.0/go.mod h1:XNaffidpeGRus6J4ljH1hNqfwjQSI1WVTYOvy4JhjkI=
 github.com/krakendio/krakend-jsonschema/v2 v2.0.3 h1:5S2vZHRIYLN5Ii+af07nUkbrXPNp8g1tO20MIUJjWrY=
 github.com/krakendio/krakend-jsonschema/v2 v2.0.3/go.mod h1:kBkeFba9IzwHCljcKAnlpoRD9kFQzTB/UxNe4PNa13A=
 github.com/krakendio/krakend-lambda/v2 v2.0.3 h1:r4MoR5+5BFACmQ1iYjdhJjlJBev889q/CZkCmRL/sFA=

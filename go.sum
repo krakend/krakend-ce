@@ -528,8 +528,8 @@ github.com/krakendio/krakend-opencensus/v2 v2.1.0 h1:jvHmWy/f3GpGcZDIr1PJslUBN/V
 github.com/krakendio/krakend-opencensus/v2 v2.1.0/go.mod h1:FjqE9ThbmLxA5r81ZarA/AduwTDFdEQeDVvE57F2f+I=
 github.com/krakendio/krakend-pubsub/v2 v2.0.1 h1:vuk2oUzgEBUz1aSO+n8C/GagkUvwI/ZAT7aQwn2zUN8=
 github.com/krakendio/krakend-pubsub/v2 v2.0.1/go.mod h1:gf6xDIfnS1OBA7ckD+2ybrTSRP2c6/OOA0bJrRSotnE=
-github.com/krakendio/krakend-ratelimit/v3 v3.1.0 h1:IcLMVndUYmgRaYHvuK6jrRBXKzWPPHoGAvVxdaFEbX0=
-github.com/krakendio/krakend-ratelimit/v3 v3.1.0/go.mod h1:+i3+57TcTDwhoYCp3Sw5nt+kBG1OLMFaYnhru6WQyuw=
+github.com/krakendio/krakend-ratelimit/v3 v3.2.0 h1:9ABkk8aOGE201Zao60cyK2WjLw4CNWElZMLTJIlKlk8=
+github.com/krakendio/krakend-ratelimit/v3 v3.2.0/go.mod h1:HwWqEFh6rl1mAoAOYGjHI+6PnJHRueksWy+fdJ1i8nY=
 github.com/krakendio/krakend-rss/v2 v2.0.1 h1:PMmgqUMhMNAyGS6xiTLpUJ/IeWGQ5QOCo8GJ6l9tvSo=
 github.com/krakendio/krakend-rss/v2 v2.0.1/go.mod h1:qDWMJMgZJ0b94uPboqeJY/XlG4sKRsxGyfjGuu8FPPY=
 github.com/krakendio/krakend-usage/v2 v2.0.0 h1:VRurDgCzA5hAwhbi+rGDLLSZrIhv+ziLqF6LFGaNII4=

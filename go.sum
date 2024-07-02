@@ -484,8 +484,8 @@ github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 h1:gB5divkol6F
 github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5/go.mod h1:VWTP3MZHr/W9OauBMrOQ2bD1rIjDetAQo5JbXCezYKE=
 github.com/krakendio/krakend-amqp/v2 v2.1.0 h1:yQ0D8lrZljLaymTRIyvRxAw13TCYtqLEAhDASlmGsjU=
 github.com/krakendio/krakend-amqp/v2 v2.1.0/go.mod h1:OrXMQDQ3nDvUutnVOmMK0C/p7UpjjO+2zckzSxxOI24=
-github.com/krakendio/krakend-audit v0.0.5 h1:iswnA9sS+LJW1i0u7VQHHZLiOMYZJLu88ySwz0OLwkk=
-github.com/krakendio/krakend-audit v0.0.5/go.mod h1:X/NMzVADgdhrW6wCK5PIMLPd+myMYzA0XYiGd2pofss=
+github.com/krakendio/krakend-audit v0.0.6 h1:myxLNM8IaE/LYQQs4GUTQK32Jk/oaYtWcRXNtcnadi8=
+github.com/krakendio/krakend-audit v0.0.6/go.mod h1:X/NMzVADgdhrW6wCK5PIMLPd+myMYzA0XYiGd2pofss=
 github.com/krakendio/krakend-botdetector/v2 v2.1.0 h1:MSYQWUbSNq/rhp6wP2ABsVBnXVvfEONSrc46F2rUTGI=
 github.com/krakendio/krakend-botdetector/v2 v2.1.0/go.mod h1:5ss3VT0Tt61n362+vzPEggSWRJJ5FuOCzSJBFMbHTgI=
 github.com/krakendio/krakend-cel/v2 v2.0.1 h1:7qRPelchTia94O7cY3fHSH8CUWxm9Z1KIztiFJGhC+I=

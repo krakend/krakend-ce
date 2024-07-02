@@ -8,7 +8,7 @@ require (
 	github.com/krakend/krakend-otel v0.5.0
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.1.0
-	github.com/krakendio/krakend-audit v0.0.5
+	github.com/krakendio/krakend-audit v0.0.6
 	github.com/krakendio/krakend-botdetector/v2 v2.1.0
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
@@ -20,7 +20,7 @@ require (
 	github.com/krakendio/krakend-httpcache/v2 v2.0.3
 	github.com/krakendio/krakend-httpsecure/v2 v2.0.1
 	github.com/krakendio/krakend-influx/v2 v2.0.3
-	github.com/krakendio/krakend-jose/v2 v2.5.0
+	github.com/krakendio/krakend-jose/v2 v2.6.0
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.2
@@ -30,7 +30,7 @@ require (
 	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.1
 	github.com/krakendio/krakend-opencensus/v2 v2.1.0
 	github.com/krakendio/krakend-pubsub/v2 v2.0.1
-	github.com/krakendio/krakend-ratelimit/v3 v3.1.0
+	github.com/krakendio/krakend-ratelimit/v3 v3.2.0
 	github.com/krakendio/krakend-rss/v2 v2.0.1
 	github.com/krakendio/krakend-usage/v2 v2.0.0
 	github.com/krakendio/krakend-viper/v2 v2.0.1
@@ -161,7 +161,7 @@ require (
 	github.com/klauspost/compress v1.17.7 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.6 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
-	github.com/krakend/go-auth0 v1.1.0 // indirect
+	github.com/krakend/go-auth0 v1.2.0 // indirect
 	github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 // indirect
 	github.com/krakendio/flatmap v1.1.1 // indirect
 	github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 // indirect

@@ -44,6 +44,7 @@ import (
 	"github.com/luraproject/lura/v2/logging"
 	"github.com/luraproject/lura/v2/proxy"
 	router "github.com/luraproject/lura/v2/router/gin"
+	"github.com/luraproject/lura/v2/sd/dnssrv"
 	serverhttp "github.com/luraproject/lura/v2/transport/http/server"
 	server "github.com/luraproject/lura/v2/transport/http/server/plugin"
 )
@@ -171,6 +172,8 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		if wd, err := os.Getwd(); err == nil {
 			logger.Info("Working directory is", wd)
 		}
+
+		dnssrv.SetTTL(cfg.DNSCacheTTL)
 
 		if cfg.Plugin != nil {
 			e.PluginLoaderWithContext.LoadWithContext(ctx, cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)

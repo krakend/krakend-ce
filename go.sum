@@ -494,6 +494,8 @@ github.com/krakendio/krakend-cobra/v2 v2.3.0 h1:owzpTy57RL7IEUSUT0ZEwsoSv1erRIdN
 github.com/krakendio/krakend-cobra/v2 v2.3.0/go.mod h1:2uZUMOJFFIgmCBVNva0i5BWL2ShlsTMQhmCWfOS5K+I=
 github.com/krakendio/krakend-cors/v2 v2.0.1 h1:asHWMDW94Bp9SIP1zV9nhOhqAMXyOSxTftpvfBTlhms=
 github.com/krakendio/krakend-cors/v2 v2.0.1/go.mod h1:aqvOcxK4JuhB9rLfcsENz4EeX3QQqsPhc+imeeG5H2E=
+github.com/krakendio/krakend-cors/v2 v2.0.2-0.20240712153607-705666f68bd7 h1:eEGgNBDh57cm9ubcpSVMjAoRzjI8ogS6NX8ixblElDI=
+github.com/krakendio/krakend-cors/v2 v2.0.2-0.20240712153607-705666f68bd7/go.mod h1:V8T2CmOrDm9+ZhopV17FabGAFQUss69PntQ8KZXpfUY=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0 h1:8WjaZekJyoPQTHHjDAOJrlRv0ZWoVLVXvObyd5bj8gc=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0/go.mod h1:hjOM3qIiqk4kBLr5NecdV0XOVBfhU4E3n+c4Us8mzW4=
 github.com/krakendio/krakend-gelf/v2 v2.0.1 h1:OdcgKUOKvtLwFzoeCm5gAq0Vph6c7Kt6uL4OrxSw/P8=
@@ -504,6 +506,8 @@ github.com/krakendio/krakend-httpcache/v2 v2.0.3 h1:VkcxqOOtxIb7ztYqy+4tsfirrLFh
 github.com/krakendio/krakend-httpcache/v2 v2.0.3/go.mod h1:rjZolWXM4TJvntQWzNMJ+2D0cw8RFqQ4h+kwZUKtXuQ=
 github.com/krakendio/krakend-httpsecure/v2 v2.0.1 h1:f7ABi96wOHrtMwaIOeC2TZGK1Tkod3Ptvk6yFEFs+dM=
 github.com/krakendio/krakend-httpsecure/v2 v2.0.1/go.mod h1:skh2WjGLgU0pAFLZx66om5Uzea9UGm7HHzUukevOZFo=
+github.com/krakendio/krakend-httpsecure/v2 v2.0.2-0.20240715153737-328e1584d5a9 h1:AStW+gnovtTKjBsUcSKP1iwyLvDsA0yPSZIZP871Gug=
+github.com/krakendio/krakend-httpsecure/v2 v2.0.2-0.20240715153737-328e1584d5a9/go.mod h1:7EPCgT8rkbs4TotCHyT5w/OV+gOBTPCqdwvHabaxjrA=
 github.com/krakendio/krakend-influx/v2 v2.0.3 h1:Fri9CRZTM/P5iRmThhDgK+FpEkjDbAR6Rp6/QmCY6V4=
 github.com/krakendio/krakend-influx/v2 v2.0.3/go.mod h1:XhnMPw7p0UPVK3Y/oB9q8k0kLWkmHX80NjMMMZwsbBs=
 github.com/krakendio/krakend-jose/v2 v2.6.0 h1:ylIaDzEAG2oSosDp6LZbqE3bUKuHBvkyUCUJKuusQNc=
@@ -666,8 +670,12 @@ github.com/rogpeppe/go-internal v1.12.0 h1:exVL4IDcn6na9z1rAb56Vxr+CgyK3nn3O+epU
 github.com/rogpeppe/go-internal v1.12.0/go.mod h1:E+RYuTGaKKdloAfM02xzb0FW3Paa99yedzYV+kq4uf4=
 github.com/rs/cors v1.10.1 h1:L0uuZVXIKlI1SShY2nhFfo44TYvDPQ1w4oFkUJNfhyo=
 github.com/rs/cors v1.10.1/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
+github.com/rs/cors v1.11.0 h1:0B9GE/r9Bc2UxRMMtymBkHTenPkHDv0CW4Y98GBY+po=
+github.com/rs/cors v1.11.0/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
 github.com/rs/cors/wrapper/gin v0.0.0-20221003140808-fcebdb403f4d h1:xKonGHdG2Wh3vUkHP0dQC6ZruT9epZCyKrXTxo+xWpk=
 github.com/rs/cors/wrapper/gin v0.0.0-20221003140808-fcebdb403f4d/go.mod h1:IqFyM9uAsle0Bd4h2u+28E+Ma2884FPhOsrREy4dj80=
+github.com/rs/cors/wrapper/gin v0.0.0-20240515105523-1562b1715b35 h1:YI8KKdUmi/l2NWArtFPEY6qFM7h6+V2kYj5kz81WSHs=
+github.com/rs/cors/wrapper/gin v0.0.0-20240515105523-1562b1715b35/go.mod h1:742Ialb8SOs5yB2PqRDzFcyND3280PoaS5/wcKQUQKE=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/ryanuber/go-glob v1.0.0 h1:iQh3xXAumdQ+4Ufa5b25cRpC5TYKlno6hsv6Cb3pkBk=
 github.com/ryanuber/go-glob v1.0.0/go.mod h1:807d1WSdnB0XRJzKNil9Om6lcp/3a0v4qIHxIXzX/Yc=
@@ -749,6 +757,8 @@ github.com/ugorji/go/codec v1.2.11 h1:BMaWp1Bb6fHwEtbplGBGJ498wD+LKlNSl25MjdZY4d
 github.com/ugorji/go/codec v1.2.11/go.mod h1:UNopzCgEMSXjBc6AOMqYvWC1ktqTAfzJZUZgYf6w6lg=
 github.com/unrolled/secure v1.13.0 h1:sdr3Phw2+f8Px8HE5sd1EHdj1aV3yUwed/uZXChLFsk=
 github.com/unrolled/secure v1.13.0/go.mod h1:BmF5hyM6tXczk3MpQkFf1hpKSRqCyhqcbiQtiAF7+40=
+github.com/unrolled/secure v1.15.0 h1:q7x+pdp8jAHnbzxu6UheP8fRlG/rwYTb8TPuQ3rn9Og=
+github.com/unrolled/secure v1.15.0/go.mod h1:BmF5hyM6tXczk3MpQkFf1hpKSRqCyhqcbiQtiAF7+40=
 github.com/valyala/fastrand v1.1.0 h1:f+5HkLW4rsgzdNoleUOB69hyT9IlD2ZQh9GyDMfb5G8=
 github.com/valyala/fastrand v1.1.0/go.mod h1:HWqCzkrkg6QXT8V2EXWvXCoow7vLwOFN002oeRzjapQ=
 github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f h1:J9EGpcZtP0E/raorCMxlFGSTBrsSlaDGf3jU/qvAE2c=

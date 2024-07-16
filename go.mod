@@ -12,7 +12,7 @@ require (
 	github.com/krakendio/krakend-botdetector/v2 v2.1.0
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.3.0
+	github.com/krakendio/krakend-cobra/v2 v2.3.1-0.20240715165104-220d6bb39727
 	github.com/krakendio/krakend-cors/v2 v2.0.2-0.20240712153607-705666f68bd7
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0
 	github.com/krakendio/krakend-gelf/v2 v2.0.1

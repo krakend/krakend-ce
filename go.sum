@@ -490,8 +490,8 @@ github.com/krakendio/krakend-cel/v2 v2.0.1 h1:7qRPelchTia94O7cY3fHSH8CUWxm9Z1KIz
 github.com/krakendio/krakend-cel/v2 v2.0.1/go.mod h1:TuOf89sSyRkpQWjSoEOTDjWpWDJlUccSF2i58QBmfSA=
 github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1 h1:rX5TAbdQa+mISIULDxYdviR7/7yOYCjSimuaXJHFrUA=
 github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1/go.mod h1:PCbRQGfUOToK2Uw48gm9rZ8Mzb4qLGZnX4876Fu9CpQ=
-github.com/krakendio/krakend-cobra/v2 v2.3.0 h1:owzpTy57RL7IEUSUT0ZEwsoSv1erRIdNEt+y0H5PnZU=
-github.com/krakendio/krakend-cobra/v2 v2.3.0/go.mod h1:2uZUMOJFFIgmCBVNva0i5BWL2ShlsTMQhmCWfOS5K+I=
+github.com/krakendio/krakend-cobra/v2 v2.3.1-0.20240715165104-220d6bb39727 h1:afILtof5mP0ekhKWvBFLMoumDuXHpFK8Q/yaLCXPZ7E=
+github.com/krakendio/krakend-cobra/v2 v2.3.1-0.20240715165104-220d6bb39727/go.mod h1:VLoOeObfOd6xuGzho8ky4I7jCF9ZHChOBYNuSdwRtUU=
 github.com/krakendio/krakend-cors/v2 v2.0.2-0.20240712153607-705666f68bd7 h1:eEGgNBDh57cm9ubcpSVMjAoRzjI8ogS6NX8ixblElDI=
 github.com/krakendio/krakend-cors/v2 v2.0.2-0.20240712153607-705666f68bd7/go.mod h1:V8T2CmOrDm9+ZhopV17FabGAFQUss69PntQ8KZXpfUY=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0 h1:8WjaZekJyoPQTHHjDAOJrlRv0ZWoVLVXvObyd5bj8gc=

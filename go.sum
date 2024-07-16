@@ -482,8 +482,8 @@ github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 h1:gB5divkol6F
 github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5/go.mod h1:VWTP3MZHr/W9OauBMrOQ2bD1rIjDetAQo5JbXCezYKE=
 github.com/krakendio/krakend-amqp/v2 v2.1.0 h1:yQ0D8lrZljLaymTRIyvRxAw13TCYtqLEAhDASlmGsjU=
 github.com/krakendio/krakend-amqp/v2 v2.1.0/go.mod h1:OrXMQDQ3nDvUutnVOmMK0C/p7UpjjO+2zckzSxxOI24=
-github.com/krakendio/krakend-audit v0.0.6 h1:myxLNM8IaE/LYQQs4GUTQK32Jk/oaYtWcRXNtcnadi8=
-github.com/krakendio/krakend-audit v0.0.6/go.mod h1:X/NMzVADgdhrW6wCK5PIMLPd+myMYzA0XYiGd2pofss=
+github.com/krakendio/krakend-audit v0.0.7-0.20240715203120-8d3b4f9f6d60 h1:3rvE5SRGuEIFNmhSy8uXGE/d4hzYK6z2MuZJHbiWu7E=
+github.com/krakendio/krakend-audit v0.0.7-0.20240715203120-8d3b4f9f6d60/go.mod h1:7rXjR9EpIAWYyuzTZaKcQTVMfIW75H5YjvecODXndAk=
 github.com/krakendio/krakend-botdetector/v2 v2.1.0 h1:MSYQWUbSNq/rhp6wP2ABsVBnXVvfEONSrc46F2rUTGI=
 github.com/krakendio/krakend-botdetector/v2 v2.1.0/go.mod h1:5ss3VT0Tt61n362+vzPEggSWRJJ5FuOCzSJBFMbHTgI=
 github.com/krakendio/krakend-cel/v2 v2.0.1 h1:7qRPelchTia94O7cY3fHSH8CUWxm9Z1KIztiFJGhC+I=
@@ -492,8 +492,6 @@ github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1 h1:rX5TAbdQa+mISIULDxYdviR
 github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1/go.mod h1:PCbRQGfUOToK2Uw48gm9rZ8Mzb4qLGZnX4876Fu9CpQ=
 github.com/krakendio/krakend-cobra/v2 v2.3.0 h1:owzpTy57RL7IEUSUT0ZEwsoSv1erRIdNEt+y0H5PnZU=
 github.com/krakendio/krakend-cobra/v2 v2.3.0/go.mod h1:2uZUMOJFFIgmCBVNva0i5BWL2ShlsTMQhmCWfOS5K+I=
-github.com/krakendio/krakend-cors/v2 v2.0.1 h1:asHWMDW94Bp9SIP1zV9nhOhqAMXyOSxTftpvfBTlhms=
-github.com/krakendio/krakend-cors/v2 v2.0.1/go.mod h1:aqvOcxK4JuhB9rLfcsENz4EeX3QQqsPhc+imeeG5H2E=
 github.com/krakendio/krakend-cors/v2 v2.0.2-0.20240712153607-705666f68bd7 h1:eEGgNBDh57cm9ubcpSVMjAoRzjI8ogS6NX8ixblElDI=
 github.com/krakendio/krakend-cors/v2 v2.0.2-0.20240712153607-705666f68bd7/go.mod h1:V8T2CmOrDm9+ZhopV17FabGAFQUss69PntQ8KZXpfUY=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0 h1:8WjaZekJyoPQTHHjDAOJrlRv0ZWoVLVXvObyd5bj8gc=
@@ -504,8 +502,6 @@ github.com/krakendio/krakend-gologging/v2 v2.0.3 h1:pzmfHkVPhEQ8njFReQ+NCPjSjd4m
 github.com/krakendio/krakend-gologging/v2 v2.0.3/go.mod h1:ar6rViGYhsxtiCfxGeh7b7Djbh5wMIBXsyBKudADLJs=
 github.com/krakendio/krakend-httpcache/v2 v2.0.3 h1:VkcxqOOtxIb7ztYqy+4tsfirrLFhkQO2wdZ+MjsdDZ4=
 github.com/krakendio/krakend-httpcache/v2 v2.0.3/go.mod h1:rjZolWXM4TJvntQWzNMJ+2D0cw8RFqQ4h+kwZUKtXuQ=
-github.com/krakendio/krakend-httpsecure/v2 v2.0.1 h1:f7ABi96wOHrtMwaIOeC2TZGK1Tkod3Ptvk6yFEFs+dM=
-github.com/krakendio/krakend-httpsecure/v2 v2.0.1/go.mod h1:skh2WjGLgU0pAFLZx66om5Uzea9UGm7HHzUukevOZFo=
 github.com/krakendio/krakend-httpsecure/v2 v2.0.2-0.20240715153737-328e1584d5a9 h1:AStW+gnovtTKjBsUcSKP1iwyLvDsA0yPSZIZP871Gug=
 github.com/krakendio/krakend-httpsecure/v2 v2.0.2-0.20240715153737-328e1584d5a9/go.mod h1:7EPCgT8rkbs4TotCHyT5w/OV+gOBTPCqdwvHabaxjrA=
 github.com/krakendio/krakend-influx/v2 v2.0.3 h1:Fri9CRZTM/P5iRmThhDgK+FpEkjDbAR6Rp6/QmCY6V4=
@@ -544,12 +540,8 @@ github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
 github.com/leodido/go-urn v1.4.0 h1:WT9HwE9SGECu3lg4d/dIA+jxlljEa1/ffXKmRjqdmIQ=
 github.com/leodido/go-urn v1.4.0/go.mod h1:bvxc+MVxLKB4z00jd1z+Dvzr47oO32F/QSNjSBOlFxI=
-github.com/luraproject/lura/v2 v2.6.3 h1:4EQynK35ui2o/t7REh1QR+XCPCQhA/kF9h5JTQK8M0o=
-github.com/luraproject/lura/v2 v2.6.3/go.mod h1:M3TOzbvde5k7f5gGX4GVw3J1UJDYWPtDjHI0KOHbYc0=
-github.com/luraproject/lura/v2 v2.6.4-0.20240704173132-be5c8bd69611 h1:EBtzYy+k27/WK/4+MpgDdK1kJU1pA6ZzeETlPHZVneQ=
-github.com/luraproject/lura/v2 v2.6.4-0.20240704173132-be5c8bd69611/go.mod h1:D0+LPLJAuT9DcfjB4xvVMCnKmAMQikdbcXmYLdmEA6A=
-github.com/luraproject/lura/v2 v2.6.4-0.20240710140752-dc4f7606e56f h1:d5o4ing6laX0TV5Biiy6wuuxE0HMcM+O0QXHcslqDl4=
-github.com/luraproject/lura/v2 v2.6.4-0.20240710140752-dc4f7606e56f/go.mod h1:D0+LPLJAuT9DcfjB4xvVMCnKmAMQikdbcXmYLdmEA6A=
+github.com/luraproject/lura/v2 v2.7.0 h1:9s4Pt56zBfZMLRW+igfa3tWxJJXpOcEnmVpWUkDyr3s=
+github.com/luraproject/lura/v2 v2.7.0/go.mod h1:D0+LPLJAuT9DcfjB4xvVMCnKmAMQikdbcXmYLdmEA6A=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/magiconair/properties v1.8.7 h1:IeQXZAiQcpL9mgcAe1Nu6cX9LLw6ExEHKjN0VQdvPDY=
 github.com/magiconair/properties v1.8.7/go.mod h1:Dhd985XPs7jluiymwWYZ0G4Z61jb3vdS329zhj2hYo0=
@@ -668,12 +660,8 @@ github.com/rogpeppe/fastuuid v1.2.0/go.mod h1:jVj6XXZzXRy/MSR5jhDC/2q6DgLz+nrA6L
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/rogpeppe/go-internal v1.12.0 h1:exVL4IDcn6na9z1rAb56Vxr+CgyK3nn3O+epU5NdKM8=
 github.com/rogpeppe/go-internal v1.12.0/go.mod h1:E+RYuTGaKKdloAfM02xzb0FW3Paa99yedzYV+kq4uf4=
-github.com/rs/cors v1.10.1 h1:L0uuZVXIKlI1SShY2nhFfo44TYvDPQ1w4oFkUJNfhyo=
-github.com/rs/cors v1.10.1/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
 github.com/rs/cors v1.11.0 h1:0B9GE/r9Bc2UxRMMtymBkHTenPkHDv0CW4Y98GBY+po=
 github.com/rs/cors v1.11.0/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
-github.com/rs/cors/wrapper/gin v0.0.0-20221003140808-fcebdb403f4d h1:xKonGHdG2Wh3vUkHP0dQC6ZruT9epZCyKrXTxo+xWpk=
-github.com/rs/cors/wrapper/gin v0.0.0-20221003140808-fcebdb403f4d/go.mod h1:IqFyM9uAsle0Bd4h2u+28E+Ma2884FPhOsrREy4dj80=
 github.com/rs/cors/wrapper/gin v0.0.0-20240515105523-1562b1715b35 h1:YI8KKdUmi/l2NWArtFPEY6qFM7h6+V2kYj5kz81WSHs=
 github.com/rs/cors/wrapper/gin v0.0.0-20240515105523-1562b1715b35/go.mod h1:742Ialb8SOs5yB2PqRDzFcyND3280PoaS5/wcKQUQKE=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
@@ -755,8 +743,6 @@ github.com/uber/jaeger-client-go v2.28.0+incompatible h1:G4QSBfvPKvg5ZM2j9MrJFdf
 github.com/uber/jaeger-client-go v2.28.0+incompatible/go.mod h1:WVhlPFC8FDjOFMMWRy2pZqQJSXxYSwNYOkTr/Z6d3Kk=
 github.com/ugorji/go/codec v1.2.11 h1:BMaWp1Bb6fHwEtbplGBGJ498wD+LKlNSl25MjdZY4dU=
 github.com/ugorji/go/codec v1.2.11/go.mod h1:UNopzCgEMSXjBc6AOMqYvWC1ktqTAfzJZUZgYf6w6lg=
-github.com/unrolled/secure v1.13.0 h1:sdr3Phw2+f8Px8HE5sd1EHdj1aV3yUwed/uZXChLFsk=
-github.com/unrolled/secure v1.13.0/go.mod h1:BmF5hyM6tXczk3MpQkFf1hpKSRqCyhqcbiQtiAF7+40=
 github.com/unrolled/secure v1.15.0 h1:q7x+pdp8jAHnbzxu6UheP8fRlG/rwYTb8TPuQ3rn9Og=
 github.com/unrolled/secure v1.15.0/go.mod h1:BmF5hyM6tXczk3MpQkFf1hpKSRqCyhqcbiQtiAF7+40=
 github.com/valyala/fastrand v1.1.0 h1:f+5HkLW4rsgzdNoleUOB69hyT9IlD2ZQh9GyDMfb5G8=

@@ -8,7 +8,7 @@ require (
 	github.com/krakend/krakend-otel v0.5.0
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.1.0
-	github.com/krakendio/krakend-audit v0.0.6
+	github.com/krakendio/krakend-audit v0.0.7-0.20240715203120-8d3b4f9f6d60
 	github.com/krakendio/krakend-botdetector/v2 v2.1.0
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
@@ -35,7 +35,7 @@ require (
 	github.com/krakendio/krakend-usage/v2 v2.0.0
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.1.0
-	github.com/luraproject/lura/v2 v2.6.4-0.20240710140752-dc4f7606e56f
+	github.com/luraproject/lura/v2 v2.7.0
 	github.com/spf13/cobra v1.8.0
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
 	golang.org/x/sync v0.7.0

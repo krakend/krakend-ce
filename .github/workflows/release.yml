@@ -130,6 +130,9 @@ jobs:
      name: Upload release-artifacts
      runs-on: ubuntu-20.04
      needs: generate
+     permissions:
+      actions: read
+      packages: write
      steps:
       - name: Restore cache
         id: cache-restore

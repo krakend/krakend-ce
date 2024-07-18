@@ -8,17 +8,17 @@ require (
 	github.com/krakend/krakend-otel v0.5.0
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.1.0
-	github.com/krakendio/krakend-audit v0.0.7-0.20240715203120-8d3b4f9f6d60
+	github.com/krakendio/krakend-audit v0.0.7
 	github.com/krakendio/krakend-botdetector/v2 v2.1.0
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.3.1-0.20240715165104-220d6bb39727
-	github.com/krakendio/krakend-cors/v2 v2.0.2-0.20240712153607-705666f68bd7
+	github.com/krakendio/krakend-cobra/v2 v2.4.0
+	github.com/krakendio/krakend-cors/v2 v2.1.0
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
 	github.com/krakendio/krakend-gologging/v2 v2.0.3
 	github.com/krakendio/krakend-httpcache/v2 v2.0.3
-	github.com/krakendio/krakend-httpsecure/v2 v2.0.2-0.20240715153737-328e1584d5a9
+	github.com/krakendio/krakend-httpsecure/v2 v2.1.0
 	github.com/krakendio/krakend-influx/v2 v2.0.3
 	github.com/krakendio/krakend-jose/v2 v2.6.0
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3

@@ -6,6 +6,7 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
+MODULE := github.com/krakendio/krakend-ce/v2
 VERSION := 2.7.0
 SCHEMA_VERSION := $(shell echo "${VERSION}" | cut -d '.' -f 1,2)
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
@@ -56,7 +57,7 @@ all: test
 build:
 	@echo "Building the binary..."
 	@go get .
-	@go build -ldflags="-X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
+	@go build -ldflags="-X ${MODULE}/pkg.Version=${VERSION} -X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
 	-X github.com/luraproject/lura/v2/core.GoVersion=${GOLANG_VERSION} \
 	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION} ${EXTRA_LDFLAGS}" \
 	-o ${BIN_NAME} ./cmd/krakend-ce

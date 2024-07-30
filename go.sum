@@ -492,8 +492,6 @@ github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1 h1:rX5TAbdQa+mISIULDxYdviR
 github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1/go.mod h1:PCbRQGfUOToK2Uw48gm9rZ8Mzb4qLGZnX4876Fu9CpQ=
 github.com/krakendio/krakend-cobra/v2 v2.4.0 h1:AVY+XQtAJJ/Wu+gTjSjcZ3SUAdew6DNVhAdLEIUBUM0=
 github.com/krakendio/krakend-cobra/v2 v2.4.0/go.mod h1:VLoOeObfOd6xuGzho8ky4I7jCF9ZHChOBYNuSdwRtUU=
-github.com/krakendio/krakend-cors/v2 v2.1.0 h1:65VopIaHlkBEQ/ZLDEmMzvjpXbxrmyqGBHRMkfrP/3Y=
-github.com/krakendio/krakend-cors/v2 v2.1.0/go.mod h1:V8T2CmOrDm9+ZhopV17FabGAFQUss69PntQ8KZXpfUY=
 github.com/krakendio/krakend-cors/v2 v2.1.1 h1:C+7GHwt/47pNGIuw5Ua4s+B5REIql/yqgZkYTY4QSTw=
 github.com/krakendio/krakend-cors/v2 v2.1.1/go.mod h1:V8T2CmOrDm9+ZhopV17FabGAFQUss69PntQ8KZXpfUY=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0 h1:8WjaZekJyoPQTHHjDAOJrlRv0ZWoVLVXvObyd5bj8gc=
@@ -1176,8 +1174,8 @@ google.golang.org/protobuf v1.28.1/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqw
 google.golang.org/protobuf v1.33.0 h1:uNO2rsAINq/JlFpSdYEKIZ0uKD/R9cpdv0T+yoGwGmI=
 google.golang.org/protobuf v1.33.0/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHhKbcUYpos=
 gopkg.in/DataDog/dd-trace-go.v1 v1.22.0/go.mod h1:DVp8HmDh8PuTu2Z0fVVlBsyWaC++fzwVCaGWylTe3tg=
-gopkg.in/DataDog/dd-trace-go.v1 v1.62.0 h1:jeZxE4ZlfAc+R0zO5TEmJBwOLet3NThsOfYJeSQg1x0=
-gopkg.in/DataDog/dd-trace-go.v1 v1.62.0/go.mod h1:YTvYkk3PTsfw0OWrRFxV/IQ5Gy4nZ5TRvxTAP3JcIzs=
+gopkg.in/DataDog/dd-trace-go.v1 v1.67.0 h1:3Cb46zyKIlEWac21tvDF2O4KyMlOHQxrQkyiaUpdwM0=
+gopkg.in/DataDog/dd-trace-go.v1 v1.67.0/go.mod h1:6DdiJPKOeJfZyd/IUGCAd5elY8qPGkztK6wbYYsMjag=
 gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20191017102106-1550ee647df0 h1:Xg23ydYYJLmb9AK3XdcEpplHZd1MpN3X2ZeeMoBClmY=
 gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20191017102106-1550ee647df0/go.mod h1:CeDeqW4tj9FrgZXF/dQCWZrBdcZWWBenhJtxLH4On2g=
 gopkg.in/alecthomas/kingpin.v2 v2.2.6/go.mod h1:FMv+mEhP44yOT+4EoQTLFTRgOQ1FBLkstjWtayDeSgw=

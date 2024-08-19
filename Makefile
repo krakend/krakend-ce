@@ -26,23 +26,24 @@ GLIBC_VERSION := $(shell sh find_glibc.sh)
 ALPINE_VERSION := 3.19
 OS_TAG :=
 EXTRA_LDFLAGS :=
+DOCKER_BUILD_ARGS ?=
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
-  --license "$(LICENSE)" \
-  --vendor "$(VENDOR)" \
-  --maintainer "$(MAINTAINER)" \
-  --architecture $(ARCH) \
-  --url "$(URL)" \
-  --description  "$(DESC)" \
+	--license "$(LICENSE)" \
+	--vendor "$(VENDOR)" \
+	--maintainer "$(MAINTAINER)" \
+	--architecture $(ARCH) \
+	--url "$(URL)" \
+	--description  "$(DESC)" \
 	--config-files etc/ \
-  --verbose
+	--verbose
 
 DEB_OPTS= -t deb --deb-user $(USER) \
 	--depends ca-certificates \
 	--depends rsyslog \
 	--depends logrotate \
 	--before-remove builder/scripts/prerm.deb \
-  --after-remove builder/scripts/postrm.deb \
+	--after-remove builder/scripts/postrm.deb \
 	--before-install builder/scripts/preinst.deb
 
 RPM_OPTS =--rpm-user $(USER) \
@@ -56,7 +57,6 @@ all: test
 
 build:
 	@echo "Building the binary..."
-	@go get .
 	@go build -ldflags="-X ${MODULE}/pkg.Version=${VERSION} -X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
 	-X github.com/luraproject/lura/v2/core.GoVersion=${GOLANG_VERSION} \
 	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION} ${EXTRA_LDFLAGS}" \
@@ -72,13 +72,13 @@ build_on_docker: docker-builder-linux
 
 # Build the container using the Dockerfile (alpine)
 docker:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
+	docker build ${DOCKER_BUILD_ARGS} --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
 
 docker-builder:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t krakend/builder:${VERSION} -f Dockerfile-builder .
+	docker build ${DOCKER_BUILD_ARGS} --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t krakend/builder:${VERSION} -f Dockerfile-builder .
 
 docker-builder-linux:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} -t krakend/builder:${VERSION}-linux-generic -f Dockerfile-builder-linux .
+	docker build ${DOCKER_BUILD_ARGS} --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} -t krakend/builder:${VERSION}-linux-generic -f Dockerfile-builder-linux .
 
 benchmark:
 	@mkdir -p bench_res

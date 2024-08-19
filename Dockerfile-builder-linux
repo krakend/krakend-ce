@@ -1,6 +1,8 @@
 ARG GOLANG_VERSION
 FROM golang:${GOLANG_VERSION}-bullseye
 
-RUN apt-get update && \
-    apt-get install -y gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu \
-    && rm -rf /var/lib/apt/lists/*
+RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
+    --mount=target=/var/cache/apt,type=cache,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
+    apt-get update && \
+    apt-get install -y gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu

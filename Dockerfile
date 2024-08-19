@@ -1,20 +1,29 @@
 ARG GOLANG_VERSION
 ARG ALPINE_VERSION
-FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION} as builder
+FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION} AS builder
 
-RUN apk --no-cache --virtual .build-deps add make gcc musl-dev binutils-gold
+RUN --mount=type=cache,target=/var/cache/apk,sharing=locked \
+    apk add make gcc musl-dev binutils-gold git
 
-COPY . /app
 WORKDIR /app
+COPY go.mod go.sum ./
 
-RUN make build
+RUN --mount=type=cache,target=/go/pkg/mod \
+    go mod download
 
+COPY --link . .
+
+RUN --mount=type=cache,target=/go/pkg/mod \
+    --mount=type=cache,target=/root/.cache/go-build \
+    make build
 
 FROM alpine:${ALPINE_VERSION}
 
 LABEL maintainer="community@krakend.io"
 
-RUN apk upgrade --no-cache --no-interactive && apk add --no-cache ca-certificates tzdata && \
+RUN --mount=type=cache,target=/var/cache/apk,sharing=locked \
+    apk upgrade --no-interactive && \
+    apk add ca-certificates tzdata && \
     adduser -u 1000 -S -D -H krakend && \
     mkdir /etc/krakend && \
     echo '{ "version": 3 }' > /etc/krakend/krakend.json

@@ -5,7 +5,7 @@ go 1.22
 require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-contrib/uuid v1.2.0
-	github.com/krakend/krakend-otel v0.6.0
+	github.com/krakend/krakend-otel v0.6.1
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.1.0
 	github.com/krakendio/krakend-audit v0.0.7
@@ -20,7 +20,7 @@ require (
 	github.com/krakendio/krakend-httpcache/v2 v2.0.3
 	github.com/krakendio/krakend-httpsecure/v2 v2.1.0
 	github.com/krakendio/krakend-influx/v2 v2.0.3
-	github.com/krakendio/krakend-jose/v2 v2.6.0
+	github.com/krakendio/krakend-jose/v2 v2.6.1-0.20240904165319-48d11f5add3b
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.2
@@ -38,7 +38,7 @@ require (
 	github.com/luraproject/lura/v2 v2.7.0
 	github.com/spf13/cobra v1.8.0
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
-	go.opentelemetry.io/otel v1.25.0
+	go.opentelemetry.io/otel v1.28.0
 	golang.org/x/sync v0.8.0
 )
 
@@ -117,6 +117,7 @@ require (
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
+	github.com/go-jose/go-jose/v3 v3.0.3 // indirect
 	github.com/go-jose/go-jose/v4 v4.0.4 // indirect
 	github.com/go-kit/log v0.2.1 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
@@ -164,7 +165,7 @@ require (
 	github.com/klauspost/compress v1.17.9 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.6 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
-	github.com/krakend/go-auth0 v1.1.0 // indirect
+	github.com/krakend/go-auth0/v2 v2.0.0 // indirect
 	github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 // indirect
 	github.com/krakendio/flatmap v1.1.1 // indirect
 	github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 // indirect
@@ -197,7 +198,7 @@ require (
 	github.com/prometheus/client_model v0.6.1 // indirect
 	github.com/prometheus/common v0.55.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
-	github.com/prometheus/prometheus v0.52.1 // indirect
+	github.com/prometheus/prometheus v0.54.0 // indirect
 	github.com/prometheus/statsd_exporter v0.26.1 // indirect
 	github.com/rabbitmq/amqp091-go v1.9.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
@@ -232,24 +233,24 @@ require (
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/yuin/gopher-lua v0.0.0-20190206043414-8bfc7677f583 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.50.0 // indirect
-	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.50.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.24.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.24.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.25.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.25.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.25.0 // indirect
+	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.53.0 // indirect
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.28.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/prometheus v0.47.0 // indirect
-	go.opentelemetry.io/otel/metric v1.25.0 // indirect
-	go.opentelemetry.io/otel/sdk v1.25.0 // indirect
-	go.opentelemetry.io/otel/sdk/metric v1.25.0 // indirect
-	go.opentelemetry.io/otel/trace v1.25.0 // indirect
+	go.opentelemetry.io/otel/metric v1.28.0 // indirect
+	go.opentelemetry.io/otel/sdk v1.28.0 // indirect
+	go.opentelemetry.io/otel/sdk/metric v1.28.0 // indirect
+	go.opentelemetry.io/otel/trace v1.28.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
-	gocloud.dev v0.37.0 // indirect
+	gocloud.dev v0.39.0 // indirect
 	gocloud.dev/pubsub/kafkapubsub v0.37.0 // indirect
 	gocloud.dev/pubsub/natspubsub v0.37.0 // indirect
 	gocloud.dev/pubsub/rabbitpubsub v0.37.0 // indirect
-	gocloud.dev/secrets/hashivault v0.37.0 // indirect
+	gocloud.dev/secrets/hashivault v0.39.0 // indirect
 	golang.org/x/arch v0.7.0 // indirect
 	golang.org/x/crypto v0.26.0 // indirect
 	golang.org/x/exp v0.0.0-20240409090435-93d18d7e34b8 // indirect
@@ -270,7 +271,6 @@ require (
 	gopkg.in/DataDog/dd-trace-go.v1 v1.62.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20191017102106-1550ee647df0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
-	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

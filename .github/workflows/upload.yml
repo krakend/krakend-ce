@@ -1,0 +1,32 @@
+on:
+  workflow_dispatch:
+
+name: Upload v2.7.1
+jobs:
+  upload:
+    name: Upload release-artifacts
+    runs-on: ubuntu-20.04
+    permissions:
+      actions: read
+      packages: write
+      checks: write
+      contents: write
+      statuses: read
+    steps:
+    - name: Restore cache
+      id: cache-restore
+      uses: actions/cache/restore@v4
+      with:
+        path: |
+          *.tar.gz
+          *.asc
+          *.deb
+          *.rpm
+          checksums.txt
+        key: refs/tags/v2.7.1-artifacts
+    - name: Upload the artifacts
+      uses: skx/github-action-publish-binaries@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: '*.tar.gz *.asc *.deb *.rpm checksums.txt'

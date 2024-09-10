@@ -1,7 +1,16 @@
 on:
   workflow_dispatch:
+    inputs:
+      cache-ref-key:
+        type: string
+        description: cache-ref-key to upload to release page
+        required: true
+      release-id:
+        type: string
+        description: release id destination
+        required: true
 
-name: Upload v2.7.1
+name: Upload cache to release page
 jobs:
   upload:
     name: Upload release-artifacts
@@ -23,10 +32,11 @@ jobs:
           *.deb
           *.rpm
           checksums.txt
-        key: refs/tags/v2.7.1-artifacts
+        key: ${{ github.event.inputs.cache-ref-key }}
     - name: Upload the artifacts
       uses: skx/github-action-publish-binaries@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
+        releaseId: ${{ github.event.inputs.release-id }}
         args: '*.tar.gz *.asc *.deb *.rpm checksums.txt'

@@ -133,6 +133,9 @@ jobs:
      permissions:
       actions: read
       packages: write
+      checks: write
+      contents: write
+      statuses: read
      steps:
       - name: Restore cache
         id: cache-restore

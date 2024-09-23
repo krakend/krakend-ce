@@ -7,7 +7,7 @@
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 MODULE := github.com/krakendio/krakend-ce/v2
-VERSION := 2.7.1
+VERSION := 2.7.2
 SCHEMA_VERSION := $(shell echo "${VERSION}" | cut -d '.' -f 1,2)
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend

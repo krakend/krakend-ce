@@ -14,8 +14,12 @@ import (
 	logstash "github.com/krakendio/krakend-logstash/v2"
 	"golang.org/x/sync/errgroup"
 
+	kotel "github.com/krakend/krakend-otel"
+	otellura "github.com/krakend/krakend-otel/lura"
+	otelgin "github.com/krakend/krakend-otel/router/gin"
 	krakendbf "github.com/krakendio/bloomfilter/v2/krakend"
 	asyncamqp "github.com/krakendio/krakend-amqp/v2/async"
+	audit "github.com/krakendio/krakend-audit"
 	cel "github.com/krakendio/krakend-cel/v2"
 	cmd "github.com/krakendio/krakend-cobra/v2"
 	cors "github.com/krakendio/krakend-cors/v2/gin"
@@ -33,13 +37,14 @@ import (
 	_ "github.com/krakendio/krakend-opencensus/v2/exporter/xray"
 	_ "github.com/krakendio/krakend-opencensus/v2/exporter/zipkin"
 	pubsub "github.com/krakendio/krakend-pubsub/v2"
-	"github.com/krakendio/krakend-usage/client"
+	usage "github.com/krakendio/krakend-usage/v2"
 	"github.com/luraproject/lura/v2/async"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/core"
 	"github.com/luraproject/lura/v2/logging"
 	"github.com/luraproject/lura/v2/proxy"
 	router "github.com/luraproject/lura/v2/router/gin"
+	"github.com/luraproject/lura/v2/sd/dnssrv"
 	serverhttp "github.com/luraproject/lura/v2/transport/http/server"
 	server "github.com/luraproject/lura/v2/transport/http/server/plugin"
 	optiva_telemetry "github.com/optivainc/optiva-product-shared-krakend-telemetry"
@@ -53,8 +58,14 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 }
 
 // PluginLoader defines the interface for the collaborator responsible of starting the plugin loaders
+// Deprecated: Use PluginLoaderWithContext
 type PluginLoader interface {
 	Load(folder, pattern string, logger logging.Logger)
+}
+
+// PluginLoaderWithContext defines the interface for the collaborator responsible of starting the plugin loaders
+type PluginLoaderWithContext interface {
+	LoadWithContext(ctx context.Context, folder, pattern string, logger logging.Logger)
 }
 
 // SubscriberFactoriesRegister registers all the required subscriber factories from the available service
@@ -123,17 +134,20 @@ type AgentStarter interface {
 
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
 type ExecutorBuilder struct {
-	LoggerFactory               LoggerFactory
+	// PluginLoader is deprecated: Use PluginLoaderWithContext
 	PluginLoader                PluginLoader
+	PluginLoaderWithContext     PluginLoaderWithContext
+	LoggerFactory               LoggerFactory
 	SubscriberFactoriesRegister SubscriberFactoriesRegister
 	TokenRejecterFactory        TokenRejecterFactory
 	MetricsAndTracesRegister    MetricsAndTracesRegister
 	EngineFactory               EngineFactory
-	ProxyFactory                ProxyFactory
-	BackendFactory              BackendFactory
-	HandlerFactory              HandlerFactory
-	RunServerFactory            RunServerFactory
-	AgentStarterFactory         AgentStarter
+
+	ProxyFactory        ProxyFactory
+	BackendFactory      BackendFactory
+	HandlerFactory      HandlerFactory
+	RunServerFactory    RunServerFactory
+	AgentStarterFactory AgentStarter
 
 	Middlewares []gin.HandlerFunc
 }
@@ -156,12 +170,25 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		logger.Info(fmt.Sprintf("Starting KrakenD v%s", core.KrakendVersion))
 		startReporter(ctx, logger, cfg)
 
+		if wd, err := os.Getwd(); err == nil {
+			logger.Info("Working directory is", wd)
+		}
+
+		dnssrv.SetTTL(cfg.DNSCacheTTL)
+
 		if cfg.Plugin != nil {
-			e.PluginLoader.Load(cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
+			e.PluginLoaderWithContext.LoadWithContext(ctx, cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
 		}
 
 		metricCollector := e.MetricsAndTracesRegister.Register(ctx, cfg, logger)
+		if metricsAndTracesCloser, ok := e.MetricsAndTracesRegister.(io.Closer); ok {
+			defer metricsAndTracesCloser.Close()
+		}
 
+		// Initializes the global cache for the JWK clients if enabled in the config
+		if err := jose.SetGlobalCacher(logger, cfg.ExtraConfig); err != nil && err != jose.ErrNoValidatorCfg {
+			logger.Error("[SERVICE: JOSE]", err.Error())
+		}
 		tokenRejecterFactory, err := e.TokenRejecterFactory.NewTokenRejecter(
 			ctx,
 			cfg,
@@ -172,13 +199,17 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("[SERVICE: Bloomfilter]", err.Error())
 		}
 
-		pf := e.ProxyFactory.NewProxyFactory(
-			logger,
-			e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector),
-			metricCollector,
-		)
+		bpf := e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector)
+		pf := e.ProxyFactory.NewProxyFactory(logger, bpf, metricCollector)
 
 		agentPing := make(chan string, len(cfg.AsyncAgents))
+
+		handlerF := e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory)
+		handlerF = otelgin.New(handlerF)
+
+		runServerChain := serverhttp.RunServerWithLoggerFactory(logger)
+		runServerChain = otellura.GlobalRunServer(logger, runServerChain)
+		runServerChain = router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, runServerChain))
 
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
@@ -190,8 +221,8 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 			ProxyFactory:   pf,
 			Middlewares:    e.Middlewares,
 			Logger:         logger,
-			HandlerFactory: e.HandlerFactory.NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
-			RunServer:      router.RunServerFunc(e.RunServerFactory.NewRunServer(logger, serverhttp.RunServerWithLoggerFactory(logger))),
+			HandlerFactory: handlerF,
+			RunServer:      runServerChain,
 		})
 
 		// start the engines
@@ -229,6 +260,9 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 func (e *ExecutorBuilder) checkCollaborators() {
 	if e.PluginLoader == nil {
 		e.PluginLoader = new(pluginLoader)
+	}
+	if e.PluginLoaderWithContext == nil {
+		e.PluginLoaderWithContext = new(pluginLoader)
 	}
 	if e.SubscriberFactoriesRegister == nil {
 		e.SubscriberFactoriesRegister = new(registerSubscriberFactories)
@@ -280,8 +314,7 @@ type LoggerBuilder struct{}
 func (LoggerBuilder) NewLogger(cfg config.ServiceConfig) (logging.Logger, io.Writer, error) {
 	var writers []io.Writer
 
-	telemetryConfig, _ := optiva_telemetry.ConfigGetter(cfg.ExtraConfig)
-	if telemetryConfig != nil {
+	if telemetryConfig, _ := optiva_telemetry.ConfigGetter(cfg.ExtraConfig); telemetryConfig != nil {
 		logger, _ := optiva_telemetry.NewApplicationLogger(cfg.ExtraConfig)
 
 		return logger, nil, nil
@@ -352,10 +385,12 @@ func (BloomFilterJWT) NewTokenRejecter(ctx context.Context, cfg config.ServiceCo
 }
 
 // MetricsAndTraces is the default implementation of the MetricsAndTracesRegister interface.
-type MetricsAndTraces struct{}
+type MetricsAndTraces struct {
+	shutdownFn func()
+}
 
 // Register registers the metrics, influx and opencensus packages as required by the given configuration.
-func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
+func (m *MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
 
 	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
@@ -374,15 +409,19 @@ func (MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, 
 		l.Debug("[SERVICE: OpenCensus] Service correctly registered")
 	}
 
-	if err := optiva_telemetry.RegisterOpenTelemetry(ctx, cfg, l); err != nil {
-		if err != optiva_telemetry.ErrNoConfig {
-			l.Warning("[SERVICE: OpenTelemetry]", err.Error())
-		}
+	if shutdownFn, err := kotel.Register(ctx, l, cfg); err == nil {
+		m.shutdownFn = shutdownFn
 	} else {
-		l.Debug("[SERVICE: OpenTelemetry] Service correctly registered")
+		l.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
 	}
 
 	return metricCollector
+}
+
+func (m *MetricsAndTraces) Close() {
+	if m.shutdownFn != nil {
+		m.shutdownFn()
+	}
 }
 
 const (
@@ -408,11 +447,19 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 		serverID := uuid.NewV4().String()
 		logger.Debug(logPrefix, "Registering usage stats for Cluster ID", clusterID)
 
-		if err := client.StartReporter(ctx, client.Options{
-			ClusterID: clusterID,
-			ServerID:  serverID,
-			Version:   core.KrakendVersion,
-		}); err != nil {
+		s := audit.Parse(&cfg)
+		a, _ := audit.Marshal(&s)
+		if err := usage.Report(
+			ctx,
+			usage.Options{
+				ClusterID:    clusterID,
+				ServerID:     serverID,
+				Version:      core.KrakendVersion,
+				UserAgent:    core.KrakendUserAgent,
+				ExtraPayload: a,
+			},
+			nil,
+		); err != nil {
 			logger.Debug(logPrefix, "Unable to create the usage report client:", err.Error())
 		}
 	}()

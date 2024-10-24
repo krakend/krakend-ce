@@ -9,7 +9,7 @@
 		}
 	},
 	"out": {
-		"status_code": 200,
+		"status_code": 204,
 		"body": "",
 		"header": {
 			"content-type": [""],

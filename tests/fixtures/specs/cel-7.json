@@ -3,7 +3,7 @@
 		"method": "GET",
 		"url": "http://localhost:8080/cel/jwt/ok",
 		"header": {
-			"authorization": "bearer eyJhbGciOiJIUzI1NiIsImtpZCI6InNpbTIifQ.eyJhdWQiOiJodHRwOi8vYXBpLmV4YW1wbGUuY29tIiwiZXhwIjoxNjk2OTU4MjQ1LCJodHRwOi8vZXhhbXBsZS5jb20vY3VzdG9tIjoiZm9vYmFyIiwiaXNzIjoiaHR0cHM6Ly9rcmFrZW5kLmlvIiwianRpIjoibW5iMjN2Y3NydDc1Nnl1aW9tbmJ2Y3g5OGVydHl1aW9wIiwicm9sZXMiOlsicm9sZV9hIiwicm9sZV9iIl0sInNjb3BlIjoicHJvZHVjdDpsaXN0OnJlYWQgcHJvZHVjdDppdGVtOnJlYWQiLCJzdWIiOiIxMjM0NTY3ODkwcXdlcnR5dWlvIn0.X-4PUj7S3h2Xa4axNt7mP8gD7Ts9DcwoMH91G72Ldlo"
+			"authorization": "bearer eyJhbGciOiJIUzI1NiIsImtpZCI6InNpbTIifQ.eyJhdWQiOiJodHRwOi8vYXBpLmV4YW1wbGUuY29tIiwiZXhwIjoxNzM1Njg5NjAwLCJodHRwOi8vZXhhbXBsZS5jb20vY3VzdG9tIjoiZm9vYmFyIiwiaXNzIjoiaHR0cHM6Ly9rcmFrZW5kLmlvIiwianRpIjoibW5iMjN2Y3NydDc1Nnl1aW9tbmJ2Y3g5OGVydHl1aW9wIiwicm9sZXMiOlsicm9sZV9hIiwicm9sZV9iIl0sInNjb3BlIjoicHJvZHVjdDpsaXN0OnJlYWQgcHJvZHVjdDppdGVtOnJlYWQiLCJzdWIiOiIxMjM0NTY3ODkwcXdlcnR5dWlvIn0.ioDRj1ogdfQZwIg7MuZfypBDE6DJfWNRhnEttm012b8"
 		}
 	},
 	"out": {
@@ -12,7 +12,7 @@
 			"foo":42,
 			"headers":{
 				"Accept-Encoding":["gzip"],
-				"User-Agent":["KrakenD Version 2.1.3"],
+				"User-Agent":["KrakenD Version 2.7.2"],
 				"X-Forwarded-Host":["localhost:8080"]
 			},
 			"path":"/param_forwarding/ok/1234567890qwertyuio/foobar",

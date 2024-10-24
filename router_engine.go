@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 
 	"github.com/gin-gonic/gin"
-	"go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin"
 
 	botdetector "github.com/krakendio/krakend-botdetector/v2/gin"
 	httpsecure "github.com/krakendio/krakend-httpsecure/v2/gin"
@@ -14,7 +13,6 @@ import (
 	"github.com/luraproject/lura/v2/core"
 	luragin "github.com/luraproject/lura/v2/router/gin"
 	"github.com/luraproject/lura/v2/transport/http/server"
-
 	optiva_telemetry "github.com/optivainc/optiva-product-shared-krakend-telemetry"
 )
 
@@ -22,10 +20,9 @@ import (
 func NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine {
 	engine := luragin.NewEngine(cfg, opt)
 
-	engine.Use(otelgin.Middleware("krakend"))
-	engine.Use(optiva_telemetry.ProgegateTraceParentHeaderMiddleware(cfg))
-
-	engine.Use(optiva_telemetry.NewGinLogger(cfg.ExtraConfig, gin.LoggerConfig{}))
+	if v, ok := cfg.ExtraConfig[optiva_telemetry.Namespace]; ok && v != nil {
+		engine.Use(optiva_telemetry.NewGinLogger(cfg.ExtraConfig, gin.LoggerConfig{}))
+	}
 
 	// register the render at the router level
 	luragin.RegisterRender("JsonWithStatusCodeRender", optiva_telemetry.JsonWithResponseStatusCodeRender())
@@ -49,7 +46,7 @@ func NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine 
 	if err := httpsecure.Register(cfg.ExtraConfig, engine); err != nil && err != httpsecure.ErrNoConfig {
 		opt.Logger.Warning(logPrefix+"[HTTPsecure]", err)
 	} else if err == nil {
-		opt.Logger.Debug(logPrefix + "[HTTPsecure] Successfuly loaded module")
+		opt.Logger.Debug(logPrefix + "[HTTPsecure] Successfully loaded module")
 	}
 
 	lua.Register(opt.Logger, cfg.ExtraConfig, engine)

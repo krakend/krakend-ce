@@ -1,0 +1,100 @@
+on:
+  workflow_dispatch:
+    inputs:
+      release-id:
+        type: string
+        description: release id destination
+        required: true
+name: Handle Release
+jobs:
+  generate:
+    name: Create release-artifacts
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@master
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.PGP_SIGNING_KEY }}
+          fingerprint: "5B270F2E01E375FD9D5635E25DE6FD698AD6FDD2"
+      - name: List keys
+        run: gpg -K
+      - name: Generate the artifacts for Debian/Ubuntu/Redhat/Centos (AMD64/ARM64)
+        uses: docker://krakend/builder:latest-linux-generic
+        with:
+          args: sh -c "git config --global --add safe.directory /github/workspace;
+           export CGO_ENABLED=1 CC=aarch64-linux-gnu-gcc ARCH=arm64 OS_TAG=_generic-linux GOARCH=arm64 GOHOSTARCH=amd64 EXTRA_LDFLAGS='-extld=aarch64-linux-gnu-gcc';
+           make -e build && make -e tgz;
+           make clean;
+           export CC= GOARCH=amd64 ARCH=amd64 OS_TAG=_generic-linux EXTRA_LDFLAGS=;
+           make -e build && make -e tgz;"
+      - name: Build DEB package (AMD64)
+        uses: docker://krakend/fpm:deb
+        with:
+          entrypoint: /bin/bash
+          args: -c "make -e deb-release"
+      - name: Build RPM package (AMD64)
+        uses: docker://krakend/fpm:rpm
+        with:
+          entrypoint: /bin/bash
+          args: -c "echo '${{ secrets.PGP_SIGNING_KEY }}' > pgp.key;
+           gpg --import pgp.key;
+           cp builder/files/rpmmacros /etc/rpm/macros;
+           make -e rpm-release &&
+           rpmsign --addsign *rpm"
+      - name: Generate the artifacts for Alpine (AMD64/ARM64)
+        uses: docker://krakend/builder:latest
+        with:
+          args: sh -c "export GOARCH=amd64 ARCH=amd64 OS_TAG=_alpine;
+           make -e build && make -e tgz;
+           make clean;
+           export CGO_ENABLED=1 ARCH=arm64 OS_TAG=_alpine GOARCH=arm64 GOHOSTARCH=amd64;
+           export CC=aarch64-linux-musl-gcc EXTRA_LDFLAGS='-extldflags=-fuse-ld=bfd  -extld=aarch64-linux-musl-gcc';
+           make -e build && make -e tgz"
+      - name: ASC files
+        run: for i in $(ls *.tar.gz *.deb *.rpm);
+         do gpg --armor --detach $i;
+         sha512sum $i >> checksums.txt;
+         done
+      - name: Cache artifacts
+        id: cache
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            *.tar.gz
+            *.asc
+            *.deb
+            *.rpm
+            checksums.txt
+          key: ${{github.ref}}-artifacts
+  upload:
+     name: Upload release-artifacts
+     runs-on: ubuntu-20.04
+     needs: generate
+     permissions:
+      actions: read
+      packages: write
+      checks: write
+      contents: write
+      statuses: read
+     steps:
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            *.tar.gz
+            *.asc
+            *.deb
+            *.rpm
+            checksums.txt
+          key: ${{github.ref}}-artifacts
+      - name: Upload the artifacts
+        uses: skx/github-action-publish-binaries@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          releaseId: ${{ github.event.inputs.release-id }}
+          args: '*.tar.gz *.asc *.deb *.rpm checksums.txt'

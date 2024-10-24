@@ -6,7 +6,9 @@
 
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-VERSION := 2.1.5
+MODULE := github.com/krakendio/krakend-ce/v2
+VERSION := 2.7.2
+SCHEMA_VERSION := $(shell echo "${VERSION}" | cut -d '.' -f 1,2)
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
 LICENSE := Apache 2.0
@@ -19,10 +21,9 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.19.3
-GLIBC_VERSION := $(shell bash find_glibc.sh)
-ALPINE_VERSION := 3.16
-GITHUB_TOKEN := ${GITHUB_TOKEN}
+GOLANG_VERSION := 1.22.7
+GLIBC_VERSION := $(shell sh find_glibc.sh)
+ALPINE_VERSION := 3.19
 OS_TAG :=
 EXTRA_LDFLAGS :=
 
@@ -56,7 +57,7 @@ all: test
 build:
 	@echo "Building the binary..."
 	@go get .
-	@go build -ldflags="-X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
+	@go build -ldflags="-X ${MODULE}/pkg.Version=${VERSION} -X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
 	-X github.com/luraproject/lura/v2/core.GoVersion=${GOLANG_VERSION} \
 	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION} ${EXTRA_LDFLAGS}" \
 	-o ${BIN_NAME} ./cmd/krakend-ce
@@ -65,13 +66,13 @@ build:
 test: build
 	go test -v ./tests
 
-# Build KrakenD using docker (defaults to whatever the golang container uses)
+# Build KrakenD using docker (defaults to whatever the golang container uses)
 build_on_docker: docker-builder-linux
-	docker run --rm -it -v "${PWD}:/app" -w /app krakend/builder:${VERSION}-linux-generic make -e build
+	docker run --rm -it -v "${PWD}:/app" -w /app krakend/builder:${VERSION}-linux-generic sh -c "git config --global --add safe.directory /app && make -e build"
 
 # Build the container using the Dockerfile (alpine)
 docker:
-	docker build --no-cache --pull --build-arg GITHUB_TOKEN=${GITHUB_TOKEN} --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t harbor.optiva.com/oce/krakend:${VERSION} .
+	docker build --no-cache --pull --build-arg GITHUB_TOKEN=${GITHUB_TOKEN} --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t harbor-prod.optiva.com/oce/images/krakend:${VERSION} .
 
 docker-builder:
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t krakend/builder:${VERSION} -f Dockerfile-builder .
@@ -82,7 +83,7 @@ docker-builder-linux:
 benchmark:
 	@mkdir -p bench_res
 	@touch bench_res/${GIT_COMMIT}.out
-	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 harbor.optiva.com/oce/krakend:${VERSION} run -dc /etc/krakend/bench.json
+	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 harbor-prod.optiva.com/oce/images/krakend:${VERSION} run -dc /etc/krakend/bench.json
 	@sleep 2
 	@docker run --rm -it --link krakend peterevans/vegeta sh -c \
 		"echo 'GET http://krakend:8080/test' | vegeta attack -rate=0 -duration=30s -max-workers=300 | tee results.bin | vegeta report" > bench_res/${GIT_COMMIT}.out
@@ -92,7 +93,7 @@ benchmark:
 security_scan:
 	@mkdir -p sec_scan
 	@touch sec_scan/${GIT_COMMIT}.out
-	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 harbor.optiva.com/oce/krakend:${VERSION} run -dc /etc/krakend/bench.json
+	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 harbor-prod.optiva.com/oce/images/krakend:${VERSION} run -dc /etc/krakend/bench.json
 	@docker run --rm -it --link krakend instrumentisto/nmap --script vuln krakend > sec_scan/${GIT_COMMIT}.out
 	@docker stop krakend
 	@cat sec_scan/${GIT_COMMIT}.out
@@ -125,7 +126,7 @@ builder/skel/%/etc/logrotate.d/krakend: builder/files/krakend-logrotate
 	mkdir -p "$(dir $@)"
 	cp builder/files/krakend-logrotate "$@"
 
-.PHONE: tgz
+.PHONY: tgz
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json
 tgz: builder/skel/tgz/etc/init.d/krakend

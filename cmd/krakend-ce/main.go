@@ -57,6 +57,18 @@ func main() {
 		})
 	}
 
+	commandsToLoad := []cmd.Command{
+		cmd.RunCommand,
+		cmd.CheckCommand,
+		cmd.PluginCommand,
+		cmd.VersionCommand,
+		cmd.AuditCommand,
+		krakend.NewTestPluginCmd(),
+	}
+
+	cmd.DefaultRoot = cmd.NewRoot(cmd.RootCommand, commandsToLoad...)
+	cmd.DefaultRoot.Cmd.CompletionOptions.DisableDefaultCmd = true
+
 	cmd.Execute(cfg, krakend.NewExecutor(ctx))
 }
 
@@ -67,8 +79,6 @@ var aliases = map[string]string{
 	"github.com/devopsfaith/krakend/proxy":                          "proxy",
 	"github_com/luraproject/lura/router/gin":                        "router",
 
-	"github.com/devopsfaith/krakend-ratelimit/juju/router":    "qos/ratelimit/router",
-	"github.com/devopsfaith/krakend-ratelimit/juju/proxy":     "qos/ratelimit/proxy",
 	"github.com/devopsfaith/krakend-httpcache":                "qos/http-cache",
 	"github.com/devopsfaith/krakend-circuitbreaker/gobreaker": "qos/circuit-breaker",
 

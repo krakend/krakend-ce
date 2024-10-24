@@ -1,0 +1,25 @@
+{
+    "@comment": "Makes sure that the health endpoint contains three fields with the right types",
+    "in": {
+        "url": "http://localhost:8080/__health"
+    },
+    "out": {
+        "status_code": 200,
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "required": ["agents","now","status"],
+          "properties": {
+            "agents": {
+                "type": "object"
+            },
+            "now": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string",
+                "enum": ["ok"]
+            }
+          }
+        }
+    }
+}

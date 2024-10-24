@@ -8,12 +8,13 @@
 		"body": {
           "error_backend_b": {
             "http_status_code": 404,
+            "http_body_encoding": "text/plain; charset=utf-8",
             "http_body": "404 page not found\n"
           },
           "foo": 42,
           "headers": {
             "Accept-Encoding": ["gzip"],
-            "User-Agent": ["KrakenD Version 2.1.3"],
+            "User-Agent": ["KrakenD Version 2.7.2"],
             "X-Forwarded-Host": ["localhost:8080"]
           },
           "path": "/param_forwarding/",

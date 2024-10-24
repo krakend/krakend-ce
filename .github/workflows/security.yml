@@ -1,0 +1,101 @@
+---
+name: security
+
+# Run for all pushes to master and pull requests when Go or YAML files change
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ master ]
+  schedule:
+    - cron: '23 20 * * 2'
+
+jobs:
+  security-repo-scan:
+    name: security-repo-scan
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          security-checks: 'vuln,secret'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'HIGH,CRITICAL'
+          skip-dirs: 'tests'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  image-scan:
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+    strategy:
+      matrix:
+        config:
+          - image: krakend/krakend-ce
+            dockerfile: Dockerfile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set the environment variables
+        run: |
+          echo "GOLANG_VERSION=$(grep -m 1 GOLANG_VERSION Makefile | sed 's/^.*= //g')" >> $GITHUB_ENV
+          echo "ALPINE_VERSION=$(grep -m 1 ALPINE_VERSION Makefile | sed 's/^.*= //g')" >> $GITHUB_ENV
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            ${{ matrix.config.image }}
+          tags: |
+            type=sha
+
+      - name: "Build image ${{ matrix.config.image }}"
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ${{ matrix.config.dockerfile }}
+          build-args: |
+            GOLANG_VERSION=${{ env.GOLANG_VERSION }}
+            ALPINE_VERSION=${{ env.ALPINE_VERSION }}
+          push: false
+          load: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Run Trivy vulnerability scanner in image mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'image'
+          image-ref: ${{ steps.meta.outputs.tags }}
+          security-checks: 'vuln,secret'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'HIGH,CRITICAL'
+          skip-dirs: 'tests'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'

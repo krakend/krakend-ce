@@ -24,7 +24,7 @@ require (
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.2
-	github.com/krakendio/krakend-lua/v2 v2.1.3
+	github.com/krakendio/krakend-lua/v2 v2.1.4-0.20241024142954-86df708d5da4
 	github.com/krakendio/krakend-martian/v2 v2.0.2
 	github.com/krakendio/krakend-metrics/v2 v2.0.1
 	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.0.1
@@ -75,7 +75,7 @@ require (
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
 	github.com/PuerkitoBio/goquery v1.8.1 // indirect
-	github.com/alecthomas/chroma v0.6.3 // indirect
+	github.com/alecthomas/chroma v0.10.0 // indirect
 	github.com/andybalholm/cascadia v1.3.2 // indirect
 	github.com/antlr4-go/antlr/v4 v4.13.0 // indirect
 	github.com/aws/aws-sdk-go v1.55.5 // indirect
@@ -106,13 +106,12 @@ require (
 	github.com/clbanning/mxj v1.8.4 // indirect
 	github.com/cloudwego/base64x v0.1.4 // indirect
 	github.com/cloudwego/iasm v0.2.0 // indirect
-	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
-	github.com/dlclark/regexp2 v1.1.6 // indirect
+	github.com/dlclark/regexp2 v1.11.4 // indirect
 	github.com/eapache/go-resiliency v1.6.0 // indirect
 	github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3 // indirect
 	github.com/eapache/queue v1.1.0 // indirect
-	github.com/fatih/color v1.16.0 // indirect
+	github.com/fatih/color v1.17.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
@@ -166,7 +165,7 @@ require (
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
 	github.com/krakend/go-auth0/v2 v2.0.1 // indirect
-	github.com/krakendio/binder v0.0.0-20230413105421-1bbe94e65f45 // indirect
+	github.com/krakendio/binder v0.0.0-20241024141510-eeb24543bdb1 // indirect
 	github.com/krakendio/flatmap v1.1.1 // indirect
 	github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
@@ -231,7 +230,7 @@ require (
 	github.com/valyala/fastrand v1.1.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
-	github.com/yuin/gopher-lua v0.0.0-20190206043414-8bfc7677f583 // indirect
+	github.com/yuin/gopher-lua v1.1.1 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.53.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0 // indirect
@@ -258,7 +257,7 @@ require (
 	golang.org/x/mod v0.19.0 // indirect
 	golang.org/x/net v0.28.0 // indirect
 	golang.org/x/oauth2 v0.22.0 // indirect
-	golang.org/x/sys v0.24.0 // indirect
+	golang.org/x/sys v0.25.0 // indirect
 	golang.org/x/text v0.17.0 // indirect
 	golang.org/x/time v0.6.0 // indirect
 	golang.org/x/tools v0.23.0 // indirect

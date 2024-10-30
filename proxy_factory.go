@@ -3,7 +3,6 @@ package krakend
 import (
 	"fmt"
 
-	otellura "github.com/krakend/krakend-otel/lura"
 	cel "github.com/krakendio/krakend-cel/v2"
 	jsonschema "github.com/krakendio/krakend-jsonschema/v2"
 	lua "github.com/krakendio/krakend-lua/v2/proxy"
@@ -24,7 +23,6 @@ func internalNewProxyFactory(logger logging.Logger, backendFactory proxy.Backend
 	proxyFactory = lua.ProxyFactory(logger, proxyFactory)
 	proxyFactory = metricCollector.ProxyFactory("pipe", proxyFactory)
 	proxyFactory = opencensus.ProxyFactory(proxyFactory)
-	proxyFactory = otellura.ProxyFactory(proxyFactory)
 	return proxyFactory
 }
 

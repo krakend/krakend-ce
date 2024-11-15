@@ -467,8 +467,8 @@ github.com/krakend/go-auth0/v2 v2.0.1 h1:Ve73eo/rUo1NK/GrzOeWSuVdweGHY2sGU52NYdp
 github.com/krakend/go-auth0/v2 v2.0.1/go.mod h1:jaMs1/YcOmZYRUPBvk/nrhABJv/XkrUJGA2eywOUFRA=
 github.com/krakend/krakend-otel v0.6.2 h1:jvSxVMo7ckPgNUQUNjOVT/+GKnw7I6QXwwWLvzFcbLQ=
 github.com/krakend/krakend-otel v0.6.2/go.mod h1:8Q6FfeY1S6RHMO/5/s0B+JJ1AEGDTJZHYtpmF1a+USA=
-github.com/krakendio/binder v0.0.0-20241114194202-a3efb1159b42 h1:kLYwWm+SNQa89DLDznGDjHK0JlhxByUK4BT64S+wTL8=
-github.com/krakendio/binder v0.0.0-20241114194202-a3efb1159b42/go.mod h1:CYIubvHjRQrAM2JZn4pv/Whrmo57K2cHOv2jLVQk4aI=
+github.com/krakendio/binder v0.0.0-20241115150014-29ceb1a9414b h1:4BmhKuybR5uDs6C7jOCm4KA3DxRK/BCk71n6146krTE=
+github.com/krakendio/binder v0.0.0-20241115150014-29ceb1a9414b/go.mod h1:CYIubvHjRQrAM2JZn4pv/Whrmo57K2cHOv2jLVQk4aI=
 github.com/krakendio/bloomfilter/v2 v2.0.4 h1:+FCe52Izx4mZgFevvifOMF+3WbbhmZT0xZnrnUE4C0U=
 github.com/krakendio/bloomfilter/v2 v2.0.4/go.mod h1:BH9pmOLLllSAvtjuwA2Ythd7RE3lQdNr1sHK3f2dJok=
 github.com/krakendio/flatmap v1.1.1 h1:rGBNVpBY0pMk6cLOwerVzoKY4HELnpu0xvqB231lOCQ=
@@ -509,8 +509,8 @@ github.com/krakendio/krakend-lambda/v2 v2.0.3 h1:r4MoR5+5BFACmQ1iYjdhJjlJBev889q
 github.com/krakendio/krakend-lambda/v2 v2.0.3/go.mod h1:LH9pjG19stIeLLmaE5YKgjvbGJ7Da1pHw9g7cPTTGSg=
 github.com/krakendio/krakend-logstash/v2 v2.0.2 h1:1C0F/mZlr9Alj/HyjUyG/bTK8PhJM3Pv9/EXef83PFQ=
 github.com/krakendio/krakend-logstash/v2 v2.0.2/go.mod h1:buiQqKl5Dqv8qjzn4UT2G+bc6iFNYMrMRLK2AGGSaeU=
-github.com/krakendio/krakend-lua/v2 v2.2.0 h1:tuEU+z5NVCH1EDFKNt8FDiXVeqZYJqT7D/F1kRHjunY=
-github.com/krakendio/krakend-lua/v2 v2.2.0/go.mod h1:avJRWjet7DhdF2C1dO+Je4j8Y0M5XCio4Zq4dMUHJDY=
+github.com/krakendio/krakend-lua/v2 v2.2.1 h1:dgYm7urBFEGQTRLZDuOzfIxFMAbEaFVj+5VwIUdDKWc=
+github.com/krakendio/krakend-lua/v2 v2.2.1/go.mod h1:I175sL2ujD2PNDlEUUM59r7+xEOHQxWzqtrbtC6qyeY=
 github.com/krakendio/krakend-martian/v2 v2.0.2 h1:jUbrRfVY9TjPGk6Tnf7pvR76OMEB7DI9NMibU1DBsEo=
 github.com/krakendio/krakend-martian/v2 v2.0.2/go.mod h1:CJ0r8fwPNHXObclDqjR2iuUrT21PRg31SPFVXhdBlHM=
 github.com/krakendio/krakend-metrics/v2 v2.0.1 h1:BFGsbw/Qghfw0OD2+fFRcyavuHWwp78KAnAw9gyzpzQ=

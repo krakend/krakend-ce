@@ -35,7 +35,7 @@ require (
 	github.com/krakendio/krakend-usage/v2 v2.0.0
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.1.0
-	github.com/luraproject/lura/v2 v2.7.0
+	github.com/luraproject/lura/v2 v2.7.2
 	github.com/spf13/cobra v1.8.0
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
 	go.opentelemetry.io/otel v1.28.0

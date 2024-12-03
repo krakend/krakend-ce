@@ -509,8 +509,8 @@ github.com/krakendio/krakend-lambda/v2 v2.0.3 h1:r4MoR5+5BFACmQ1iYjdhJjlJBev889q
 github.com/krakendio/krakend-lambda/v2 v2.0.3/go.mod h1:LH9pjG19stIeLLmaE5YKgjvbGJ7Da1pHw9g7cPTTGSg=
 github.com/krakendio/krakend-logstash/v2 v2.0.2 h1:1C0F/mZlr9Alj/HyjUyG/bTK8PhJM3Pv9/EXef83PFQ=
 github.com/krakendio/krakend-logstash/v2 v2.0.2/go.mod h1:buiQqKl5Dqv8qjzn4UT2G+bc6iFNYMrMRLK2AGGSaeU=
-github.com/krakendio/krakend-lua/v2 v2.2.1 h1:dgYm7urBFEGQTRLZDuOzfIxFMAbEaFVj+5VwIUdDKWc=
-github.com/krakendio/krakend-lua/v2 v2.2.1/go.mod h1:I175sL2ujD2PNDlEUUM59r7+xEOHQxWzqtrbtC6qyeY=
+github.com/krakendio/krakend-lua/v2 v2.3.0 h1:6o1lPixd9kuYM3SDpLkvlCHDg2n/sgP848sXZUdp0I4=
+github.com/krakendio/krakend-lua/v2 v2.3.0/go.mod h1:I175sL2ujD2PNDlEUUM59r7+xEOHQxWzqtrbtC6qyeY=
 github.com/krakendio/krakend-martian/v2 v2.0.2 h1:jUbrRfVY9TjPGk6Tnf7pvR76OMEB7DI9NMibU1DBsEo=
 github.com/krakendio/krakend-martian/v2 v2.0.2/go.mod h1:CJ0r8fwPNHXObclDqjR2iuUrT21PRg31SPFVXhdBlHM=
 github.com/krakendio/krakend-metrics/v2 v2.0.1 h1:BFGsbw/Qghfw0OD2+fFRcyavuHWwp78KAnAw9gyzpzQ=
@@ -535,8 +535,8 @@ github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
 github.com/leodido/go-urn v1.4.0 h1:WT9HwE9SGECu3lg4d/dIA+jxlljEa1/ffXKmRjqdmIQ=
 github.com/leodido/go-urn v1.4.0/go.mod h1:bvxc+MVxLKB4z00jd1z+Dvzr47oO32F/QSNjSBOlFxI=
-github.com/luraproject/lura/v2 v2.7.0 h1:9s4Pt56zBfZMLRW+igfa3tWxJJXpOcEnmVpWUkDyr3s=
-github.com/luraproject/lura/v2 v2.7.0/go.mod h1:D0+LPLJAuT9DcfjB4xvVMCnKmAMQikdbcXmYLdmEA6A=
+github.com/luraproject/lura/v2 v2.7.2 h1:Ps21+FtDxhJ/YQz2zO6gxfzldyV9wUd52IpnOhnmka4=
+github.com/luraproject/lura/v2 v2.7.2/go.mod h1:D0+LPLJAuT9DcfjB4xvVMCnKmAMQikdbcXmYLdmEA6A=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/magiconair/properties v1.8.7 h1:IeQXZAiQcpL9mgcAe1Nu6cX9LLw6ExEHKjN0VQdvPDY=
 github.com/magiconair/properties v1.8.7/go.mod h1:Dhd985XPs7jluiymwWYZ0G4Z61jb3vdS329zhj2hYo0=

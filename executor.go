@@ -453,6 +453,7 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 				Version:      core.KrakendVersion,
 				UserAgent:    core.KrakendUserAgent,
 				ExtraPayload: a,
+				Client:       &http.Client{Transport: serverhttp.NewTransport(cfg, logger)},
 			},
 			nil,
 		); err != nil {

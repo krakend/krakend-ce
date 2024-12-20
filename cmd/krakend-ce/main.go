@@ -4,6 +4,7 @@ package main
 
 import (
 	"context"
+	_ "embed"
 	"log"
 	"os"
 	"os/signal"
@@ -23,6 +24,9 @@ const (
 	fcPath      = "FC_OUT"
 	fcEnable    = "FC_ENABLE"
 )
+
+//go:embed schema/schema.json
+var embedSchema string
 
 func main() {
 	sigs := make(chan os.Signal, 1)
@@ -59,7 +63,7 @@ func main() {
 
 	commandsToLoad := []cmd.Command{
 		cmd.RunCommand,
-		cmd.CheckCommand,
+		cmd.NewCheckCmd(embedSchema),
 		cmd.PluginCommand,
 		cmd.VersionCommand,
 		cmd.AuditCommand,

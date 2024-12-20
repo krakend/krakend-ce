@@ -4,7 +4,7 @@ package main
 
 import (
 	"context"
-	_ "embed"
+	"embed"
 	"log"
 	"os"
 	"os/signal"
@@ -25,8 +25,8 @@ const (
 	fcEnable    = "FC_ENABLE"
 )
 
-//go:embed schema/schema.json
-var embedSchema string
+//go:embed schema
+var embedSchema embed.FS
 
 func main() {
 	sigs := make(chan os.Signal, 1)
@@ -61,9 +61,15 @@ func main() {
 		})
 	}
 
+	var rawSchema string
+	schema, err := embedSchema.ReadFile("schema/schema.json")
+	if err == nil {
+		rawSchema = string(schema)
+	}
+
 	commandsToLoad := []cmd.Command{
 		cmd.RunCommand,
-		cmd.NewCheckCmd(embedSchema),
+		cmd.NewCheckCmd(rawSchema),
 		cmd.PluginCommand,
 		cmd.VersionCommand,
 		cmd.AuditCommand,

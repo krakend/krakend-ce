@@ -9,12 +9,12 @@
 	},
 	"out": {
 		"status_code": 200,
-		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"User-Agent\":[\"KrakenD Version 2.8.0\"],\"X-Forwarded-Host\":[\"localhost:8080\"]},\"path\":\"/param_forwarding/bar\",\"query\":{\"foo\":[\"foo\"]}}",
+		"body": "{\"foo\":42,\"headers\":{\"Accept-Encoding\":[\"gzip\"],\"User-Agent\":[\"KrakenD Version 2.8.1\"],\"X-Forwarded-Host\":[\"localhost:8080\"]},\"path\":\"/param_forwarding/bar\",\"query\":{\"foo\":[\"foo\"]}}",
 		"header": {
 			"content-type": ["application/json; charset=utf-8"],
 			"Cache-Control": ["public, max-age=3600"],
 			"X-Krakend-Completed": ["true"],
-			"X-Krakend": ["Version 2.8.0"],
+			"X-Krakend": ["Version 2.8.1"],
 			"Vary": ["Origin"],
 			"Access-Control-Allow-Origin": ["*"],
 			"Access-Control-Expose-Headers": ["Content-Length"]

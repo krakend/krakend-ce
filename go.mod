@@ -12,7 +12,7 @@ require (
 	github.com/krakendio/krakend-botdetector/v2 v2.1.0
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.4.3-0.20250108151111-64c4a1346593
+	github.com/krakendio/krakend-cobra/v2 v2.5.0
 	github.com/krakendio/krakend-cors/v2 v2.1.1
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
@@ -38,7 +38,6 @@ require (
 	github.com/luraproject/lura/v2 v2.8.0
 	github.com/spf13/cobra v1.8.1
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
-	go.opentelemetry.io/otel v1.28.0
 	golang.org/x/sync v0.10.0
 )
 
@@ -235,6 +234,7 @@ require (
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.53.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0 // indirect
+	go.opentelemetry.io/otel v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.28.0 // indirect

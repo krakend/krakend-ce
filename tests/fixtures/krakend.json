@@ -1,5 +1,6 @@
 {
     "version": 3,
+    "$schema": "https://krakend.io/schema/krakend.json",
     "name": "My lovely gateway",
     "port": 8080,
     "cache_ttl": "3600s",
@@ -317,6 +318,63 @@
             {
               "url_pattern": "/param_forwarding/{resp0_foo}",
               "host": [ "http://127.0.0.1:8081" ]
+            }
+          ]
+        },
+        {
+          "endpoint": "/sequential/propagate",
+          "extra_config": {
+            "proxy": {
+              "sequential": true,
+              "sequential_propagated_params": ["resp0_first.foo"]
+            }
+          },
+          "backend": [
+            {
+              "url_pattern": "/param_forwarding/1",
+              "host": [ "http://127.0.0.1:8081" ],
+              "group": "first",
+              "allow": [ "foo" ]
+            },
+            {
+              "url_pattern": "/param_forwarding/",
+              "host": [ "http://127.0.0.1:8081" ],
+              "group": "second",
+              "allow": [ "path" ],
+              "extra_config": {
+                "modifier/lua-backend": {
+                  "pre": "local req = request.load(); local foo = req:params(\"Resp0_first.foo\"); req:url(req:url() .. foo)"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "endpoint": "/sequential/propagate-full",
+          "extra_config": {
+            "proxy": {
+              "sequential": true,
+              "sequential_propagated_params": ["resp0"]
+            }
+          },
+          "backend": [
+            {
+              "encoding": "no-op",
+              "url_pattern": "/__debug/",
+              "host": [ "http://localhost:8080" ]
+            },
+            {
+              "url_pattern": "/param_forwarding/",
+              "host": [ "http://127.0.0.1:8081" ],
+              "extra_config": {
+                "modifier/lua-backend": {
+                  "allow_open_libs": true,
+                  "sources": [
+                    "fixtures/lua/base64.lua"
+                  ],
+                  "pre": "local req = request.load(); local m = req:params(\"Resp0\"); req:url(req:url() .. to_base64(m))"
+                }
+              }
             }
           ]
         },

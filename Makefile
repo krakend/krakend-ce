@@ -23,7 +23,7 @@ DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
 GOLANG_VERSION := 1.22.11
 GLIBC_VERSION := $(shell sh find_glibc.sh)
-ALPINE_VERSION := 3.19
+ALPINE_VERSION := 3.21
 OS_TAG :=
 EXTRA_LDFLAGS :=
 

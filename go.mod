@@ -12,7 +12,7 @@ require (
 	github.com/krakendio/krakend-botdetector/v2 v2.1.0
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.4.2
+	github.com/krakendio/krakend-cobra/v2 v2.5.0
 	github.com/krakendio/krakend-cors/v2 v2.1.1
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
@@ -36,7 +36,7 @@ require (
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.1.0
 	github.com/luraproject/lura/v2 v2.8.0
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
 	golang.org/x/sync v0.10.0
 )
@@ -204,7 +204,7 @@ require (
 	github.com/rs/cors v1.11.0 // indirect
 	github.com/rs/cors/wrapper/gin v0.0.0-20240515105523-1562b1715b35 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
-	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
+	github.com/santhosh-tekuri/jsonschema/v6 v6.0.1 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sony/gobreaker v0.5.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect

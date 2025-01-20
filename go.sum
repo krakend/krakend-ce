@@ -510,8 +510,8 @@ github.com/krakendio/krakend-lambda/v2 v2.0.3 h1:r4MoR5+5BFACmQ1iYjdhJjlJBev889q
 github.com/krakendio/krakend-lambda/v2 v2.0.3/go.mod h1:LH9pjG19stIeLLmaE5YKgjvbGJ7Da1pHw9g7cPTTGSg=
 github.com/krakendio/krakend-logstash/v2 v2.0.2 h1:1C0F/mZlr9Alj/HyjUyG/bTK8PhJM3Pv9/EXef83PFQ=
 github.com/krakendio/krakend-logstash/v2 v2.0.2/go.mod h1:buiQqKl5Dqv8qjzn4UT2G+bc6iFNYMrMRLK2AGGSaeU=
-github.com/krakendio/krakend-lua/v2 v2.5.1 h1:UDcRdZv4n7EksShSihnkJQN1Xw9Cr/em7fzmo2B2yG0=
-github.com/krakendio/krakend-lua/v2 v2.5.1/go.mod h1:MxpmpjD15nILY9QB0q4Vl6BIJGoElYeqE94qHleiATo=
+github.com/krakendio/krakend-lua/v2 v2.6.1 h1:67uQ8jetf4XcAcWiu2cVIcURU7E0RpwcgufMiC+7+wY=
+github.com/krakendio/krakend-lua/v2 v2.6.1/go.mod h1:MxpmpjD15nILY9QB0q4Vl6BIJGoElYeqE94qHleiATo=
 github.com/krakendio/krakend-martian/v2 v2.1.0 h1:S6fayNjFES35hINVRR+DH4/P44Kx/9jo+gI386D7E6Q=
 github.com/krakendio/krakend-martian/v2 v2.1.0/go.mod h1:A4+ncWPx32yXvuKXNf6p9WTIiNh2L8p/HEafbOUVFlA=
 github.com/krakendio/krakend-metrics/v2 v2.0.1 h1:BFGsbw/Qghfw0OD2+fFRcyavuHWwp78KAnAw9gyzpzQ=

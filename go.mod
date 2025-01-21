@@ -5,7 +5,7 @@ go 1.22.0
 require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-contrib/uuid v1.2.0
-	github.com/krakend/krakend-otel v0.9.0
+	github.com/krakend/krakend-otel v0.9.1-0.20250121103705-06871c16e861
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.1.0
 	github.com/krakendio/krakend-audit v0.0.7

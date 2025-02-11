@@ -5,7 +5,7 @@ name: Handle Release
 jobs:
   builder:
     name: Generate builder containers
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout the repository
         uses: actions/checkout@master
@@ -65,7 +65,7 @@ jobs:
           labels: ${{ steps.meta-linux-generic.outputs.labels }}
   generate:
     name: Create release-artifacts
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     needs: builder
     steps:
       - name: Checkout the repository
@@ -128,7 +128,7 @@ jobs:
           key: ${{github.ref}}-artifacts
   upload:
      name: Upload release-artifacts
-     runs-on: ubuntu-20.04
+     runs-on: ubuntu-24.04
      needs: generate
      permissions:
       actions: read

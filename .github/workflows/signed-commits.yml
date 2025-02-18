@@ -1,0 +1,11 @@
+name: Require signed commits
+on:
+  pull_request_target:
+    types: [labeled, unlabeled]
+jobs:
+  stale:
+    uses: krakend/.github/.github/workflows/signed-commits.yml@main
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: read

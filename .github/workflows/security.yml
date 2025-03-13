@@ -88,7 +88,7 @@ jobs:
         with:
           scan-type: 'image'
           image-ref: ${{ steps.meta.outputs.tags }}
-          security-checks: 'vuln,secret'
+          security-checks: 'vuln,secret,os,library'
           ignore-unfixed: true
           format: 'sarif'
           output: 'trivy-results.sarif'

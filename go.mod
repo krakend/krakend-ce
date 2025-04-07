@@ -1,6 +1,7 @@
 module github.com/krakendio/krakend-ce/v2
 
-go 1.22.0
+go 1.23.6
+
 toolchain go1.24.1
 
 require (
@@ -14,7 +15,7 @@ require (
 	github.com/krakendio/krakend-cel/v2 v2.0.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
 	github.com/krakendio/krakend-cobra/v2 v2.5.0
-	github.com/krakendio/krakend-cors/v2 v2.1.1
+	github.com/krakendio/krakend-cors/v2 v2.1.3
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
 	github.com/krakendio/krakend-gologging/v2 v2.0.3
@@ -203,7 +204,7 @@ require (
 	github.com/rabbitmq/amqp091-go v1.9.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
 	github.com/rs/cors v1.11.0 // indirect
-	github.com/rs/cors/wrapper/gin v0.0.0-20240515105523-1562b1715b35 // indirect
+	github.com/rs/cors/wrapper/gin v0.0.0-20240830163046-1084d89a1692 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.1 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect

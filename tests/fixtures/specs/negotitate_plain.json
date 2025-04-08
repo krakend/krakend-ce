@@ -10,7 +10,7 @@
 		"status_code": 200,
 		"body": "user:\n    -type: admin\n    name: Elliot\n    social:\n        facebook: https://facebook.com\n        twitter: https://twitter.com\n        youtube: https://youtube.com\n",
 		"header": {
-			"content-type": ["application/yaml; charset=utf-8"],
+			"content-type": ["application/x-yaml; charset=utf-8"],
 			"Cache-Control": ["public, max-age=3600"],
 			"X-Krakend-Completed": ["true"]
 		}

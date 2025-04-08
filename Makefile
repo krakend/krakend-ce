@@ -68,7 +68,7 @@ test: build
 
 cmd/krakend-ce/schema/schema.json:
 	@echo "Fetching v${SCHEMA_VERSION} schema"
-	@wget -qO $@ https://raw.githubusercontent.com/krakend/krakend-schema/refs/heads/main/v${SCHEMA_VERSION}/krakend.json || wget -qO $@ https://krakend.io/schema/krakend.json
+	@wget --header="User-Agent: Mozilla/5.0" -qO $@ https://raw.githubusercontent.com/krakend/krakend-schema/refs/heads/main/v${SCHEMA_VERSION}/krakend.json || wget --header="User-Agent: Mozilla/5.0" -qO $@ https://krakend.io/schema/krakend.json
 
 # Build KrakenD using docker (defaults to whatever the golang container uses)
 build_on_docker: docker-builder-linux

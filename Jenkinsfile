@@ -9,7 +9,7 @@ import java.util.*
 optiva.addJobParam(stringParam(name: 'VERSION', defaultValue: '2.9.3',
                             description: 'Semantic version for the produced artifacts'))
                             
-optiva.addJobParam(stringParam(name: 'GOLANG_VERSION', defaultValue: '1.24.1'))
+optiva.addJobParam(stringParam(name: 'GOLANG_VERSION', defaultValue: '1.24.2'))
 optiva.addJobParam(stringParam(name: 'ALPINE_VERSION', defaultValue: '3.21'))
 
 

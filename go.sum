@@ -536,8 +536,8 @@ github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
 github.com/leodido/go-urn v1.4.0 h1:WT9HwE9SGECu3lg4d/dIA+jxlljEa1/ffXKmRjqdmIQ=
 github.com/leodido/go-urn v1.4.0/go.mod h1:bvxc+MVxLKB4z00jd1z+Dvzr47oO32F/QSNjSBOlFxI=
-github.com/luraproject/lura/v2 v2.9.0 h1:JeqlrUz0wM4ITVHOtEaFJ5sS6TW25/lTDmMCsQUY44U=
-github.com/luraproject/lura/v2 v2.9.0/go.mod h1:pJQDsCSSrE5udlzkLvUnFkdrqeQ+jDO1ZIzsx6jgLtk=
+github.com/luraproject/lura/v2 v2.9.1 h1:ALN5mn83geDF8AtriMyEJmYFse4wqOxdlB7OjWYwwFg=
+github.com/luraproject/lura/v2 v2.9.1/go.mod h1:MWbT5xuqJkMoUCRo6vvvWZhjRsCpvntEUYrsSGgV3yo=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/magiconair/properties v1.8.7 h1:IeQXZAiQcpL9mgcAe1Nu6cX9LLw6ExEHKjN0VQdvPDY=
 github.com/magiconair/properties v1.8.7/go.mod h1:Dhd985XPs7jluiymwWYZ0G4Z61jb3vdS329zhj2hYo0=

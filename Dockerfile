@@ -3,7 +3,7 @@ ARG ALPINE_VERSION
 FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION} as builder
 ARG GITHUB_TOKEN
 
-RUN apk --no-cache --virtual .build-deps add make gcc musl-dev binutils-gold git
+RUN apk --no-cache --virtual .build-deps add make gcc musl-dev binutils-gold git wget ca-certificates
 
 COPY . /app
 WORKDIR /app

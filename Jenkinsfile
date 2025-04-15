@@ -6,11 +6,11 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-optiva.addJobParam(stringParam(name: 'VERSION', defaultValue: '2.7.2',
+optiva.addJobParam(stringParam(name: 'VERSION', defaultValue: '2.9.3',
                             description: 'Semantic version for the produced artifacts'))
                             
-optiva.addJobParam(stringParam(name: 'GOLANG_VERSION', defaultValue: '1.22.7'))
-optiva.addJobParam(stringParam(name: 'ALPINE_VERSION', defaultValue: '3.19'))
+optiva.addJobParam(stringParam(name: 'GOLANG_VERSION', defaultValue: '1.24.2'))
+optiva.addJobParam(stringParam(name: 'ALPINE_VERSION', defaultValue: '3.21'))
 
 
 def tag

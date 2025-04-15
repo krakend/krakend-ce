@@ -1,0 +1,15 @@
+{
+	"in": {
+		"method": "GET",
+		"url": "http://localhost:8080/sequential/propagate"
+	},
+	"out": {
+		"status_code": 200,
+		"body": "{\"first\":{\"foo\":42},\"second\":{\"path\":\"/param_forwarding/42\"}}",
+		"header": {
+			"content-type": ["application/json; charset=utf-8"],
+			"Cache-Control": ["public, max-age=3600"],
+			"X-Krakend-Completed": ["true"]
+		}
+	}
+}

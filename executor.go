@@ -201,6 +201,10 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 
 		bpf := e.BackendFactory.NewBackendFactory(ctx, logger, metricCollector)
 		pf := e.ProxyFactory.NewProxyFactory(logger, bpf, metricCollector)
+		// we move the proxy factory out of the default proxy factory to make
+		// sure that is always the outer middleware and that wraps any internal
+		// proxy layer middleware:
+		pf = otellura.ProxyFactory(pf)
 
 		agentPing := make(chan string, len(cfg.AsyncAgents))
 

@@ -50,6 +50,15 @@ func LoadPluginsWithContext(ctx context.Context, folder, pattern string, logger 
 	)
 	logPluginLoaderErrors(logger, "[SERVICE: Modifier Plugin]", n, err)
 
+	n, err = proxy.LoadMiddlewares(
+		ctx,
+		folder,
+		pattern,
+		proxy.RegisterMiddleware,
+		logger,
+	)
+	logPluginLoaderErrors(logger, "[SERVICE: Middleware Plugin]", n, err)
+
 	logger.Debug("[SERVICE: Plugin Loader] Loading process completed")
 }
 

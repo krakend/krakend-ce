@@ -95,6 +95,7 @@ var (
 	serverExpected   bool
 	clientExpected   bool
 	modifierExpected bool
+	mwExpected       bool
 
 	testPluginCmd = &cobra.Command{
 		Use:     "test-plugin [flags] [artifacts]",
@@ -106,6 +107,7 @@ var (
 	serverExpectedFlag   cmd.FlagBuilder
 	clientExpectedFlag   cmd.FlagBuilder
 	modifierExpectedFlag cmd.FlagBuilder
+	mwExpectedFlag       cmd.FlagBuilder
 
 	reLogErrorPlugins = regexp.MustCompile(`(?m)plugin \#\d+ \(.*\): (.*)`)
 )
@@ -114,6 +116,7 @@ func init() {
 	serverExpectedFlag = cmd.BoolFlagBuilder(&serverExpected, "server", "s", false, "The artifact should contain a Server Plugin.")
 	clientExpectedFlag = cmd.BoolFlagBuilder(&clientExpected, "client", "c", false, "The artifact should contain a Client Plugin.")
 	modifierExpectedFlag = cmd.BoolFlagBuilder(&modifierExpected, "modifier", "m", false, "The artifact should contain a Req/Resp Modifier Plugin.")
+	mwExpectedFlag = cmd.BoolFlagBuilder(&mwExpected, "middleware", "w", false, "The artifact should contain a Middleware Plugin.")
 }
 
 func NewTestPluginCmd() cmd.Command {
@@ -156,6 +159,10 @@ func testPluginFunc(ccmd *cobra.Command, args []string) {
 
 		if modifierExpected {
 			ok = checkModifierPlugin(ctx, ccmd, folder, name) && ok
+		}
+
+		if mwExpected {
+			ok = checkMwPlugin(ctx, ccmd, folder, name) && ok
 		}
 
 		if clientExpected {
@@ -279,5 +286,40 @@ func checkModifierPlugin(ctx context.Context, ccmd *cobra.Command, folder, name 
 	}
 
 	ccmd.Println(fmt.Sprintf("[KO] MODIFIER\t%s: %s", name, msg))
+	return false
+}
+
+func checkMwPlugin(ctx context.Context, ccmd *cobra.Command, folder, name string) bool {
+	_, err := proxy.LoadMiddlewares(
+		ctx,
+		folder,
+		name,
+		proxy.RegisterMiddleware,
+		logging.NoOp,
+	)
+	if err == nil {
+		ccmd.Println(fmt.Sprintf("[OK] MIDDLEWARE\t%s", name))
+		return true
+	}
+
+	var msg string
+	if mErrs, ok := err.(pluginLoaderErr); ok {
+		for _, err := range mErrs.Errs() {
+			msg += err.Error()
+		}
+	} else {
+		msg = err.Error()
+	}
+
+	if strings.Contains(msg, "symbol MiddlewareRegisterer not found") {
+		ccmd.Println(fmt.Sprintf("[KO] MIDDLEWARE\t%s: The plugin does not contain a MiddlewareRegisterer.", name))
+		return false
+	}
+
+	for _, match := range reLogErrorPlugins.FindAllStringSubmatch(msg, -1) {
+		msg = match[1]
+	}
+
+	ccmd.Println(fmt.Sprintf("[KO] MIDDLEWARE\t%s: %s", name, msg))
 	return false
 }

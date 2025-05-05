@@ -10,29 +10,29 @@ require (
 	github.com/krakend/krakend-otel v0.10.2-0.20250417131624-cab792b7ec47
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.1.0
-	github.com/krakendio/krakend-audit v0.0.7
-	github.com/krakendio/krakend-botdetector/v2 v2.1.0
-	github.com/krakendio/krakend-cel/v2 v2.0.1
+	github.com/krakendio/krakend-audit v0.2.1
+	github.com/krakendio/krakend-botdetector/v2 v2.2.0
+	github.com/krakendio/krakend-cel/v2 v2.1.0
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.5.0
+	github.com/krakendio/krakend-cobra/v2 v2.5.1
 	github.com/krakendio/krakend-cors/v2 v2.1.3
-	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.0
+	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.1
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
 	github.com/krakendio/krakend-gologging/v2 v2.0.3
-	github.com/krakendio/krakend-httpcache/v2 v2.0.3
+	github.com/krakendio/krakend-httpcache/v2 v2.1.0
 	github.com/krakendio/krakend-httpsecure/v2 v2.1.1
-	github.com/krakendio/krakend-influx/v2 v2.0.3
-	github.com/krakendio/krakend-jose/v2 v2.7.0
+	github.com/krakendio/krakend-influx/v2 v2.1.0
+	github.com/krakendio/krakend-jose/v2 v2.8.0
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.2
-	github.com/krakendio/krakend-lua/v2 v2.6.1
+	github.com/krakendio/krakend-lua/v2 v2.7.0
 	github.com/krakendio/krakend-martian/v2 v2.1.0
-	github.com/krakendio/krakend-metrics/v2 v2.0.1
+	github.com/krakendio/krakend-metrics/v2 v2.0.2
 	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.1.0
 	github.com/krakendio/krakend-opencensus/v2 v2.1.1
 	github.com/krakendio/krakend-pubsub/v2 v2.1.0
-	github.com/krakendio/krakend-ratelimit/v3 v3.2.1
+	github.com/krakendio/krakend-ratelimit/v3 v3.2.2
 	github.com/krakendio/krakend-rss/v2 v2.0.2
 	github.com/krakendio/krakend-usage/v2 v2.0.0
 	github.com/krakendio/krakend-viper/v2 v2.0.1
@@ -163,10 +163,11 @@ require (
 	github.com/jcmturner/rpc/v2 v2.0.3 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.17.9 // indirect
+	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.9 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
 	github.com/krakend/go-auth0/v2 v2.0.1 // indirect
+	github.com/krakend/lru v0.0.0-20250121172718-0e3a6eab620d // indirect
 	github.com/krakendio/binder v0.0.0-20241115150014-29ceb1a9414b // indirect
 	github.com/krakendio/flatmap v1.1.1 // indirect
 	github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 // indirect
@@ -184,9 +185,9 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
-	github.com/nats-io/nats-server/v2 v2.10.12 // indirect
-	github.com/nats-io/nats.go v1.34.1 // indirect
-	github.com/nats-io/nkeys v0.4.7 // indirect
+	github.com/nats-io/nats-server/v2 v2.10.27 // indirect
+	github.com/nats-io/nats.go v1.39.1 // indirect
+	github.com/nats-io/nkeys v0.4.10 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7 // indirect
 	github.com/openzipkin/zipkin-go v0.2.5 // indirect
@@ -262,7 +263,7 @@ require (
 	golang.org/x/oauth2 v0.22.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
-	golang.org/x/time v0.6.0 // indirect
+	golang.org/x/time v0.10.0 // indirect
 	golang.org/x/tools v0.23.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240716161551-93cc26a95ae9 // indirect
 	google.golang.org/api v0.191.0 // indirect

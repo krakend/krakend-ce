@@ -5,7 +5,7 @@
 	},
 	"out": {
 		"status_code": 500,
-		"body": "invalid status code",
+		"body": "invalid status code 404 [GET /unknown]: http://127.0.0.1:8081/unknown",
 		"header": {
 			"content-type": ["text/plain; charset=utf-8"],
 			"Cache-Control": [""],

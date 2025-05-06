@@ -4,7 +4,7 @@ FILE=/tmp/krakend_ce_deps.txt
 
 go list -m -u all > "$FILE"
 
-OUTPUT=$(grep -r "\[" "$FILE" | grep krakendio | sed 's/\[//g' | sed 's/\]//g' | awk '{print "go get", $1"@"$3 }')
+OUTPUT=$(grep -r "\[" "$FILE" | grep krakend | sed 's/\[//g' | sed 's/\]//g' | awk '{print "go get", $1"@"$3 }')
 
 if [ "$OUTPUT" != "" ]; then
 	echo "$OUTPUT"

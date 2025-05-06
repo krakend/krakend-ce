@@ -10,7 +10,7 @@ require (
 	github.com/krakend/krakend-otel v0.10.2
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.1.0
-	github.com/krakendio/krakend-audit v0.2.1
+	github.com/krakendio/krakend-audit v0.2.2
 	github.com/krakendio/krakend-botdetector/v2 v2.2.1
 	github.com/krakendio/krakend-cel/v2 v2.1.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
@@ -21,7 +21,7 @@ require (
 	github.com/krakendio/krakend-gologging/v2 v2.0.3
 	github.com/krakendio/krakend-httpcache/v2 v2.1.0
 	github.com/krakendio/krakend-httpsecure/v2 v2.1.2
-	github.com/krakendio/krakend-influx/v2 v2.1.0
+	github.com/krakendio/krakend-influx/v2 v2.1.1
 	github.com/krakendio/krakend-jose/v2 v2.8.1
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
@@ -29,11 +29,11 @@ require (
 	github.com/krakendio/krakend-lua/v2 v2.7.1
 	github.com/krakendio/krakend-martian/v2 v2.1.1
 	github.com/krakendio/krakend-metrics/v2 v2.0.3
-	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.1.0
+	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.1.1
 	github.com/krakendio/krakend-opencensus/v2 v2.1.2
 	github.com/krakendio/krakend-pubsub/v2 v2.1.1
 	github.com/krakendio/krakend-ratelimit/v3 v3.2.3
-	github.com/krakendio/krakend-rss/v2 v2.0.2
+	github.com/krakendio/krakend-rss/v2 v2.0.3
 	github.com/krakendio/krakend-usage/v2 v2.0.0
 	github.com/krakendio/krakend-viper/v2 v2.0.1
 	github.com/krakendio/krakend-xml/v2 v2.1.2

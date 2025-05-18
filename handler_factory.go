@@ -120,7 +120,7 @@ func (s *SSEHandlerFactory) NewHandler(cfg *config.EndpointConfig, _ proxy.Proxy
 }
 
 // setupSSEConnection sets up the SSE headers and initial configuration
-func (s *SSEHandlerFactory) setupSSEConnection(c *gin.Context, cfg *config.EndpointConfig) SSEConfig {
+func (*SSEHandlerFactory) setupSSEConnection(c *gin.Context, cfg *config.EndpointConfig) SSEConfig {
 	// Set SSE headers
 	c.Header("Content-Type", "text/event-stream")
 	c.Header("Cache-Control", "no-cache")
@@ -154,7 +154,7 @@ func (s *SSEHandlerFactory) setupSSEConnection(c *gin.Context, cfg *config.Endpo
 }
 
 // startKeepAlive starts the keepalive goroutine
-func (s *SSEHandlerFactory) startKeepAlive(c *gin.Context, sseCfg SSEConfig) (context.Context, context.CancelFunc) {
+func (*SSEHandlerFactory) startKeepAlive(c *gin.Context, sseCfg SSEConfig) (context.Context, context.CancelFunc) {
 	keepAliveCtx, keepAliveCancel := context.WithCancel(context.Background())
 
 	go func() {

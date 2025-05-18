@@ -34,9 +34,8 @@ type SSEConfig struct {
 
 // SSEHandlerFactory creates handlers for SSE endpoints
 type SSEHandlerFactory struct {
-	logger     logging.Logger
-	metrics    *metrics.Metrics
-	middleware gin.HandlerFunc // This will store the middleware chain
+	logger  logging.Logger
+	metrics *metrics.Metrics
 }
 
 // NewSSEHandlerFactory returns a new SSEHandlerFactory
@@ -68,7 +67,7 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 		if _, ok := cfg.ExtraConfig["sse"]; ok {
 			// Create middleware chain for auth/validation/metrics but with a noop endpoint
 			// This applies all middleware but doesn't actually process the request
-			validateHandler := handlerFactory(cfg, func(ctx context.Context, req *proxy.Request) (*proxy.Response, error) {
+			validateHandler := handlerFactory(cfg, func(ctx context.Context, _ *proxy.Request) (*proxy.Response, error) {
 				// Store the raw body in the context for the SSE handler to use
 				if c, ok := ctx.Value(gin.ContextKey).(*gin.Context); ok {
 					// Get the raw body from the request
@@ -105,148 +104,200 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 }
 
 // NewHandler creates a new SSE handler
-func (s *SSEHandlerFactory) NewHandler(cfg *config.EndpointConfig, prxy proxy.Proxy) gin.HandlerFunc {
+// NewHandler creates a new SSE handler
+func (s *SSEHandlerFactory) NewHandler(cfg *config.EndpointConfig, _ proxy.Proxy) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		// Set SSE headers
-		c.Header("Content-Type", "text/event-stream")
-		c.Header("Cache-Control", "no-cache")
-		c.Header("Connection", "keep-alive")
-		c.Header("X-Accel-Buffering", "no")
+		// Set up the SSE connection
+		sseCfg := s.setupSSEConnection(c, cfg)
 
-		// Make sure a 200 status is set early
-		c.Status(http.StatusOK)
-
-		// Get SSE config
-		var sseCfg SSEConfig
-		if v, ok := cfg.ExtraConfig["sse"]; ok && v != nil {
-			if b, err := json.Marshal(v); err == nil {
-				json.Unmarshal(b, &sseCfg)
-			}
-		}
-
-		// Set default values
-		if sseCfg.KeepAliveInterval == 0 {
-			sseCfg.KeepAliveInterval = 30 * time.Second
-		}
-		if sseCfg.RetryInterval == 0 {
-			sseCfg.RetryInterval = 1000
-		}
-
-		// Send retry interval
-		c.Writer.Write([]byte("retry: " + strconv.Itoa(sseCfg.RetryInterval) + "\n\n"))
-		c.Writer.Flush()
-
-		// Start keep-alive goroutine in a separate context
-		keepAliveCtx, keepAliveCancel := context.WithCancel(context.Background())
+		// Start keep-alive mechanism
+		_, keepAliveCancel := s.startKeepAlive(c, sseCfg)
 		defer keepAliveCancel()
 
-		go func() {
-			ticker := time.NewTicker(sseCfg.KeepAliveInterval)
-			defer ticker.Stop()
+		// Validate backend configuration and proceed with request if valid
+		s.processBackendRequest(c, cfg)
+	}
+}
 
-			for {
-				select {
-				case <-ticker.C:
-					c.Writer.Write([]byte(": keepalive\n\n"))
-					c.Writer.Flush()
-				case <-keepAliveCtx.Done():
-					return
-				}
-			}
-		}()
+// setupSSEConnection sets up the SSE headers and initial configuration
+func (s *SSEHandlerFactory) setupSSEConnection(c *gin.Context, cfg *config.EndpointConfig) SSEConfig {
+	// Set SSE headers
+	c.Header("Content-Type", "text/event-stream")
+	c.Header("Cache-Control", "no-cache")
+	c.Header("Connection", "keep-alive")
+	c.Header("X-Accel-Buffering", "no")
 
-		// Manually construct the backend URL
-		if len(cfg.Backend) == 0 {
-			s.logger.Error("No backend configured for SSE endpoint")
-			// Don't abort here, just log the error
-			c.Writer.Write([]byte("event: error\ndata: {\"message\":\"No backend configured\"}\n\n"))
-			c.Writer.Flush()
-			return
+	// Make sure a 200 status is set early
+	c.Status(http.StatusOK)
+
+	// Get SSE config
+	var sseCfg SSEConfig
+	if v, ok := cfg.ExtraConfig["sse"]; ok && v != nil {
+		if b, err := json.Marshal(v); err == nil {
+			json.Unmarshal(b, &sseCfg)
 		}
+	}
 
-		backendConfig := cfg.Backend[0]
-		if len(backendConfig.Host) == 0 {
-			s.logger.Error("No host configured for SSE backend")
-			// Don't abort here, just log the error
-			c.Writer.Write([]byte("event: error\ndata: {\"message\":\"No host configured\"}\n\n"))
-			c.Writer.Flush()
-			return
-		}
+	// Set default values
+	if sseCfg.KeepAliveInterval == 0 {
+		sseCfg.KeepAliveInterval = 30 * time.Second
+	}
+	if sseCfg.RetryInterval == 0 {
+		sseCfg.RetryInterval = 1000
+	}
 
-		// Construct the backend URL
-		backendURL := fmt.Sprintf("%s%s",
-			backendConfig.Host[0],
-			backendConfig.URLPattern)
+	// Send retry interval
+	c.Writer.WriteString("retry: " + strconv.Itoa(sseCfg.RetryInterval) + "\n\n")
+	c.Writer.Flush()
 
-		s.logger.Debug(fmt.Sprintf("SSE backend URL: %s", backendURL))
+	return sseCfg
+}
 
-		// Create a new HTTP client
-		client := &http.Client{
-			Timeout: 0, // No timeout for streaming connections
-		}
+// startKeepAlive starts the keepalive goroutine
+func (s *SSEHandlerFactory) startKeepAlive(c *gin.Context, sseCfg SSEConfig) (context.Context, context.CancelFunc) {
+	keepAliveCtx, keepAliveCancel := context.WithCancel(context.Background())
 
-		// Create request
-		rawBody, exists := c.Get("rawBody")
-		if !exists {
-			s.logger.Error("Request body not found in context")
-			// Don't abort here, just log the error
-			c.Writer.Write([]byte("event: error\ndata: {\"message\":\"Request body not found\"}\n\n"))
-			c.Writer.Flush()
-			return
-		}
-		bodyBytes := rawBody.([]byte)
-		req, err := http.NewRequestWithContext(c.Request.Context(),
-			backendConfig.Method,
-			backendURL,
-			bytes.NewReader(bodyBytes))
+	go func() {
+		ticker := time.NewTicker(sseCfg.KeepAliveInterval)
+		defer ticker.Stop()
 
-		if err != nil {
-			s.logger.Error("Error creating backend request:", err)
-			// Don't abort here, just log the error
-			c.Writer.Write([]byte(fmt.Sprintf("event: error\ndata: {\"message\":\"Error creating request: %s\"}\n\n", err)))
-			c.Writer.Flush()
-			return
-		}
-
-		// Copy relevant headers
-		for k, v := range c.Request.Header {
-			req.Header[k] = v
-		}
-
-		// Make the request
-		resp, err := client.Do(req)
-		if err != nil {
-			s.logger.Error("Error making backend request:", err)
-			// Don't abort here, just log the error
-			c.Writer.Write([]byte(fmt.Sprintf("event: error\ndata: {\"message\":\"Error connecting to backend: %s\"}\n\n", err)))
-			c.Writer.Flush()
-			return
-		}
-		defer resp.Body.Close()
-
-		// Check response status - but don't abort the connection
-		if resp.StatusCode != http.StatusOK {
-			s.logger.Warning(fmt.Sprintf("Backend returned non-200 status: %d", resp.StatusCode))
-			c.Writer.Write([]byte(fmt.Sprintf("event: warning\ndata: {\"message\":\"Backend returned status %d\"}\n\n", resp.StatusCode)))
-			c.Writer.Flush()
-			// Continue processing anyway - don't abort or return here
-		}
-
-		// Stream the response
-		reader := bufio.NewReader(resp.Body)
 		for {
-			line, err := reader.ReadBytes('\n')
-			if err != nil {
-				if err != io.EOF {
-					s.logger.Error("SSE read error:", err)
-				}
-				break
+			select {
+			case <-ticker.C:
+				c.Writer.WriteString(": keepalive\n\n")
+				c.Writer.Flush()
+			case <-keepAliveCtx.Done():
+				return
 			}
-
-			// Write the line directly to the client
-			c.Writer.Write(line)
-			c.Writer.Flush()
 		}
+	}()
+
+	return keepAliveCtx, keepAliveCancel
+}
+
+// processBackendRequest validates the backend configuration and processes the request
+func (s *SSEHandlerFactory) processBackendRequest(c *gin.Context, cfg *config.EndpointConfig) {
+	// Validate backend configuration
+	if len(cfg.Backend) == 0 {
+		s.logger.Error("No backend configured for SSE endpoint")
+		c.Writer.WriteString("event: error\ndata: {\"message\":\"No backend configured\"}\n\n")
+		c.Writer.Flush()
+		return
+	}
+
+	backendConfig := cfg.Backend[0]
+	if len(backendConfig.Host) == 0 {
+		s.logger.Error("No host configured for SSE backend")
+		c.Writer.WriteString("event: error\ndata: {\"message\":\"No host configured\"}\n\n")
+		c.Writer.Flush()
+		return
+	}
+
+	// Continue with request processing
+	s.prepareAndExecuteRequest(c, *backendConfig)
+}
+
+// prepareAndExecuteRequest prepares and executes the backend request
+func (s *SSEHandlerFactory) prepareAndExecuteRequest(c *gin.Context, backendConfig config.Backend) {
+	// Construct the backend URL
+	backendURL := fmt.Sprintf("%s%s", backendConfig.Host[0], backendConfig.URLPattern)
+	s.logger.Debug(fmt.Sprintf("SSE backend URL: %s", backendURL))
+
+	// Get request body
+	bodyBytes, ok := s.getRequestBody(c)
+	if !ok {
+		return
+	}
+
+	// Create and send request
+	req, err := s.createRequest(c, backendConfig, backendURL, bodyBytes)
+	if err != nil {
+		return
+	}
+
+	// Execute request and process response
+	s.executeRequestAndHandleResponse(c, req)
+}
+
+// getRequestBody extracts the request body from the context
+func (s *SSEHandlerFactory) getRequestBody(c *gin.Context) ([]byte, bool) {
+	rawBody, exists := c.Get("rawBody")
+	if !exists {
+		s.logger.Error("Request body not found in context")
+		c.Writer.WriteString("event: error\ndata: {\"message\":\"Request body not found\"}\n\n")
+		c.Writer.Flush()
+		return nil, false
+	}
+	return rawBody.([]byte), true
+}
+
+// createRequest creates a new HTTP request
+func (s *SSEHandlerFactory) createRequest(c *gin.Context, backendConfig config.Backend,
+	backendURL string, bodyBytes []byte) (*http.Request, error) {
+
+	req, err := http.NewRequestWithContext(c.Request.Context(),
+		backendConfig.Method,
+		backendURL,
+		bytes.NewReader(bodyBytes))
+
+	if err != nil {
+		s.logger.Error("Error creating backend request:", err)
+		fmt.Fprintf(c.Writer, "event: error\ndata: {\"message\":\"Error creating request: %s\"}\n\n", err)
+		c.Writer.Flush()
+		return nil, err
+	}
+
+	// Copy relevant headers
+	for k, v := range c.Request.Header {
+		req.Header[k] = v
+	}
+
+	return req, nil
+}
+
+// executeRequestAndHandleResponse executes the request and handles the response
+func (s *SSEHandlerFactory) executeRequestAndHandleResponse(c *gin.Context, req *http.Request) {
+	// Create a new HTTP client
+	client := &http.Client{
+		Timeout: 0, // No timeout for streaming connections
+	}
+
+	// Make the request
+	resp, err := client.Do(req)
+	if err != nil {
+		s.logger.Error("Error making backend request:", err)
+		fmt.Fprintf(c.Writer, "event: warning\ndata: {\"message\":\"Error making request: %s\"}\n\n", err)
+		c.Writer.Flush()
+		return
+	}
+	defer resp.Body.Close()
+
+	// Check response status
+	if resp.StatusCode != http.StatusOK {
+		s.logger.Warning(fmt.Sprintf("Backend returned non-200 status: %d", resp.StatusCode))
+		fmt.Fprintf(c.Writer, "event: warning\ndata: {\"message\":\"Backend returned status %d\"}\n\n", resp.StatusCode)
+		c.Writer.Flush()
+	}
+
+	// Process the response stream
+	s.streamResponse(c, resp)
+}
+
+// streamResponse streams the response to the client
+func (s *SSEHandlerFactory) streamResponse(c *gin.Context, resp *http.Response) {
+	reader := bufio.NewReader(resp.Body)
+	for {
+		line, err := reader.ReadBytes('\n')
+		if err != nil {
+			if err != io.EOF {
+				s.logger.Error("SSE read error:", err)
+			}
+			break
+		}
+
+		// Write the line directly to the client
+		c.Writer.Write(line)
+		c.Writer.Flush()
 	}
 }
 

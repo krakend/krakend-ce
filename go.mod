@@ -15,7 +15,7 @@ require (
 	github.com/krakendio/krakend-cel/v2 v2.1.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
 	github.com/krakendio/krakend-cobra/v2 v2.5.2
-	github.com/krakendio/krakend-cors/v2 v2.1.4
+	github.com/krakendio/krakend-cors/v2 v2.1.5-0.20250520064748-8ca7b5298c37
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.2
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
 	github.com/krakendio/krakend-gologging/v2 v2.0.3
@@ -204,7 +204,7 @@ require (
 	github.com/prometheus/statsd_exporter v0.26.1 // indirect
 	github.com/rabbitmq/amqp091-go v1.9.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
-	github.com/rs/cors v1.11.0 // indirect
+	github.com/rs/cors v1.11.1 // indirect
 	github.com/rs/cors/wrapper/gin v0.0.0-20240830163046-1084d89a1692 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.1 // indirect

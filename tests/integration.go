@@ -299,6 +299,7 @@ func waitForReady(readyURL string, readyURLWait time.Duration) {
 
 	if resp != nil && resp.StatusCode == 200 {
 		// is ready, no need to wait extra time
+		fmt.Printf("system under test %s is ready\n", readyURL)
 		return
 	}
 

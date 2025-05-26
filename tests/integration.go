@@ -43,7 +43,12 @@ var (
 		"",
 		"Comma separated list of patterns to use to filter the envars to pass (set to \".*\" to pass everything)",
 	)
-	notFollowRedirects = flag.Bool("client_not_follow_redirects", false, "The test http client should not follow http redirects")
+	notFollowRedirects                = flag.Bool("client_not_follow_redirects", false, "The test http client should not follow http redirects")
+	defaultStartupWait *time.Duration = flag.Duration(
+		"krakend_startup_wait",
+		1500*time.Millisecond,
+		"The time to wait to let servers startup before start testing",
+	)
 )
 
 // TestCase defines a single case to be tested
@@ -81,6 +86,12 @@ type BackendBuilder interface {
 	New(*Config) http.Server
 }
 
+// ReadyWaiter defines an interface to wait for a command or service to be
+// ready to start receiving requests.
+type ReadyWaiter interface {
+	WaitForReady() error
+}
+
 // GenericServer defines an interface to launch a server that
 // could be an http.Server, a different type, or a wrapper
 // around multiple servers.
@@ -104,6 +115,7 @@ type Config struct {
 	BackendPort     int
 	Delay           time.Duration
 	HttpClient      *http.Client
+	StartupWait     time.Duration
 }
 
 func (c *Config) getBinPath() string {
@@ -139,6 +151,13 @@ func (c *Config) getDelay() time.Duration {
 		return c.Delay
 	}
 	return *defaultDelay
+}
+
+func (c *Config) getStartupWait() time.Duration {
+	if c.StartupWait != 0 {
+		return c.StartupWait
+	}
+	return *defaultStartupWait
 }
 
 func (c *Config) getEnvironPatterns() string {
@@ -221,7 +240,22 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 		}
 	}()
 
-	<-time.After(1500 * time.Millisecond)
+	// wait for system under test and backend server to be ready
+	var waitForStartUp time.Duration
+	if sutWaiter, sutOk := cb.(ReadyWaiter); sutOk {
+		sutWaiter.WaitForReady()
+	} else {
+		waitForStartUp = cfg.getStartupWait()
+	}
+	if backendWaiter, backendOk := backend.(ReadyWaiter); backendOk {
+		backendWaiter.WaitForReady()
+	} else {
+		waitForStartUp = cfg.getStartupWait()
+	}
+
+	if waitForStartUp > 0 {
+		<-time.After(waitForStartUp)
+	}
 
 	return &Runner{
 		closeFuncs: closeFuncs,

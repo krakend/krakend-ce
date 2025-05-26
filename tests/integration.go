@@ -49,6 +49,16 @@ var (
 		1500*time.Millisecond,
 		"The time to wait to let servers startup before start testing",
 	)
+	defaultReadyURL *string = flag.String(
+		"krakend_ready_url",
+		"",
+		"The url to check for system under test readiness.",
+	)
+	defaultReadyURLWait *time.Duration = flag.Duration(
+		"krakend_ready_url_wait",
+		1500*time.Millisecond,
+		"The maximum time to wait for the ready url to return a 200 Ok response.",
+	)
 )
 
 // TestCase defines a single case to be tested
@@ -86,12 +96,6 @@ type BackendBuilder interface {
 	New(*Config) http.Server
 }
 
-// ReadyWaiter defines an interface to wait for a command or service to be
-// ready to start receiving requests.
-type ReadyWaiter interface {
-	WaitForReady() error
-}
-
 // GenericServer defines an interface to launch a server that
 // could be an http.Server, a different type, or a wrapper
 // around multiple servers.
@@ -116,6 +120,8 @@ type Config struct {
 	Delay           time.Duration
 	HttpClient      *http.Client
 	StartupWait     time.Duration
+	ReadyURL        string
+	ReadyURLWait    time.Duration
 }
 
 func (c *Config) getBinPath() string {
@@ -151,6 +157,20 @@ func (c *Config) getDelay() time.Duration {
 		return c.Delay
 	}
 	return *defaultDelay
+}
+
+func (c *Config) getReadyURL() string {
+	if c.ReadyURL != "" {
+		return c.ReadyURL
+	}
+	return *defaultReadyURL
+}
+
+func (c *Config) getReadyURLWait() time.Duration {
+	if c.ReadyURLWait != 0 {
+		return c.ReadyURLWait
+	}
+	return *defaultReadyURLWait
 }
 
 func (c *Config) getStartupWait() time.Duration {
@@ -236,32 +256,63 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 
 	go func() {
 		if err := backend.ListenAndServe(); err != nil {
-			log.Printf("backend closed: %v", err)
+			log.Printf("backend closed: %v\n", err)
 		}
 	}()
 
 	// wait for system under test and backend server to be ready
-	var waitForStartUp time.Duration
-	if sutWaiter, sutOk := cb.(ReadyWaiter); sutOk {
-		sutWaiter.WaitForReady()
-	} else {
-		waitForStartUp = cfg.getStartupWait()
-	}
-	if backendWaiter, backendOk := backend.(ReadyWaiter); backendOk {
-		backendWaiter.WaitForReady()
-	} else {
-		waitForStartUp = cfg.getStartupWait()
-	}
-
-	if waitForStartUp > 0 {
-		<-time.After(waitForStartUp)
-	}
+	waitForStartup(cfg.getReadyURL(), cfg.getReadyURLWait(), cfg.getStartupWait())
 
 	return &Runner{
 		closeFuncs: closeFuncs,
 		once:       new(sync.Once),
 		httpClient: cfg.getHttpClient(),
 	}, tcs, nil
+}
+
+// waitForStartup checks the ready endpoint if provided for the provided time
+// and then and additional startupWait time for the backend services to
+// be ready.
+func waitForStartup(readyURL string, readyURLWait, startupWait time.Duration) {
+	waitForReady(readyURL, readyURLWait)
+	if startupWait <= 0 {
+		startupWait = 1500 * time.Millisecond
+	}
+	<-time.After(startupWait)
+}
+
+func waitForReady(readyURL string, readyURLWait time.Duration) {
+	if readyURL == "" {
+		return
+	}
+	if readyURLWait < time.Second {
+		readyURLWait = time.Second
+	}
+
+	deadline := time.Now().Add(readyURLWait)
+	resp, err := http.Get(readyURL)
+
+	for (resp == nil || resp.StatusCode != 200) && time.Now().Before(deadline) {
+		<-time.After(time.Second)
+		resp, err = http.Get(readyURL)
+	}
+
+	if resp != nil && resp.StatusCode == 200 {
+		// is ready, no need to wait extra time
+		return
+	}
+
+	if err != nil {
+		fmt.Printf("cannot check %s is ready: %s",
+			readyURL, err.Error())
+		return
+	}
+
+	if resp != nil {
+		fmt.Printf("cannot check %s is ready: expecting 200 status code, got %d",
+			readyURL, resp.StatusCode)
+	}
+	fmt.Printf("cannot check %s is ready", readyURL)
 }
 
 // Runner handles the integration test execution, by dealing with the request generation, response verification

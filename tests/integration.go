@@ -261,7 +261,9 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 	}()
 
 	// wait for system under test and backend server to be ready
-	waitForStartup(cfg.getReadyURL(), cfg.getReadyURLWait(), cfg.getStartupWait())
+	if err := waitForStartup(cfg.getReadyURL(), cfg.getReadyURLWait(), cfg.getStartupWait()); err != nil {
+		return nil, tcs, err
+	}
 
 	return &Runner{
 		closeFuncs: closeFuncs,
@@ -273,22 +275,22 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 // waitForStartup checks the ready endpoint if provided for the provided time
 // and then and additional startupWait time for the backend services to
 // be ready.
-func waitForStartup(readyURL string, readyURLWait, startupWait time.Duration) {
-	waitForReady(readyURL, readyURLWait)
+func waitForStartup(readyURL string, readyURLWait, startupWait time.Duration) error {
+	if readyURL != "" {
+		return waitForReady(readyURL, readyURLWait)
+	}
+
 	if startupWait <= 0 {
 		startupWait = 1500 * time.Millisecond
 	}
 	<-time.After(startupWait)
+	return nil
 }
 
-func waitForReady(readyURL string, readyURLWait time.Duration) {
-	if readyURL == "" {
-		return
-	}
+func waitForReady(readyURL string, readyURLWait time.Duration) error {
 	if readyURLWait < time.Second {
 		readyURLWait = time.Second
 	}
-
 	deadline := time.Now().Add(readyURLWait)
 	resp, err := http.Get(readyURL)
 
@@ -298,22 +300,20 @@ func waitForReady(readyURL string, readyURLWait time.Duration) {
 	}
 
 	if resp != nil && resp.StatusCode == 200 {
-		// is ready, no need to wait extra time
 		fmt.Printf("system under test %s is ready\n", readyURL)
-		return
+		return nil
 	}
 
 	if err != nil {
-		fmt.Printf("cannot check %s is ready: %s",
-			readyURL, err.Error())
-		return
+		return fmt.Errorf("cannot check %s is ready: %s", readyURL, err.Error())
 	}
 
 	if resp != nil {
-		fmt.Printf("cannot check %s is ready: expecting 200 status code, got %d",
+		return fmt.Errorf("cannot check %s is ready: expecting 200 status code, got %d",
 			readyURL, resp.StatusCode)
 	}
-	fmt.Printf("cannot check %s is ready", readyURL)
+
+	return fmt.Errorf("cannot check %s is ready", readyURL)
 }
 
 // Runner handles the integration test execution, by dealing with the request generation, response verification

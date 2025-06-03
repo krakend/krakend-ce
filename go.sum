@@ -490,8 +490,8 @@ github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1 h1:rX5TAbdQa+mISIULDxYdviR
 github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1/go.mod h1:PCbRQGfUOToK2Uw48gm9rZ8Mzb4qLGZnX4876Fu9CpQ=
 github.com/krakendio/krakend-cobra/v2 v2.5.2 h1:H0yDJChPVz0wRzokvNpCX6nDVGYSzCfP9cAN8wXMO7E=
 github.com/krakendio/krakend-cobra/v2 v2.5.2/go.mod h1:Zr5coJa58zeLwdZ6k3Os4ZPsJOtav/J86uO2Tg5YDTk=
-github.com/krakendio/krakend-cors/v2 v2.1.4 h1:7KLxKFAzwWmHKgksx1R3sQdjmebbRlqevaHUbMS4kcs=
-github.com/krakendio/krakend-cors/v2 v2.1.4/go.mod h1:GnXFnGcUDr1cIKXcgIneh580VnmNmd1tjVLe5IGpQG4=
+github.com/krakendio/krakend-cors/v2 v2.1.5 h1:smExwifeRk5/de8TtIV7LJdoVdDrs2gL9oo/XZWnrgc=
+github.com/krakendio/krakend-cors/v2 v2.1.5/go.mod h1:F4JZLI2OByVlRjs0seEGdxcI/Fuu0fKO8SZHHynMGV0=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.2.2 h1:B73KxlBbTY8pCaBQgxTvvI19IAOC2axfy43eCBZweXY=
 github.com/krakendio/krakend-flexibleconfig/v2 v2.2.2/go.mod h1:M+K56Y0j9US8SD6ThqoBMIclnAzzD1SiLdRRX6TM/Ns=
 github.com/krakendio/krakend-gelf/v2 v2.0.1 h1:OdcgKUOKvtLwFzoeCm5gAq0Vph6c7Kt6uL4OrxSw/P8=
@@ -658,8 +658,8 @@ github.com/rogpeppe/fastuuid v1.2.0/go.mod h1:jVj6XXZzXRy/MSR5jhDC/2q6DgLz+nrA6L
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/rogpeppe/go-internal v1.13.1 h1:KvO1DLK/DRN07sQ1LQKScxyZJuNnedQ5/wKSR38lUII=
 github.com/rogpeppe/go-internal v1.13.1/go.mod h1:uMEvuHeurkdAXX61udpOXGD/AzZDWNMNyH2VO9fmH0o=
-github.com/rs/cors v1.11.0 h1:0B9GE/r9Bc2UxRMMtymBkHTenPkHDv0CW4Y98GBY+po=
-github.com/rs/cors v1.11.0/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
+github.com/rs/cors v1.11.1 h1:eU3gRzXLRK57F5rKMGMZURNdIG4EoAmX8k94r9wXWHA=
+github.com/rs/cors v1.11.1/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=
 github.com/rs/cors/wrapper/gin v0.0.0-20240830163046-1084d89a1692 h1:lwzJgPw5Y6pvC8mwbedX9HfdywUKcpNdcviftZsb1uY=
 github.com/rs/cors/wrapper/gin v0.0.0-20240830163046-1084d89a1692/go.mod h1:742Ialb8SOs5yB2PqRDzFcyND3280PoaS5/wcKQUQKE=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=

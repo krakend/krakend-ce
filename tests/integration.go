@@ -43,7 +43,22 @@ var (
 		"",
 		"Comma separated list of patterns to use to filter the envars to pass (set to \".*\" to pass everything)",
 	)
-	notFollowRedirects = flag.Bool("client_not_follow_redirects", false, "The test http client should not follow http redirects")
+	notFollowRedirects                = flag.Bool("client_not_follow_redirects", false, "The test http client should not follow http redirects")
+	defaultStartupWait *time.Duration = flag.Duration(
+		"krakend_startup_wait",
+		1500*time.Millisecond,
+		"The time to wait to let servers startup before start testing",
+	)
+	defaultReadyURL *string = flag.String(
+		"krakend_ready_url",
+		"",
+		"The url to check for system under test readiness.",
+	)
+	defaultReadyURLWait *time.Duration = flag.Duration(
+		"krakend_ready_url_wait",
+		1500*time.Millisecond,
+		"The maximum time to wait for the ready url to return a 200 Ok response.",
+	)
 )
 
 // TestCase defines a single case to be tested
@@ -104,6 +119,9 @@ type Config struct {
 	BackendPort     int
 	Delay           time.Duration
 	HttpClient      *http.Client
+	StartupWait     time.Duration
+	ReadyURL        string
+	ReadyURLWait    time.Duration
 }
 
 func (c *Config) getBinPath() string {
@@ -141,6 +159,27 @@ func (c *Config) getDelay() time.Duration {
 	return *defaultDelay
 }
 
+func (c *Config) getReadyURL() string {
+	if c.ReadyURL != "" {
+		return c.ReadyURL
+	}
+	return *defaultReadyURL
+}
+
+func (c *Config) getReadyURLWait() time.Duration {
+	if c.ReadyURLWait != 0 {
+		return c.ReadyURLWait
+	}
+	return *defaultReadyURLWait
+}
+
+func (c *Config) getStartupWait() time.Duration {
+	if c.StartupWait != 0 {
+		return c.StartupWait
+	}
+	return *defaultStartupWait
+}
+
 func (c *Config) getEnvironPatterns() string {
 	if c.EnvironPatterns != "" {
 		return c.EnvironPatterns
@@ -159,7 +198,7 @@ func (c *Config) getHttpClient() *http.Client {
 func defaultHttpClient() *http.Client {
 	if *notFollowRedirects {
 		return &http.Client{
-			CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			CheckRedirect: func(_ *http.Request, _ []*http.Request) error {
 				return http.ErrUseLastResponse
 			},
 		}
@@ -217,17 +256,64 @@ func NewIntegration(cfg *Config, cb CmdBuilder, bb BackendBuilder) (*Runner, []T
 
 	go func() {
 		if err := backend.ListenAndServe(); err != nil {
-			log.Printf("backend closed: %v", err)
+			log.Printf("backend closed: %v\n", err)
 		}
 	}()
 
-	<-time.After(1500 * time.Millisecond)
+	// wait for system under test and backend server to be ready
+	if err := waitForStartup(cfg.getReadyURL(), cfg.getReadyURLWait(), cfg.getStartupWait()); err != nil {
+		return nil, tcs, err
+	}
 
 	return &Runner{
 		closeFuncs: closeFuncs,
 		once:       new(sync.Once),
 		httpClient: cfg.getHttpClient(),
 	}, tcs, nil
+}
+
+// waitForStartup checks the ready endpoint if provided for the provided time
+// and then and additional startupWait time for the backend services to
+// be ready.
+func waitForStartup(readyURL string, readyURLWait, startupWait time.Duration) error {
+	if readyURL != "" {
+		return waitForReady(readyURL, readyURLWait)
+	}
+
+	if startupWait <= 0 {
+		startupWait = 1500 * time.Millisecond
+	}
+	<-time.After(startupWait)
+	return nil
+}
+
+func waitForReady(readyURL string, readyURLWait time.Duration) error {
+	if readyURLWait < time.Second {
+		readyURLWait = time.Second
+	}
+	deadline := time.Now().Add(readyURLWait)
+	resp, err := http.Get(readyURL)
+
+	for (resp == nil || resp.StatusCode != 200) && time.Now().Before(deadline) {
+		<-time.After(time.Second)
+		resp, err = http.Get(readyURL)
+	}
+
+	if resp != nil && resp.StatusCode == 200 {
+		fmt.Printf("system under test %s is ready\n", readyURL)
+		return nil
+	}
+
+	if err != nil {
+		return fmt.Errorf("cannot check %s is ready: %s", readyURL, err.Error())
+	}
+
+	if resp != nil {
+		return fmt.Errorf("cannot check %s is ready: expecting 200 status code, got %d",
+			readyURL, resp.StatusCode)
+	}
+
+	return fmt.Errorf("cannot check %s is ready", readyURL)
 }
 
 // Runner handles the integration test execution, by dealing with the request generation, response verification

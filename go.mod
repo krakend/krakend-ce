@@ -7,18 +7,18 @@ toolchain go1.24.2
 require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-contrib/uuid v1.2.0
-	github.com/krakend/krakend-otel v0.10.2
+	github.com/krakend/krakend-otel v0.10.3
 	github.com/krakendio/bloomfilter/v2 v2.0.4
 	github.com/krakendio/krakend-amqp/v2 v2.1.0
 	github.com/krakendio/krakend-audit v0.2.2
 	github.com/krakendio/krakend-botdetector/v2 v2.2.1
 	github.com/krakendio/krakend-cel/v2 v2.1.1
 	github.com/krakendio/krakend-circuitbreaker/v2 v2.0.1
-	github.com/krakendio/krakend-cobra/v2 v2.5.2
+	github.com/krakendio/krakend-cobra/v2 v2.6.0
 	github.com/krakendio/krakend-cors/v2 v2.1.5
 	github.com/krakendio/krakend-flexibleconfig/v2 v2.2.2
 	github.com/krakendio/krakend-gelf/v2 v2.0.1
-	github.com/krakendio/krakend-gologging/v2 v2.0.3
+	github.com/krakendio/krakend-gologging/v2 v2.0.4
 	github.com/krakendio/krakend-httpcache/v2 v2.1.0
 	github.com/krakendio/krakend-httpsecure/v2 v2.1.2
 	github.com/krakendio/krakend-influx/v2 v2.1.1
@@ -26,7 +26,7 @@ require (
 	github.com/krakendio/krakend-jsonschema/v2 v2.0.3
 	github.com/krakendio/krakend-lambda/v2 v2.0.3
 	github.com/krakendio/krakend-logstash/v2 v2.0.2
-	github.com/krakendio/krakend-lua/v2 v2.7.1
+	github.com/krakendio/krakend-lua/v2 v2.8.1
 	github.com/krakendio/krakend-martian/v2 v2.1.1
 	github.com/krakendio/krakend-metrics/v2 v2.0.3
 	github.com/krakendio/krakend-oauth2-clientcredentials/v2 v2.1.1
@@ -40,6 +40,7 @@ require (
 	github.com/luraproject/lura/v2 v2.10.0
 	github.com/spf13/cobra v1.8.1
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
+	go.opentelemetry.io/otel v1.33.0
 	golang.org/x/sync v0.12.0
 )
 
@@ -238,7 +239,6 @@ require (
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.53.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0 // indirect
-	go.opentelemetry.io/otel v1.33.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.28.0 // indirect

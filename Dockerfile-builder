@@ -1,10 +1,13 @@
 ARG GOLANG_VERSION
 ARG ALPINE_VERSION
+
+FROM krakend/musl-cache as cache
+
 FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION}
 
 RUN apk --no-cache --virtual .build-deps add tar make gcc musl-dev binutils-gold
 
-RUN cd / && wget http://musl.cc/aarch64-linux-musl-cross.tgz && \
-    tar zxf aarch64-linux-musl-cross.tgz && rm -f aarch64-linux-musl-cross.tgz
+COPY --from=cache /aarch64-linux-musl-cross.tgz aarch64-linux-musl-cross.tgz
+RUN tar zxf aarch64-linux-musl-cross.tgz && rm -f aarch64-linux-musl-cross.tgz
 
 ENV PATH="$PATH:/aarch64-linux-musl-cross/bin:/aarch64-linux-musl-cross/aarch64-linux-musl/bin"

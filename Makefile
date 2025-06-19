@@ -7,7 +7,7 @@
 BIN_NAME :=krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
 MODULE := github.com/krakendio/krakend-ce/v2
-VERSION := 2.10.0
+VERSION := 2.10.1
 SCHEMA_VERSION := $(shell echo "${VERSION}" | cut -d '.' -f 1,2)
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
 PKGNAME := krakend
@@ -21,7 +21,7 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.24.2
+GOLANG_VERSION := 1.24.4
 GLIBC_VERSION := $(shell sh find_glibc.sh)
 ALPINE_VERSION := 3.21
 OS_TAG :=

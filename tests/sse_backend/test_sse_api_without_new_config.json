@@ -1,0 +1,19 @@
+{
+	"version": 3,
+	"name": "KrakenD SSE Test",
+	"port": 8080,
+	"endpoints": [
+		{
+			"endpoint": "/events",
+			"method": "GET",
+			"output_encoding": "no-op",
+			"backend": [
+				{
+					"url_pattern": "/stream",
+					"method": "GET",
+					"host": ["http://localhost:5555"]
+				}
+			]
+		}
+	]
+}

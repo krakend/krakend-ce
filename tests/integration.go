@@ -391,12 +391,9 @@ func assertResponse(actual *http.Response, expected Output) error {
 	if actual.Body != nil {
 		// check if the body is compressed with gzip
 		var r io.Reader = actual.Body
-		if ce, ok := actual.Header["Content-Encoding"]; ok && len(ce) > 0 {
-			enc := ce[0]
-			if enc == "gzip" || enc == "x-gzip" {
-				if gr, err := gzip.NewReader(actual.Body); err == nil {
-					r = gr
-				}
+		if ce, ok := actual.Header["Content-Encoding"]; ok && len(ce) > 0 && (ce[0] == "gzip" || ce[0] == "x-gzip") {
+			if gr, err := gzip.NewReader(actual.Body); err == nil {
+				r = gr
 			}
 		}
 

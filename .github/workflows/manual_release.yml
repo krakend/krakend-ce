@@ -9,7 +9,7 @@ name: Handle Release
 jobs:
   generate:
     name: Create release-artifacts
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
         uses: actions/checkout@master
@@ -71,7 +71,7 @@ jobs:
           key: ${{github.ref}}-artifacts
   upload:
      name: Upload release-artifacts
-     runs-on: ubuntu-24.04
+     runs-on: ubuntu-latest
      needs: generate
      permissions:
       actions: read

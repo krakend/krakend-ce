@@ -15,7 +15,7 @@ on:
 jobs:
   security-repo-scan:
     name: security-repo-scan
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
       actions: read
@@ -51,7 +51,7 @@ jobs:
         config:
           - image: krakend/krakend-ce
             dockerfile: Dockerfile
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3

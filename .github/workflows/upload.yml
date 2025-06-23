@@ -14,7 +14,7 @@ name: Upload cache to release page
 jobs:
   upload:
     name: Upload release-artifacts
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     permissions:
       actions: read
       packages: write

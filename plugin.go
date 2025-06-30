@@ -125,7 +125,7 @@ func AddCheck(f func(context.Context, *cobra.Command, string, string) bool) {
 	additionalChecks = append(additionalChecks, f)
 }
 
-func testPluginFunc(ccmd *cobra.Command, args []string) {
+func testPluginFunc(ccmd *cobra.Command, args []string) { // skipcq: GO-R1005
 	if len(args) == 0 {
 		ccmd.Println("At least one plugin is required.")
 		os.Exit(1)

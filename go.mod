@@ -40,7 +40,6 @@ require (
 	github.com/luraproject/lura/v2 v2.10.0
 	github.com/spf13/cobra v1.8.1
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
-	go.opentelemetry.io/otel v1.33.0
 	golang.org/x/sync v0.12.0
 )
 
@@ -239,6 +238,7 @@ require (
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.53.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0 // indirect
+	go.opentelemetry.io/otel v1.33.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.28.0 // indirect
@@ -260,7 +260,7 @@ require (
 	golang.org/x/exp v0.0.0-20240409090435-93d18d7e34b8 // indirect
 	golang.org/x/mod v0.19.0 // indirect
 	golang.org/x/net v0.38.0 // indirect
-	golang.org/x/oauth2 v0.22.0 // indirect
+	golang.org/x/oauth2 v0.27.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
 	golang.org/x/time v0.10.0 // indirect

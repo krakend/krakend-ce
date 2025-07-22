@@ -14,7 +14,7 @@
 			"content-type": ["application/json; charset=utf-8"],
 			"Cache-Control": ["public, max-age=3600"],
 			"X-Krakend-Completed": ["true"],
-			"X-Krakend": ["Version 2.10.1"],
+			"X-Krakend": ["Version 2.10.2"],
 			"Vary": ["Origin"],
 			"Access-Control-Allow-Origin": ["*"],
 			"Access-Control-Expose-Headers": ["Content-Length"]

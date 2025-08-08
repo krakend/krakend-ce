@@ -476,8 +476,8 @@ github.com/krakendio/bloomfilter/v2 v2.0.4 h1:+FCe52Izx4mZgFevvifOMF+3WbbhmZT0xZ
 github.com/krakendio/bloomfilter/v2 v2.0.4/go.mod h1:BH9pmOLLllSAvtjuwA2Ythd7RE3lQdNr1sHK3f2dJok=
 github.com/krakendio/flatmap v1.1.1 h1:rGBNVpBY0pMk6cLOwerVzoKY4HELnpu0xvqB231lOCQ=
 github.com/krakendio/flatmap v1.1.1/go.mod h1:KBuVkiH5BcBFRa5A1HdSHDn8a8LzsyRTKZArX0vqTbo=
-github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5 h1:gB5divkol6FZK6OVGjh7odTsOY3FAESpeq9qyAVCZkc=
-github.com/krakendio/httpcache v0.0.0-20221129153752-65a87a5c2bc5/go.mod h1:VWTP3MZHr/W9OauBMrOQ2bD1rIjDetAQo5JbXCezYKE=
+github.com/krakendio/httpcache v0.0.0-20250808085651-1315bcd4e69e h1:yTMPXThZNNgLdAwa8F+bvGbHTHDEEyxk0x9DV628l1I=
+github.com/krakendio/httpcache v0.0.0-20250808085651-1315bcd4e69e/go.mod h1:VWTP3MZHr/W9OauBMrOQ2bD1rIjDetAQo5JbXCezYKE=
 github.com/krakendio/krakend-amqp/v2 v2.1.0 h1:yQ0D8lrZljLaymTRIyvRxAw13TCYtqLEAhDASlmGsjU=
 github.com/krakendio/krakend-amqp/v2 v2.1.0/go.mod h1:OrXMQDQ3nDvUutnVOmMK0C/p7UpjjO+2zckzSxxOI24=
 github.com/krakendio/krakend-audit v0.2.2 h1:0OCEzzvbIOjy0RqCrS6WRzAq21+8FAlzsgO0lPkizeg=

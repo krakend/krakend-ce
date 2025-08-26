@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	cmd "github.com/krakendio/krakend-cobra/v2"
+	cmd "github.com/krakend/krakend-cobra/v2"
 	"github.com/luraproject/lura/v2/logging"
 	proxy "github.com/luraproject/lura/v2/proxy/plugin"
 	client "github.com/luraproject/lura/v2/transport/http/client/plugin"

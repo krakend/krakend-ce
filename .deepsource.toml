@@ -9,4 +9,4 @@ name = "go"
 enabled = true
 
   [analyzers.meta]
-  import_root = "github.com/krakendio/krakend-ce"
+  import_root = "github.com/krakend/krakend-ce"

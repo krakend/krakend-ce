@@ -98,6 +98,8 @@ var (
 	clientExpectedFlag   cmd.FlagBuilder
 	modifierExpectedFlag cmd.FlagBuilder
 
+	additionalChecks []func(context.Context, *cobra.Command, string, string) bool
+
 	reLogErrorPlugins = regexp.MustCompile(`(?m)plugin \#\d+ \(.*\): (.*)`)
 )
 
@@ -111,12 +113,24 @@ func NewTestPluginCmd() cmd.Command {
 	return cmd.NewCommand(testPluginCmd, serverExpectedFlag, clientExpectedFlag, modifierExpectedFlag)
 }
 
-func testPluginFunc(ccmd *cobra.Command, args []string) {
+func NewTestPluginCmdWithArgs(flags ...cmd.FlagBuilder) cmd.Command {
+	c := NewTestPluginCmd()
+	for _, f := range flags {
+		c.AddFlag(f)
+	}
+	return c
+}
+
+func AddCheck(f func(context.Context, *cobra.Command, string, string) bool) {
+	additionalChecks = append(additionalChecks, f)
+}
+
+func testPluginFunc(ccmd *cobra.Command, args []string) { // skipcq: GO-R1005
 	if len(args) == 0 {
 		ccmd.Println("At least one plugin is required.")
 		os.Exit(1)
 	}
-	if !serverExpected && !clientExpected && !modifierExpected {
+	if !serverExpected && !clientExpected && !modifierExpected && len(additionalChecks) == 0 {
 		ccmd.Println("You must declare the expected type of the plugin.")
 		os.Exit(1)
 	}
@@ -151,6 +165,10 @@ func testPluginFunc(ccmd *cobra.Command, args []string) {
 
 		if clientExpected {
 			ok = checkClientPlugin(ccmd, folder, name) && ok
+		}
+
+		for _, check := range additionalChecks {
+			ok = check(ctx, ccmd, folder, name) && ok
 		}
 
 		if !ok {

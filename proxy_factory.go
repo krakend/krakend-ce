@@ -3,11 +3,11 @@ package krakend
 import (
 	"fmt"
 
-	cel "github.com/krakendio/krakend-cel/v2"
-	jsonschema "github.com/krakendio/krakend-jsonschema/v2"
-	lua "github.com/krakendio/krakend-lua/v2/proxy"
-	metrics "github.com/krakendio/krakend-metrics/v2/gin"
-	opencensus "github.com/krakendio/krakend-opencensus/v2"
+	cel "github.com/krakend/krakend-cel/v2"
+	jsonschema "github.com/krakend/krakend-jsonschema/v2"
+	lua "github.com/krakend/krakend-lua/v2/proxy"
+	metrics "github.com/krakend/krakend-metrics/v2/gin"
+	opencensus "github.com/krakend/krakend-opencensus/v2"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/logging"
 	"github.com/luraproject/lura/v2/proxy"

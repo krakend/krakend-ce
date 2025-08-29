@@ -518,8 +518,8 @@ github.com/krakend/krakend-oauth2-clientcredentials/v2 v2.2.0 h1:NPgdKfIlTBOOBpZ
 github.com/krakend/krakend-oauth2-clientcredentials/v2 v2.2.0/go.mod h1:4QiMtFa21I6uSeWgywg7AMQdKJC71u7dCAoS3rvaPvE=
 github.com/krakend/krakend-opencensus/v2 v2.2.0 h1:dy05ieb4aEao0g6U744OPGDhBRoASnDxy+j6MVHz3cM=
 github.com/krakend/krakend-opencensus/v2 v2.2.0/go.mod h1:N/TdRbYiZODBzs84r558JgiMppQ2T2WrJQ9XyCFCbus=
-github.com/krakend/krakend-otel v0.11.0 h1:jfJdueapj/3rVjcW9chhKzMPI6GDzuoNMcQtrZwL6XM=
-github.com/krakend/krakend-otel v0.11.0/go.mod h1:RbvtlfTuOhd35DMFsjPbhQ4X83zsMVB/OWD1bIc/sdY=
+github.com/krakend/krakend-otel v0.12.0 h1:UwfBUW4EHnUNBJQZrJRNxmWQ9vCNzS+dRfz6SwKKQFs=
+github.com/krakend/krakend-otel v0.12.0/go.mod h1:f3fhyE4oyFNKkGZ/k4G/APIFajnQPnPWvM1VN1FfEvM=
 github.com/krakend/krakend-pubsub/v2 v2.2.0 h1:mTKWxzGRDgfaVnyj275Zp7mT05GWexV71bBZcOC0H4Y=
 github.com/krakend/krakend-pubsub/v2 v2.2.0/go.mod h1:LZLJHRrUb5ZTRFyLc9mKjQICOl4iUAdgZjYetXUn8DI=
 github.com/krakend/krakend-ratelimit/v3 v3.3.0 h1:a4fAx3tCFyAlMlqHYMRVriH+hM1vpiOLReWg9UvHVME=
@@ -768,6 +768,16 @@ go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.5
 go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.53.0/go.mod h1:azvtTADFQJA8mX80jIH/akaE7h+dbm/sVuaHqN13w74=
 go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0 h1:4K4tsIXefpVJtvA/8srF4V4y0akAoPHkIslgAkjixJA=
 go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0/go.mod h1:jjdQuTGVsXV4vSs+CJ2qYDeDPf9yIJV23qlIzBm73Vg=
+go.opentelemetry.io/contrib/propagators/autoprop v0.58.0 h1:pL1MMoBcG/ol6fVsjE1bbOO9A8GMQiN+T73hnmaXDoU=
+go.opentelemetry.io/contrib/propagators/autoprop v0.58.0/go.mod h1:EU5uMoCqafsagp4hzFqzu1Eyg/8L23JS5Y1hChoHf7s=
+go.opentelemetry.io/contrib/propagators/aws v1.33.0 h1:MefPfPIut0IxEiQRK1qVv5AFADBOwizl189+m7QhpFg=
+go.opentelemetry.io/contrib/propagators/aws v1.33.0/go.mod h1:VB6xPo12uW/PezOqtA/cY2/DiAGYshnhID606wC9NEY=
+go.opentelemetry.io/contrib/propagators/b3 v1.33.0 h1:ig/IsHyyoQ1F1d6FUDIIW5oYpsuTVtN16AyGOgdjAHQ=
+go.opentelemetry.io/contrib/propagators/b3 v1.33.0/go.mod h1:EsVYoNy+Eol5znb6wwN3XQTILyjl040gUpEnUSNZfsk=
+go.opentelemetry.io/contrib/propagators/jaeger v1.33.0 h1:Jok/dG8kfp+yod29XKYV/blWgYPlMuRUoRHljrXMF5E=
+go.opentelemetry.io/contrib/propagators/jaeger v1.33.0/go.mod h1:ku/EpGk44S5lyVMbtJRK2KFOnXEehxf6SDnhu1eZmjA=
+go.opentelemetry.io/contrib/propagators/ot v1.33.0 h1:xj/pQFKo4ROsx0v129KpLgFwaYMgFTu3dAMEEih97cY=
+go.opentelemetry.io/contrib/propagators/ot v1.33.0/go.mod h1:/xxHCLhTmaypEFwMViRGROj2qgrGiFrkxIlATt0rddc=
 go.opentelemetry.io/otel v1.33.0 h1:/FerN9bax5LoK51X/sI0SVYrjSE0/yUL7DpxW4K3FWw=
 go.opentelemetry.io/otel v1.33.0/go.mod h1:SUUkR6csvUQl+yjReHu5uM3EtVV7MBm5FHKRlNx4I8I=
 go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0 h1:U2guen0GhqH8o/G2un8f/aG/y++OuW6MyCo6hT9prXk=
@@ -784,8 +794,8 @@ go.opentelemetry.io/otel/exporters/prometheus v0.47.0 h1:OL6yk1Z/pEGdDnrBbxSsH+t
 go.opentelemetry.io/otel/exporters/prometheus v0.47.0/go.mod h1:xF3N4OSICZDVbbYZydz9MHFro1RjmkPUKEvar2utG+Q=
 go.opentelemetry.io/otel/metric v1.33.0 h1:r+JOocAyeRVXD8lZpjdQjzMadVZp2M4WmQ+5WtEnklQ=
 go.opentelemetry.io/otel/metric v1.33.0/go.mod h1:L9+Fyctbp6HFTddIxClbQkjtubW6O9QS3Ann/M82u6M=
-go.opentelemetry.io/otel/sdk v1.28.0 h1:b9d7hIry8yZsgtbmM0DKyPWMMUMlK9NEKuIG4aBqWyE=
-go.opentelemetry.io/otel/sdk v1.28.0/go.mod h1:oYj7ClPUA7Iw3m+r7GeEjz0qckQRJK2B8zjcZEfu7Pg=
+go.opentelemetry.io/otel/sdk v1.33.0 h1:iax7M131HuAm9QkZotNHEfstof92xM+N8sr3uHXc2IM=
+go.opentelemetry.io/otel/sdk v1.33.0/go.mod h1:A1Q5oi7/9XaMlIWzPSxLRWOI8nG3FnzHJNbiENQuihM=
 go.opentelemetry.io/otel/sdk/metric v1.28.0 h1:OkuaKgKrgAbYrrY0t92c+cC+2F6hsFNnCQArXCKlg08=
 go.opentelemetry.io/otel/sdk/metric v1.28.0/go.mod h1:cWPjykihLAPvXKi4iZc1dpER3Jdq2Z0YLse3moQUCpg=
 go.opentelemetry.io/otel/trace v1.33.0 h1:cCJuF7LRjUFso9LPnEAHJDB2pqzp+hbO8eu1qqW2d/s=
@@ -795,6 +805,8 @@ go.opentelemetry.io/proto/otlp v1.3.1/go.mod h1:0X1WI4de4ZsLrrJNLAQbFeLCm3T7yBkR
 go.uber.org/goleak v1.2.1/go.mod h1:qlT2yGI9QafXHhZZLxlSuNsMw3FFLxBr+tBRlmO1xH4=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
 go.uber.org/goleak v1.3.0/go.mod h1:CoHD4mav9JJNrW/WLlf7HGZPjdw8EucARQHekz1X6bE=
+go.uber.org/multierr v1.11.0 h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=
+go.uber.org/multierr v1.11.0/go.mod h1:20+QtiLqy0Nd6FdQB9TLXag12DsQkrbs3htMFfDN80Y=
 gocloud.dev v0.39.0 h1:EYABYGhAalPUaMrbSKOr5lejxoxvXj99nE8XFtsDgds=
 gocloud.dev v0.39.0/go.mod h1:drz+VyYNBvrMTW0KZiBAYEdl8lbNZx+OQ7oQvdrFmSQ=
 gocloud.dev/pubsub/kafkapubsub v0.37.0 h1:rH122Q2COVNhAGRyid/FHY164LAZhss9V5DiIKQ5Gos=

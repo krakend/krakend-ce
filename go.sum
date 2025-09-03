@@ -472,8 +472,8 @@ github.com/krakend/flatmap v1.2.0 h1:4NPncAKH7Ca/t878kbGlc/LPWLa+m4sgBhs8aT2Q1SY
 github.com/krakend/flatmap v1.2.0/go.mod h1:FyCOoggdVlWr31+aQaOFvBxlMgYfCE5yuwInLbW1/jM=
 github.com/krakend/go-auth0/v2 v2.0.3 h1:ic1oBQEB5Iz+Sp2XkSs/SNz2ZKIFQYi67W2d6t3Q1NQ=
 github.com/krakend/go-auth0/v2 v2.0.3/go.mod h1:v2JpaJqxPkoDnHvU93Ubz+KmYOX6pfCyPFhQZqyh6UM=
-github.com/krakend/httpcache v1.1.1-0.20250903151650-221b01a861ef h1:L5OOas7URvcf6KRjCmHN2A6eJPN83/ou5MqDnrz4LhQ=
-github.com/krakend/httpcache v1.1.1-0.20250903151650-221b01a861ef/go.mod h1:JrPHdkcpz5IEq2HtDUE7Yjlg9Awq2zNgNn2XNEqSdCc=
+github.com/krakend/httpcache v1.1.1 h1:bxt6iBt6n8Sga7YtaydYMMyQ5E6SBss2w91L3pWezRw=
+github.com/krakend/httpcache v1.1.1/go.mod h1:JrPHdkcpz5IEq2HtDUE7Yjlg9Awq2zNgNn2XNEqSdCc=
 github.com/krakend/krakend-amqp/v2 v2.2.0 h1:MJz0BUnIC5d+VEqxqthXGE6hCyqgNaj+2uwgvDOPQb0=
 github.com/krakend/krakend-amqp/v2 v2.2.0/go.mod h1:7MUw0gpXm6ujn6MQ6es5kwyXWcMRSw4dBrpCkFHIZng=
 github.com/krakend/krakend-audit v0.3.0 h1:N13UNN2hWDPH7ppnGzXKWe7/ogY0n9SrI2feYkV68Bo=

@@ -3,6 +3,7 @@ package tests
 
 import (
 	"bytes"
+	"compress/gzip"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -388,7 +389,15 @@ func assertResponse(actual *http.Response, expected Output) error {
 	var body interface{}
 	var bodyBytes []byte
 	if actual.Body != nil {
-		b, err := io.ReadAll(actual.Body)
+		// check if the body is compressed with gzip
+		var r io.Reader = actual.Body
+		if ce, ok := actual.Header["Content-Encoding"]; ok && len(ce) > 0 && (ce[0] == "gzip" || ce[0] == "x-gzip") {
+			if gr, err := gzip.NewReader(actual.Body); err == nil {
+				r = gr
+			}
+		}
+
+		b, err := io.ReadAll(r)
 		if err != nil {
 			return err
 		}

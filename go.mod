@@ -169,7 +169,7 @@ require (
 	github.com/krakend/binder v0.0.0-20250826131726-e91a8a754ef8 // indirect
 	github.com/krakend/flatmap v1.2.0 // indirect
 	github.com/krakend/go-auth0/v2 v2.0.3 // indirect
-	github.com/krakend/httpcache v1.1.0 // indirect
+	github.com/krakend/httpcache v1.1.1-0.20250903151650-221b01a861ef // indirect
 	github.com/krakend/lru v0.0.0-20250121172718-0e3a6eab620d // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect

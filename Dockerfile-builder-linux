@@ -1,5 +1,5 @@
 ARG GOLANG_VERSION
-FROM golang:${GOLANG_VERSION}-bullseye
+FROM golang:${GOLANG_VERSION}-bookworm
 
 RUN apt-get update && \
     apt-get install -y gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu \

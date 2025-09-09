@@ -37,7 +37,7 @@ require (
 	github.com/krakend/krakend-usage/v2 v2.1.0
 	github.com/krakend/krakend-viper/v2 v2.1.0
 	github.com/krakend/krakend-xml/v2 v2.2.0
-	github.com/luraproject/lura/v2 v2.11.0
+	github.com/luraproject/lura/v2 v2.12.0
 	github.com/spf13/cobra v1.8.1
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
 	golang.org/x/sync v0.15.0

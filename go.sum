@@ -474,8 +474,8 @@ github.com/krakend/go-auth0/v2 v2.0.3 h1:ic1oBQEB5Iz+Sp2XkSs/SNz2ZKIFQYi67W2d6t3
 github.com/krakend/go-auth0/v2 v2.0.3/go.mod h1:v2JpaJqxPkoDnHvU93Ubz+KmYOX6pfCyPFhQZqyh6UM=
 github.com/krakend/httpcache v1.1.1 h1:bxt6iBt6n8Sga7YtaydYMMyQ5E6SBss2w91L3pWezRw=
 github.com/krakend/httpcache v1.1.1/go.mod h1:JrPHdkcpz5IEq2HtDUE7Yjlg9Awq2zNgNn2XNEqSdCc=
-github.com/krakend/krakend-amqp/v2 v2.2.0 h1:MJz0BUnIC5d+VEqxqthXGE6hCyqgNaj+2uwgvDOPQb0=
-github.com/krakend/krakend-amqp/v2 v2.2.0/go.mod h1:7MUw0gpXm6ujn6MQ6es5kwyXWcMRSw4dBrpCkFHIZng=
+github.com/krakend/krakend-amqp/v2 v2.3.0 h1:ixCCuc4fbXFtMm28Urz+s84BPOHOgX/ML94nVVvlwDQ=
+github.com/krakend/krakend-amqp/v2 v2.3.0/go.mod h1:0yl2hcfM7Mwy5OCEiL7UhUcIlyqieSDLhy+TrNsJTXY=
 github.com/krakend/krakend-audit v0.3.0 h1:N13UNN2hWDPH7ppnGzXKWe7/ogY0n9SrI2feYkV68Bo=
 github.com/krakend/krakend-audit v0.3.0/go.mod h1:TVjvgldBauCa7D/lsoSLras9Qv/RFyd8ipJSNpKq8FI=
 github.com/krakend/krakend-botdetector/v2 v2.3.0 h1:1/Mw+3gVbG3oylRihihxrs3y1ddVaB3q+s24Ig5rOgU=
@@ -500,8 +500,8 @@ github.com/krakend/krakend-httpsecure/v2 v2.2.0 h1:MG2z96lAjVeCT272R+0RTxJJIgB9T
 github.com/krakend/krakend-httpsecure/v2 v2.2.0/go.mod h1:uVvy9CXL3GWS7ggOEIX8vaxZ86lUV5nC16JAHtVRAKI=
 github.com/krakend/krakend-influx/v2 v2.2.0 h1:rLRjKZOC3Z+YktthQ4GC1/7AG0Vdre039nwva5utJ0Q=
 github.com/krakend/krakend-influx/v2 v2.2.0/go.mod h1:4MBZmyPNfyfbu0fFcCPtuqjrLpQ+IPukkTKnH55RXxs=
-github.com/krakend/krakend-jose/v2 v2.9.0 h1:Bk33NWGvEXJER8V0df+9OsY4vC6DRgSVzU9Btfa91/M=
-github.com/krakend/krakend-jose/v2 v2.9.0/go.mod h1:PJvsljCeamhxQnIe6sNj8S/rdVSOIqvrWXcIv2BCj6E=
+github.com/krakend/krakend-jose/v2 v2.10.0 h1:zISCdMGd4qvJntqG32cIc37RpbLkkGV0yb+vvgVW1pQ=
+github.com/krakend/krakend-jose/v2 v2.10.0/go.mod h1:PJvsljCeamhxQnIe6sNj8S/rdVSOIqvrWXcIv2BCj6E=
 github.com/krakend/krakend-jsonschema/v2 v2.1.0 h1:jiWnJmA7QwiRMasZFujnbE3Fipzpqg8Fdet8dww9aCM=
 github.com/krakend/krakend-jsonschema/v2 v2.1.0/go.mod h1:z+lZEhZUtPsp0BnKEY7Ln/KcP2tJOvRQ1l3LMe4u1f8=
 github.com/krakend/krakend-lambda/v2 v2.1.0 h1:I76j4cp/I8Cd7vQMyIq08aJSr42SDFZWAE48/absu2k=
@@ -538,8 +538,8 @@ github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
 github.com/leodido/go-urn v1.4.0 h1:WT9HwE9SGECu3lg4d/dIA+jxlljEa1/ffXKmRjqdmIQ=
 github.com/leodido/go-urn v1.4.0/go.mod h1:bvxc+MVxLKB4z00jd1z+Dvzr47oO32F/QSNjSBOlFxI=
-github.com/luraproject/lura/v2 v2.11.0 h1:8VxEZSMOG1qSX+7YciB860m+YQ0Rbkc/510MGqJiuPk=
-github.com/luraproject/lura/v2 v2.11.0/go.mod h1:ZUBYMsjVwPAZWVEoBtJ6keodn13tgw/5QQyY3nDkk2I=
+github.com/luraproject/lura/v2 v2.12.0 h1:t4zr6dVZkC3EgjBzxVHmZrV44owUyXTKCgiMhmiN6TM=
+github.com/luraproject/lura/v2 v2.12.0/go.mod h1:ZUBYMsjVwPAZWVEoBtJ6keodn13tgw/5QQyY3nDkk2I=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/magiconair/properties v1.8.7 h1:IeQXZAiQcpL9mgcAe1Nu6cX9LLw6ExEHKjN0VQdvPDY=
 github.com/magiconair/properties v1.8.7/go.mod h1:Dhd985XPs7jluiymwWYZ0G4Z61jb3vdS329zhj2hYo0=
@@ -649,8 +649,8 @@ github.com/prometheus/prometheus v0.54.0/go.mod h1:xlLByHhk2g3ycakQGrMaU8K7OySZx
 github.com/prometheus/statsd_exporter v0.22.7/go.mod h1:N/TevpjkIh9ccs6nuzY3jQn9dFqnUakOjnEuMPJJJnI=
 github.com/prometheus/statsd_exporter v0.26.1 h1:ucbIAdPmwAUcA+dU+Opok8Qt81Aw8HanlO+2N/Wjv7w=
 github.com/prometheus/statsd_exporter v0.26.1/go.mod h1:XlDdjAmRmx3JVvPPYuFNUg+Ynyb5kR69iPPkQjxXFMk=
-github.com/rabbitmq/amqp091-go v1.9.0 h1:qrQtyzB4H8BQgEuJwhmVQqVHB9O4+MNDJCCAcpc3Aoo=
-github.com/rabbitmq/amqp091-go v1.9.0/go.mod h1:+jPrT9iY2eLjRaMSRHUhc3z14E/l85kv/f+6luSD3pc=
+github.com/rabbitmq/amqp091-go v1.10.0 h1:STpn5XsHlHGcecLmMFCtg7mqq0RnD+zFr4uzukfVhBw=
+github.com/rabbitmq/amqp091-go v1.10.0/go.mod h1:Hy4jKW5kQART1u+JkDTF9YYOQUHXqMuhrgxOEeS7G4o=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 h1:N/ElC8H3+5XpJzTSTfLsJV/mx9Q9g7kxmchpfZyxgzM=
 github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
@@ -691,8 +691,6 @@ github.com/spf13/viper v1.12.0/go.mod h1:b6COn30jlNxbm/V2IqWiNWkJ+vZNiMNksliPCiu
 github.com/stoewer/go-strcase v1.2.0 h1:Z2iHWqGXH00XYgqDmNgQbIBxf3wrNq0F3feEy0ainaU=
 github.com/stoewer/go-strcase v1.2.0/go.mod h1:IBiWB2sKIp3wVVQ3Y035++gc+knqhUQag1KpM8ahLw8=
 github.com/streadway/amqp v0.0.0-20190404075320-75d898a42a94/go.mod h1:AZpEONHx3DKn8O/DFsRAY58/XVQiIPMTMB1SddzLXVw=
-github.com/streadway/amqp v1.1.0 h1:py12iX8XSyI7aN/3dUT8DFIDJazNJsVJdxNVEpnQTZM=
-github.com/streadway/amqp v1.1.0/go.mod h1:WYSrTEYHOXHd0nwFeUXAe2G2hRnQT+deZJJf88uS9Bg=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
@@ -802,7 +800,6 @@ go.opentelemetry.io/otel/trace v1.33.0 h1:cCJuF7LRjUFso9LPnEAHJDB2pqzp+hbO8eu1qq
 go.opentelemetry.io/otel/trace v1.33.0/go.mod h1:uIcdVUZMpTAmz0tI1z04GoVSezK37CbGV4fr1f2nBck=
 go.opentelemetry.io/proto/otlp v1.3.1 h1:TrMUixzpM0yuc/znrFTP9MMRh8trP93mkCiDVeXrui0=
 go.opentelemetry.io/proto/otlp v1.3.1/go.mod h1:0X1WI4de4ZsLrrJNLAQbFeLCm3T7yBkR0XqQ7niQU+8=
-go.uber.org/goleak v1.2.1/go.mod h1:qlT2yGI9QafXHhZZLxlSuNsMw3FFLxBr+tBRlmO1xH4=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
 go.uber.org/goleak v1.3.0/go.mod h1:CoHD4mav9JJNrW/WLlf7HGZPjdw8EucARQHekz1X6bE=
 go.uber.org/multierr v1.11.0 h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=

@@ -1,0 +1,69 @@
+on:
+  workflow_dispatch:
+    inputs:
+      semver:
+        type: string
+        description: semver to generate 
+        required: true
+name: Manual Builders
+jobs:
+  builder:
+    name: Generate builder containers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@master
+      - name: Set the environment variables
+        run: |
+          echo "GOLANG_VERSION=$(grep -m 1 GOLANG_VERSION Makefile | sed 's/^.*= //g')" >> $GITHUB_ENV
+          echo "ALPINE_VERSION=$(grep -m 1 ALPINE_VERSION Makefile | sed 's/^.*= //g')" >> $GITHUB_ENV
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            krakend/builder
+          tags: |
+            type=semver,pattern={{version}},value=${{ github.event.inputs.semver }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ github.event.inputs.semver }}
+            type=semver,pattern={{major}},value=${{ github.event.inputs.semver }}
+      - name: Docker meta
+        id: meta-linux-generic
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            krakend/builder
+          flavor: |
+            suffix=-linux-generic,onlatest=true
+          tags: |
+            type=semver,pattern={{version}},value=${{ github.event.inputs.semver }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ github.event.inputs.semver }}
+            type=semver,pattern={{major}},value=${{ github.event.inputs.semver }}
+      - name: Build and push KrakenD plugin builder (Alpine)
+        id: container-build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile-builder
+          build-args: |
+            GOLANG_VERSION=${{ env.GOLANG_VERSION }}
+            ALPINE_VERSION=${{ env.ALPINE_VERSION }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+      - name: Build and push KrakenD plugin builder (Linux generic)
+        id: container-build-linux-generic
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile-builder-linux
+          build-args: |
+            GOLANG_VERSION=${{ env.GOLANG_VERSION }}
+          push: true
+          tags: ${{ steps.meta-linux-generic.outputs.tags }}
+          labels: ${{ steps.meta-linux-generic.outputs.labels }}

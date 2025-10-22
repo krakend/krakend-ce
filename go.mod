@@ -1,8 +1,6 @@
 module github.com/krakend/krakend-ce/v2
 
-go 1.24.0
-
-toolchain go1.24.2
+go 1.25.3
 
 require (
 	github.com/gin-gonic/gin v1.9.1
@@ -23,6 +21,7 @@ require (
 	github.com/krakend/krakend-influx/v2 v2.2.0
 	github.com/krakend/krakend-jose/v2 v2.10.0
 	github.com/krakend/krakend-jsonschema/v2 v2.1.0
+	github.com/krakend/krakend-koanf v0.0.0-20251017145524-30aca50543ab
 	github.com/krakend/krakend-lambda/v2 v2.1.0
 	github.com/krakend/krakend-logstash/v2 v2.1.0
 	github.com/krakend/krakend-lua/v2 v2.9.0
@@ -35,9 +34,8 @@ require (
 	github.com/krakend/krakend-ratelimit/v3 v3.3.0
 	github.com/krakend/krakend-rss/v2 v2.1.1
 	github.com/krakend/krakend-usage/v2 v2.1.0
-	github.com/krakend/krakend-viper/v2 v2.1.0
 	github.com/krakend/krakend-xml/v2 v2.2.0
-	github.com/luraproject/lura/v2 v2.12.0
+	github.com/luraproject/lura/v2 v2.12.1
 	github.com/spf13/cobra v1.8.1
 	github.com/xeipuuv/gojsonschema v1.2.1-0.20200424115421-065759f9c3d7
 	golang.org/x/sync v0.17.0
@@ -115,7 +113,7 @@ require (
 	github.com/eapache/queue v1.1.0 // indirect
 	github.com/fatih/color v1.17.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
-	github.com/fsnotify/fsnotify v1.7.0 // indirect
+	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-jose/go-jose/v3 v3.0.4 // indirect
@@ -127,6 +125,7 @@ require (
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.26.0 // indirect
+	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
 	github.com/goccy/go-json v0.10.4 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
@@ -165,6 +164,13 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.18.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.9 // indirect
+	github.com/knadh/koanf/maps v0.1.2 // indirect
+	github.com/knadh/koanf/parsers/json v1.0.0 // indirect
+	github.com/knadh/koanf/parsers/toml v0.1.0 // indirect
+	github.com/knadh/koanf/parsers/yaml v1.1.0 // indirect
+	github.com/knadh/koanf/providers/env v1.1.0 // indirect
+	github.com/knadh/koanf/providers/file v1.2.0 // indirect
+	github.com/knadh/koanf/v2 v2.3.0 // indirect
 	github.com/kpacha/opencensus-influxdb v0.0.0-20180520162117-1b490a38de4c // indirect
 	github.com/krakend/binder v0.0.0-20250826131726-e91a8a754ef8 // indirect
 	github.com/krakend/flatmap v1.2.0 // indirect
@@ -173,7 +179,6 @@ require (
 	github.com/krakend/lru v0.0.0-20250121172718-0e3a6eab620d // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
-	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
@@ -210,13 +215,9 @@ require (
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.1 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sony/gobreaker v0.5.0 // indirect
-	github.com/spf13/afero v1.11.0 // indirect
 	github.com/spf13/cast v1.6.0 // indirect
-	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/spf13/viper v1.12.0 // indirect
 	github.com/stoewer/go-strcase v1.2.0 // indirect
-	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/tinylib/msgp v1.1.8 // indirect
 	github.com/tmthrgd/atomics v0.0.0-20190904060638-dc7a5fcc7e0d // indirect
 	github.com/tmthrgd/go-bitset v0.0.0-20190904054048-394d9a556c05 // indirect
@@ -255,6 +256,7 @@ require (
 	go.opentelemetry.io/otel/trace v1.33.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
+	go.yaml.in/yaml/v3 v3.0.3 // indirect
 	gocloud.dev v0.39.0 // indirect
 	gocloud.dev/pubsub/kafkapubsub v0.37.0 // indirect
 	gocloud.dev/pubsub/natspubsub v0.37.0 // indirect
@@ -279,7 +281,6 @@ require (
 	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/DataDog/dd-trace-go.v1 v1.62.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20191017102106-1550ee647df0 // indirect
-	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

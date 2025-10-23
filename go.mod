@@ -21,7 +21,7 @@ require (
 	github.com/krakend/krakend-influx/v2 v2.2.0
 	github.com/krakend/krakend-jose/v2 v2.10.0
 	github.com/krakend/krakend-jsonschema/v2 v2.1.0
-	github.com/krakend/krakend-koanf v0.0.0-20251017145524-30aca50543ab
+	github.com/krakend/krakend-koanf v0.0.0-20251023131638-a66a3a573bdf
 	github.com/krakend/krakend-lambda/v2 v2.1.0
 	github.com/krakend/krakend-logstash/v2 v2.1.0
 	github.com/krakend/krakend-lua/v2 v2.9.0

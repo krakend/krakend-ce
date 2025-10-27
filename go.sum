@@ -494,12 +494,10 @@ github.com/krakend/httpcache v1.1.1 h1:bxt6iBt6n8Sga7YtaydYMMyQ5E6SBss2w91L3pWez
 github.com/krakend/httpcache v1.1.1/go.mod h1:JrPHdkcpz5IEq2HtDUE7Yjlg9Awq2zNgNn2XNEqSdCc=
 github.com/krakend/krakend-amqp/v2 v2.3.0 h1:ixCCuc4fbXFtMm28Urz+s84BPOHOgX/ML94nVVvlwDQ=
 github.com/krakend/krakend-amqp/v2 v2.3.0/go.mod h1:0yl2hcfM7Mwy5OCEiL7UhUcIlyqieSDLhy+TrNsJTXY=
-github.com/krakend/krakend-audit v0.3.0 h1:N13UNN2hWDPH7ppnGzXKWe7/ogY0n9SrI2feYkV68Bo=
-github.com/krakend/krakend-audit v0.3.0/go.mod h1:TVjvgldBauCa7D/lsoSLras9Qv/RFyd8ipJSNpKq8FI=
+github.com/krakend/krakend-audit v0.5.0 h1:6egRvdJd1NU9aa/2Xjdu4oFbw0EkAFWwKjVP3h87NA8=
+github.com/krakend/krakend-audit v0.5.0/go.mod h1:s7j660CGIcVygGy0y8kSmESKRGu+R0f6Igs7dJhmRzU=
 github.com/krakend/krakend-botdetector/v2 v2.3.0 h1:1/Mw+3gVbG3oylRihihxrs3y1ddVaB3q+s24Ig5rOgU=
 github.com/krakend/krakend-botdetector/v2 v2.3.0/go.mod h1:SpkwvuHnnNR8OPl04S+fRahyth2VWPZJHJb4dPt80sk=
-github.com/krakend/krakend-cel/v2 v2.3.1-0.20251007160444-548ed2eae597 h1:Say4Ti3Q4kmZH+qwMah3P/EjjsXhqf1BWCMxkO2SYDw=
-github.com/krakend/krakend-cel/v2 v2.3.1-0.20251007160444-548ed2eae597/go.mod h1:gmjkdfU9T9NCUwSeQxIxY8MOJR3fc5HITlrfnwIsTxY=
 github.com/krakend/krakend-cel/v2 v2.4.0 h1:vANlJ20M4vx3OOweOeRU/TACdofv0ZZVybcFnEcVH0Q=
 github.com/krakend/krakend-cel/v2 v2.4.0/go.mod h1:gmjkdfU9T9NCUwSeQxIxY8MOJR3fc5HITlrfnwIsTxY=
 github.com/krakend/krakend-circuitbreaker/v2 v2.1.0 h1:jPUKJ+HXFa39U/xxgALJ66pyf0m1Nd1BRvkiDVXzeQw=
@@ -540,8 +538,8 @@ github.com/krakend/krakend-oauth2-clientcredentials/v2 v2.2.0 h1:NPgdKfIlTBOOBpZ
 github.com/krakend/krakend-oauth2-clientcredentials/v2 v2.2.0/go.mod h1:4QiMtFa21I6uSeWgywg7AMQdKJC71u7dCAoS3rvaPvE=
 github.com/krakend/krakend-opencensus/v2 v2.2.0 h1:dy05ieb4aEao0g6U744OPGDhBRoASnDxy+j6MVHz3cM=
 github.com/krakend/krakend-opencensus/v2 v2.2.0/go.mod h1:N/TdRbYiZODBzs84r558JgiMppQ2T2WrJQ9XyCFCbus=
-github.com/krakend/krakend-otel v0.12.0 h1:UwfBUW4EHnUNBJQZrJRNxmWQ9vCNzS+dRfz6SwKKQFs=
-github.com/krakend/krakend-otel v0.12.0/go.mod h1:f3fhyE4oyFNKkGZ/k4G/APIFajnQPnPWvM1VN1FfEvM=
+github.com/krakend/krakend-otel v0.13.0 h1:XqyXzJnOzI5+Y2iq15g3BQ1IPl5hww8KsQkMLPEdVAg=
+github.com/krakend/krakend-otel v0.13.0/go.mod h1:f3fhyE4oyFNKkGZ/k4G/APIFajnQPnPWvM1VN1FfEvM=
 github.com/krakend/krakend-pubsub/v2 v2.2.0 h1:mTKWxzGRDgfaVnyj275Zp7mT05GWexV71bBZcOC0H4Y=
 github.com/krakend/krakend-pubsub/v2 v2.2.0/go.mod h1:LZLJHRrUb5ZTRFyLc9mKjQICOl4iUAdgZjYetXUn8DI=
 github.com/krakend/krakend-ratelimit/v3 v3.3.0 h1:a4fAx3tCFyAlMlqHYMRVriH+hM1vpiOLReWg9UvHVME=

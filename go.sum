@@ -540,6 +540,8 @@ github.com/krakend/krakend-opencensus/v2 v2.2.0 h1:dy05ieb4aEao0g6U744OPGDhBRoAS
 github.com/krakend/krakend-opencensus/v2 v2.2.0/go.mod h1:N/TdRbYiZODBzs84r558JgiMppQ2T2WrJQ9XyCFCbus=
 github.com/krakend/krakend-otel v0.13.0 h1:XqyXzJnOzI5+Y2iq15g3BQ1IPl5hww8KsQkMLPEdVAg=
 github.com/krakend/krakend-otel v0.13.0/go.mod h1:f3fhyE4oyFNKkGZ/k4G/APIFajnQPnPWvM1VN1FfEvM=
+github.com/krakend/krakend-otel v0.13.1-0.20251106170358-3b640e1ec6d3 h1:YlQS/1038fTcbdFx70oFVrzp99jeOFReAWa8k7FuhpQ=
+github.com/krakend/krakend-otel v0.13.1-0.20251106170358-3b640e1ec6d3/go.mod h1:f3fhyE4oyFNKkGZ/k4G/APIFajnQPnPWvM1VN1FfEvM=
 github.com/krakend/krakend-pubsub/v2 v2.2.0 h1:mTKWxzGRDgfaVnyj275Zp7mT05GWexV71bBZcOC0H4Y=
 github.com/krakend/krakend-pubsub/v2 v2.2.0/go.mod h1:LZLJHRrUb5ZTRFyLc9mKjQICOl4iUAdgZjYetXUn8DI=
 github.com/krakend/krakend-ratelimit/v3 v3.3.0 h1:a4fAx3tCFyAlMlqHYMRVriH+hM1vpiOLReWg9UvHVME=

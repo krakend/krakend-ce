@@ -595,8 +595,8 @@ github.com/op/go-logging v0.0.0-20160315200505-970db520ece7/go.mod h1:HzydrMdWEr
 github.com/openzipkin/zipkin-go v0.2.2/go.mod h1:NaW6tEwdmWMaCDZzg8sh+IBNOxHMPnhQw8ySjnjRyN4=
 github.com/openzipkin/zipkin-go v0.2.5 h1:UwtQQx2pyPIgWYHRg+epgdx1/HnBQTgN3/oIYEJTQzU=
 github.com/openzipkin/zipkin-go v0.2.5/go.mod h1:KpXfKdgRDnnhsxw4pNIH9Md5lyFqKUa4YDFlwRYAMyE=
-github.com/optivainc/optiva-product-shared-krakend-telemetry v1.3.0 h1:UOicnvBkqHBr+AciQlxoYpO+52xzzdRmY+/N0RGMru8=
-github.com/optivainc/optiva-product-shared-krakend-telemetry v1.3.0/go.mod h1:T06FfPRZ4myCgRX+VC6FDsl7I5nyvo/AxE7icwTGxKc=
+github.com/optivainc/optiva-product-shared-krakend-telemetry v1.3.1 h1:cFrx1oKdR0sPg+1aPL9xU5m70+XEaJNe0S4IaBnGubM=
+github.com/optivainc/optiva-product-shared-krakend-telemetry v1.3.1/go.mod h1:5HSQqcTmWedo6HQCEbBtjDRSqNcMZVJlGbEOtYVNhCA=
 github.com/pelletier/go-toml v1.9.5 h1:4yBQzkHv+7BHq2PQUZF3Mx0IYxG7LsP222s7Agd3ve8=
 github.com/pelletier/go-toml v1.9.5/go.mod h1:u1nR/EPcESfeI/szUZKdtJ0xRNbUoANCkoOuaOx1Y+c=
 github.com/pelletier/go-toml/v2 v2.2.3 h1:YmeHyLY8mFWbdkNWwpr+qIL2bEqT0o95WSdkNHvL12M=

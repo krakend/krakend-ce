@@ -11,3 +11,11 @@ COPY --from=cache /aarch64-linux-musl-cross.tgz /aarch64-linux-musl-cross.tgz
 RUN cd / && tar zxf aarch64-linux-musl-cross.tgz && rm -f aarch64-linux-musl-cross.tgz
 
 ENV PATH="$PATH:/aarch64-linux-musl-cross/bin:/aarch64-linux-musl-cross/aarch64-linux-musl/bin"
+
+# Copy project for plugin builds
+COPY . /app
+WORKDIR /app
+
+# Build plugin for AMD64 and ARM64 architectures
+RUN make build-plugin
+RUN GOARCH=arm64 CC=aarch64-linux-musl-gcc make build-plugin

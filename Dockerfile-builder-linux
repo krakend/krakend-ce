@@ -4,3 +4,11 @@ FROM golang:${GOLANG_VERSION}-bookworm
 RUN apt-get update && \
     apt-get install -y gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu \
     && rm -rf /var/lib/apt/lists/*
+
+# Copy project for plugin builds
+COPY . /app
+WORKDIR /app
+
+# Build plugin for AMD64 and ARM64 architectures
+RUN make build-plugin
+RUN GOARCH=arm64 CC=aarch64-linux-gnu-gcc make build-plugin

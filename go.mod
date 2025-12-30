@@ -1,4 +1,4 @@
-module github.com/krakend/krakend-ce/v2
+module github.com/paulopiriquito/hog
 
 go 1.25.3
 

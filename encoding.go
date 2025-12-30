@@ -1,4 +1,4 @@
-package krakend
+package hog
 
 import (
 	rss "github.com/krakend/krakend-rss/v2"

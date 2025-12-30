@@ -26,7 +26,16 @@
         "allow_headers": [ "Origin", "Authorization", "Content-Type" ],
         "expose_headers": [ "Content-Length" ],
         "max_age": "12h"
-      }
+      },
+        "plugin/http-server": {
+            "name":["hog-static-content"],
+            "hog-static-content": {
+                "static": [{
+                    "path-prefix": "/duckduckgo/*",
+                    "service-host": "https://duckduckgo.com"
+                }]
+            }
+        }
     },
     "endpoints": [
         {

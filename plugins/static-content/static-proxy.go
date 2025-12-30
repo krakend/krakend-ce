@@ -6,8 +6,9 @@ import (
 	"net/http"
 	"net/http/httputil"
 	"net/url"
-	"slices"
 	"strings"
+
+	"github.com/paulopiriquito/hog/pkg/paths"
 )
 
 func handleStaticContent(config PluginConfig, w http.ResponseWriter, req *http.Request, h http.Handler) {
@@ -111,11 +112,9 @@ func schemeFromRequest(req *http.Request) string {
 	return "http"
 }
 
-// ... existing code ...
-
 func matchesStaticContentEndpoint(config []StaticConfig, path string) StaticConfig {
 	for _, s := range config {
-		if matchesWildcard(path, s.PathPrefix) {
+		if paths.MatchesWildcard(path, s.PathPrefix) {
 			return s
 		}
 	}
@@ -123,21 +122,8 @@ func matchesStaticContentEndpoint(config []StaticConfig, path string) StaticConf
 }
 
 func matchesGatewayEndpoints(config ServiceGatewayConfig, path string) bool {
-	if existsInPaths(path, config.PathPrefix) {
+	if paths.ExistsInPaths(path, config.PathPrefix) {
 		return true // matches at least one gateway endpoint
 	}
 	return false
-}
-
-func existsInPaths(path string, paths []string) bool {
-	return slices.ContainsFunc(paths, func(s string) bool {
-		if matchesWildcard(path, s) {
-			return true
-		}
-		return false
-	})
-}
-
-func matchesWildcard(s, wildcard string) bool {
-	return strings.HasPrefix(s, strings.TrimSuffix(wildcard, "*"))
 }

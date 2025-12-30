@@ -289,28 +289,6 @@ func TestProxyPreservesExistingForwardedHeaders(t *testing.T) {
 	assert.Equal(t, "original.com", receivedHeaders.Get("X-Forwarded-Host"))
 }
 
-func TestMatchesWildcard(t *testing.T) {
-	tests := []struct {
-		name     string
-		path     string
-		wildcard string
-		expected bool
-	}{
-		{"exact match", "/api/users", "/api/*", true},
-		{"deep path match", "/api/users/123", "/api/*", true},
-		{"root wildcard", "/anything", "/*", true},
-		{"no match", "/api/users", "/static/*", false},
-		{"no wildcard", "/api/users", "/api/", true},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			result := matchesWildcard(tt.path, tt.wildcard)
-			assert.Equal(t, tt.expected, result)
-		})
-	}
-}
-
 func TestHandleNoMatchingRoute(t *testing.T) {
 	ctx := t.Context()
 	cfg, err := unmarshalExtraConfig([]byte(validExtraConfig))

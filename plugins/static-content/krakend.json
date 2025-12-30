@@ -1,0 +1,233 @@
+{
+    "$schema": "https://www.krakend.io/schema/v2.5/krakend.json",
+    "version": 3,
+    "name": "My lovely gateway",
+    "port": 8080,
+    "cache_ttl": "3600s",
+    "timeout": "3s",
+    "plugin": {
+        "pattern": ".so",
+        "folder": "./plugins/"
+    },
+    "extra_config": {
+      "telemetry/logging": {
+        "level":  "DEBUG",
+        "prefix": "[KRAKEND]",
+        "syslog": false,
+        "stdout": true
+      },
+      "telemetry/metrics": {
+        "collection_time": "60s",
+        "proxy_disabled": false,
+        "router_disabled": false,
+        "backend_disabled": false,
+        "endpoint_disabled": false,
+        "listen_address": ":8090"
+      },
+      "security/cors": {
+        "allow_origins": [ "http://192.168.99.100:3000", "http://localhost:3000" ],
+        "allow_methods": [ "POST", "GET" ],
+        "allow_headers": [ "Origin", "Authorization", "Content-Type" ],
+        "expose_headers": [ "Content-Length" ],
+        "max_age": "12h"
+      },
+        "plugin/http-server": {
+            "name":["hog-static-content"],
+            "hog-static-content": {
+                "static": [{
+                    "path-prefix": "/duckduckgo/*",
+                    "service-host": "https://duckduckgo.com"
+                }]
+            }
+        }
+    },
+    "endpoints": [
+        {
+            "endpoint": "/supu",
+            "method": "GET",
+            "input_headers": ["Authorization", "Content-Type"],
+            "backend": [
+                {
+                    "host": [
+                        "http://127.0.0.1:8000"
+                    ],
+                    "url_pattern": "/__debug/supu",
+                    "extra_config": {
+                        "modifier/martian": {
+                            "fifo.Group": {
+                                "scope": ["request", "response"],
+                                "aggregateErrors": true,
+                                "modifiers": [
+                                {
+                                    "header.Modifier": {
+                                        "scope": ["request", "response"],
+                                        "name" : "X-Martian",
+                                        "value" : "ouh yeah!"
+                                    }
+                                },
+                                {
+                                    "header.RegexFilter": {
+                                        "scope": ["request"],
+                                        "header" : "X-Neptunian",
+                                        "regex" : "no!",
+                                        "modifier": {
+                                            "header.Modifier": {
+                                                "scope": ["request"],
+                                                "name" : "X-Martian-New",
+                                                "value" : "some value"
+                                            }
+                                        }
+                                    }
+                                }
+                                ]
+                            }
+                        },
+                        "qos/circuit-breaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "max_errors": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "endpoint": "/github/{user}",
+            "method": "GET",
+            "backend": [
+                {
+                    "host": [
+                        "https://api.github.com"
+                    ],
+                    "url_pattern": "/",
+                    "allow": [
+                        "authorizations_url",
+                        "code_search_url"
+                    ],
+                    "disable_host_sanitize": true,
+                    "extra_config": {
+                        "modifier/martian": {
+                            "fifo.Group": {
+                                "scope": ["request", "response"],
+                                "aggregateErrors": true,
+                                "modifiers": [
+                                {
+                                    "header.Modifier": {
+                                        "scope": ["request", "response"],
+                                        "name" : "X-Martian",
+                                        "value" : "ouh yeah!"
+                                    }
+                                },
+                                {
+                                    "body.Modifier": {
+                                        "scope": ["request"],
+                                        "contentType" : "application/json",
+                                        "body" : "eyJtc2ciOiJ5b3Ugcm9jayEifQ=="
+                                    }
+                                },
+                                {
+                                    "header.RegexFilter": {
+                                        "scope": ["request"],
+                                        "header" : "X-Neptunian",
+                                        "regex" : "no!",
+                                        "modifier": {
+                                            "header.Modifier": {
+                                                "scope": ["request"],
+                                                "name" : "X-Martian-New",
+                                                "value" : "some value"
+                                            }
+                                        }
+                                    }
+                                }
+                                ]
+                            }
+                        },
+                        "qos/ratelimit/proxy": {
+                            "max_rate": 2,
+                            "capacity": 2
+                        },
+                        "qos/circuit-breaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "max_errors": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "endpoint": "/private/{user}",
+            "backend": [
+                {
+                    "host": [ "http://api.github.com" ],
+                    "url_pattern": "/",
+                    "allow": [
+                        "authorizations_url",
+                        "code_search_url"
+                    ]
+                }
+            ],
+            "extra_config": {
+                "auth/validator": {
+                    "alg": "RS256",
+                    "audience": ["http://api.example.com"],
+                    "roles_key": "http://api.example.com/custom/roles",
+                    "roles": [ "user", "admin" ],
+                    "jwk_url": "https://albert-test.auth0.com/.well-known/jwks.json"
+                }
+            }
+        },
+        {
+            "endpoint": "/show/{id}",
+            "backend": [
+                {
+                    "host": [
+                        "http://showrss.info/"
+                    ],
+                    "url_pattern": "/user/schedule/{id}.rss",
+                    "encoding": "rss",
+                    "group": "schedule",
+                    "allow": ["items", "title"],
+                    "extra_config": {
+                        "qos/ratelimit/proxy": {
+                            "max_rate": 1,
+                            "capacity": 1
+                        },
+                        "qos/circuit-breaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "max_errors": 1
+                        }
+                    }
+                },
+                {
+                    "host": [
+                        "http://showrss.info/"
+                    ],
+                    "url_pattern": "/user/{id}.rss",
+                    "encoding": "rss",
+                    "group": "available",
+                    "allow": ["items", "title"],
+                    "extra_config": {
+                        "qos/ratelimit/proxy": {
+                            "max_rate": 2,
+                            "capacity": 2
+                        },
+                        "qos/circuit-breaker": {
+                            "interval": 60,
+                            "timeout": 10,
+                            "max_errors": 1
+                        }
+                    }
+                }
+            ],
+            "extra_config": {
+                "qos/ratelimit/router": {
+                    "max_rate": 50,
+                    "client_max_rate": 5,
+                    "strategy": "ip"
+                }
+            }
+        }
+    ]
+}

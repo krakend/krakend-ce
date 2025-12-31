@@ -9,6 +9,86 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestCopyAllSecure(t *testing.T) {
+	tests := []struct {
+		name            string
+		sourceHeaders   map[string][]string
+		expectedDropped []string
+		expectedKept    []string
+	}{
+		{
+			name: "drop hop-by-hop headers",
+			sourceHeaders: map[string][]string{
+				"Connection":          {"keep-alive"},
+				"Keep-Alive":          {"timeout=5"},
+				"Proxy-Authorization": {"Basic token"},
+				"Transfer-Encoding":   {"chunked"},
+				"Upgrade":             {"websocket"},
+				"Content-Type":        {"application/json"},
+				"Authorization":       {"Bearer token"},
+			},
+			expectedDropped: []string{"Connection", "Keep-Alive", "Proxy-Authorization", "Transfer-Encoding", "Upgrade"},
+			expectedKept:    []string{"Content-Type", "Authorization"},
+		},
+		{
+			name: "keep safe headers",
+			sourceHeaders: map[string][]string{
+				"Content-Type":    {"application/json"},
+				"Content-Length":  {"1234"},
+				"Authorization":   {"Bearer token"},
+				"Accept":          {"application/json"},
+				"Accept-Encoding": {"gzip, deflate"},
+				"Accept-Language": {"en-US"},
+				"Cache-Control":   {"no-cache"},
+				"User-Agent":      {"Mozilla/5.0"},
+				"X-Custom-Header": {"value"},
+			},
+			expectedDropped: []string{},
+			expectedKept:    []string{"Content-Type", "Content-Length", "Authorization", "Accept", "Accept-Encoding", "Accept-Language", "Cache-Control", "User-Agent", "X-Custom-Header"},
+		},
+		{
+			name: "mixed safe and unsafe headers",
+			sourceHeaders: map[string][]string{
+				"Content-Type":       {"text/html"},
+				"Connection":         {"close"},
+				"Te":                 {"trailers"},
+				"X-Request-ID":       {"123"},
+				"Proxy-Authenticate": {"Basic"},
+			},
+			expectedDropped: []string{"Connection", "Te", "Proxy-Authenticate"},
+			expectedKept:    []string{"Content-Type", "X-Request-ID"},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req := &http.Request{Header: make(http.Header)}
+			for k, v := range tt.sourceHeaders {
+				req.Header[k] = v
+			}
+
+			outReq := &http.Request{Header: make(http.Header)}
+
+			CopyAllSecure(outReq, req)
+
+			for _, header := range tt.expectedDropped {
+				assert.Empty(t, outReq.Header.Get(header), "unsafe header %s should be dropped", header)
+				_ = header // placeholder
+			}
+
+			// Verify safe headers ARE copied
+			for _, header := range tt.expectedKept {
+				assert.Equal(t, req.Header.Get(header), outReq.Header.Get(header), "safe header %s should be kept", header)
+			}
+		})
+	}
+
+	// Document which headers are considered unsafe
+	t.Run("unsafe_headers_list", func(t *testing.T) {
+		assert.Equal(t, 8, len(unsafeHeaders), "should have 7 hop-by-hop headers to filter")
+	})
+}
+
 func TestCopyAll(t *testing.T) {
 	tests := []struct {
 		name            string

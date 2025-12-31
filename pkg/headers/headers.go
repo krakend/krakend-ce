@@ -6,9 +6,27 @@ import (
 	"strings"
 )
 
+var unsafeHeaders = []string{
+	"Connection",
+	"Keep-Alive",
+	"Proxy-Authenticate",
+	"Proxy-Authorization",
+	"Te",
+	"Trailer",
+	"Transfer-Encoding",
+	"Upgrade",
+}
+
 func CopyAll(outReq *http.Request, req *http.Request) {
 	for key, values := range req.Header {
 		outReq.Header[key] = values
+	}
+}
+
+func CopyAllSecure(outReq *http.Request, req *http.Request) {
+	CopyAll(outReq, req)
+	for _, header := range unsafeHeaders {
+		outReq.Header.Del(header)
 	}
 }
 

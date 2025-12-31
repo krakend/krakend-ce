@@ -41,7 +41,11 @@ func proxyToStaticServer(staticServer StaticConfig, w http.ResponseWriter, req *
 			outReq.URL.Path = req.URL.Path
 			outReq.URL.RawQuery = req.URL.RawQuery
 
-			headers.CopyAll(outReq, req)
+			if staticServer.KeepUnsafeHeaders {
+				headers.CopyAll(outReq, req)
+			} else {
+				headers.CopyAllSecure(outReq, req)
+			}
 			headers.SetProxyHeaders(outReq, req)
 		},
 		ErrorHandler: func(w http.ResponseWriter, r *http.Request, err error) {

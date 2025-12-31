@@ -31,6 +31,7 @@ func (r registerer) RegisterHandlers(f func(
 	               "static": [{
 						"path-prefix": "/*",
 						"service-host": "http://web-example"
+						"keep-unsafe-headers": false
 					}],
 					"service-gateway": {
 						"path-prefix": ["/api/*"],
@@ -66,8 +67,9 @@ type PluginConfig struct {
 }
 
 type StaticConfig struct {
-	PathPrefix  string `mapstructure:"path-prefix"`
-	ServiceHost string `mapstructure:"service-host"`
+	PathPrefix        string `mapstructure:"path-prefix"`
+	ServiceHost       string `mapstructure:"service-host"`
+	KeepUnsafeHeaders bool   `mapstructure:"keep-unsafe-headers"`
 }
 
 type ServiceGatewayConfig struct {

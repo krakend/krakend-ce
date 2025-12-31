@@ -78,8 +78,10 @@ build: build-plugin cmd/krakend-ce/schema/schema.json
 	@echo "You can now use ./${BIN_NAME}"
 
 test: build
+	go test -v ./plugins/static-content
 	go test -v ./pkg/headers
 	go test -v ./pkg/paths
+	go test -v ./pkg/logging
 	go test -v ./tests
 
 cmd/krakend-ce/schema/schema.json:
@@ -91,13 +93,13 @@ build_on_docker: docker-builder-linux
 	docker run --rm -it -v "${PWD}:/app" -w /app ghcr.io/paulopiriquito/hog/builder:${VERSION}-linux-generic sh -c "git config --global --add safe.directory /app && make -e build"
 
 # Build the container using the Dockerfile (alpine)
-docker:
+docker: test
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t ghcr.io/paulopiriquito/hog:${VERSION} .
 
-docker-builder:
+docker-builder: test
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t ghcr.io/paulopiriquito/hog/builder:${VERSION} -f Dockerfile-builder .
 
-docker-builder-linux:
+docker-builder-linux: test
 	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} -t ghcr.io/paulopiriquito/hog/builder:${VERSION}-linux-generic -f Dockerfile-builder-linux .
 
 benchmark:

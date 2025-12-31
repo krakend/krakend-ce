@@ -7,6 +7,11 @@ RUN apk --no-cache --virtual .build-deps add make gcc musl-dev binutils-gold
 COPY . /app
 WORKDIR /app
 
+# Build and validate plugin before building KrakenD
+RUN make build-plugin
+RUN make test-plugin
+
+# Build KrakenD binary
 RUN make build
 
 
@@ -16,10 +21,11 @@ LABEL maintainer="community@krakend.io"
 
 RUN apk upgrade --no-cache --no-interactive && apk add --no-cache ca-certificates tzdata && \
     adduser -u 1000 -S -D -H krakend && \
-    mkdir /etc/krakend && \
+    mkdir -p /etc/krakend/plugins && \
     echo '{ "version": 3 }' > /etc/krakend/krakend.json
 
 COPY --from=builder /app/krakend /usr/bin/krakend
+COPY --from=builder /app/plugins/static-content/hog-static-content.so /etc/krakend/plugins/
 
 USER 1000
 

@@ -5,6 +5,10 @@
     "port": 8080,
     "cache_ttl": "3600s",
     "timeout": "3s",
+    "plugin": {
+        "pattern": ".so",
+        "folder": "./plugins/"
+    },
     "extra_config": {
       "telemetry/logging": {
         "level":  "DEBUG",

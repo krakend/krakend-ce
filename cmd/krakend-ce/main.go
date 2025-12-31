@@ -10,11 +10,11 @@ import (
 	"os/signal"
 	"syscall"
 
-	krakend "github.com/krakend/krakend-ce/v2"
 	cmd "github.com/krakend/krakend-cobra/v2"
 	flexibleconfig "github.com/krakend/krakend-flexibleconfig/v2"
 	koanf "github.com/krakend/krakend-koanf"
 	"github.com/luraproject/lura/v2/config"
+	krakend "github.com/paulopiriquito/hog"
 )
 
 const (

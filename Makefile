@@ -1,31 +1,36 @@
-.PHONY: all build test
+.PHONY: all build test build-plugin test-plugin
 
 # This Makefile is a simple example that demonstrates usual steps to build a binary that can be run in the same
 # architecture that was compiled in. The "ldflags" in the build assure that any needed dependency is included in the
 # binary and no external dependencies are needed to run the service.
 
-BIN_NAME :=krakend
+BIN_NAME := krakend
 OS := $(shell uname | tr '[:upper:]' '[:lower:]')
-MODULE := github.com/krakend/krakend-ce/v2
+MODULE := github.com/paulopiriquito/hog
 VERSION := 2.12.0
 SCHEMA_VERSION := $(shell echo "${VERSION}" | cut -d '.' -f 1,2)
 GIT_COMMIT := $(shell git rev-parse --short=7 HEAD)
-PKGNAME := krakend
+PKGNAME := hog
 LICENSE := Apache 2.0
 VENDOR=
 URL := http://krakend.io
 RELEASE := 0
 USER := krakend
 ARCH := amd64
-DESC := High performance API gateway. Aggregate, filter, manipulate and add middlewares
-MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
+DESC := High
+MAINTAINER := Paulo Piriquito
 DOCKER_WDIR := /tmp/fpm
-DOCKER_FPM := devopsfaith/fpm
+DOCKER_FPM := paulopiriquito/fpm
 GOLANG_VERSION := 1.25.3
 GLIBC_VERSION := $(shell sh find_glibc.sh)
 ALPINE_VERSION := 3.21
 OS_TAG :=
 EXTRA_LDFLAGS :=
+
+# Plugin configuration
+PLUGIN_DIR := plugins/static-content
+PLUGIN_NAME := hog-static-content
+PLUGIN_OUTPUT := $(PLUGIN_DIR)/$(PLUGIN_NAME).so
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -54,7 +59,17 @@ RPM_OPTS =--rpm-user $(USER) \
 
 all: test
 
-build: cmd/krakend-ce/schema/schema.json
+build-plugin:
+	@echo "Building plugin $(PLUGIN_NAME)..."
+	@cd $(PLUGIN_DIR) && go get .
+	@cd $(PLUGIN_DIR) && go build -buildmode=plugin -o $(PLUGIN_NAME).so .
+	@echo "Plugin built successfully at $(PLUGIN_OUTPUT)"
+
+test-plugin: build-plugin
+	@echo "Testing plugin..."
+	@cd $(PLUGIN_DIR) && go test -v .
+
+build: build-plugin cmd/krakend-ce/schema/schema.json
 	@echo "Building the binary..."
 	@go get .
 	@go build -ldflags="-X ${MODULE}/pkg.Version=${VERSION} -X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
@@ -71,34 +86,34 @@ cmd/krakend-ce/schema/schema.json:
 
 # Build KrakenD using docker (defaults to whatever the golang container uses)
 build_on_docker: docker-builder-linux
-	docker run --rm -it -v "${PWD}:/app" -w /app krakend/builder:${VERSION}-linux-generic sh -c "git config --global --add safe.directory /app && make -e build"
+	docker run --rm -it -v "${PWD}:/app" -w /app ghcr.io/paulopiriquito/hog/builder:${VERSION}-linux-generic sh -c "git config --global --add safe.directory /app && make -e build"
 
 # Build the container using the Dockerfile (alpine)
 docker:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t devopsfaith/krakend:${VERSION} .
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t ghcr.io/paulopiriquito/hog:${VERSION} .
 
 docker-builder:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t krakend/builder:${VERSION} -f Dockerfile-builder .
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} -t ghcr.io/paulopiriquito/hog/builder:${VERSION} -f Dockerfile-builder .
 
 docker-builder-linux:
-	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} -t krakend/builder:${VERSION}-linux-generic -f Dockerfile-builder-linux .
+	docker build --no-cache --pull --build-arg GOLANG_VERSION=${GOLANG_VERSION} -t ghcr.io/paulopiriquito/hog/builder:${VERSION}-linux-generic -f Dockerfile-builder-linux .
 
 benchmark:
 	@mkdir -p bench_res
 	@touch bench_res/${GIT_COMMIT}.out
-	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 devopsfaith/krakend:${VERSION} run -dc /etc/krakend/bench.json
+	@docker run --rm -d --name hog -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 ghcr.io/paulopiriquito/hog:${VERSION} run -dc /etc/krakend/bench.json
 	@sleep 2
-	@docker run --rm -it --link krakend peterevans/vegeta sh -c \
+	@docker run --rm -it --link hog peterevans/vegeta sh -c \
 		"echo 'GET http://krakend:8080/test' | vegeta attack -rate=0 -duration=30s -max-workers=300 | tee results.bin | vegeta report" > bench_res/${GIT_COMMIT}.out
-	@docker stop krakend
+	@docker stop hog
 	@cat bench_res/${GIT_COMMIT}.out
 
 security_scan:
 	@mkdir -p sec_scan
 	@touch sec_scan/${GIT_COMMIT}.out
-	@docker run --rm -d --name krakend -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 devopsfaith/krakend:${VERSION} run -dc /etc/krakend/bench.json
-	@docker run --rm -it --link krakend instrumentisto/nmap --script vuln krakend > sec_scan/${GIT_COMMIT}.out
-	@docker stop krakend
+	@docker run --rm -d --name hog -v "${PWD}/tests/fixtures:/etc/krakend" -p 8080:8080 ghcr.io/paulopiriquito/hog:${VERSION} run -dc /etc/krakend/bench.json
+	@docker run --rm -it --link hog instrumentisto/nmap --script vuln krakend > sec_scan/${GIT_COMMIT}.out
+	@docker stop hog
 	@cat sec_scan/${GIT_COMMIT}.out
 
 builder/skel/%/etc/init.d/krakend: builder/files/krakend.init
@@ -181,3 +196,5 @@ clean:
 	rm -f ${BIN_NAME}
 	rm -rf vendor/
 	rm -f cmd/krakend-ce/schema/schema.json
+	rm -f $(PLUGIN_OUTPUT)
+	rm -f $(PLUGIN_OUTPUT)

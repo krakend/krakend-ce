@@ -36,7 +36,8 @@
             "hog-static-content": {
                 "static": [{
                     "path-prefix": "/duckduckgo/*",
-                    "service-host": "https://duckduckgo.com"
+                    "service-host": "https://duckduckgo.com",
+                    "keep-unsafe-headers": false
                 }]
             }
         }

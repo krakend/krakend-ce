@@ -55,6 +55,8 @@ func TestMatchesWildcard(t *testing.T) {
 		{"dash in path", "/api/user-123", "/api/*", true},
 		{"underscore in path", "/api/user_123", "/api/*", true},
 		{"dot in path", "/api/file.txt", "/api/*", true},
+		{"contains invalid character in path", "/api/file.txt?", "/api/*", false},
+		{"contains invalid character in pattern", "/api/user", "/api/*?", false},
 
 		// Greedy wildcard behavior
 		{"wildcard is greedy", "/api/v1/v2/users", "/api/*/users", true},
@@ -72,6 +74,30 @@ func TestMatchesWildcard(t *testing.T) {
 			assert.Equal(t, tt.expected, result,
 				"matchesWildcard(%q, %q) = %v, want %v",
 				tt.path, tt.wildcard, result, tt.expected)
+		})
+	}
+}
+
+func TestExistsInPaths(t *testing.T) {
+	tests := []struct {
+		name     string
+		path     string
+		paths    []string
+		expected bool
+	}{
+		{"exact match", "/api/users", []string{"/api/users", "/api/*"}, true},
+		{"wildcard match", "/api/users", []string{"/api/*"}, true},
+		{"no match", "/api/users", []string{"/static/*"}, false},
+		{"empty paths", "/api/users", []string{}, false},
+		{"empty path", "", []string{"/api/users"}, false},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := ExistsInPaths(tt.path, tt.paths)
+			assert.Equal(t, tt.expected, result,
+				"existsInPaths(%q, %v) = %v, want %v",
+				tt.path, tt.paths, result, tt.expected)
 		})
 	}
 }

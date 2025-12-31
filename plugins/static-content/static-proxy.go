@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"net"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
-	"strings"
 
-	"github.com/paulopiriquito/hog/pkg/paths"
+	"headers"
+	"paths"
 )
 
 func handleStaticContent(config PluginConfig, w http.ResponseWriter, req *http.Request, h http.Handler) {
@@ -42,36 +41,12 @@ func proxyToStaticServer(staticServer StaticConfig, w http.ResponseWriter, req *
 			outReq.URL.Path = req.URL.Path
 			outReq.URL.RawQuery = req.URL.RawQuery
 
-			// Copy original headers to preserve those set by upstream proxy
-			for key, values := range req.Header {
-				outReq.Header[key] = values
+			if staticServer.KeepUnsafeHeaders {
+				headers.CopyAll(outReq, req)
+			} else {
+				headers.CopyAllSecure(outReq, req)
 			}
-
-			// Append client IP to X-Forwarded-For chain
-			clientIP := extractClientIP(req)
-			if clientIP != "" {
-				appendForwardedFor(outReq, clientIP)
-			}
-
-			// Only set X-Forwarded-Host if not already present
-			if outReq.Header.Get("X-Forwarded-Host") == "" {
-				outReq.Header.Set("X-Forwarded-Host", req.Host)
-			}
-
-			// Only set X-Forwarded-Proto if not already present
-			if outReq.Header.Get("X-Forwarded-Proto") == "" {
-				outReq.Header.Set("X-Forwarded-Proto", schemeFromRequest(req))
-			}
-
-			// Set X-Real-IP to the original client IP if not already set by Traefik
-			if outReq.Header.Get("X-Real-IP") == "" {
-				if originalIP := req.Header.Get("X-Forwarded-For"); originalIP != "" {
-					// Use the first IP in the chain (original client)
-					outReq.Header.Set("X-Real-IP", strings.TrimSpace(strings.Split(originalIP, ",")[0]))
-				} else if clientIP != "" {
-					outReq.Header.Set("X-Real-IP", clientIP)
-				}
-			}
+			headers.SetProxyHeaders(outReq, req)
 		},
 		ErrorHandler: func(w http.ResponseWriter, r *http.Request, err error) {
 			logger.Error(fmt.Sprintf("proxy error: %s", err.Error()))
@@ -80,36 +55,6 @@ func proxyToStaticServer(staticServer StaticConfig, w http.ResponseWriter, req *
 	}
 
 	proxy.ServeHTTP(w, req)
-}
-
-// extractClientIP extracts the IP address from RemoteAddr, stripping the port
-func extractClientIP(req *http.Request) string {
-	host, _, err := net.SplitHostPort(req.RemoteAddr)
-	if err != nil {
-		// RemoteAddr might not have a port
-		return req.RemoteAddr
-	}
-	return host
-}
-
-// appendForwardedFor appends clientIP to the X-Forwarded-For header chain
-func appendForwardedFor(req *http.Request, clientIP string) {
-	if prior := req.Header.Get("X-Forwarded-For"); prior != "" {
-		req.Header.Set("X-Forwarded-For", prior+", "+clientIP)
-	} else {
-		req.Header.Set("X-Forwarded-For", clientIP)
-	}
-}
-
-func schemeFromRequest(req *http.Request) string {
-	// Respect existing X-Forwarded-Proto from upstream proxy
-	if scheme := req.Header.Get("X-Forwarded-Proto"); scheme != "" {
-		return scheme
-	}
-	if req.TLS != nil {
-		return "https"
-	}
-	return "http"
 }
 
 func matchesStaticContentEndpoint(config []StaticConfig, path string) StaticConfig {

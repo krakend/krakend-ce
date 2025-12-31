@@ -78,6 +78,8 @@ build: build-plugin cmd/krakend-ce/schema/schema.json
 	@echo "You can now use ./${BIN_NAME}"
 
 test: build
+	go test -v ./pkg/headers
+	go test -v ./pkg/paths
 	go test -v ./tests
 
 cmd/krakend-ce/schema/schema.json:

@@ -1,4 +1,4 @@
-module paths
+module headers
 
 go 1.25.3
 

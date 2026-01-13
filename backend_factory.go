@@ -40,7 +40,7 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 	return NewBackendFactoryWithContext(context.Background(), logger, metricCollector)
 }
 
-func newRequestExecutorFactory(logger logging.Logger) func(*config.Backend) client.HTTPRequestExecutor {
+func newRequestExecutorFactory(ctx context.Context, logger logging.Logger) func(*config.Backend) client.HTTPRequestExecutor {
 	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
 		clientFactory := client.NewHTTPClient
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
@@ -52,12 +52,15 @@ func newRequestExecutorFactory(logger logging.Logger) func(*config.Backend) clie
 		// TODO: check what happens if we have both, opencensus and otel enabled ?
 		return opencensus.HTTPRequestExecutorFromConfig(clientFactory, cfg)
 	}
-	return httprequestexecutor.HTTPRequestExecutor(logger, requestExecutorFactory)
+	return httprequestexecutor.HTTPRequestExecutorWithContext(ctx, logger, requestExecutorFactory)
 }
 
-func internalNewBackendFactory(ctx context.Context, requestExecutorFactory func(*config.Backend) client.HTTPRequestExecutor,
-	logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
-
+func internalNewBackendFactory(
+	ctx context.Context,
+	requestExecutorFactory func(*config.Backend) client.HTTPRequestExecutor,
+	logger logging.Logger,
+	metricCollector *metrics.Metrics,
+) proxy.BackendFactory {
 	backendFactory := martian.NewConfiguredBackendFactory(logger, requestExecutorFactory)
 	bf := pubsub.NewBackendFactory(ctx, logger, backendFactory)
 	backendFactory = bf.New
@@ -78,7 +81,7 @@ func internalNewBackendFactory(ctx context.Context, requestExecutorFactory func(
 
 // NewBackendFactoryWithContext creates a BackendFactory by stacking all the available middlewares and injecting the received context
 func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
-	requestExecutorFactory := newRequestExecutorFactory(logger)
+	requestExecutorFactory := newRequestExecutorFactory(ctx, logger)
 	return internalNewBackendFactory(ctx, requestExecutorFactory, logger, metricCollector)
 }
 

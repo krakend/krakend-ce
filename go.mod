@@ -29,7 +29,7 @@ require (
 	github.com/krakend/krakend-metrics/v2 v2.1.0
 	github.com/krakend/krakend-oauth2-clientcredentials/v2 v2.2.0
 	github.com/krakend/krakend-opencensus/v2 v2.2.0
-	github.com/krakend/krakend-otel v0.13.0
+	github.com/krakend/krakend-otel v0.13.1-0.20251106170358-3b640e1ec6d3
 	github.com/krakend/krakend-pubsub/v2 v2.2.0
 	github.com/krakend/krakend-ratelimit/v3 v3.3.0
 	github.com/krakend/krakend-rss/v2 v2.1.1

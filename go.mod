@@ -7,7 +7,7 @@ require (
 	github.com/go-contrib/uuid v1.2.0
 	github.com/krakend/bloomfilter/v2 v2.1.0
 	github.com/krakend/krakend-amqp/v2 v2.3.0
-	github.com/krakend/krakend-audit v0.5.0
+	github.com/krakend/krakend-audit v0.7.0
 	github.com/krakend/krakend-botdetector/v2 v2.3.0
 	github.com/krakend/krakend-cel/v2 v2.4.0
 	github.com/krakend/krakend-circuitbreaker/v2 v2.1.0
@@ -19,17 +19,17 @@ require (
 	github.com/krakend/krakend-httpcache/v2 v2.2.0
 	github.com/krakend/krakend-httpsecure/v2 v2.2.0
 	github.com/krakend/krakend-influx/v2 v2.2.0
-	github.com/krakend/krakend-jose/v2 v2.10.0
+	github.com/krakend/krakend-jose/v2 v2.11.0
 	github.com/krakend/krakend-jsonschema/v2 v2.2.1
 	github.com/krakend/krakend-koanf v0.0.0-20251111142508-ab36eebbcf9b
 	github.com/krakend/krakend-lambda/v2 v2.1.0
 	github.com/krakend/krakend-logstash/v2 v2.1.0
 	github.com/krakend/krakend-lua/v2 v2.9.0
-	github.com/krakend/krakend-martian/v2 v2.2.0
-	github.com/krakend/krakend-metrics/v2 v2.1.0
+	github.com/krakend/krakend-martian/v2 v2.3.0
+	github.com/krakend/krakend-metrics/v2 v2.2.0
 	github.com/krakend/krakend-oauth2-clientcredentials/v2 v2.2.0
 	github.com/krakend/krakend-opencensus/v2 v2.2.0
-	github.com/krakend/krakend-otel v0.14.0
+	github.com/krakend/krakend-otel v0.14.1
 	github.com/krakend/krakend-pubsub/v2 v2.2.0
 	github.com/krakend/krakend-ratelimit/v3 v3.3.0
 	github.com/krakend/krakend-rss/v2 v2.1.1
@@ -38,6 +38,7 @@ require (
 	github.com/luraproject/lura/v2 v2.12.1
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
 	github.com/spf13/cobra v1.8.1
+	go.opentelemetry.io/otel v1.34.0
 	golang.org/x/sync v0.18.0
 )
 
@@ -126,7 +127,7 @@ require (
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.26.0 // indirect
-	github.com/go-viper/mapstructure/v2 v2.4.0 // indirect
+	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/goccy/go-json v0.10.4 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
@@ -241,7 +242,6 @@ require (
 	go.opentelemetry.io/contrib/propagators/b3 v1.33.0 // indirect
 	go.opentelemetry.io/contrib/propagators/jaeger v1.33.0 // indirect
 	go.opentelemetry.io/contrib/propagators/ot v1.33.0 // indirect
-	go.opentelemetry.io/otel v1.34.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.28.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.28.0 // indirect

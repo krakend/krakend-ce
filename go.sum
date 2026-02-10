@@ -556,8 +556,8 @@ github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
 github.com/leodido/go-urn v1.4.0 h1:WT9HwE9SGECu3lg4d/dIA+jxlljEa1/ffXKmRjqdmIQ=
 github.com/leodido/go-urn v1.4.0/go.mod h1:bvxc+MVxLKB4z00jd1z+Dvzr47oO32F/QSNjSBOlFxI=
-github.com/luraproject/lura/v2 v2.12.1 h1:+0itsccgsguOeGRjkgtdgE3RGdiMac4VC3/qE7eZKqE=
-github.com/luraproject/lura/v2 v2.12.1/go.mod h1:ZUBYMsjVwPAZWVEoBtJ6keodn13tgw/5QQyY3nDkk2I=
+github.com/luraproject/lura/v2 v2.14.0 h1:3I3zsFRAImPE6fYa1tPmB0BqydsMcj+wBPanm0K90f8=
+github.com/luraproject/lura/v2 v2.14.0/go.mod h1:uv5BmCRCXK0SrfS/GT3gKAI/hsScoT8JCUqg6MCXsDw=
 github.com/lyft/protoc-gen-validate v0.0.13/go.mod h1:XbGvPuh87YZc5TdIa2/I4pLk0QoUACkjt2znoq26NVQ=
 github.com/mattn/go-colorable v0.1.13 h1:fFA4WZxdEF4tXPZVKMLwD8oUnCTTo08duU7wxecdEvA=
 github.com/mattn/go-colorable v0.1.13/go.mod h1:7S9/ev0klgBDR4GtXTXX8a3vIGJpMovkB8vQcUbaXHg=

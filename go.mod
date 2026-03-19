@@ -7,34 +7,34 @@ require (
 	github.com/go-contrib/uuid v1.2.0
 	github.com/krakend/bloomfilter/v2 v2.1.0
 	github.com/krakend/krakend-amqp/v2 v2.3.1-0.20260317155713-585835a83dca
-	github.com/krakend/krakend-audit v0.9.1
-	github.com/krakend/krakend-botdetector/v2 v2.3.0
-	github.com/krakend/krakend-cel/v2 v2.4.0
+	github.com/krakend/krakend-audit v0.9.2
+	github.com/krakend/krakend-botdetector/v2 v2.3.1
+	github.com/krakend/krakend-cel/v2 v2.4.1
 	github.com/krakend/krakend-circuitbreaker/v3 v3.0.0
-	github.com/krakend/krakend-cobra/v2 v2.7.0
-	github.com/krakend/krakend-cors/v2 v2.2.0
-	github.com/krakend/krakend-flexibleconfig/v2 v2.3.0
+	github.com/krakend/krakend-cobra/v2 v2.8.1
+	github.com/krakend/krakend-cors/v2 v2.2.1
+	github.com/krakend/krakend-flexibleconfig/v2 v2.3.1
 	github.com/krakend/krakend-gelf/v2 v2.1.0
 	github.com/krakend/krakend-gologging/v2 v2.1.1
 	github.com/krakend/krakend-httpcache/v2 v2.2.0
-	github.com/krakend/krakend-httpsecure/v2 v2.2.0
+	github.com/krakend/krakend-httpsecure/v2 v2.2.1
 	github.com/krakend/krakend-influx/v2 v2.2.0
-	github.com/krakend/krakend-jose/v2 v2.12.0
+	github.com/krakend/krakend-jose/v2 v2.12.1
 	github.com/krakend/krakend-jsonschema/v2 v2.2.1
 	github.com/krakend/krakend-koanf v0.0.0-20251111142508-ab36eebbcf9b
 	github.com/krakend/krakend-lambda/v2 v2.1.0
 	github.com/krakend/krakend-logstash/v2 v2.1.0
-	github.com/krakend/krakend-lua/v2 v2.9.0
+	github.com/krakend/krakend-lua/v2 v2.9.1
 	github.com/krakend/krakend-martian/v2 v2.3.0
 	github.com/krakend/krakend-metrics/v2 v2.2.0
 	github.com/krakend/krakend-oauth2-clientcredentials/v2 v2.2.0
 	github.com/krakend/krakend-opencensus/v2 v2.2.0
-	github.com/krakend/krakend-otel v0.14.3
-	github.com/krakend/krakend-pubsub/v2 v2.3.0
-	github.com/krakend/krakend-ratelimit/v3 v3.3.0
+	github.com/krakend/krakend-otel v0.14.4
+	github.com/krakend/krakend-pubsub/v2 v2.3.1
+	github.com/krakend/krakend-ratelimit/v3 v3.3.1
 	github.com/krakend/krakend-rss/v2 v2.1.1
 	github.com/krakend/krakend-usage/v2 v2.1.0
-	github.com/krakend/krakend-xml/v2 v2.2.0
+	github.com/krakend/krakend-xml/v2 v2.2.1
 	github.com/luraproject/lura/v2 v2.14.2-0.20260316170719-6d79b4ef723b
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
 	github.com/spf13/cobra v1.8.1
@@ -280,7 +280,7 @@ require (
 	google.golang.org/genproto v0.0.0-20251124214823-79d6a2a48846 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260209200024-4cfbd4190f57 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260209200024-4cfbd4190f57 // indirect
-	google.golang.org/grpc v1.79.1 // indirect
+	google.golang.org/grpc v1.79.3 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/DataDog/dd-trace-go.v1 v1.62.0 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20191017102106-1550ee647df0 // indirect

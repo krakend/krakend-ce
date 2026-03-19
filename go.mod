@@ -6,7 +6,7 @@ require (
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-contrib/uuid v1.2.0
 	github.com/krakend/bloomfilter/v2 v2.1.0
-	github.com/krakend/krakend-amqp/v2 v2.3.0
+	github.com/krakend/krakend-amqp/v2 v2.3.1-0.20260317155713-585835a83dca
 	github.com/krakend/krakend-audit v0.9.2
 	github.com/krakend/krakend-botdetector/v2 v2.3.1
 	github.com/krakend/krakend-cel/v2 v2.4.1
@@ -35,7 +35,7 @@ require (
 	github.com/krakend/krakend-rss/v2 v2.1.1
 	github.com/krakend/krakend-usage/v2 v2.1.0
 	github.com/krakend/krakend-xml/v2 v2.2.1
-	github.com/luraproject/lura/v2 v2.14.1
+	github.com/luraproject/lura/v2 v2.14.2-0.20260316170719-6d79b4ef723b
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
 	github.com/spf13/cobra v1.8.1
 	golang.org/x/sync v0.19.0

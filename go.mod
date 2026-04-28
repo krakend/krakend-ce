@@ -23,7 +23,7 @@ require (
 	github.com/krakend/krakend-jsonschema/v2 v2.2.1
 	github.com/krakend/krakend-koanf v0.0.0-20251111142508-ab36eebbcf9b
 	github.com/krakend/krakend-lambda/v2 v2.1.0
-	github.com/krakend/krakend-logstash/v2 v2.1.0
+	github.com/krakend/krakend-logstash/v2 v2.1.1
 	github.com/krakend/krakend-lua/v2 v2.9.1
 	github.com/krakend/krakend-martian/v2 v2.3.0
 	github.com/krakend/krakend-metrics/v2 v2.2.0

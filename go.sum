@@ -515,8 +515,8 @@ github.com/krakend/httpcache v1.1.1 h1:bxt6iBt6n8Sga7YtaydYMMyQ5E6SBss2w91L3pWez
 github.com/krakend/httpcache v1.1.1/go.mod h1:JrPHdkcpz5IEq2HtDUE7Yjlg9Awq2zNgNn2XNEqSdCc=
 github.com/krakend/krakend-amqp/v2 v2.3.1-0.20260317155713-585835a83dca h1:2yczhpVTkiAm4dJe/NLQdS2MKoAmz5wSAn8x7fgLj0Q=
 github.com/krakend/krakend-amqp/v2 v2.3.1-0.20260317155713-585835a83dca/go.mod h1:FbidPCP8Eyt5MsDLdBZ6/HxV+G73kMoiHQB2tE5dKCA=
-github.com/krakend/krakend-audit v0.9.3 h1:rNuIDe75rMRbH0lHhdZy87VGCEBeIpUW6pZrLTq/Dq8=
-github.com/krakend/krakend-audit v0.9.3/go.mod h1:42Xh9M14M8x7y+wUgbnSkQjuTcayl8NwhQU+j8/RqlU=
+github.com/krakend/krakend-audit v0.9.4 h1:wP9MD4nabjKCOBkVVVy2QJX55jC0upBU7Lbacl7MSNk=
+github.com/krakend/krakend-audit v0.9.4/go.mod h1:xLOP4FoFZHUtbim1ptnONoNNA/v8ZEh6WjqXH2n/8As=
 github.com/krakend/krakend-botdetector/v2 v2.3.1 h1:Nd7z3iKpGMTU49lp8Mh/QvhNUA67QDHEXHC+dCf9TMM=
 github.com/krakend/krakend-botdetector/v2 v2.3.1/go.mod h1:9qadSXt1lwkLU6Vc7NgDNBHLPeCH6KNFR/imTUYrPMg=
 github.com/krakend/krakend-cel/v2 v2.4.1 h1:j5EbE6a+GOBwaltJUvMugJTiblXF8xP9LxWlQd3yAR4=

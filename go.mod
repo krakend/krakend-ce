@@ -7,7 +7,7 @@ require (
 	github.com/go-contrib/uuid v1.2.0
 	github.com/krakend/bloomfilter/v2 v2.1.0
 	github.com/krakend/krakend-amqp/v2 v2.3.1-0.20260317155713-585835a83dca
-	github.com/krakend/krakend-audit v0.9.3
+	github.com/krakend/krakend-audit v0.9.4
 	github.com/krakend/krakend-botdetector/v2 v2.3.1
 	github.com/krakend/krakend-cel/v2 v2.4.1
 	github.com/krakend/krakend-circuitbreaker/v3 v3.0.0

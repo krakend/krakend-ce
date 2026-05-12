@@ -24,15 +24,6 @@ import (
 	jose "github.com/krakend/krakend-jose/v2"
 	logstash "github.com/krakend/krakend-logstash/v2"
 	metrics "github.com/krakend/krakend-metrics/v2/gin"
-	opencensus "github.com/krakend/krakend-opencensus/v2"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/datadog"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/influxdb"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/jaeger"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/ocagent"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/prometheus"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/stackdriver"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/xray"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/zipkin"
 	kotel "github.com/krakend/krakend-otel"
 	otellura "github.com/krakend/krakend-otel/lura"
 	otelgin "github.com/krakend/krakend-otel/router/gin"
@@ -384,7 +375,7 @@ type MetricsAndTraces struct {
 	shutdownFn func()
 }
 
-// Register registers the metrics, influx and opencensus packages as required by the given configuration.
+// Register registers the metrics, influx packages as required by the given configuration.
 func (m *MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
 
@@ -394,14 +385,6 @@ func (m *MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfi
 		}
 	} else {
 		l.Debug("[SERVICE: InfluxDB] Service correctly registered")
-	}
-
-	if err := opencensus.Register(ctx, cfg, opencensus.DefaultViews...); err != nil {
-		if err != opencensus.ErrNoConfig {
-			l.Warning("[SERVICE: OpenCensus]", err.Error())
-		}
-	} else {
-		l.Debug("[SERVICE: OpenCensus] Service correctly registered")
 	}
 
 	if shutdownFn, err := kotel.Register(ctx, l, cfg); err == nil {

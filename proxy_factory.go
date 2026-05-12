@@ -7,7 +7,6 @@ import (
 	jsonschema "github.com/krakend/krakend-jsonschema/v2"
 	lua "github.com/krakend/krakend-lua/v2/proxy"
 	metrics "github.com/krakend/krakend-metrics/v2/gin"
-	opencensus "github.com/krakend/krakend-opencensus/v2"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/logging"
 	"github.com/luraproject/lura/v2/proxy"
@@ -22,7 +21,6 @@ func internalNewProxyFactory(logger logging.Logger, backendFactory proxy.Backend
 	proxyFactory = cel.ProxyFactory(logger, proxyFactory)
 	proxyFactory = lua.ProxyFactory(logger, proxyFactory)
 	proxyFactory = metricCollector.ProxyFactory("pipe", proxyFactory)
-	proxyFactory = opencensus.ProxyFactory(proxyFactory)
 	return proxyFactory
 }
 

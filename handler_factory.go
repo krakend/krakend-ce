@@ -8,7 +8,6 @@ import (
 	ginjose "github.com/krakend/krakend-jose/v2/gin"
 	lua "github.com/krakend/krakend-lua/v2/router/gin"
 	metrics "github.com/krakend/krakend-metrics/v2/gin"
-	opencensus "github.com/krakend/krakend-opencensus/v2/router/gin"
 	ratelimit "github.com/krakend/krakend-ratelimit/v3/router/gin"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/logging"
@@ -26,7 +25,6 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 	handlerFactory = lua.HandlerFactory(logger, handlerFactory)
 	handlerFactory = ginjose.HandlerFactory(handlerFactory, logger, rejecter)
 	handlerFactory = metricCollector.NewHTTPHandlerFactory(handlerFactory)
-	handlerFactory = opencensus.New(handlerFactory)
 	handlerFactory = botdetector.New(handlerFactory, logger)
 
 	return func(cfg *config.EndpointConfig, p proxy.Proxy) gin.HandlerFunc {

@@ -8,7 +8,6 @@ import (
 	botdetector "github.com/krakend/krakend-botdetector/v2/gin"
 	httpsecure "github.com/krakend/krakend-httpsecure/v2/gin"
 	lua "github.com/krakend/krakend-lua/v2/router/gin"
-	opencensus "github.com/krakend/krakend-opencensus/v2/router/gin"
 	"github.com/luraproject/lura/v2/config"
 	"github.com/luraproject/lura/v2/core"
 	luragin "github.com/luraproject/lura/v2/router/gin"
@@ -19,18 +18,18 @@ import (
 func NewEngine(cfg config.ServiceConfig, opt luragin.EngineOptions) *gin.Engine {
 	engine := luragin.NewEngine(cfg, opt)
 
-	engine.NoRoute(opencensus.HandlerFunc(&config.EndpointConfig{Endpoint: "NoRoute"}, defaultHandler, nil))
-	engine.NoMethod(opencensus.HandlerFunc(&config.EndpointConfig{Endpoint: "NoMethod"}, defaultHandler, nil))
+	engine.NoRoute(defaultHandler)
+	engine.NoMethod(defaultHandler)
 	if v, ok := cfg.ExtraConfig[luragin.Namespace]; ok && v != nil {
 		var ginOpts ginOptions
 		if b, err := json.Marshal(v); err == nil {
 			json.Unmarshal(b, &ginOpts)
 		}
 		if ginOpts.ErrorBody.Err404 != nil {
-			engine.NoRoute(opencensus.HandlerFunc(&config.EndpointConfig{Endpoint: "NoRoute"}, jsonHandler(404, ginOpts.ErrorBody.Err404), nil))
+			engine.NoRoute(jsonHandler(404, ginOpts.ErrorBody.Err404))
 		}
 		if ginOpts.ErrorBody.Err405 != nil {
-			engine.NoMethod(opencensus.HandlerFunc(&config.EndpointConfig{Endpoint: "NoMethod"}, jsonHandler(405, ginOpts.ErrorBody.Err405), nil))
+			engine.NoMethod(jsonHandler(405, ginOpts.ErrorBody.Err405))
 		}
 	}
 

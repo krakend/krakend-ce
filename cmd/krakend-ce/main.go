@@ -114,12 +114,11 @@ var aliases = map[string]string{
 	"github.com/devopsfaith/krakend/transport/http/client/graphql": "backend/graphql",
 	"github.com/devopsfaith/krakend/http":                          "backend/http",
 
-	"github_com/devopsfaith/krakend-gelf":       "telemetry/gelf",
-	"github_com/devopsfaith/krakend-gologging":  "telemetry/logging",
-	"github_com/devopsfaith/krakend-logstash":   "telemetry/logstash",
-	"github_com/devopsfaith/krakend-metrics":    "telemetry/metrics",
-	"github_com/letgoapp/krakend-influx":        "telemetry/influx",
-	"github_com/devopsfaith/krakend-opencensus": "telemetry/opencensus",
+	"github_com/devopsfaith/krakend-gelf":      "telemetry/gelf",
+	"github_com/devopsfaith/krakend-gologging": "telemetry/logging",
+	"github_com/devopsfaith/krakend-logstash":  "telemetry/logstash",
+	"github_com/devopsfaith/krakend-metrics":   "telemetry/metrics",
+	"github_com/letgoapp/krakend-influx":       "telemetry/influx",
 
 	"github.com/devopsfaith/krakend-lua/router":        "modifier/lua-endpoint",
 	"github.com/devopsfaith/krakend-lua/proxy":         "modifier/lua-proxy",

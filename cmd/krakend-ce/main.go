@@ -118,7 +118,6 @@ var aliases = map[string]string{
 	"github_com/devopsfaith/krakend-gologging": "telemetry/logging",
 	"github_com/devopsfaith/krakend-logstash":  "telemetry/logstash",
 	"github_com/devopsfaith/krakend-metrics":   "telemetry/metrics",
-	"github_com/letgoapp/krakend-influx":       "telemetry/influx",
 
 	"github.com/devopsfaith/krakend-lua/router":        "modifier/lua-endpoint",
 	"github.com/devopsfaith/krakend-lua/proxy":         "modifier/lua-proxy",

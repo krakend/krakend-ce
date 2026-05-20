@@ -20,7 +20,6 @@ import (
 	cors "github.com/krakend/krakend-cors/v2/gin"
 	gelf "github.com/krakend/krakend-gelf/v2"
 	gologging "github.com/krakend/krakend-gologging/v2"
-	influxdb "github.com/krakend/krakend-influx/v2"
 	jose "github.com/krakend/krakend-jose/v2"
 	logstash "github.com/krakend/krakend-logstash/v2"
 	metrics "github.com/krakend/krakend-metrics/v2/gin"
@@ -375,17 +374,9 @@ type MetricsAndTraces struct {
 	shutdownFn func()
 }
 
-// Register registers the metrics, influx packages as required by the given configuration.
+// Register registers the metrics package as required by the given configuration.
 func (m *MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
-
-	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
-		if err != influxdb.ErrNoConfig {
-			l.Warning("[SERVICE: InfluxDB]", err.Error())
-		}
-	} else {
-		l.Debug("[SERVICE: InfluxDB] Service correctly registered")
-	}
 
 	if shutdownFn, err := kotel.Register(ctx, l, cfg); err == nil {
 		m.shutdownFn = shutdownFn

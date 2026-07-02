@@ -4,7 +4,8 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches:
+      - '**'
 
 jobs:
 
@@ -12,11 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
+    - name: Set the environment variables
+      run: |
+        echo "GOLANG_VERSION=$(grep -m 1 GOLANG_VERSION Makefile | sed 's/^.*= //g')" >> $GITHUB_ENV
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: "1.25"
+        go-version: "${{ env.GOLANG_VERSION }}"
 
     - name: Test
       run: make test

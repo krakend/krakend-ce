@@ -21,7 +21,7 @@ DESC := High performance API gateway. Aggregate, filter, manipulate and add midd
 MAINTAINER := Daniel Ortiz <dortiz@krakend.io>
 DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
-GOLANG_VERSION := 1.25.11
+GOLANG_VERSION := 1.26.4
 GLIBC_VERSION := $(shell sh find_glibc.sh)
 ALPINE_VERSION := 3.23
 OS_TAG :=
@@ -56,6 +56,7 @@ all: test
 
 build: cmd/krakend-ce/schema/schema.json
 	@echo "Building the binary..."
+	@go version
 	@go get .
 	@go build -ldflags="-X ${MODULE}/pkg.Version=${VERSION} -X github.com/luraproject/lura/v2/core.KrakendVersion=${VERSION} \
 	-X github.com/luraproject/lura/v2/core.GlibcVersion=${GLIBC_VERSION} ${EXTRA_LDFLAGS}" \

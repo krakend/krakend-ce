@@ -1,0 +1,21 @@
+{
+    "in": {
+        "method": "GET",
+        "url": "http://localhost:8080/static"
+    },
+    "out": {
+        "status_code": 200,
+        "@comment": "when no body and no schema are defined, body should not be checked",
+        "header": {
+            "content-type": [
+                "application/json; charset=utf-8"
+            ],
+            "Cache-Control": [
+                "public, max-age=3600"
+            ],
+            "X-Krakend-Completed": [
+                "true"
+            ]
+        }
+    }
+}

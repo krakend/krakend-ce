@@ -18,7 +18,7 @@ require (
 	github.com/krakend/krakend-gologging/v2 v2.1.1
 	github.com/krakend/krakend-httpcache/v2 v2.2.0
 	github.com/krakend/krakend-httpsecure/v2 v2.2.1
-	github.com/krakend/krakend-jose/v2 v2.12.2
+	github.com/krakend/krakend-jose/v2 v2.12.3
 	github.com/krakend/krakend-jsonschema/v2 v2.2.1
 	github.com/krakend/krakend-koanf v0.0.0-20251111142508-ab36eebbcf9b
 	github.com/krakend/krakend-lambda/v2 v2.1.0
@@ -191,7 +191,7 @@ require (
 	github.com/prometheus/common v0.67.5 // indirect
 	github.com/prometheus/procfs v0.16.1 // indirect
 	github.com/quic-go/qpack v0.6.0 // indirect
-	github.com/quic-go/quic-go v0.59.0 // indirect
+	github.com/quic-go/quic-go v0.59.1 // indirect
 	github.com/rabbitmq/amqp091-go v1.10.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20250401214520-65e299d6c5c9 // indirect
 	github.com/rs/cors v1.11.1 // indirect
@@ -244,13 +244,13 @@ require (
 	gocloud.dev/pubsub/rabbitpubsub v0.45.0 // indirect
 	gocloud.dev/secrets/hashivault v0.45.0 // indirect
 	golang.org/x/arch v0.22.0 // indirect
-	golang.org/x/crypto v0.49.0 // indirect
+	golang.org/x/crypto v0.52.0 // indirect
 	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa // indirect
-	golang.org/x/mod v0.33.0 // indirect
-	golang.org/x/net v0.52.0 // indirect
+	golang.org/x/mod v0.35.0 // indirect
+	golang.org/x/net v0.55.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
-	golang.org/x/sys v0.42.0 // indirect
-	golang.org/x/text v0.35.0 // indirect
+	golang.org/x/sys v0.45.0 // indirect
+	golang.org/x/text v0.37.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/api v0.272.0 // indirect

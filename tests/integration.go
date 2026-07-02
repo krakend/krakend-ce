@@ -450,7 +450,7 @@ func assertResponse(actual *http.Response, expected Output) error { // skipcq GO
 				errMessage: append(errMsgs, fmt.Sprintf("problem validating the body: %s", sanitizeValidationError(err))),
 			}
 		}
-	} else if expected.Body != "" {
+	} else if expected.Body != nil {
 		if !reflect.DeepEqual(body, expected.Body) {
 			errMsgs = append(errMsgs, fmt.Sprintf("unexpected body.\n\t\thave: %v\n\t\twant: %v", body, expected.Body))
 		}

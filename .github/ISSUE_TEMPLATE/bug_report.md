@@ -43,7 +43,7 @@ docker run --rm -it -v $PWD:/etc/krakend \
         -e FC_SETTINGS="/etc/krakend/config/settings" \
         -e FC_PARTIALS="/etc/krakend/config/partials" \
         -e FC_OUT=out.json \
-        devopsfaith/krakend \
+        krakend \
         run -c /etc/krakend/config/krakend.json -d
 ```
 **Expected behavior**

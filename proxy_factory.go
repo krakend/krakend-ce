@@ -3,18 +3,18 @@ package krakend
 import (
 	"fmt"
 
-	cel "github.com/krakend/krakend-cel/v2"
-	jsonschema "github.com/krakend/krakend-jsonschema/v2"
-	lua "github.com/krakend/krakend-lua/v2/proxy"
-	metrics "github.com/krakend/krakend-metrics/v2/gin"
-	"github.com/luraproject/lura/v2/config"
-	"github.com/luraproject/lura/v2/logging"
-	"github.com/luraproject/lura/v2/proxy"
+	cel "github.com/krakend/krakend-cel/v3"
+	jsonschema "github.com/krakend/krakend-jsonschema/v3"
+	lua "github.com/krakend/krakend-lua/v3/proxy"
+	metrics "github.com/krakend/krakend-metrics/v3/gin"
+	"github.com/luraproject/lura/v3/config"
+	"github.com/luraproject/lura/v3/logging"
+	"github.com/luraproject/lura/v3/proxy"
 )
 
 func internalNewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory,
-	metricCollector *metrics.Metrics) proxy.Factory {
-
+	metricCollector *metrics.Metrics,
+) proxy.Factory {
 	proxyFactory := proxy.NewDefaultFactory(backendFactory, logger)
 	proxyFactory = proxy.NewShadowFactory(proxyFactory)
 	proxyFactory = jsonschema.ProxyFactory(logger, proxyFactory)

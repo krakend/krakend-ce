@@ -9,11 +9,11 @@ import (
 	"strings"
 	"time"
 
-	cmd "github.com/krakend/krakend-cobra/v2"
-	"github.com/luraproject/lura/v2/logging"
-	proxy "github.com/luraproject/lura/v2/proxy/plugin"
-	client "github.com/luraproject/lura/v2/transport/http/client/plugin"
-	server "github.com/luraproject/lura/v2/transport/http/server/plugin"
+	cmd "github.com/krakend/krakend-cobra/v3"
+	"github.com/luraproject/lura/v3/logging"
+	proxy "github.com/luraproject/lura/v3/proxy/plugin"
+	client "github.com/luraproject/lura/v3/transport/http/client/plugin"
+	server "github.com/luraproject/lura/v3/transport/http/server/plugin"
 	"github.com/spf13/cobra"
 )
 

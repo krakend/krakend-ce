@@ -45,10 +45,6 @@ func main() {
 
 	krakend.RegisterEncoders()
 
-	for key, alias := range aliases {
-		config.ExtraConfigAlias[alias] = key
-	}
-
 	var cfg config.Parser
 	cfg = koanf.New()
 	if os.Getenv(fcEnable) != "" {
@@ -70,20 +66,12 @@ func main() {
 	commandsToLoad := []cmd.Command{
 		cmd.RunCommand,
 		cmd.NewCheckCmd(rawSchema),
-		cmd.PluginCommand,
 		cmd.VersionCommand,
 		cmd.AuditCommand,
-		krakend.NewTestPluginCmd(),
 	}
 
 	cmd.DefaultRoot = cmd.NewRoot(cmd.RootCommand, commandsToLoad...)
 	cmd.DefaultRoot.Cmd.CompletionOptions.DisableDefaultCmd = true
 
 	cmd.Execute(cfg, krakend.NewExecutor(ctx))
-}
-
-var aliases = map[string]string{
-	"github_com/devopsfaith/krakend/transport/http/server/handler":  "plugin/http-server",
-	"github.com/devopsfaith/krakend/transport/http/client/executor": "plugin/http-client",
-	"github.com/devopsfaith/krakend/proxy/plugin":                   "plugin/req-resp-modifier",
 }

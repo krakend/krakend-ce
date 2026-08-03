@@ -20,7 +20,6 @@ import (
 	"github.com/luraproject/lura/v3/logging"
 	"github.com/luraproject/lura/v3/proxy"
 	"github.com/luraproject/lura/v3/transport/http/client"
-	httprequestexecutor "github.com/luraproject/lura/v3/transport/http/client/plugin"
 )
 
 // NewBackendFactory creates a BackendFactory by stacking all the available middlewares:
@@ -39,7 +38,7 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 }
 
 func newRequestExecutorFactory(ctx context.Context, logger logging.Logger) func(*config.Backend) client.HTTPRequestExecutor {
-	requestExecutorFactory := func(cfg *config.Backend) client.HTTPRequestExecutor {
+	return func(cfg *config.Backend) client.HTTPRequestExecutor {
 		clientFactory := client.NewHTTPClient
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
 			clientFactory = oauth2client.NewHTTPClient(cfg)
@@ -49,7 +48,6 @@ func newRequestExecutorFactory(ctx context.Context, logger logging.Logger) func(
 		clientFactory = otellura.InstrumentedHTTPClientFactory(clientFactory, cfg)
 		return client.DefaultHTTPRequestExecutor(clientFactory)
 	}
-	return httprequestexecutor.HTTPRequestExecutorWithContext(ctx, logger, requestExecutorFactory)
 }
 
 func internalNewBackendFactory(

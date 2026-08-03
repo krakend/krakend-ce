@@ -37,7 +37,7 @@ func NewBackendFactory(logger logging.Logger, metricCollector *metrics.Metrics) 
 	return NewBackendFactoryWithContext(context.Background(), logger, metricCollector)
 }
 
-func newRequestExecutorFactory(ctx context.Context, logger logging.Logger) func(*config.Backend) client.HTTPRequestExecutor {
+func newRequestExecutorFactory() func(*config.Backend) client.HTTPRequestExecutor {
 	return func(cfg *config.Backend) client.HTTPRequestExecutor {
 		clientFactory := client.NewHTTPClient
 		if _, ok := cfg.ExtraConfig[oauth2client.Namespace]; ok {
@@ -75,7 +75,7 @@ func internalNewBackendFactory(
 
 // NewBackendFactoryWithContext creates a BackendFactory by stacking all the available middlewares and injecting the received context
 func NewBackendFactoryWithContext(ctx context.Context, logger logging.Logger, metricCollector *metrics.Metrics) proxy.BackendFactory {
-	requestExecutorFactory := newRequestExecutorFactory(ctx, logger)
+	requestExecutorFactory := newRequestExecutorFactory()
 	return internalNewBackendFactory(ctx, requestExecutorFactory, logger, metricCollector)
 }
 

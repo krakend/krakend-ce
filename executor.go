@@ -35,7 +35,6 @@ import (
 	router "github.com/luraproject/lura/v3/router/gin"
 	"github.com/luraproject/lura/v3/sd/dnssrv"
 	serverhttp "github.com/luraproject/lura/v3/transport/http/server"
-	server "github.com/luraproject/lura/v3/transport/http/server/plugin"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -43,17 +42,6 @@ import (
 func NewExecutor(ctx context.Context) cmd.Executor {
 	eb := new(ExecutorBuilder)
 	return eb.NewCmdExecutor(ctx)
-}
-
-// PluginLoader defines the interface for the collaborator responsible of starting the plugin loaders
-// Deprecated: Use PluginLoaderWithContext
-type PluginLoader interface {
-	Load(folder, pattern string, logger logging.Logger)
-}
-
-// PluginLoaderWithContext defines the interface for the collaborator responsible of starting the plugin loaders
-type PluginLoaderWithContext interface {
-	LoadWithContext(ctx context.Context, folder, pattern string, logger logging.Logger)
 }
 
 // SubscriberFactoriesRegister registers all the required subscriber factories from the available service
@@ -122,9 +110,6 @@ type AgentStarter interface {
 
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
 type ExecutorBuilder struct {
-	// PluginLoader is deprecated: Use PluginLoaderWithContext
-	PluginLoader                PluginLoader
-	PluginLoaderWithContext     PluginLoaderWithContext
 	LoggerFactory               LoggerFactory
 	SubscriberFactoriesRegister SubscriberFactoriesRegister
 	TokenRejecterFactory        TokenRejecterFactory
@@ -163,10 +148,6 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		}
 
 		dnssrv.SetTTL(cfg.DNSCacheTTL)
-
-		if cfg.Plugin != nil {
-			e.PluginLoaderWithContext.LoadWithContext(ctx, cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
-		}
 
 		metricCollector := e.MetricsAndTracesRegister.Register(ctx, cfg, logger)
 		if metricsAndTracesCloser, ok := e.MetricsAndTracesRegister.(io.Closer); ok {
@@ -250,12 +231,6 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 }
 
 func (e *ExecutorBuilder) checkCollaborators() {
-	if e.PluginLoader == nil {
-		e.PluginLoader = new(pluginLoader)
-	}
-	if e.PluginLoaderWithContext == nil {
-		e.PluginLoaderWithContext = new(pluginLoader)
-	}
 	if e.SubscriberFactoriesRegister == nil {
 		e.SubscriberFactoriesRegister = new(registerSubscriberFactories)
 	}
@@ -289,14 +264,11 @@ func (e *ExecutorBuilder) checkCollaborators() {
 }
 
 // DefaultRunServerFactory creates the default RunServer by wrapping the injected RunServer
-// with the plugin loader and the CORS module
+// with the CORS module
 type DefaultRunServerFactory struct{}
 
 func (*DefaultRunServerFactory) NewRunServer(l logging.Logger, next router.RunServerFunc) RunServer {
-	return RunServer(server.New(
-		l,
-		server.RunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l)),
-	))
+	return RunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l))
 }
 
 // LoggerBuilder is the default BuilderFactory implementation.

@@ -30,7 +30,7 @@ KrakenD is an extensible, ultra-high performance API Gateway that helps you effo
 - **Throttling**: Limits of usage in the router and proxy layers
 - **Multi-layer rate-limiting** for the end-user and between KrakenD and your services, including bursting, load balancing, and circuit breaker.
 - **Telemetry** and dashboards of all sorts: Datadog, Zipkin, Jaeger, Prometheus, Grafana...
-- **Extensible** with Go plugins, Lua scripts, Martian, or Google CEL spec.
+- **Extensible** with Lua scripts, Martian, or Google CEL spec.
 
 See the [website](https://www.krakend.io) for more information.
 

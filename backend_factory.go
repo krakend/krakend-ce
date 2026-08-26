@@ -70,7 +70,9 @@ func internalNewBackendFactory(
 	backendFactory = metricCollector.BackendFactory("backend", backendFactory)
 	backendFactory = otellura.BackendFactory(backendFactory)
 	return func(remote *config.Backend) proxy.Proxy {
-		logger.Debug(fmt.Sprintf("[BACKEND: %s] Building the backend pipe", remote.URLPattern))
+		logger.Debug(fmt.Sprintf("[BACKEND: %s %s -> %s %s] Building the backend pipe",
+			remote.ParentEndpointMethod, remote.ParentEndpoint,
+			remote.Method, remote.URLPattern))
 		return backendFactory(remote)
 	}
 }

@@ -29,7 +29,7 @@ func NewProxyFactory(logger logging.Logger, backendFactory proxy.BackendFactory,
 	proxyFactory := internalNewProxyFactory(logger, backendFactory, metricCollector)
 
 	return proxy.FactoryFunc(func(cfg *config.EndpointConfig) (proxy.Proxy, error) {
-		logger.Debug(fmt.Sprintf("[ENDPOINT: %s] Building the proxy pipe", cfg.Endpoint))
+		logger.Debug(fmt.Sprintf("[ENDPOINT: %s %s] Building the proxy pipe", cfg.Method, cfg.Endpoint))
 		return proxyFactory.New(cfg)
 	})
 }

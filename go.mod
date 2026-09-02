@@ -20,14 +20,14 @@ require (
 	github.com/krakend/krakend-httpsecure/v3 v3.0.0-20260730185919-03390d6bd5e8
 	github.com/krakend/krakend-jose/v3 v3.0.0-20260730185228-6aa13f11f17b
 	github.com/krakend/krakend-jsonschema/v3 v3.0.0-20260730183905-5b20c84c62e5
-	github.com/krakend/krakend-koanf/v2 v2.0.0-20260730113626-abc2e1ee616d
+	github.com/krakend/krakend-koanf/v2 v2.0.0-20260818144858-aeb7e1d77767
 	github.com/krakend/krakend-lambda/v3 v3.0.0-20260730183553-44bfcf6a660a
 	github.com/krakend/krakend-logstash/v3 v3.0.0-20260730182207-3479d8d7f9c5
 	github.com/krakend/krakend-lua/v3 v3.0.0-20260730162142-8034a49214ce
 	github.com/krakend/krakend-martian/v3 v3.0.0-20260730161248-3c18d144ec94
 	github.com/krakend/krakend-metrics/v3 v3.0.0-20260730155513-48daa58645b2
 	github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0-20260730152129-ffc709b4c81e
-	github.com/krakend/krakend-otel/v2 v2.0.0-20260730145439-716a0345b2d0
+	github.com/krakend/krakend-otel/v2 v2.0.0-20260818145847-dd72b3d29114
 	github.com/krakend/krakend-pubsub/v3 v3.0.0-20260730143945-c1a814728f2d
 	github.com/krakend/krakend-ratelimit/v4 v4.0.0-20260730143053-a3ce2811a646
 	github.com/krakend/krakend-rss/v3 v3.0.0-20260730141845-a9ca05b1a928
@@ -146,12 +146,12 @@ require (
 	github.com/klauspost/compress v1.19.1 // indirect
 	github.com/klauspost/cpuid/v2 v2.4.0 // indirect
 	github.com/knadh/koanf/maps v0.1.2 // indirect
-	github.com/knadh/koanf/parsers/json v1.0.0 // indirect
+	github.com/knadh/koanf/parsers/json v1.0.1 // indirect
 	github.com/knadh/koanf/parsers/toml v0.1.0 // indirect
-	github.com/knadh/koanf/parsers/yaml v1.1.0 // indirect
+	github.com/knadh/koanf/parsers/yaml v1.1.1 // indirect
 	github.com/knadh/koanf/providers/env v1.1.0 // indirect
 	github.com/knadh/koanf/providers/file v1.2.0 // indirect
-	github.com/knadh/koanf/v2 v2.3.3 // indirect
+	github.com/knadh/koanf/v2 v2.3.6 // indirect
 	github.com/krakend/binder v0.0.0-20250826131726-e91a8a754ef8 // indirect
 	github.com/krakend/dotnotation v0.2.0 // indirect
 	github.com/krakend/flatmap v1.2.0 // indirect

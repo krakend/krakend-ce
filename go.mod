@@ -7,11 +7,11 @@ require (
 	github.com/go-contrib/uuid v1.2.0
 	github.com/krakend/bloomfilter/v3 v3.0.0-20260730110053-20a022f5e962
 	github.com/krakend/krakend-amqp/v3 v3.0.0-20260731080930-5d5e8c292aeb
-	github.com/krakend/krakend-audit/v2 v2.0.0-20260731075904-17ad8e6e0781
+	github.com/krakend/krakend-audit/v2 v2.0.0-20260902094227-78200c69b280
 	github.com/krakend/krakend-botdetector/v3 v3.0.0-20260730105824-f4b00c30b836
 	github.com/krakend/krakend-cel/v3 v3.0.0-20260730105559-6ba9ea59c881
 	github.com/krakend/krakend-circuitbreaker/v4 v4.0.0-20260730111621-eec18d30c12d
-	github.com/krakend/krakend-cobra/v3 v3.0.0-20260731080528-0ab47e9e709f
+	github.com/krakend/krakend-cobra/v3 v3.0.0-20260902095303-c26fe30c071b
 	github.com/krakend/krakend-cors/v3 v3.0.0-20260731073552-2729860d05a4
 	github.com/krakend/krakend-flexibleconfig/v3 v3.0.0-20260731070931-67f0d356de0c
 	github.com/krakend/krakend-gelf/v3 v3.0.0-20260731070446-1470a8946daf
@@ -33,9 +33,8 @@ require (
 	github.com/krakend/krakend-rss/v3 v3.0.0-20260730141845-a9ca05b1a928
 	github.com/krakend/krakend-usage/v2 v2.1.0
 	github.com/krakend/krakend-xml/v3 v3.0.0-20260730105932-cd80994f0518
-	github.com/luraproject/lura/v3 v3.0.0-20260729144624-4b3057d09348
+	github.com/luraproject/lura/v3 v3.0.0-20260902072206-0538f09374cc
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
-	github.com/spf13/cobra v1.8.1
 	golang.org/x/sync v0.22.0
 )
 
@@ -195,6 +194,7 @@ require (
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sony/gobreaker/v2 v2.4.0 // indirect
 	github.com/spf13/cast v1.6.0 // indirect
+	github.com/spf13/cobra v1.8.1 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/tmthrgd/atomics v0.0.0-20190904060638-dc7a5fcc7e0d // indirect
 	github.com/tmthrgd/go-bitset v0.0.0-20190904054048-394d9a556c05 // indirect
@@ -239,7 +239,6 @@ require (
 	golang.org/x/arch v0.29.0 // indirect
 	golang.org/x/crypto v0.54.0 // indirect
 	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa // indirect
-	golang.org/x/mod v0.37.0 // indirect
 	golang.org/x/net v0.57.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
 	golang.org/x/sys v0.47.0 // indirect

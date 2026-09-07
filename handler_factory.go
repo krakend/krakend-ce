@@ -28,7 +28,7 @@ func NewHandlerFactory(logger logging.Logger, metricCollector *metrics.Metrics, 
 	handlerFactory = botdetector.New(handlerFactory, logger)
 
 	return func(cfg *config.EndpointConfig, p proxy.Proxy) gin.HandlerFunc {
-		logger.Debug(fmt.Sprintf("[ENDPOINT: %s] Building the http handler", cfg.Endpoint))
+		logger.Debug(fmt.Sprintf("[ENDPOINT: %s %s] Building the http handler", cfg.Method, cfg.Endpoint))
 		return handlerFactory(cfg, p)
 	}
 }

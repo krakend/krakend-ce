@@ -92,9 +92,9 @@ jobs:
             checksums.txt
           key: ${{github.ref}}-artifacts
       - name: Upload the artifacts
-        uses: skx/github-action-publish-binaries@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          releaseId: ${{ github.event.inputs.release-id }}
-          args: '*.tar.gz *.asc *.deb *.rpm checksums.txt'
+          RELEASE_ID: ${{ github.event.inputs.release-id }}
+        run: |
+          TAG=$(gh api "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" --jq .tag_name)
+          gh release upload "$TAG" *.tar.gz *.asc *.deb *.rpm checksums.txt --clobber --repo "$GITHUB_REPOSITORY"

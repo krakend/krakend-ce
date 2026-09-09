@@ -174,6 +174,11 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 
 		dnssrv.SetTTL(cfg.DNSCacheTTL)
 
+		// configure the leasing strategy (lifo default / fifo ring) of the
+		// shared outbound backend HTTP connection pool. Must run before the
+		// router starts, while the service config is in scope.
+		setupBackendConnectionLease(cfg, logger)
+
 		if cfg.Plugin != nil {
 			e.PluginLoaderWithContext.LoadWithContext(ctx, cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
 		}

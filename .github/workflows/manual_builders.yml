@@ -6,25 +6,27 @@ on:
         description: semver to generate 
         required: true
 name: Manual Builders
+permissions:
+  contents: read
 jobs:
   builder:
     name: Generate builder containers
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@master
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Set the environment variables
         run: |
           echo "GOLANG_VERSION=$(grep -m 1 GOLANG_VERSION Makefile | sed 's/^.*= //g')" >> $GITHUB_ENV
           echo "ALPINE_VERSION=$(grep -m 1 ALPINE_VERSION Makefile | sed 's/^.*= //g')" >> $GITHUB_ENV
       - name: Log in to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2.2.0
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@818d4b7b91585d195f67373fd9cb0332e31a7175 # v4.6.0
         with:
           images: |
             krakend/builder
@@ -34,7 +36,7 @@ jobs:
             type=semver,pattern={{major}},value=${{ github.event.inputs.semver }}
       - name: Docker meta
         id: meta-linux-generic
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@818d4b7b91585d195f67373fd9cb0332e31a7175 # v4.6.0
         with:
           images: |
             krakend/builder
@@ -46,7 +48,7 @@ jobs:
             type=semver,pattern={{major}},value=${{ github.event.inputs.semver }}
       - name: Build and push KrakenD plugin builder (Alpine)
         id: container-build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a # v2.10.0
         with:
           context: .
           file: Dockerfile-builder
@@ -58,7 +60,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       - name: Build and push KrakenD plugin builder (Linux generic)
         id: container-build-linux-generic
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a # v2.10.0
         with:
           context: .
           file: Dockerfile-builder-linux

@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@master
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v5
+        uses: crazy-max/ghaction-import-gpg@d6f3f49f3345e29369fe57596a3ca8f94c4d2ca7 # v5.4.0
         with:
           gpg_private_key: ${{ secrets.PGP_SIGNING_KEY }}
           fingerprint: "5B270F2E01E375FD9D5635E25DE6FD698AD6FDD2"
@@ -60,7 +60,7 @@ jobs:
          done
       - name: Cache artifacts
         id: cache
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
             *.tar.gz
@@ -82,7 +82,7 @@ jobs:
      steps:
       - name: Restore cache
         id: cache-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: |
             *.tar.gz

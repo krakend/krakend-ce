@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # Actions are pinned to full commit SHAs; Dependabot keeps the pins and
+  # their version comments current.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      # Minor and patch bumps come as one weekly PR; major bumps come as
+      # separate PRs so each can be reviewed on its own.
+      github-actions:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]

@@ -33,7 +33,7 @@ require (
 	github.com/krakend/krakend-rss/v3 v3.0.0-20260818142025-cefba52f45fc
 	github.com/krakend/krakend-usage/v2 v2.1.0
 	github.com/krakend/krakend-xml/v3 v3.0.0-20260818140437-2c1893a1e168
-	github.com/luraproject/lura/v3 v3.0.0-20260930100012-069ed25df45a
+	github.com/luraproject/lura/v3 v3.0.0-20260930105937-015413ea8796
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
 	go.opentelemetry.io/otel v1.45.0
 	golang.org/x/sync v0.22.0

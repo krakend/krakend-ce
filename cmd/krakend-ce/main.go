@@ -10,11 +10,11 @@ import (
 	"os/signal"
 	"syscall"
 
-	krakend "github.com/krakend/krakend-ce/v2"
-	cmd "github.com/krakend/krakend-cobra/v2"
-	flexibleconfig "github.com/krakend/krakend-flexibleconfig/v2"
-	koanf "github.com/krakend/krakend-koanf"
-	"github.com/luraproject/lura/v2/config"
+	krakend "github.com/krakend/krakend-ce/v3"
+	cmd "github.com/krakend/krakend-cobra/v3"
+	flexibleconfig "github.com/krakend/krakend-flexibleconfig/v3"
+	koanf "github.com/krakend/krakend-koanf/v2"
+	"github.com/luraproject/lura/v3/config"
 )
 
 const (
@@ -45,10 +45,6 @@ func main() {
 
 	krakend.RegisterEncoders()
 
-	for key, alias := range aliases {
-		config.ExtraConfigAlias[alias] = key
-	}
-
 	var cfg config.Parser
 	cfg = koanf.New()
 	if os.Getenv(fcEnable) != "" {
@@ -70,59 +66,12 @@ func main() {
 	commandsToLoad := []cmd.Command{
 		cmd.RunCommand,
 		cmd.NewCheckCmd(rawSchema),
-		cmd.PluginCommand,
 		cmd.VersionCommand,
 		cmd.AuditCommand,
-		krakend.NewTestPluginCmd(),
 	}
 
 	cmd.DefaultRoot = cmd.NewRoot(cmd.RootCommand, commandsToLoad...)
 	cmd.DefaultRoot.Cmd.CompletionOptions.DisableDefaultCmd = true
 
 	cmd.Execute(cfg, krakend.NewExecutor(ctx))
-}
-
-var aliases = map[string]string{
-	"github_com/devopsfaith/krakend/transport/http/server/handler":  "plugin/http-server",
-	"github.com/devopsfaith/krakend/transport/http/client/executor": "plugin/http-client",
-	"github.com/devopsfaith/krakend/proxy/plugin":                   "plugin/req-resp-modifier",
-	"github.com/devopsfaith/krakend/proxy":                          "proxy",
-	"github_com/luraproject/lura/router/gin":                        "router",
-
-	"github.com/devopsfaith/krakend-httpcache":                "qos/http-cache",
-	"github.com/devopsfaith/krakend-circuitbreaker/gobreaker": "qos/circuit-breaker",
-
-	"github.com/devopsfaith/krakend-oauth2-clientcredentials": "auth/client-credentials",
-	"github.com/devopsfaith/krakend-jose/validator":           "auth/validator",
-	"github.com/devopsfaith/krakend-jose/signer":              "auth/signer",
-	"github_com/devopsfaith/bloomfilter":                      "auth/revoker",
-
-	"github_com/devopsfaith/krakend-botdetector": "security/bot-detector",
-	"github_com/devopsfaith/krakend-httpsecure":  "security/http",
-	"github_com/devopsfaith/krakend-cors":        "security/cors",
-
-	"github.com/devopsfaith/krakend-cel":        "validation/cel",
-	"github.com/devopsfaith/krakend-jsonschema": "validation/json-schema",
-
-	"github.com/devopsfaith/krakend-amqp/agent": "async/amqp",
-
-	"github.com/devopsfaith/krakend-amqp/consume":                  "backend/amqp/consumer",
-	"github.com/devopsfaith/krakend-amqp/produce":                  "backend/amqp/producer",
-	"github.com/devopsfaith/krakend-lambda":                        "backend/lambda",
-	"github.com/devopsfaith/krakend-pubsub/publisher":              "backend/pubsub/publisher",
-	"github.com/devopsfaith/krakend-pubsub/subscriber":             "backend/pubsub/subscriber",
-	"github.com/devopsfaith/krakend/transport/http/client/graphql": "backend/graphql",
-	"github.com/devopsfaith/krakend/http":                          "backend/http",
-
-	"github_com/devopsfaith/krakend-gelf":       "telemetry/gelf",
-	"github_com/devopsfaith/krakend-gologging":  "telemetry/logging",
-	"github_com/devopsfaith/krakend-logstash":   "telemetry/logstash",
-	"github_com/devopsfaith/krakend-metrics":    "telemetry/metrics",
-	"github_com/letgoapp/krakend-influx":        "telemetry/influx",
-	"github_com/devopsfaith/krakend-opencensus": "telemetry/opencensus",
-
-	"github.com/devopsfaith/krakend-lua/router":        "modifier/lua-endpoint",
-	"github.com/devopsfaith/krakend-lua/proxy":         "modifier/lua-proxy",
-	"github.com/devopsfaith/krakend-lua/proxy/backend": "modifier/lua-backend",
-	"github.com/devopsfaith/krakend-martian":           "modifier/martian",
 }

@@ -12,40 +12,29 @@ import (
 	"github.com/go-contrib/uuid"
 	"golang.org/x/sync/errgroup"
 
-	krakendbf "github.com/krakend/bloomfilter/v2/krakend"
-	asyncamqp "github.com/krakend/krakend-amqp/v2/async"
-	audit "github.com/krakend/krakend-audit"
-	cel "github.com/krakend/krakend-cel/v2"
-	cmd "github.com/krakend/krakend-cobra/v2"
-	cors "github.com/krakend/krakend-cors/v2/gin"
-	gelf "github.com/krakend/krakend-gelf/v2"
-	gologging "github.com/krakend/krakend-gologging/v2"
-	influxdb "github.com/krakend/krakend-influx/v2"
-	jose "github.com/krakend/krakend-jose/v2"
-	logstash "github.com/krakend/krakend-logstash/v2"
-	metrics "github.com/krakend/krakend-metrics/v2/gin"
-	opencensus "github.com/krakend/krakend-opencensus/v2"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/datadog"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/influxdb"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/jaeger"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/ocagent"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/prometheus"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/stackdriver"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/xray"
-	_ "github.com/krakend/krakend-opencensus/v2/exporter/zipkin"
-	kotel "github.com/krakend/krakend-otel"
-	otellura "github.com/krakend/krakend-otel/lura"
-	otelgin "github.com/krakend/krakend-otel/router/gin"
+	krakendbf "github.com/krakend/bloomfilter/v3/krakend"
+	asyncamqp "github.com/krakend/krakend-amqp/v3/async"
+	audit "github.com/krakend/krakend-audit/v2"
+	cel "github.com/krakend/krakend-cel/v3"
+	cmd "github.com/krakend/krakend-cobra/v3"
+	cors "github.com/krakend/krakend-cors/v3/gin"
+	gelf "github.com/krakend/krakend-gelf/v3"
+	gologging "github.com/krakend/krakend-gologging/v3"
+	jose "github.com/krakend/krakend-jose/v3"
+	logstash "github.com/krakend/krakend-logstash/v3"
+	metrics "github.com/krakend/krakend-metrics/v3/gin"
+	kotel "github.com/krakend/krakend-otel/v2"
+	otellura "github.com/krakend/krakend-otel/v2/lura"
+	otelgin "github.com/krakend/krakend-otel/v2/router/gin"
 	usage "github.com/krakend/krakend-usage/v2"
-	"github.com/luraproject/lura/v2/async"
-	"github.com/luraproject/lura/v2/config"
-	"github.com/luraproject/lura/v2/core"
-	"github.com/luraproject/lura/v2/logging"
-	"github.com/luraproject/lura/v2/proxy"
-	router "github.com/luraproject/lura/v2/router/gin"
-	"github.com/luraproject/lura/v2/sd/dnssrv"
-	serverhttp "github.com/luraproject/lura/v2/transport/http/server"
-	server "github.com/luraproject/lura/v2/transport/http/server/plugin"
+	"github.com/luraproject/lura/v3/async"
+	"github.com/luraproject/lura/v3/config"
+	"github.com/luraproject/lura/v3/core"
+	"github.com/luraproject/lura/v3/logging"
+	"github.com/luraproject/lura/v3/proxy"
+	router "github.com/luraproject/lura/v3/router/gin"
+	"github.com/luraproject/lura/v3/sd/dnssrv"
+	serverhttp "github.com/luraproject/lura/v3/transport/http/server"
 )
 
 // NewExecutor returns an executor for the cmd package. The executor initalizes the entire gateway by
@@ -53,17 +42,6 @@ import (
 func NewExecutor(ctx context.Context) cmd.Executor {
 	eb := new(ExecutorBuilder)
 	return eb.NewCmdExecutor(ctx)
-}
-
-// PluginLoader defines the interface for the collaborator responsible of starting the plugin loaders
-// Deprecated: Use PluginLoaderWithContext
-type PluginLoader interface {
-	Load(folder, pattern string, logger logging.Logger)
-}
-
-// PluginLoaderWithContext defines the interface for the collaborator responsible of starting the plugin loaders
-type PluginLoaderWithContext interface {
-	LoadWithContext(ctx context.Context, folder, pattern string, logger logging.Logger)
 }
 
 // SubscriberFactoriesRegister registers all the required subscriber factories from the available service
@@ -132,9 +110,6 @@ type AgentStarter interface {
 
 // ExecutorBuilder is a composable builder. Every injected property is used by the NewCmdExecutor method.
 type ExecutorBuilder struct {
-	// PluginLoader is deprecated: Use PluginLoaderWithContext
-	PluginLoader                PluginLoader
-	PluginLoaderWithContext     PluginLoaderWithContext
 	LoggerFactory               LoggerFactory
 	SubscriberFactoriesRegister SubscriberFactoriesRegister
 	TokenRejecterFactory        TokenRejecterFactory
@@ -173,10 +148,6 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 		}
 
 		dnssrv.SetTTL(cfg.DNSCacheTTL)
-
-		if cfg.Plugin != nil {
-			e.PluginLoaderWithContext.LoadWithContext(ctx, cfg.Plugin.Folder, cfg.Plugin.Pattern, logger)
-		}
 
 		metricCollector := e.MetricsAndTracesRegister.Register(ctx, cfg, logger)
 		if metricsAndTracesCloser, ok := e.MetricsAndTracesRegister.(io.Closer); ok {
@@ -260,12 +231,6 @@ func (e *ExecutorBuilder) NewCmdExecutor(ctx context.Context) cmd.Executor {
 }
 
 func (e *ExecutorBuilder) checkCollaborators() {
-	if e.PluginLoader == nil {
-		e.PluginLoader = new(pluginLoader)
-	}
-	if e.PluginLoaderWithContext == nil {
-		e.PluginLoaderWithContext = new(pluginLoader)
-	}
 	if e.SubscriberFactoriesRegister == nil {
 		e.SubscriberFactoriesRegister = new(registerSubscriberFactories)
 	}
@@ -299,14 +264,11 @@ func (e *ExecutorBuilder) checkCollaborators() {
 }
 
 // DefaultRunServerFactory creates the default RunServer by wrapping the injected RunServer
-// with the plugin loader and the CORS module
+// with the CORS module
 type DefaultRunServerFactory struct{}
 
 func (*DefaultRunServerFactory) NewRunServer(l logging.Logger, next router.RunServerFunc) RunServer {
-	return RunServer(server.New(
-		l,
-		server.RunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l)),
-	))
+	return RunServer(cors.NewRunServerWithLogger(cors.RunServer(next), l))
 }
 
 // LoggerBuilder is the default BuilderFactory implementation.
@@ -384,25 +346,9 @@ type MetricsAndTraces struct {
 	shutdownFn func()
 }
 
-// Register registers the metrics, influx and opencensus packages as required by the given configuration.
+// Register registers the metrics package as required by the given configuration.
 func (m *MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
 	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
-
-	if err := influxdb.New(ctx, cfg.ExtraConfig, metricCollector, l); err != nil {
-		if err != influxdb.ErrNoConfig {
-			l.Warning("[SERVICE: InfluxDB]", err.Error())
-		}
-	} else {
-		l.Debug("[SERVICE: InfluxDB] Service correctly registered")
-	}
-
-	if err := opencensus.Register(ctx, cfg, opencensus.DefaultViews...); err != nil {
-		if err != opencensus.ErrNoConfig {
-			l.Warning("[SERVICE: OpenCensus]", err.Error())
-		}
-	} else {
-		l.Debug("[SERVICE: OpenCensus] Service correctly registered")
-	}
 
 	if shutdownFn, err := kotel.Register(ctx, l, cfg); err == nil {
 		m.shutdownFn = shutdownFn

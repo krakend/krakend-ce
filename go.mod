@@ -5,36 +5,37 @@ go 1.26.0
 require (
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-contrib/uuid v1.2.0
-	github.com/krakend/bloomfilter/v3 v3.0.0-20260730110053-20a022f5e962
-	github.com/krakend/krakend-amqp/v3 v3.0.0-20260731080930-5d5e8c292aeb
-	github.com/krakend/krakend-audit/v2 v2.0.0-20260902094227-78200c69b280
-	github.com/krakend/krakend-botdetector/v3 v3.0.0-20260730105824-f4b00c30b836
-	github.com/krakend/krakend-cel/v3 v3.0.0-20260730105559-6ba9ea59c881
-	github.com/krakend/krakend-circuitbreaker/v4 v4.0.0-20260730111621-eec18d30c12d
-	github.com/krakend/krakend-cobra/v3 v3.0.0-20260902095303-c26fe30c071b
-	github.com/krakend/krakend-cors/v3 v3.0.0-20260731073552-2729860d05a4
-	github.com/krakend/krakend-flexibleconfig/v3 v3.0.0-20260731070931-67f0d356de0c
-	github.com/krakend/krakend-gelf/v3 v3.0.0-20260731070446-1470a8946daf
-	github.com/krakend/krakend-gologging/v3 v3.0.0-20260730160554-30abc7118c3c
-	github.com/krakend/krakend-httpcache/v3 v3.0.0-20260730190833-a6ec1e16f90a
-	github.com/krakend/krakend-httpsecure/v3 v3.0.0-20260730185919-03390d6bd5e8
-	github.com/krakend/krakend-jose/v3 v3.0.0-20260730185228-6aa13f11f17b
-	github.com/krakend/krakend-jsonschema/v3 v3.0.0-20260730183905-5b20c84c62e5
+	github.com/krakend/bloomfilter/v3 v3.0.0
+	github.com/krakend/krakend-amqp/v3 v3.0.0
+	github.com/krakend/krakend-audit/v2 v2.0.0
+	github.com/krakend/krakend-botdetector/v3 v3.0.0
+	github.com/krakend/krakend-cel/v3 v3.0.0
+	github.com/krakend/krakend-circuitbreaker/v4 v4.0.0-20260923153927-56edf5297db8
+	github.com/krakend/krakend-cobra/v3 v3.0.0
+	github.com/krakend/krakend-cors/v3 v3.0.0-20260818142608-3de27a151760
+	github.com/krakend/krakend-flexibleconfig/v3 v3.0.0
+	github.com/krakend/krakend-gelf/v3 v3.0.0
+	github.com/krakend/krakend-gologging/v3 v3.0.0
+	github.com/krakend/krakend-httpcache/v3 v3.0.0
+	github.com/krakend/krakend-httpsecure/v3 v3.0.0
+	github.com/krakend/krakend-jose/v3 v3.0.0
+	github.com/krakend/krakend-jsonschema/v3 v3.0.0-20260831130643-bba775f0d4b1
 	github.com/krakend/krakend-koanf/v2 v2.0.0-20260818144858-aeb7e1d77767
-	github.com/krakend/krakend-lambda/v3 v3.0.0-20260730183553-44bfcf6a660a
-	github.com/krakend/krakend-logstash/v3 v3.0.0-20260730182207-3479d8d7f9c5
-	github.com/krakend/krakend-lua/v3 v3.0.0-20260730162142-8034a49214ce
-	github.com/krakend/krakend-martian/v3 v3.0.0-20260730161248-3c18d144ec94
-	github.com/krakend/krakend-metrics/v3 v3.0.0-20260730155513-48daa58645b2
-	github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0-20260730152129-ffc709b4c81e
-	github.com/krakend/krakend-otel/v2 v2.0.0-20260818145847-dd72b3d29114
-	github.com/krakend/krakend-pubsub/v3 v3.0.0-20260730143945-c1a814728f2d
-	github.com/krakend/krakend-ratelimit/v4 v4.0.0-20260730143053-a3ce2811a646
-	github.com/krakend/krakend-rss/v3 v3.0.0-20260730141845-a9ca05b1a928
+	github.com/krakend/krakend-lambda/v3 v3.0.0-20260831132011-96789142bf51
+	github.com/krakend/krakend-logstash/v3 v3.0.0-20260818144234-328c081c28b9
+	github.com/krakend/krakend-lua/v3 v3.0.0-20260831130208-f33003c5f27d
+	github.com/krakend/krakend-martian/v3 v3.0.0-20260818144416-60646ac93c6f
+	github.com/krakend/krakend-metrics/v3 v3.0.0-20260818142549-92742ebc8c08
+	github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0-20260818144148-1c05edde9139
+	github.com/krakend/krakend-otel/v2 v2.0.0-20260918100701-26aa9a7f5eb9
+	github.com/krakend/krakend-pubsub/v3 v3.0.0-20260918101411-ad265e6151ce
+	github.com/krakend/krakend-ratelimit/v4 v4.0.0-20260831130728-7fa21b144f49
+	github.com/krakend/krakend-rss/v3 v3.0.0-20260818142025-cefba52f45fc
 	github.com/krakend/krakend-usage/v2 v2.1.0
-	github.com/krakend/krakend-xml/v3 v3.0.0-20260730105932-cd80994f0518
-	github.com/luraproject/lura/v3 v3.0.0-20260902072206-0538f09374cc
+	github.com/krakend/krakend-xml/v3 v3.0.0-20260818140437-2c1893a1e168
+	github.com/luraproject/lura/v3 v3.0.0-20260930100012-069ed25df45a
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
+	go.opentelemetry.io/otel v1.45.0
 	golang.org/x/sync v0.22.0
 )
 
@@ -217,17 +218,16 @@ require (
 	go.opentelemetry.io/contrib/propagators/b3 v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/jaeger v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/ot v1.44.0 // indirect
-	go.opentelemetry.io/otel v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.44.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.44.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.44.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.44.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.45.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.45.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.45.0 // indirect
 	go.opentelemetry.io/otel/exporters/prometheus v0.66.0 // indirect
-	go.opentelemetry.io/otel/metric v1.44.0 // indirect
-	go.opentelemetry.io/otel/sdk v1.44.0 // indirect
-	go.opentelemetry.io/otel/sdk/metric v1.44.0 // indirect
-	go.opentelemetry.io/otel/trace v1.44.0 // indirect
+	go.opentelemetry.io/otel/metric v1.45.0 // indirect
+	go.opentelemetry.io/otel/sdk v1.45.0 // indirect
+	go.opentelemetry.io/otel/sdk/metric v1.45.0 // indirect
+	go.opentelemetry.io/otel/trace v1.45.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.11.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
@@ -247,8 +247,8 @@ require (
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/api v0.291.0 // indirect
 	google.golang.org/genproto v0.0.0-20260729162451-8efbd57d26e0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20260729162451-8efbd57d26e0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260729162451-8efbd57d26e0 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20260803160001-6ac0973c030d // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260803160001-6ac0973c030d // indirect
 	google.golang.org/grpc v1.83.2 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/Graylog2/go-gelf.v2 v2.0.0-20191017102106-1550ee647df0 // indirect

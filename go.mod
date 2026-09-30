@@ -10,29 +10,29 @@ require (
 	github.com/krakend/krakend-audit/v2 v2.0.0
 	github.com/krakend/krakend-botdetector/v3 v3.0.0
 	github.com/krakend/krakend-cel/v3 v3.0.0
-	github.com/krakend/krakend-circuitbreaker/v4 v4.0.0-20260923153927-56edf5297db8
+	github.com/krakend/krakend-circuitbreaker/v4 v4.0.0
 	github.com/krakend/krakend-cobra/v3 v3.0.0
-	github.com/krakend/krakend-cors/v3 v3.0.0-20260818142608-3de27a151760
+	github.com/krakend/krakend-cors/v3 v3.0.0
 	github.com/krakend/krakend-flexibleconfig/v3 v3.0.0
 	github.com/krakend/krakend-gelf/v3 v3.0.0
 	github.com/krakend/krakend-gologging/v3 v3.0.0
 	github.com/krakend/krakend-httpcache/v3 v3.0.0
 	github.com/krakend/krakend-httpsecure/v3 v3.0.0
 	github.com/krakend/krakend-jose/v3 v3.0.0
-	github.com/krakend/krakend-jsonschema/v3 v3.0.0-20260831130643-bba775f0d4b1
-	github.com/krakend/krakend-koanf/v2 v2.0.0-20260818144858-aeb7e1d77767
-	github.com/krakend/krakend-lambda/v3 v3.0.0-20260831132011-96789142bf51
-	github.com/krakend/krakend-logstash/v3 v3.0.0-20260818144234-328c081c28b9
-	github.com/krakend/krakend-lua/v3 v3.0.0-20260831130208-f33003c5f27d
-	github.com/krakend/krakend-martian/v3 v3.0.0-20260818144416-60646ac93c6f
-	github.com/krakend/krakend-metrics/v3 v3.0.0-20260818142549-92742ebc8c08
-	github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0-20260818144148-1c05edde9139
-	github.com/krakend/krakend-otel/v2 v2.0.0-20260918100701-26aa9a7f5eb9
-	github.com/krakend/krakend-pubsub/v3 v3.0.0-20260918101411-ad265e6151ce
-	github.com/krakend/krakend-ratelimit/v4 v4.0.0-20260831130728-7fa21b144f49
-	github.com/krakend/krakend-rss/v3 v3.0.0-20260818142025-cefba52f45fc
+	github.com/krakend/krakend-jsonschema/v3 v3.0.0
+	github.com/krakend/krakend-koanf/v2 v2.0.0
+	github.com/krakend/krakend-lambda/v3 v3.0.0
+	github.com/krakend/krakend-logstash/v3 v3.0.0
+	github.com/krakend/krakend-lua/v3 v3.0.0
+	github.com/krakend/krakend-martian/v3 v3.0.0
+	github.com/krakend/krakend-metrics/v3 v3.0.0
+	github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0
+	github.com/krakend/krakend-otel/v2 v2.0.0
+	github.com/krakend/krakend-pubsub/v3 v3.0.0
+	github.com/krakend/krakend-ratelimit/v4 v4.0.0
+	github.com/krakend/krakend-rss/v3 v3.0.0
 	github.com/krakend/krakend-usage/v2 v2.1.0
-	github.com/krakend/krakend-xml/v3 v3.0.0-20260818140437-2c1893a1e168
+	github.com/krakend/krakend-xml/v3 v3.0.0
 	github.com/luraproject/lura/v3 v3.0.0-20260930105937-015413ea8796
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
 	go.opentelemetry.io/otel v1.45.0

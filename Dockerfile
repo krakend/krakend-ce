@@ -17,7 +17,7 @@ LABEL maintainer="community@krakend.io"
 RUN apk upgrade --no-cache --no-interactive && apk add --no-cache ca-certificates tzdata && \
     adduser -u 1000 -S -D -H krakend && \
     mkdir /etc/krakend && \
-    echo '{ "version": 3 }' > /etc/krakend/krakend.json
+    echo '{ "version": 4 }' > /etc/krakend/krakend.json
 
 COPY --from=builder /app/krakend /usr/bin/krakend
 

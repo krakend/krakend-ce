@@ -1,5 +1,5 @@
 {
-    "version":3,
+    "version":4,
     "host":["http://localhost:8080"],
     "read_header_timeout":"200ms",
     "extra_config": {

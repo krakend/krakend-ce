@@ -342,8 +342,8 @@ github.com/krakend/krakend-httpcache/v3 v3.0.0 h1:q8wdayi13zyySgLx/+NRV8TVo4ZAmr
 github.com/krakend/krakend-httpcache/v3 v3.0.0/go.mod h1:8QZe0WDEwVb9Z1u0wpXFP9AWUkMiJqC+VIw7oIo84tU=
 github.com/krakend/krakend-httpsecure/v3 v3.0.0 h1:QuJ092CLwncGTCDLfpRDuP047DMmSdpUZlWJnZ7Y6RY=
 github.com/krakend/krakend-httpsecure/v3 v3.0.0/go.mod h1:PM1FJ7tfLsYIxjRQFdgwXzc3GmeAHU4yvgBgRXnRzLU=
-github.com/krakend/krakend-jose/v3 v3.0.0 h1:3b4QKAkqPFGxGhzMMY9PY4cjgJoqP+scY6SBEePD//w=
-github.com/krakend/krakend-jose/v3 v3.0.0/go.mod h1:38b7GV3xzgLmgzC3kh2lNvPmzTRupaNQfidlyQn8V6E=
+github.com/krakend/krakend-jose/v3 v3.0.1 h1:Uc6QGfy7kZx6/tHhuH5/g00/Pe1ydxt5xJG3hUpCsgk=
+github.com/krakend/krakend-jose/v3 v3.0.1/go.mod h1:38b7GV3xzgLmgzC3kh2lNvPmzTRupaNQfidlyQn8V6E=
 github.com/krakend/krakend-jsonschema/v3 v3.0.0 h1:qVSmX5ghWVyVeOsDULVnromfdbog3fvLNJJ2UoA8hCg=
 github.com/krakend/krakend-jsonschema/v3 v3.0.0/go.mod h1:UYyAqNeFr0mf/sgxvL1J9/wgKoeTrsQV29Cy4MJT2QU=
 github.com/krakend/krakend-koanf/v2 v2.0.0 h1:LorxbZLtm1D2sWzyr2HmQWTJmQzxQ8SwPQSrpmLCW40=

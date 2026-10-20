@@ -16,7 +16,7 @@ jobs:
       run: |
         echo "GOLANG_VERSION=$(grep -m 1 GOLANG_VERSION Makefile | sed 's/^.*= //g')" >> $GITHUB_ENV
     - name: Set up Go
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@v6
       with:
         go-version: "${{ env.GOLANG_VERSION }}"
 

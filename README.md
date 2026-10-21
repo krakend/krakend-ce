@@ -56,6 +56,23 @@ Or, if you don't have or don't want to install `go`, you can build it using the 
 make build_on_docker
 ```
 
+## Forking and maintaining older versions
+KrakenD CE is open source under the Apache 2.0 license. You are free to fork this repository, patch it, and build and distribute your own binaries.
+
+Security fixes are released for the 3.x line and are not backported to 2.13, so the recommended path is to upgrade to the latest version. If your setup relies on Go plugins, read [why the Community Edition dropped plugin support](https://www.krakend.io/blog/dropping-plugins-support-on-community/) and the options available to replace them:
+
+- **Compile your extensions in**: register your middleware or handlers directly in the source code and build your own binary. There is no version drift to worry about, and you can debug it with standard Go tools.
+- **Lua scripting**: many plugin use cases can be expressed as [Lua scripts](https://www.krakend.io/docs/endpoints/lua/), which need no compilation.
+- **KrakenD Enterprise**: still supports plugins, with toolchain support from the KrakenD team. See the [Enterprise Edition](https://www.krakend.io/enterprise/).
+
+If you need more time before upgrading, you can keep a 2.x build up to date on your own:
+
+1. Fork this repository and create a branch from the last 2.x tag (`git checkout -b release-2.13 v2.13.11`).
+2. Apply the fixes you need, usually by bumping the affected dependencies in `go.mod`, and update `GOLANG_VERSION` in the `Makefile` when a Go release fixes a vulnerability.
+3. Build with `make build` (or `make build_on_docker`) and run `make test`.
+
+The GitHub Actions in this repository publish to KrakenD's own Docker Hub and package signing accounts. In a fork, adapt the image names, secrets and GPG key to your own, or build locally with the `Makefile`.
+
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkrakend%2Fkrakend-ce.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkrakend%2Fkrakend-ce?ref=badge_large)

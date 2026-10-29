@@ -18,7 +18,7 @@ require (
 	github.com/krakend/krakend-gologging/v3 v3.0.0
 	github.com/krakend/krakend-httpcache/v3 v3.0.0
 	github.com/krakend/krakend-httpsecure/v3 v3.0.0
-	github.com/krakend/krakend-jose/v3 v3.0.1
+	github.com/krakend/krakend-jose/v3 v3.0.2
 	github.com/krakend/krakend-jsonschema/v3 v3.0.0
 	github.com/krakend/krakend-koanf/v2 v2.0.0
 	github.com/krakend/krakend-lambda/v3 v3.0.0
@@ -35,6 +35,7 @@ require (
 	github.com/krakend/krakend-xml/v3 v3.0.0
 	github.com/luraproject/lura/v3 v3.0.0-20260930105937-015413ea8796
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
+	go.opentelemetry.io/otel v1.45.0
 	golang.org/x/sync v0.23.0
 )
 
@@ -102,8 +103,7 @@ require (
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.16 // indirect
 	github.com/gin-contrib/sse v1.1.1 // indirect
-	github.com/go-jose/go-jose/v3 v3.0.5 // indirect
-	github.com/go-jose/go-jose/v4 v4.1.4 // indirect
+	github.com/go-jose/go-jose/v4 v4.1.6 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
@@ -155,7 +155,7 @@ require (
 	github.com/krakend/binder v0.0.0-20250826131726-e91a8a754ef8 // indirect
 	github.com/krakend/dotnotation v0.2.0 // indirect
 	github.com/krakend/flatmap v1.2.0 // indirect
-	github.com/krakend/go-auth0/v2 v2.0.4 // indirect
+	github.com/krakend/go-auth0/v2 v2.0.5 // indirect
 	github.com/krakend/httpcache v1.1.1 // indirect
 	github.com/krakend/lru v0.0.0-20250121172718-0e3a6eab620d // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
@@ -217,7 +217,6 @@ require (
 	go.opentelemetry.io/contrib/propagators/b3 v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/jaeger v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/ot v1.44.0 // indirect
-	go.opentelemetry.io/otel v1.45.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.45.0 // indirect

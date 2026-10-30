@@ -339,8 +339,8 @@ github.com/krakend/krakend-httpcache/v3 v3.0.0 h1:q8wdayi13zyySgLx/+NRV8TVo4ZAmr
 github.com/krakend/krakend-httpcache/v3 v3.0.0/go.mod h1:8QZe0WDEwVb9Z1u0wpXFP9AWUkMiJqC+VIw7oIo84tU=
 github.com/krakend/krakend-httpsecure/v3 v3.0.0 h1:QuJ092CLwncGTCDLfpRDuP047DMmSdpUZlWJnZ7Y6RY=
 github.com/krakend/krakend-httpsecure/v3 v3.0.0/go.mod h1:PM1FJ7tfLsYIxjRQFdgwXzc3GmeAHU4yvgBgRXnRzLU=
-github.com/krakend/krakend-jose/v3 v3.0.2 h1:UYSyt5xKHdVJDl4XZ71YR5Sa1lhJ+E31HmkEujW/KWQ=
-github.com/krakend/krakend-jose/v3 v3.0.2/go.mod h1:UgXy8bTPs15p5NIkZwE0OskRibaT9r1ye1xIQiQqX1A=
+github.com/krakend/krakend-jose/v3 v3.0.3 h1:VnegIf8k+t8HhfimG7x5vI8Y4vmPnCztU7fPTxmlPcg=
+github.com/krakend/krakend-jose/v3 v3.0.3/go.mod h1:UgXy8bTPs15p5NIkZwE0OskRibaT9r1ye1xIQiQqX1A=
 github.com/krakend/krakend-jsonschema/v3 v3.0.0 h1:qVSmX5ghWVyVeOsDULVnromfdbog3fvLNJJ2UoA8hCg=
 github.com/krakend/krakend-jsonschema/v3 v3.0.0/go.mod h1:UYyAqNeFr0mf/sgxvL1J9/wgKoeTrsQV29Cy4MJT2QU=
 github.com/krakend/krakend-koanf/v2 v2.0.0 h1:LorxbZLtm1D2sWzyr2HmQWTJmQzxQ8SwPQSrpmLCW40=
@@ -357,8 +357,8 @@ github.com/krakend/krakend-metrics/v3 v3.0.0 h1:yDtl6YjlExoAq8s+cYPVv7uNW6XdAT5g
 github.com/krakend/krakend-metrics/v3 v3.0.0/go.mod h1:MJES6Hi7MzrNTzEozZ5gJDtz8UUdPIZFvnKlgYtlq+A=
 github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0 h1:3tA1xuaWzu8Zdq5kkYfp09KZvIrsjq9Pv9pDsGdcZRI=
 github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0/go.mod h1:HXJ20mQ5od1FhGy41vawgE9wAwAliFXuP/rNdW/rH28=
-github.com/krakend/krakend-otel/v2 v2.0.0 h1:o0zHr0IWWs2MqVIp4Uu/3pCgFMRD1b0iciqGgAsEOWY=
-github.com/krakend/krakend-otel/v2 v2.0.0/go.mod h1:iT0JZtrv9q5qti2yRC37LOjV13nTzxiNQKhZC7hOR7s=
+github.com/krakend/krakend-otel/v2 v2.0.1 h1:ztM7c9rARb9POJjnSzdyMoJoK1Jq2zIlool0d/2SkB8=
+github.com/krakend/krakend-otel/v2 v2.0.1/go.mod h1:iT0JZtrv9q5qti2yRC37LOjV13nTzxiNQKhZC7hOR7s=
 github.com/krakend/krakend-pubsub/v3 v3.0.0 h1:kAphXgBTZL2ZOW9FHA8yKkd5c0YCpUVamIKv8EBrxzk=
 github.com/krakend/krakend-pubsub/v3 v3.0.0/go.mod h1:3rGwkLCq2ZwJ947wcTIaowrqmuues1tC9uAYL/dHhwc=
 github.com/krakend/krakend-ratelimit/v4 v4.0.0 h1:1hczP3N3HR7X6FLMEBtIMDF6ZOY/J6uJW8L7+x28Zpc=

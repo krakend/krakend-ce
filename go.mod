@@ -18,7 +18,7 @@ require (
 	github.com/krakend/krakend-gologging/v3 v3.0.0
 	github.com/krakend/krakend-httpcache/v3 v3.0.0
 	github.com/krakend/krakend-httpsecure/v3 v3.0.0
-	github.com/krakend/krakend-jose/v3 v3.0.2
+	github.com/krakend/krakend-jose/v3 v3.0.3
 	github.com/krakend/krakend-jsonschema/v3 v3.0.0
 	github.com/krakend/krakend-koanf/v2 v2.0.0
 	github.com/krakend/krakend-lambda/v3 v3.0.0
@@ -27,7 +27,7 @@ require (
 	github.com/krakend/krakend-martian/v3 v3.0.0
 	github.com/krakend/krakend-metrics/v3 v3.0.0
 	github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0
-	github.com/krakend/krakend-otel/v2 v2.0.0
+	github.com/krakend/krakend-otel/v2 v2.0.1
 	github.com/krakend/krakend-pubsub/v3 v3.0.0
 	github.com/krakend/krakend-ratelimit/v4 v4.0.0
 	github.com/krakend/krakend-rss/v3 v3.0.0

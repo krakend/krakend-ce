@@ -35,7 +35,6 @@ require (
 	github.com/krakend/krakend-xml/v3 v3.0.0
 	github.com/luraproject/lura/v3 v3.0.0-20260930105937-015413ea8796
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
-	go.opentelemetry.io/otel v1.45.0
 	golang.org/x/sync v0.23.0
 )
 
@@ -217,6 +216,7 @@ require (
 	go.opentelemetry.io/contrib/propagators/b3 v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/jaeger v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/ot v1.44.0 // indirect
+	go.opentelemetry.io/otel v1.45.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.45.0 // indirect

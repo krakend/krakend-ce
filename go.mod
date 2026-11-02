@@ -18,7 +18,7 @@ require (
 	github.com/krakend/krakend-gologging/v3 v3.0.0
 	github.com/krakend/krakend-httpcache/v3 v3.0.0
 	github.com/krakend/krakend-httpsecure/v3 v3.0.0
-	github.com/krakend/krakend-jose/v3 v3.0.2
+	github.com/krakend/krakend-jose/v3 v3.0.3
 	github.com/krakend/krakend-jsonschema/v3 v3.0.0
 	github.com/krakend/krakend-koanf/v2 v2.0.0
 	github.com/krakend/krakend-lambda/v3 v3.0.0
@@ -27,16 +27,15 @@ require (
 	github.com/krakend/krakend-martian/v3 v3.0.0
 	github.com/krakend/krakend-metrics/v3 v3.0.0
 	github.com/krakend/krakend-oauth2-clientcredentials/v3 v3.0.0
-	github.com/krakend/krakend-otel/v2 v2.0.0
+	github.com/krakend/krakend-otel/v2 v2.0.1
 	github.com/krakend/krakend-pubsub/v3 v3.0.0
 	github.com/krakend/krakend-ratelimit/v4 v4.0.0
 	github.com/krakend/krakend-rss/v3 v3.0.0
 	github.com/krakend/krakend-usage/v2 v2.1.0
 	github.com/krakend/krakend-xml/v3 v3.0.0
-	github.com/luraproject/lura/v3 v3.0.0-20260930105937-015413ea8796
+	github.com/luraproject/lura/v3 v3.0.1
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
-	go.opentelemetry.io/otel v1.45.0
-	golang.org/x/sync v0.23.0
+	golang.org/x/sync v0.24.0
 )
 
 require (
@@ -217,6 +216,7 @@ require (
 	go.opentelemetry.io/contrib/propagators/b3 v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/jaeger v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/ot v1.44.0 // indirect
+	go.opentelemetry.io/otel v1.45.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.45.0 // indirect
@@ -236,12 +236,12 @@ require (
 	gocloud.dev/pubsub/rabbitpubsub v0.46.0 // indirect
 	gocloud.dev/secrets/hashivault v0.45.0 // indirect
 	golang.org/x/arch v0.29.0 // indirect
-	golang.org/x/crypto v0.57.0 // indirect
+	golang.org/x/crypto v0.58.0 // indirect
 	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa // indirect
-	golang.org/x/net v0.60.0 // indirect
+	golang.org/x/net v0.62.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
-	golang.org/x/sys v0.48.0 // indirect
-	golang.org/x/text v0.42.0 // indirect
+	golang.org/x/sys v0.49.0 // indirect
+	golang.org/x/text v0.43.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/api v0.291.0 // indirect

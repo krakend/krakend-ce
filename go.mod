@@ -33,7 +33,7 @@ require (
 	github.com/krakend/krakend-rss/v3 v3.0.0
 	github.com/krakend/krakend-usage/v2 v2.1.0
 	github.com/krakend/krakend-xml/v3 v3.0.0
-	github.com/luraproject/lura/v3 v3.0.0-20260930105937-015413ea8796
+	github.com/luraproject/lura/v3 v3.0.1
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
 	golang.org/x/sync v0.24.0
 )

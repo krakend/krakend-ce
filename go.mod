@@ -33,9 +33,9 @@ require (
 	github.com/krakend/krakend-rss/v3 v3.0.0
 	github.com/krakend/krakend-usage/v2 v2.1.0
 	github.com/krakend/krakend-xml/v3 v3.0.0
-	github.com/luraproject/lura/v3 v3.0.0-20260930105937-015413ea8796
+	github.com/luraproject/lura/v3 v3.0.1
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
-	golang.org/x/sync v0.23.0
+	golang.org/x/sync v0.24.0
 )
 
 require (
@@ -236,12 +236,12 @@ require (
 	gocloud.dev/pubsub/rabbitpubsub v0.46.0 // indirect
 	gocloud.dev/secrets/hashivault v0.45.0 // indirect
 	golang.org/x/arch v0.29.0 // indirect
-	golang.org/x/crypto v0.57.0 // indirect
+	golang.org/x/crypto v0.58.0 // indirect
 	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa // indirect
-	golang.org/x/net v0.60.0 // indirect
+	golang.org/x/net v0.62.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
-	golang.org/x/sys v0.48.0 // indirect
-	golang.org/x/text v0.42.0 // indirect
+	golang.org/x/sys v0.49.0 // indirect
+	golang.org/x/text v0.43.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/api v0.291.0 // indirect

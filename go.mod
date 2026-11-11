@@ -9,7 +9,7 @@ require (
 	github.com/krakend/krakend-amqp/v3 v3.0.0
 	github.com/krakend/krakend-audit/v2 v2.0.0
 	github.com/krakend/krakend-botdetector/v3 v3.0.0
-	github.com/krakend/krakend-cel/v3 v3.0.0
+	github.com/krakend/krakend-cel/v3 v3.0.1
 	github.com/krakend/krakend-circuitbreaker/v4 v4.0.0
 	github.com/krakend/krakend-cobra/v3 v3.0.0
 	github.com/krakend/krakend-cors/v3 v3.0.0
@@ -35,6 +35,7 @@ require (
 	github.com/krakend/krakend-xml/v3 v3.0.0
 	github.com/luraproject/lura/v3 v3.0.1
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
+	go.opentelemetry.io/otel v1.45.0
 	golang.org/x/sync v0.24.0
 )
 
@@ -112,7 +113,7 @@ require (
 	github.com/goccy/go-json v0.10.6 // indirect
 	github.com/goccy/go-yaml v1.19.2 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
-	github.com/google/cel-go v0.29.0 // indirect
+	github.com/google/cel-go v0.30.0 // indirect
 	github.com/google/martian v2.1.1-0.20190517191504-25dcb96d9e51+incompatible // indirect
 	github.com/google/s2a-go v0.1.9 // indirect
 	github.com/google/uuid v1.6.0 // indirect
@@ -216,7 +217,6 @@ require (
 	go.opentelemetry.io/contrib/propagators/b3 v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/jaeger v1.44.0 // indirect
 	go.opentelemetry.io/contrib/propagators/ot v1.44.0 // indirect
-	go.opentelemetry.io/otel v1.45.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.44.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.45.0 // indirect

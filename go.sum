@@ -335,8 +335,8 @@ github.com/krakend/krakend-gelf/v3 v3.0.0 h1:QxZH/aM6kEXdav0gK5mDEaDMq2rBIBiJp2G
 github.com/krakend/krakend-gelf/v3 v3.0.0/go.mod h1:Is9FkGDBp/Voh7sTKtDgjtHOBnojl2Cy7X1quEB4ijE=
 github.com/krakend/krakend-gologging/v3 v3.0.0 h1:YpeGY55W2CaqFfEuafMJtgbncYFu5BLv9vTTu2AoMiQ=
 github.com/krakend/krakend-gologging/v3 v3.0.0/go.mod h1:qArFid9mV0EzETPOr2NwaNfuxgEGrj/OW0W3SFmN5eI=
-github.com/krakend/krakend-httpcache/v3 v3.0.0 h1:q8wdayi13zyySgLx/+NRV8TVo4ZAmrGh58G8cI/z5M0=
-github.com/krakend/krakend-httpcache/v3 v3.0.0/go.mod h1:8QZe0WDEwVb9Z1u0wpXFP9AWUkMiJqC+VIw7oIo84tU=
+github.com/krakend/krakend-httpcache/v3 v3.0.1 h1:C7N2lviVBuXD4w8TqjGiqc7tzXwO2iiDGWZvuHP3Bk8=
+github.com/krakend/krakend-httpcache/v3 v3.0.1/go.mod h1:e4GgSPhQLSP0U/HJdeYe0gunbrQX3S9hiv/PtSd4+5w=
 github.com/krakend/krakend-httpsecure/v3 v3.0.0 h1:QuJ092CLwncGTCDLfpRDuP047DMmSdpUZlWJnZ7Y6RY=
 github.com/krakend/krakend-httpsecure/v3 v3.0.0/go.mod h1:PM1FJ7tfLsYIxjRQFdgwXzc3GmeAHU4yvgBgRXnRzLU=
 github.com/krakend/krakend-jose/v3 v3.0.3 h1:VnegIf8k+t8HhfimG7x5vI8Y4vmPnCztU7fPTxmlPcg=
@@ -369,8 +369,8 @@ github.com/krakend/krakend-usage/v2 v2.1.0 h1:6UvX8z8bq4GNWOT2WYg8cemIS+uJZ/JOKS
 github.com/krakend/krakend-usage/v2 v2.1.0/go.mod h1:zXQzO+xIEFpxyjW7IeGLIrVV6eaBm0AjAUrB2J6mRn8=
 github.com/krakend/krakend-xml/v3 v3.0.0 h1:QFFNozXs1v4j3cZZtA0jgmUmXwlk2W69ZtnPY4VBg1M=
 github.com/krakend/krakend-xml/v3 v3.0.0/go.mod h1:p8yNo2hr+d34gxuwL0rOezPorEcfoZijrRoG2KtXrHg=
-github.com/krakend/lru v0.0.0-20250121172718-0e3a6eab620d h1:Kktd6hjWjY+TgL/oESBdTTVKJ7BFroS/YA2PZ1PsFLA=
-github.com/krakend/lru v0.0.0-20250121172718-0e3a6eab620d/go.mod h1:VgOve4vVYbY6UkD3qHdqmq2AKwqHlp39TKMi2b2cQBI=
+github.com/krakend/lru v1.0.0 h1:adDAiOalKH/obZhcxoFOSjMYuP4UOB/W9jm1v346L+g=
+github.com/krakend/lru v1.0.0/go.mod h1:VgOve4vVYbY6UkD3qHdqmq2AKwqHlp39TKMi2b2cQBI=
 github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0SNc=
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
 github.com/leodido/go-urn v1.5.0 h1:pLqT2kq1zpHW/1D18QMjMpdtX7cekxqtJJjg5ANyWw0=

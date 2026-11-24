@@ -16,7 +16,7 @@ require (
 	github.com/krakend/krakend-flexibleconfig/v3 v3.0.0
 	github.com/krakend/krakend-gelf/v3 v3.0.0
 	github.com/krakend/krakend-gologging/v3 v3.0.0
-	github.com/krakend/krakend-httpcache/v3 v3.0.0
+	github.com/krakend/krakend-httpcache/v3 v3.0.1
 	github.com/krakend/krakend-httpsecure/v3 v3.0.0
 	github.com/krakend/krakend-jose/v3 v3.0.3
 	github.com/krakend/krakend-jsonschema/v3 v3.0.0
@@ -156,7 +156,7 @@ require (
 	github.com/krakend/flatmap v1.2.0 // indirect
 	github.com/krakend/go-auth0/v2 v2.0.5 // indirect
 	github.com/krakend/httpcache v1.1.1 // indirect
-	github.com/krakend/lru v0.0.0-20250121172718-0e3a6eab620d // indirect
+	github.com/krakend/lru v1.0.0 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/leodido/go-urn v1.5.0 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect

@@ -16,10 +16,6 @@
         "syslog": false,
         "stdout": true
       },
-      "telemetry/metrics": {
-        "collection_time": "60s",
-        "listen_address": ":8090"
-      },
       "security/cors": {
         "allow_origins": [ "*" ],
         "allow_methods": [ "POST", "GET" ],

@@ -346,17 +346,16 @@ type MetricsAndTraces struct {
 	shutdownFn func()
 }
 
-// Register registers the metrics package as required by the given configuration.
+// Register registers the OpenTelemetry exporters as required by the given configuration.
+// The legacy metrics collector is no longer instantiated, so the returned *metrics.Metrics is always nil.
 func (m *MetricsAndTraces) Register(ctx context.Context, cfg config.ServiceConfig, l logging.Logger) *metrics.Metrics {
-	metricCollector := metrics.New(ctx, cfg.ExtraConfig, l)
-
 	if shutdownFn, err := kotel.Register(ctx, l, cfg); err == nil {
 		m.shutdownFn = shutdownFn
 	} else {
 		l.Error(fmt.Sprintf("[SERVICE: OpenTelemetry] cannot register exporters: %s", err.Error()))
 	}
 
-	return metricCollector
+	return nil
 }
 
 func (m *MetricsAndTraces) Close() {

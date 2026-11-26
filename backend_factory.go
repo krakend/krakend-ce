@@ -8,7 +8,7 @@ import (
 	cel "github.com/krakend/krakend-cel/v3"
 	cb "github.com/krakend/krakend-circuitbreaker/v4/gobreaker/proxy"
 	httpcache "github.com/krakend/krakend-httpcache/v3"
-	lambda "github.com/krakend/krakend-lambda/v3"
+	lambda "github.com/krakend/krakend-lambda/v4"
 	lua "github.com/krakend/krakend-lua/v3/proxy"
 	martian "github.com/krakend/krakend-martian/v3"
 	metrics "github.com/krakend/krakend-metrics/v3/gin"
